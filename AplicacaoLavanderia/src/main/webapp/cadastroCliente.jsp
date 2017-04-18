@@ -18,7 +18,7 @@
         <div id ="logo"></div>
         <div id = "menu"></div>
         <h1>Cadastro de Cliente</h1>
-        <section id="principal">
+        <div id="principal">
             <form method="post">
 
                 <input id="camponome" class="campos" type="text" name="nome" placeholder="Nome" />
@@ -35,6 +35,6 @@
                 </div>
 
             </form>
-        </section>
+        </div>
     </body>
 </html>

@@ -21,17 +21,18 @@ h1 {
   text-align: center;
   font-family: Helvetica, sans-serif;
   color: gray;
-  margin-top: 100px;
+  margin-top: 5%;
 }
 
 .campos {
   background-color: #f4f4f4;
   border-color: white;
   border-width: thin;
-  height: 30px;
+  height: 50%;
   font-size: 16px;
   margin-top: 5%;
   margin-left: 2%;
+  margin-bottom: 2%;
   width: 95%;
   text-indent: 10px;
 
@@ -55,6 +56,7 @@ h1 {
   top: 0;
   bottom: 0;
   margin: auto;
+  top: 10%;
   position: fixed;
   background-color: #c2caff;
   width: 40%;
@@ -63,25 +65,27 @@ h1 {
 }
 
 #buttons {
-  width: 70%;
-  height: 40%;
   margin: auto;
-  margin-top: 20%;
-  left: 0;
-  right: 0;
-  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: 3%;
+  position: fixed;
+  width: 43%;
+  
 }
 
 #logo {
-    height: 10%;
+    height: 15%;
     width: 100%;
     border: 2px solid hsl(0, 0%,0%);
 }
 
 #menu {
+    margin-bottom: 20px;
     height: 400px;
     width: 10%;
     position: fixed;
-    margin-top: 200px;
+    margin-top: 5%;
     border: 2px solid hsl(0, 0%,0%);
 }
