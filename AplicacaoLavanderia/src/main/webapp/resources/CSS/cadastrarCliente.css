@@ -21,7 +21,7 @@ h1 {
   text-align: center;
   font-family: Helvetica, sans-serif;
   color: gray;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 
 .campos {
@@ -76,5 +76,12 @@ h1 {
     height: 10%;
     width: 100%;
     border: 2px solid hsl(0, 0%,0%);
-        
+}
+
+#menu {
+    height: 400px;
+    width: 10%;
+    position: fixed;
+    margin-top: 200px;
+    border: 2px solid hsl(0, 0%,0%);
 }

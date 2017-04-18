@@ -15,7 +15,8 @@
         <title>Cadastro Cliente</title>
     </head>
     <body>
-        <div id ="logo"/>
+        <div id ="logo"></div>
+        <div id = "menu"></div>
         <h1>Cadastro de Cliente</h1>
         <section id="principal">
             <form method="post">

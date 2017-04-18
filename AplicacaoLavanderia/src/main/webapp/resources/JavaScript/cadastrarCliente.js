@@ -42,7 +42,7 @@ function validar() {
     j++;
   }
   if (i != 0) {
-    alert("Verifique os campos destacados!");
+    
     destacacampos(camposinvalidos);
     if (j != 0) {
       retornacampos(camposvalidos);
