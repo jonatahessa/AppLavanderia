@@ -19,7 +19,7 @@
         <div id = "menu"></div>
         <h1>Cadastro de Cliente</h1>
         <div id="principal">
-            <form method="post">
+            <form action= "./CadastrarCliente">
 
                 <input id="camponome" class="campos" type="text" name="nome" placeholder="Nome" />
 
@@ -30,7 +30,7 @@
                 <input id="campotelefone" class="campos" type="text" name="telefone" placeholder="Telefone" />
 
                 <div id="buttons">
-                    <button id="salvar" type="button">Salvar</button>
+                    <button id="salvar" type="submit">Salvar</button>
                     <button id="cancelar" type="button">Cancelar</button>
                 </div>
 
