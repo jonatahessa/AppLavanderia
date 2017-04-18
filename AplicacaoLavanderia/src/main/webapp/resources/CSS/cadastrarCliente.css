@@ -21,6 +21,7 @@ h1 {
   text-align: center;
   font-family: Helvetica, sans-serif;
   color: gray;
+  margin-top: 200px;
 }
 
 .campos {
@@ -54,10 +55,10 @@ h1 {
   top: 0;
   bottom: 0;
   margin: auto;
-  position: static;
+  position: fixed;
   background-color: #c2caff;
-  width: 70%;
-  height: 60%;
+  width: 40%;
+  height: 40%;
 
 }
 
@@ -69,4 +70,11 @@ h1 {
   left: 0;
   right: 0;
   position: relative;
+}
+
+#logo {
+    height: 10%;
+    width: 100%;
+    border: 2px solid hsl(0, 0%,0%);
+        
 }

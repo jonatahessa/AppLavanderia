@@ -9,12 +9,13 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="StyleSheet" type="text/css" href="estilo.css" media="screen" >
-        <script type="text/javascript" src="cliente.js">
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarCliente.css" media="screen" >
+        <script type="text/javascript" src="./resources/JavaScript/cadastrarCliente.js">
         </script>
         <title>Cadastro Cliente</title>
     </head>
     <body>
+        <div id ="logo"/>
         <h1>Cadastro de Cliente</h1>
         <section id="principal">
             <form method="post">
