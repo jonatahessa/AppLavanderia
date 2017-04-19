@@ -22,12 +22,14 @@
             <form method="post">
                 <input id="camponome" class="campos" type="text" name="nome" placeholder="Nome" />
                 <input id="campocpf" class="campos" type="text" name="cpf" placeholder="CPF" />
-                 <input type="date" id="idade"  name="data_Nascimento" placeholder="Data de Nascimento"/>
-                <select name="sexo">
+                 <input type="date" id="campoidade"  name="data_Nascimento" placeholder="Data de Nascimento"/>
+                
+                 <select id="camposexo" name="sexo">
                     <option value="sexo">Feminino</option>
                     <option value="sexo">Masculino</option>
                 </select>
-                <input id="campoendereco" class="campos" type="text" name="endereco" placeholder="Endereço" />
+                
+                 <input id="campoendereco" class="campos" type="text" name="endereco" placeholder="Endereço" />
                 <input id="campocep" class="campos" type="text" name="cep" placeholder="CEP" />
                 <input id="campocidade" class="campos" type="text" name="cidade" placeholder="Cidade" />
                 <input id="campoestado" class="campos" type="text" name="estado" placeholder="Estado" />
@@ -35,8 +37,9 @@
                 <input id="campoemail" class="campos" type="text" name="email" placeholder="E-mail" />
                 <input id="campotelefone" class="campos" type="text" name="telefone" placeholder="Telefone" />
                 <input id="campoctps" class="campos" type="text" name="ctps" placeholder="CTPS" />
-                <input type="date" id="admissao"  name="data_Admissao" placeholder="Data de Nascimento"/>
-                <select name="cargo">
+                <input type="date" id="campoadmissao"  name="data_Admissao" placeholder="Data de Nascimento"/>
+                
+                <select id="campocargo" name="cargo">
                     <option value="">Gerente T.I</option>
                     <option value="funcionario">Funcionario T.I</option>
                     <option value="funcionario">Gerente Vendas</option>
@@ -44,7 +47,8 @@
                     <option value="funcionario">Gerente Retaguarda</option>
                     <option value="funcionario">Retaguarda</option>
                 </select> 
-                <select name="filiais">
+                
+                <select id="campofiliais" name="filiais">
                     <option value="filiais">Filial1</option>
                     <option value="filiais">Filial2</option>
                 </select>
