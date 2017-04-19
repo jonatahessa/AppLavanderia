@@ -57,4 +57,8 @@ public class Cliente {
         this.enabled = enabled;
     }
 
+    
+    public void inserirCliente(Cliente cliente) throws Exception{
+        Daos.DaoCliente.inserir(cliente);
+    }
 }

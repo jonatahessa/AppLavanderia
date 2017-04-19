@@ -21,7 +21,7 @@ public class DaoCliente {
             throws SQLException, Exception {
            
         String sql = "INSERT INTO cliente (nome, cpf, telefone, email, enabled) "
-                + "VALUES (?, ?, ?, ?, ?);";
+                + "VALUES (?, ?, ?, ?, ?)";
         Connection connection = null;
         PreparedStatement statement = null;
         try {
