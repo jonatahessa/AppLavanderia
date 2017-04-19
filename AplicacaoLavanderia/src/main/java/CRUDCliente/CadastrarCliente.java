@@ -60,9 +60,10 @@ public class CadastrarCliente extends HttpServlet {
     cliente.setEnabled("true");
     
     
-    //HttpSession sessao = request.getSession();
-          //sessao.setAttribute("novoContato", novo);
-          //response.sendRedirect("resultado.jsp");
+          
+          response.sendRedirect("cadastroCliente.jsp");
+          
+          
       try {
           cliente.inserirCliente(cliente);
           
