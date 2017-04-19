@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package CRUDCliente;
 
 /**
@@ -11,7 +16,7 @@ public class Cliente {
     private String telefone;
     private String email;
     private String enabled;
-    
+
     public String getNome() {
         return nome;
     }
@@ -52,12 +57,4 @@ public class Cliente {
         this.enabled = enabled;
     }
 
-    public void inserirCliente(Cliente cliente) throws Exception {
-        Daos.DaoCliente.inserir(cliente);
-    }
-    
-    public void alterarCliente(Cliente cliente, String cpf) throws Exception {
-        Daos.DaoCliente.alterar(cliente, cpf);
-    }
-    
 }

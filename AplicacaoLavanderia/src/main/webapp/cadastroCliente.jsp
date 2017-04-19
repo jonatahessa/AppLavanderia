@@ -19,7 +19,7 @@
         <div id = "menu"></div>
         <h1>Cadastro de Cliente</h1>
         <div id="principal">
-            <form action= "./CadastrarCliente" method="post">
+            <form action= "./CadastrarCliente">
 
                 <input id="camponome" class="campos" type="text" name="nome" placeholder="Nome" />
 
