@@ -29,12 +29,12 @@ public class CadastrarCliente extends HttpServlet {
    * @throws IOException if an I/O error occurs
    */
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-    RequestDispatcher dispatcher = 
-	    request.getRequestDispatcher("cadastroCliente.jsp");
-    dispatcher.forward(request, response);
-  }
+        RequestDispatcher dispatcher = 
+	request.getRequestDispatcher("cadastroCliente.jsp");
+        dispatcher.forward(request, response);
+    }
 
   /**
    * Handles the HTTP <code>POST</code> method.
@@ -45,34 +45,29 @@ public class CadastrarCliente extends HttpServlet {
    * @throws IOException if an I/O error occurs
    */
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-    String nome = request.getParameter("nome");
-    String email = request.getParameter("email");
-    String telefone = request.getParameter("telefone");
-    String cpf = request.getParameter("cpf");
+        String nome = request.getParameter("nome");
+        String email = request.getParameter("email");
+        String telefone = request.getParameter("telefone");
+        String cpf = request.getParameter("cpf");
     
-    Cliente cliente = new Cliente();
-    cliente.setCpf(cpf);
-    cliente.setEmail(email);
-    cliente.setNome(nome);
-    cliente.setTelefone(telefone);
-    cliente.setEnabled("true");
-    
-    
-          
-          response.sendRedirect("cadastroCliente.jsp");
-          
-          
-      try {
-          cliente.inserirCliente(cliente);
-          
-          
-      } catch (Exception ex) {
-          Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
-      }
+        Cliente cliente = new Cliente();
+        cliente.setCpf(cpf);
+        cliente.setEmail(email);
+        cliente.setNome(nome);
+        cliente.setTelefone(telefone);
+        cliente.setEnabled("true");
 
-  }
+        try {
+            cliente.inserirCliente(cliente);
+            response.sendRedirect("mensagemCadastro.jsp");
+        } catch (Exception ex) {
+            response.sendRedirect("mensagemErro.jsp"); 
+            Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 
 
 }

@@ -1,0 +1,41 @@
+html, body {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+h1 {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  color: gray;
+  margin-top: 20%;
+}
+
+.campos {
+  background-color: #f4f4f4;
+  border-color: white;
+  border-width: thin;
+  height: 50%;
+  font-size: 16px;
+  margin-top: 5%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  width: 95%;
+  text-indent: 10px;
+
+}
+
+#logo {
+    height: 15%;
+    width: 100%;
+    border: 2px solid hsl(0, 0%,0%);
+}
+
+#menu {
+    margin-bottom: 20px;
+    height: 400px;
+    width: 10%;
+    position: fixed;
+    margin-top: 5%;
+    border: 2px solid hsl(0, 0%,0%);
+}
