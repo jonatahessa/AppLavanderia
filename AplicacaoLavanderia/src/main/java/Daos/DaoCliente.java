@@ -202,7 +202,9 @@ public class DaoCliente {
         }
         return listaClientes;
     }
-
+    
+    
+    //listar sem where
     public static List<Cliente> listar()
             throws SQLException, Exception {
         String sql = "SELECT * FROM cliente WHERE enabled = 'true'";
