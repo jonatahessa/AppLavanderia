@@ -51,13 +51,16 @@ public class CadastrarCliente extends HttpServlet {
         String email = request.getParameter("email");
         String telefone = request.getParameter("telefone");
         String cpf = request.getParameter("cpf");
+        String sexo = request.getParameter("sexo");
     
         Cliente cliente = new Cliente();
         cliente.setCpf(cpf);
         cliente.setEmail(email);
         cliente.setNome(nome);
         cliente.setTelefone(telefone);
-        cliente.setEnabled("true");
+        cliente.setSexo(sexo);
+
+
 
         try {
             cliente.inserirCliente(cliente);

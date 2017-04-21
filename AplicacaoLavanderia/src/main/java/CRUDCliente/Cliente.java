@@ -16,6 +16,7 @@ public class Cliente {
     private String telefone;
     private String email;
     private String enabled;
+    private String sexo;
 
     public String getNome() {
         return nome;
@@ -57,6 +58,13 @@ public class Cliente {
         this.enabled = enabled;
     }
 
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
     
     public void inserirCliente(Cliente cliente) throws Exception{
         Daos.DaoCliente.inserir(cliente);

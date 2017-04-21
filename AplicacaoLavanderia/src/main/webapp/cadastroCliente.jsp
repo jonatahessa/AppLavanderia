@@ -28,6 +28,11 @@
                 <input id="campoemail" class="campos" type="text" name="email" placeholder="E-mail" />
 
                 <input id="campotelefone" class="campos" type="text" name="telefone" placeholder="Telefone" />
+                
+                <select id="camposexo" name="sexo">
+                    <option name="Feminino">Feminino</option>
+                    <option name="Masculino">Masculino</option>
+                </select>
 
                 <div id="buttons">
                     <button id="salvar" type="submit">Salvar</button>
