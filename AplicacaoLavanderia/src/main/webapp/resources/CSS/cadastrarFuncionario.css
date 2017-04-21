@@ -14,28 +14,30 @@ button {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-
 }
 
 h1 {
   text-align: center;
   font-family: Helvetica, sans-serif;
   color: gray;
-  margin-top: 5%;
+  margin-top: 1%;
+  height: bold;
 }
 
-.campos {
+input {
   background-color: #f4f4f4;
   border-color: white;
   border-width: thin;
-  height: 50%;
   font-size: 16px;
   margin-top: 5%;
   margin-left: 2%;
   margin-bottom: 2%;
-  width: 95%;
   text-indent: 10px;
+}
 
+.campos {
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .camposdestacados {
@@ -44,7 +46,7 @@ h1 {
   border-width: thin;
   height: 30px;
   font-size: 16px;
-  margin-top: 5%;
+  margin-top: 2%;
   margin-left: 2%;
   width: 95%;
   text-indent: 10px;
@@ -60,8 +62,23 @@ h1 {
   position: fixed;
   background-color: #c2caff;
   width: 40%;
-  height: 40%;
+  height: 52%;
 
+}
+
+#logo {
+    height: 15%;
+    width: 100%;
+    border: 2px solid hsl(0, 0%,0%);
+}
+
+#menu {
+    margin-bottom: 20px;
+    height: 400px;
+    width: 10%;
+    position: fixed;
+    margin-top: 5%;
+    border: 2px solid hsl(0, 0%,0%);
 }
 
 #buttons {
@@ -69,7 +86,7 @@ h1 {
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
-  margin-top: 3%;
+  margin-top: 1%;
   position: fixed;
   width: 43%;
   
@@ -89,3 +106,49 @@ h1 {
     margin-top: 5%;
     border: 2px solid hsl(0, 0%,0%);
 }
+
+select {
+  background-color: #f4f4f4;
+  border-color: white;
+  border-width: thin;
+  font-size: 16px;
+  margin-left: 2%;
+  text-indent: 10px;
+}
+
+#camponome {
+  width: 40%;
+}
+  
+#campocpf {
+  width: 20%;
+}
+
+#camposexo {
+  width: 30%;
+}
+
+#campoendereco {
+  width: 60%;
+}
+
+#campotelefone {
+  width:25%;
+}
+
+#campoemail {
+  width:65%;
+}
+
+#campoctps {
+  width:20%;
+}
+
+#campocargo {
+    width: 30%;
+}
+
+#campoempresa {
+    width: 30%;
+}
+
