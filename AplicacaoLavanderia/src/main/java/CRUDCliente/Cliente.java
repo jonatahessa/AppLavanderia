@@ -69,4 +69,8 @@ public class Cliente {
     public void inserirCliente(Cliente cliente) throws Exception{
         Daos.DaoCliente.inserir(cliente);
     }
+    
+    public void pesquisarCliente(Cliente cliente) throws Exception{
+        Daos.DaoCliente.obter(cpf);
+    }
 }

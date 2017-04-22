@@ -1,44 +1,58 @@
 <%-- 
-    Document   : consultaCliente
-    Created on : 18/04/2017, 20:39:36
-    Author     : viniciuzvieira
+    Document   : cadastroCliente
+    Created on : 17/04/2017, 19:39:50
+    Author     : jonata.hmoliveira
 --%>
 
+<%@page import="CRUDCliente.Cliente"%>
+<%@page import="java.util.List"%>
+<%@page import="Daos.DaoCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    DaoCliente dao = new DaoCliente();
+
+    List<Cliente> lista;
+
+    lista = dao.listar();
+%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarCliente.css" media="screen" >
+        <script type="text/javascript" src="./resources/JavaScript/cadastrarCliente.js">
+        </script>
         <title>Consulta Cliente</title>
-        <!-- video aula https://www.youtube.com/watch?v=_ojmoW7OCUY -->
     </head>
-<body>
-	<div align="center">
-		<P>Lista de Clientes</P>
-		<table border="1">
-			<tr>
-				<td>Matricula</td>
-				<td>Nome</td>
-				<td>Telefone</td>
-				<td>Data Cadastro</td>
-				<td>Comandos</td>
-			</tr>
-			<c:forEach var="aluno" items="${listaCliente}">
-				<tr>
-					<td>${cliente.cpf}</td>
-					<td>${cliente.nome}</td>
-                                        <td>${cliente.email}</td>
-					<td>${cliente.telefone}</td>
-					<td><fmt:formatDate value="${cliente.dataCadastro}" type="both" pattern="dd/MM/yyyy"/>  
-					<td><a href="AlunoServlet?acao=Excluir&cpf=${cliente.cpf}">Excluir</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-		<c:if test="${fn:length(listaCliente) > 0}">
-   		Existem ${fn:length(listaCliente)} clientes!
- 		</c:if><br> 		
-	</div>
-	<a href="menu.jsp">Voltar</a>
- 
-</body>
+    <body>
+        <div id ="logo"></div>
+        <div id = "menu"></div>
+        <h1>Consulta de Cliente</h1>
+        <div id="table">
+            <table align="center">
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Sexo</th>
+                </tr>
+                <!-- inicia for -->
+                <%
+                    for (Cliente registro : lista) {
+
+                %>
+                <tr>
+                    <th><%=registro.getNome()%></th>
+                    <th><%=registro.getCpf()%></th>
+                    <th><%=registro.getEmail()%></th>
+                    <th><%=registro.getTelefone()%></th>
+                    <th><%=registro.getSexo()%></th>
+                </tr>
+                <!-- encerra for -->
+                <%
+                    }
+                %>
+        </div>
+    </body>
 </html>
