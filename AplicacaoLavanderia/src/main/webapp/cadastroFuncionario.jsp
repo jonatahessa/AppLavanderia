@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
         <script src="./resources/bootstrap/js/bootstrap.min.js"></script>
-        <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarFuncionario.css" media="screen" >
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarFuncionario.css">
         <script type="text/javascript" src="./resources/JavaScript/cadastroFuncionario.js">
         </script>
         <title>Cadastro Funcionario</title>
