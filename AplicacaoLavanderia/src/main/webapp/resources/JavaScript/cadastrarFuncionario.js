@@ -21,7 +21,7 @@ function validar() {
     var ctps = document.querySelector('#campoctps');
     var data_Admissao = document.querySelector('#campoadmissao');
     var cargo = document.querySelector('#campocargo');
-    var filaiis = document.querySelector('#campofiliais');
+    var filiais = document.querySelector('#campofiliais');
     
     if (nome.value == '') {
         camposinvalidos[i] = "#camponome";

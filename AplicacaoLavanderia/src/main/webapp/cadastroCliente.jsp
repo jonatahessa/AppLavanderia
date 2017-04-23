@@ -23,7 +23,13 @@
     </head>
     <body>
         <div id ="logo"></div>
-        <div id = "menu"></div>
+        <div id = "menu">
+            <button id="GerenciarFuncionario" class="botaoMenu" type="submit">Gerenciar Funcionario</button>
+            <button id="GerenciarCliente" class="botaoMenu" type="submit">Gerenciar Cliente</button>
+            <button id="GerenciarServicos" class="botaoMenu" type="submit">Gerenciar Serviços</button>
+            <button id="relatorioVendas" class="botaoMenu" type="submit">Relatório de Vendas</button>
+            <button id="vendas" class="botaoMenu" type="submit">Vender</button>
+        </div>
 
         <div id="principal">
             <h1 class="form-signin-heading">Cadastro de Cliente</h1>  

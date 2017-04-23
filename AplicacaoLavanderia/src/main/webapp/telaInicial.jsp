@@ -24,7 +24,13 @@
     </head>
     <body>
         <div id ="logo"></div>
-        <div id = "menu"></div>
+        <div id = "menu">
+            <button id="GerenciarFuncionario" type="submit">Gerenciar Funcionario</button>
+            <button id="GerenciarCliente" type="submit">Gerenciar Cliente</button>
+            <button id="GerenciarServicos" type="submit">Gerenciar Serviços</button>
+            <button id="relatorioVendas" type="submit">Relatório de Vendas</button>
+            <button id="vendas" type="submit">Vender</button>
+        </div>
         
     </body>
 </html>
