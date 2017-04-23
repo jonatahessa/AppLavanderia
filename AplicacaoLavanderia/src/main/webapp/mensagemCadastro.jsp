@@ -21,6 +21,6 @@
             <h1> Cadastro realizado com sucesso! </h1>
         </div>
         
-         <META HTTP-EQUIV="Refresh" CONTENT="1;URL= ./cadastroFuncionario.jsp">
+         <META HTTP-EQUIV="Refresh" CONTENT="1;URL= ./telaInicial.jsp">
     </body>
 </html>
