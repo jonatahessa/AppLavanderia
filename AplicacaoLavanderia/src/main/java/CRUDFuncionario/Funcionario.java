@@ -137,7 +137,7 @@ public class Funcionario {
         this.enabled = enabled;
     }
        
-    public void inserirFuncionario (Funcionario funcionario) {
-        
+    public void inserirFuncionario (Funcionario funcionario) throws Exception {
+        Daos.DaoFuncionario.inserir(funcionario);
     }
 }
