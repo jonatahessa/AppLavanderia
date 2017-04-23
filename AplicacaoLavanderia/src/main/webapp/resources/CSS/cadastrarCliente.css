@@ -20,7 +20,7 @@ button {
 h1 {
   text-align: center;
   font-family: Helvetica, sans-serif;
-  color: gray;
+  color: grey;
   margin-top: 1%;
 }
 
@@ -58,9 +58,10 @@ h1 {
   margin: auto;
   top: 10%;
   position: fixed;
+  border: 1px solid hsl(0,0%,0%);
   background-color: #c2caff;
   width: 40%;
-  height: 67%;
+  height: 40%;
 
 }
 
