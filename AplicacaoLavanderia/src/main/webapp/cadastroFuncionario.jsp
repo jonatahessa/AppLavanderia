@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
         <script src="./resources/bootstrap/js/bootstrap.min.js"></script>
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarFuncionario.css" media="screen" >
-        <script type="text/javascript" src="cliente.js">
+        <script type="text/javascript" src="./resources/JavaScript/cadastroFuncionario.js">
         </script>
         <title>Cadastro Funcionario</title>
     </head>
@@ -21,12 +21,12 @@
         <div id = "menu"></div>
         <h1>Cadastro de Funcionario</h1>
         <section id="principal">
-            <form method="post">
+            <form method="post" action= "./CadastrarFuncionario" method="post">
                 <div id="pessoais">
                     <input id="camponome" class="campos" type="text" name="nome" placeholder="Nome" />
                     <input id="campocpf" class="campos" type="text" name="cpf" placeholder="CPF" />
                     <input id="campoctps" class="campos" type="text" name="ctps" placeholder="CTPS" />
-                    <input type="date" class="campos" id="campoidade"  name="data_Nascimento"/>
+                    <input type="date" class="campos" id="campoidade"  name="nascimento"/>
                     <select id="camposexo" class="campos" name="sexo">
                         <option name="Feminino">Feminino</option>
                         <option name="Masculino">Masculino</option>
@@ -43,7 +43,7 @@
                 </div>
                 
                 <div id="profissional">
-                    <input type="date" id="campoadmissao" class="campos"  name="data_Admissao" placeholder="Data de Nascimento"/>
+                    <input type="date" id="campoadmissao" class="campos"  name="admissao" placeholder="Data de Nascimento"/>
                     <select id="campocargo" name="cargo">
                         <option name="Gerente T.I">Gerente T.I</option>
                         <option name="Funcionario T.I">Funcionário T.I</option>
