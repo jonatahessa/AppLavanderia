@@ -24,11 +24,11 @@
     <body>
         <div id ="logo"></div>
         <div id = "menu">
-            <button id="GerenciarFuncionario" class="botaoMenu" type="submit">Gerenciar Funcionario</button>
-            <button id="GerenciarCliente" class="botaoMenu" type="submit">Gerenciar Cliente</button>
-            <button id="GerenciarServicos" class="botaoMenu" type="submit">Gerenciar Serviços</button>
-            <button id="relatorioVendas" class="botaoMenu" type="submit">Relatório de Vendas</button>
-            <button id="vendas" class="botaoMenu" type="submit">Vender</button>
+            <form method="get" action="funcionarios.jsp"><button type="submit">Funcionários</button></form>
+            <form method="get" action="clientes.jsp"><button type="submit">Clientes</button></form>
+            <form method="get" action="servicos.jsp"><button type="submit">Serviços</button></form>
+            <form method="get" action="relatorios.jsp"><button type="submit">Relatórios</button></form>
+            <form method="get" action="vender.jsp"><button type="submit">Vender</button></form>
         </div>
 
         <div id="principal">
