@@ -47,5 +47,7 @@ create table Servico(
     alterado_por varchar(255)
 );
 
-
+-- lógica para adicionar venda de cliente já cadastrado
+INSERT INTO...... 
+WHERE cod_tipo_usuario IN (SELECT cod_tipo_usuario FROM Tipos_Usuarios)
 
