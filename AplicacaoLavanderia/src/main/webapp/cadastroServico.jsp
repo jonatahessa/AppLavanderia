@@ -17,7 +17,7 @@
 
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarServico.css" media="screen" >
-        <script type="text/javascript" src="./resources/JavaScript/cadastrarServico.js"></script>
+        <script type="text/javascript" src="./resources/JavaScript/cadastroServico.js"></script>
         <title>Cadastro de Serviço</title>
     </head>
 
@@ -36,15 +36,18 @@
 <h1 class="form-signin-heading">Cadastro de Serviço</h1>  
 
             <form class="form-horizontal" action= "./CadastrarServico" method="post">
-<div class="input-group">
+    
+    <div class="input-group">
         <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
         <input id="campoIdServico" type="text" name="idServico" class="form-control" placeholder="ID do Serviço" disabled>
     </div>
-<div class="input-group">
+    
+    <div class="input-group">
         <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
         <input id="campoNomeServico" type="text" name="nomeServico" class="form-control" placeholder="Nome do Serviço">
     </div>
-<div class="input-group">
+                
+    <div class="input-group">
         <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
         <input id="campoPrecoPeca" type="text" name="precoPeca" class="form-control" placeholder="Preço por peça">
     </div>
