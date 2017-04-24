@@ -19,7 +19,7 @@ public class DaoCliente {
 
     public static void inserir(Cliente cliente)
             throws SQLException, Exception {
-           
+
         String sql = "INSERT INTO Cliente (nome, cpf, telefone, email, enabled, sexo) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
         Connection connection = null;
@@ -48,11 +48,11 @@ public class DaoCliente {
         }
     }
 
-    public static void deletar(String cpf)
+    public boolean deletar(String cpf)
             throws SQLException, Exception {
         String sql = "UPDATE cliente SET enabled = ?"
                 + " WHERE cpf = ?;";
-
+        Boolean retorno = false;
         Connection connection = null;
         PreparedStatement statement = null;
         try {
@@ -63,7 +63,12 @@ public class DaoCliente {
             statement.setString(2, cpf);
 
             System.out.println("Executando COMANDO SQL: " + sql);
-            statement.execute();
+            boolean pst = statement.execute();
+
+            if (pst == true) {
+                retorno = true;
+            }
+
         } finally {
             if (statement != null && !statement.isClosed()) {
                 statement.close();
@@ -72,6 +77,7 @@ public class DaoCliente {
                 connection.close();
             }
         }
+        return retorno;
     }
 
     public static void alterar(Cliente cliente, String cpf)
@@ -203,8 +209,7 @@ public class DaoCliente {
         }
         return listaClientes;
     }
-    
-    
+
     //listar sem where
     public static List<Cliente> listar()
             throws SQLException, Exception {
