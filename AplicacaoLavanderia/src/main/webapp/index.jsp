@@ -17,7 +17,7 @@
 
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/telaInicial.css" media="screen" >
-        <script type="text/javascript" src="./resources/JavaScript/telaInicial.js">
+        <script type="text/javascript" src="./resources/JavaScript/index.js">
         </script>
         
         <title>Home</title>
