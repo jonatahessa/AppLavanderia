@@ -16,7 +16,7 @@
         <link rel="StyleSheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css">
 
         <!-- Interface e Dinâmica -->
-        <link rel="StyleSheet" type="text/css" href="./resources/CSS/telaInicial.css" media="screen" >
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/index.css" media="screen" >
         <script type="text/javascript" src="./resources/JavaScript/index.js">
         </script>
         
