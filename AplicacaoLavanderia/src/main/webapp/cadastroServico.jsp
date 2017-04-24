@@ -39,11 +39,6 @@
     
     <div class="input-group">
         <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-        <input id="campoIdServico" type="text" name="idServico" class="form-control" placeholder="ID do Serviço" disabled>
-    </div>
-    
-    <div class="input-group">
-        <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
         <input id="campoNomeServico" type="text" name="nomeServico" class="form-control" placeholder="Nome do Serviço">
     </div>
                 
