@@ -18,6 +18,6 @@
             <h1> Cadastro realizado com sucesso! </h1>
         </div>
         
-         <META HTTP-EQUIV="Refresh" CONTENT="1;URL= ./telaInicial.jsp">
+         <META HTTP-EQUIV="Refresh" CONTENT="1;URL= ./index.jsp">
     </body>
 </html>
