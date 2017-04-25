@@ -11,20 +11,10 @@ package CRUDServico;
  */
 public class Servico {
 
-    private int idServico;
     private String nomeServico;
     private double precoPorPeca;
     private String enabled;
     
-
-
-    public int getIdServico() {
-        return idServico;
-    }
-
-    public void setIdServico(int IdServico) {
-        this.idServico = idServico;
-    }
     
     public String getNomeServico() {
         return nomeServico;
@@ -54,6 +44,13 @@ public class Servico {
     public void inserirServico (Servico servico) throws Exception {
         Daos.DaoServico.inserir(servico);
     }
-}
+
+    
+    public void pesquisarServico(Servico servico) throws Exception{
+        Daos.DaoServico.obter(nomeServico);
+    }
+}    
+ 
+    
 
 

@@ -145,7 +145,7 @@ public class DaoServico {
         return listaServicos;
     }
 
-    public static Servico obter(int id)
+    public static Servico obter(String nomeServico)
             throws SQLException, Exception {
         String sql = "SELECT * FROM servico WHERE nomeServico = ? AND "
                 + "enabled = 'true';";
@@ -153,7 +153,7 @@ public class DaoServico {
         Connection connection = null;
 
         statement = connection.prepareStatement(sql);
-        statement.setInt(1, id);
+        statement.setString(1, nomeServico);
         List<Servico> listaServicos = (List<Servico>) executarConsulta(sql);
 
         if (listaServicos != null && listaServicos.size() > 0) {
