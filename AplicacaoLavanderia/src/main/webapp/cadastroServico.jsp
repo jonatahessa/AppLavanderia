@@ -37,13 +37,13 @@
         <form class="form-horizontal" action= "./CadastrarServico" method="post">
 
             <div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                <input id="campoNomeServico" type="text" name="nomeServico" class="form-control" placeholder="Nome do Serviço">
+                <span class="campos input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                <input id="campoNomeServico" type="text" name="nomeServico" class="campos form-control" placeholder="Nome do Serviço">
             </div>
 
             <div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                <input id="campoPrecoPeca" type="text" name="precoPeca" class="form-control" placeholder="Preço por peça">
+                <span class="campos input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                <input id="campoPrecoPeca" type="text" name="precoPeca" class="campos form-control" placeholder="Preço por peça">
             </div>
             <button type="submit">Cancelar</button>
             <button type="submit">Cadastrar</button>
