@@ -18,16 +18,11 @@
     </head>
     <body>
         <div id ="logo"></div>
-        <div id = "menu">
-            <form method="get" action="funcionarios.jsp"><button type="submit">Funcionários</button></form>
-            <form method="get" action="clientes.jsp"><button type="submit">Clientes</button></form>
-            <form method="get" action="servicos.jsp"><button type="submit">Serviços</button></form>
-            <form method="get" action="relatorios.jsp"><button type="submit">Relatórios</button></form>
-            <form method="get" action="vender.jsp"><button type="submit">Vender</button></form>
-        </div>
-        <h1>Cadastro de Funcionario</h1>
+        <%@ include file = "menu.jsp" %>
+
         <section id="principal">
             <form method="post" action= "./CadastrarFuncionario" method="post">
+                <h1>Cadastro de Funcionario</h1>
                 <div id="pessoais">
                     <input id="camponome" class="campos" type="text" name="nome" placeholder="Nome" />
                     <input id="campocpf" class="campos" type="text" name="cpf" placeholder="CPF" />

@@ -2,6 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="StyleSheet" type="text/css" href="./resources/CSS/menu.css" media="screen" >
 <meta charset="utf-8">
 <div id = "menu">
     <form method="get" action="consultaFuncionarios.jsp"><button class="botaomenu" type="submit">Funcionários</button></form>
