@@ -14,7 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet(name = "EntradaServlet", urlPatterns = {"/ConsultaCliente"})
+@WebServlet(name = "ConsultaCliente", urlPatterns = {"/ConsultaCliente"})
 
 public class ConsultaCliente extends HttpServlet {
 

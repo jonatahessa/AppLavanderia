@@ -23,7 +23,7 @@ public class ConnectionUtils {
             
             //Configurando a conexao com o banco de dados
             String serveName = "lvjet3.mysql.uhserver.com:3306"; // Caminho do servidor do BD
-            String mydatabase = "lavanderia"; // Nome do banco de dados
+            String mydatabase = "lvjet3"; // Nome do banco de dados
             String url = "jdbc:mysql://" + serveName + "/" + mydatabase;
             String username = "lvjetpi3"; // Nome de usuario
             String password = "sen@ct@ds2017"; // Senha de acesso
