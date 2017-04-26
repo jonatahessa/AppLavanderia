@@ -69,15 +69,6 @@ input {
 
 }
 
-#menu {
-    margin-left: -15px;
-    height: 100%;
-    background-color: #8693bb;
-    width: 10%;
-    position: fixed;
-    left: 1%;
-}
-
 #buttons {
   margin: auto;
   margin-left: 0;
@@ -88,7 +79,6 @@ input {
   width: 43%;
   
 }
-
 
 select {
   background-color: #f4f4f4;
