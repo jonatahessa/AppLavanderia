@@ -78,14 +78,6 @@ h1 {
   
 }
 
-#menu {
-    margin-left: -15px;
-    height: 100%;
-    background-color: #8693bb;
-    width: 10%;
-    position: fixed;
-    left: 1%;
-}
 
 #camposexo {
   background-color: #f4f4f4;
@@ -106,19 +98,6 @@ h1 {
 input-group-addon{
     border: solid 1px;
 }
-
-/*#camposexo {
-  background-color: #f4f4f4;
-  border-color: white;
-  border-width: thin;
-  height: 50%;
-  font-size: 16px;
-  margin-top: 5%;
-  margin-left: 2%;
-  margin-bottom: 2%;
-  width: 55%;
-  text-indent: 10px;
-}*/
 
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,

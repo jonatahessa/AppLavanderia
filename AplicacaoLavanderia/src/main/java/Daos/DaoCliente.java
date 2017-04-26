@@ -193,6 +193,7 @@ public class DaoCliente {
                 cliente.setNome(result.getString("nome"));
                 cliente.setTelefone(result.getString("telefone"));
                 cliente.setEmail(result.getString("email"));
+                cliente.setSexo(result.getString("sexo"));
                 cliente.setEnabled(result.getString("enabled"));
                 listaClientes.add(cliente);
             }
@@ -213,7 +214,7 @@ public class DaoCliente {
     //listar sem where
     public static List<Cliente> listar()
             throws SQLException, Exception {
-        String sql = "SELECT * FROM cliente WHERE enabled = 'true'";
+        String sql = "SELECT * FROM Cliente WHERE enabled = 'true'";
 
         return executarConsulta(sql);
     }

@@ -69,20 +69,6 @@ input {
 
 }
 
-#logo {
-    height: 15%;
-    width: 100%;
-    border: 2px solid hsl(0, 0%,0%);
-}
-
-#menu {
-    margin-bottom: 20px;
-    height: 400px;
-    width: 10%;
-    position: fixed;
-    margin-top: 10%;
-}
-
 #buttons {
   margin: auto;
   margin-left: 0;
@@ -92,21 +78,6 @@ input {
   position: fixed;
   width: 43%;
   
-}
-
-#logo {
-    height: 15%;
-    width: 100%;
-    border: 2px solid hsl(0, 0%,0%);
-}
-
-#menu {
-    margin-bottom: 20px;
-    height: 400px;
-    width: 10%;
-    position: fixed;
-    margin-top: 8%;
-    left: 1%;
 }
 
 select {
@@ -154,19 +125,5 @@ select {
     width: 30%;
 }
 
-.botaoMenu {
-    border: 2px solid hsl(213, 76%, 95%);
-    border-radius: 10px;
-    background-color: hsl(213, 76%, 76%);    
-    width: 100%;
-    height: 15%;
-    margin-left:0;
-    font-family: helvetica;
-    
-}
 
-.botaoMenu:hover {
-    background-color: hsl(213, 76%, 40%);
-    color: hsl(213, 76%, 100%);
-}
 

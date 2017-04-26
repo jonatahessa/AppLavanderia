@@ -22,6 +22,6 @@
     </head>
     <body>
         <div id ="logo"></div>
-        <%@ include file = "menu.jsp" %>   
+        <%@ include file = "menu.jsp" %>
     </body>
 </html>
