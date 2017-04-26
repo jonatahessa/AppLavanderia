@@ -53,7 +53,7 @@ public class CadastrarFuncionario extends HttpServlet {
         funcionario.setCep(cep);
         funcionario.setCidade(cidade);
         funcionario.setEstado(estado);
-        funcionario.setAdmissao(admissao);
+        //funcionario.setAdmissao(admissao);
         funcionario.setCargo(cargo);
         funcionario.setEmpresa(empresa);
 

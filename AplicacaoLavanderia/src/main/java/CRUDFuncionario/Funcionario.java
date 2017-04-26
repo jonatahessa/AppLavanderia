@@ -1,5 +1,7 @@
 package CRUDFuncionario;
 
+import java.sql.Date;
+
 public class Funcionario {
     private String nome;
     private String cpf;
@@ -12,7 +14,7 @@ public class Funcionario {
     private String cep;
     private String cidade;
     private String estado;
-    private String admissao;
+    private Date admissao;
     private String cargo;
     private String empresa;
     private String enabled;
@@ -105,11 +107,11 @@ public class Funcionario {
         this.estado = estado;
     }
 
-    public String getAdmissao() {
+    public Date getAdmissao() {
         return admissao;
     }
 
-    public void setAdmissao(String admissao) {
+    public void setAdmissao(Date admissao) {
         this.admissao = admissao;
     }
 

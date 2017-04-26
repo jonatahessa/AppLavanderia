@@ -31,7 +31,7 @@
 
                 <div class="input-group">
                     <span class="input-group-addon"><span class=" glyphicon glyphicon-user"></span></span>
-                    <input id="campocpf" type="text" name="cpf" class="form-control" placeholder="CPF">
+                    <input id="campocpf" maxlength="14" type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" class="form-control" placeholder="CPF">
                 </div>
 
                 <div class="input-group">
@@ -41,7 +41,7 @@
 
                 <div class="input-group">
                     <span class="input-group-addon"><span class=" glyphicon glyphicon-earphone"></span></span>
-                    <input id="campotelefone" type="text" name="telefone" class="form-control" placeholder="Telefone">
+                    <input id="campotelefone" maxlength="13" type="text" name="telefone" class="form-control" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
                 </div>
 
                 <div class="input-group">

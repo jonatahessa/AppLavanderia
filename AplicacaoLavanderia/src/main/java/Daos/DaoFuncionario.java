@@ -16,17 +16,16 @@ public class DaoFuncionario {
     public static void inserir(Funcionario funcionario)
             throws SQLException, Exception {
            
-        String sql = "INSERT INTO Funcionario (nome, cpf, ctps, nascimento, sexo, telefone, email, endereco, cep,"
-                + "cidade, estado, admissao, cargo, empresa, enabled) "
+        String sql = "INSERT INTO Funcionario (admissao, cargo, ctps, unidade, login, senha, sexo, enabled) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Connection connection = null;
         PreparedStatement statement = null;
         try {
             connection = ConnectionUtils.getConnection();
             statement = connection.prepareStatement(sql);
-
+            
+            statement.setDate(12, funcionario.getAdmissao());
             statement.setString(1, funcionario.getNome());
-            statement.setString(2, funcionario.getCpf());
             statement.setString(3, funcionario.getCtps());
             statement.setString(4, funcionario.getNascimento());
             statement.setString(5, funcionario.getSexo());
@@ -36,7 +35,7 @@ public class DaoFuncionario {
             statement.setString(9, funcionario.getCep());
             statement.setString(10, funcionario.getCidade());
             statement.setString(11, funcionario.getEstado());
-            statement.setString(12, funcionario.getAdmissao());
+            
             statement.setString(13, funcionario.getCargo());
             statement.setString(14, funcionario.getEmpresa());
             statement.setString(15, "true");
