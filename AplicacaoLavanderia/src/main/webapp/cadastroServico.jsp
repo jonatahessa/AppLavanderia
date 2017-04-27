@@ -35,7 +35,7 @@
             </div>
 
             <div class="input-group">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
                     <input id="campopreco" type="text" name="preco" class="form-control" placeholder="preco">
             </div>
             <div id="buttons">
