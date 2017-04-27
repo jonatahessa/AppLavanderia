@@ -1,53 +1,13 @@
 function main() {
-  var btn = document.querySelector('#salvar');
-  btn.addEventListener("click", validar);
+  var cancelar = document.querySelector("#cancelar");
+  cancelar.addEventListener("click", limpar);
 }
 
-function validar() {
-  var camposinvalidos = [];
-  var camposvalidos = [];
-  var i = 0;
-  var j = 0;
-  var nome = document.querySelector('#campoNomeServico');
-  var preco = document.querySelector('#campoPrecoPeca');
-
-
-  if (nome.value == '') {
-    camposinvalidos[i] = "#campoNomeServico";
-    i++;
-  } else {
-    camposvalidos[j] = "#campoNomeServico";
-    j++;
-  
+function limpar() {
+  var campos = document.querySelectorAll("input");
+  for (var i=0; i < campos.length; i++) {
+      campos[i].value = "";
   }
-  if (preco.value == '') {
-    camposinvalidos[i] = "#campoPrecoPeca";
-    i++;
-  } else {
-    camposvalidos[j] = "#campoPrecoPeca";
-    j++;
-  }
-  if (i != 0) {
-    
-    destacacampos(camposinvalidos);
-    if (j != 0) {
-      retornacampos(camposvalidos);
-    }
-  } else {
-    retornacampos(camposvalidos);
-  }
-}
-
-function destacacampos(camposinvalidos) {
-  for (var i = 0; i < camposinvalidos.length; i++) {
-      document.querySelector(camposinvalidos[i]).className = 'camposdestacados';
-    }
-}
-
-function retornacampos(camposvalidos) {
-  for (var i = 0; i < camposvalidos.length; i++) {
-      document.querySelector(camposvalidos[i]).className = 'campos';
-    }
 }
 
 window.addEventListener("load", main);

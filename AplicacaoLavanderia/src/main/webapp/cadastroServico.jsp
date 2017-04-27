@@ -17,36 +17,32 @@
 
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarServico.css" media="screen" >
-        <script type="text/javascript" src="./resources/JavaScript/cadastroServico.js"></script>
+        <script type="text/javascript" src="./resources/JavaScript/cadastrarServico.js"></script>
         <title>Cadastro de Serviço</title>
     </head>
 
     <body>
         <div id ="logo"></div>
-        <div id = "menu">
-            <form method="get" action="funcionarios.jsp"><button class="botaomenu" type="submit">Funcionários</button></form>
-            <form method="get" action="clientes.jsp"><button class="botaomenu" type="submit">Clientes</button></form>
-            <form method="get" action="servicos.jsp"><button class="botaomenu" type="submit">Serviços</button></form>
-            <form method="get" action="relatorios.jsp"><button class="botaomenu" type="submit">Relatórios</button></form>
-            <form method="get" action="vender.jsp"><button class="botaomenu" type="submit">Vender</button></form>
-        </div>
+        <%@ include file = "menu.jsp" %>
 
-
-        <h1 class="form-signin-heading">Cadastro de Serviço</h1>  
-
+        
+        <section id="principal">
         <form class="form-horizontal" action= "./CadastrarServico" method="post">
-
+            <h1 class="form-signin-heading">Cadastro de Serviço</h1>  
             <div class="input-group">
-                <span class="campos input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                <input id="campoNomeServico" type="text" name="nomeServico" class="campos form-control" placeholder="Nome do Serviço">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                    <input id="camponome" type="text" name="nome" class="form-control" placeholder="Nome">
             </div>
 
             <div class="input-group">
-                <span class="campos input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                <input id="campoPrecoPeca" type="text" name="precoPeca" class="campos form-control" placeholder="Preço por peça">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                    <input id="campopreco" type="text" name="preco" class="form-control" placeholder="preco">
             </div>
-            <button type="submit">Cancelar</button>
-            <button type="submit">Cadastrar</button>
+            <div id="buttons">
+                <button id="salvar" type="submit" class="btn btn-success">Salvar</button>
+                <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
+            </div>
         </form>
+        </section>    
     <body>
 </html>
