@@ -20,8 +20,8 @@ public class DaoServico {
     public static void inserir(Servico servico)
             throws SQLException, Exception {
 
-        String sql = "INSERT INTO Servico(nomeServico, precoPorPeca, enabled) "
-                + "VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Servico(nome, preco, enabled) "
+                + "VALUES (?, ?, ?, ?)";
         Connection connection = null;
         PreparedStatement statement = null;
         try {
@@ -31,7 +31,6 @@ public class DaoServico {
             statement.setString(1, servico.getNomeServico());
             statement.setDouble(2, servico.getPrecoPorPeca());
             statement.setString(3, "true");
-
             System.out.println(statement.toString());
 
             System.out.println("Executando COMANDO SQL: " + sql);
