@@ -8,23 +8,13 @@
 <%@page import="java.util.List"%>
 <%@page import="Daos.DaoCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    DaoCliente dao = new DaoCliente();
-
-    List<Cliente> lista;
-
-    lista = dao.listar();
-%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <!-- Bootstrap -->
-        <link rel="StyleSheet" type="text/css" href="./resources/bootstrap/css/bootstrap-theme.css">
-        <link rel="StyleSheet" type="text/css" href="./resources/bootstrap/css/bootstrap-theme-min.css">
-        <link rel="StyleSheet" type="text/css" href="./resources/bootstrap/css/bootstrap.css">
-        <link rel="StyleSheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css">
-        
+        <%@ include file = "bootstrap.html" %>
+        <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="" media="screen" >
         <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
         <title>Consulta Cliente</title>
@@ -44,24 +34,17 @@
                     <th>Alterar Cliente</th>
                     <th>Remover Cliente</th>
                 </tr>
-                <!-- inicia for -->
-                <%
-                    for (Cliente registro : lista) {
-
-                %>
+                
+                <c:forEach var="clientes" items="${dao.listar()}">
                 <tr>
-                    <th><%=registro.getNome()%></th>
-                    <th><%=registro.getCpf()%></th>
-                    <th><%=registro.getEmail()%></th>
-                    <th><%=registro.getTelefone()%></th>
-                    <th><%=registro.getSexo()%></th>
+                    <th>${clientes.nome}</th>
+                    <th>${clientes.cpf}</th>
+                    <th>${clientes.email}</th>
+                    <th>${clientes.telefone}</th>
+                    <th>${clientes.sexo}</th>
                     <th><a class="btn btn-primary" href="">Alterar</a></th>
-                    <th><a class="btn btn-danger" href="mensagemExclusao.jsp?cpf=<%=registro.getCpf()%>">Remover</a></th>
+                    <th><a class="btn btn-danger" href="">Remover</a></th>
                 </tr>
-                <!-- encerra for -->
-                <%
-                    }
-                %>
         </div>
     </body>
 </html>
