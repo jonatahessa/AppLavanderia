@@ -47,8 +47,8 @@
                         <c:forEach var="unidade" items="${dao.listar()}"> 
                         <option nome="${unidade.nome}">${unidade.nome}</option>
                         </c:forEach>
-                        <input type="text" maxlength="15" id="Login" placeholder="Login">
-                        <input type="password" maxlength="10" id="usuario" placeholder="Senha">
+                        <input type="text" name="login" id="Login" placeholder="Login">
+                        <input type="password" name="senha" id="usuario" placeholder="Senha">
                     </select>
                 </div>
 
