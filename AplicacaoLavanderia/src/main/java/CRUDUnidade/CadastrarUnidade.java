@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CRUDFilial;
+package CRUDUnidade;
 
-import CRUDFilial.Filial;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,13 +17,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thalles
  */
-@WebServlet(name = "CadastrarFilial", urlPatterns = {"/CadastrarFilial"})
-public class CadastrarFilial extends HttpServlet {
+@WebServlet(name = "CadastrarUnidade", urlPatterns = {"/CadastrarUnidade"})
+public class CadastrarUnidade extends HttpServlet {
 @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
         RequestDispatcher dispatcher = 
-	request.getRequestDispatcher("cadastroFilial.jsp");
+	request.getRequestDispatcher("cadastroUnidade.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -34,25 +31,19 @@ public class CadastrarFilial extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-        String endereco = request.getParameter("endereco");
-        String numero = request.getParameter("numero");
-        String cep = request.getParameter("cep");
-        String cidade = request.getParameter("cidade");
-        String estado = request.getParameter("estado");
+        String nome = request.getParameter("nome");
+        String cnpj = request.getParameter("cnpj");
         
     
-        Filial filial = new Filial();
-        filial.setEndereco(endereco);
-        filial.setNumero(numero);
-        filial.setCep(cep);
-        filial.setCidade(cidade);
-        filial.setEstado(estado);
-        filial.setEnabled("true");
+        Unidade unidade = new Unidade();
+        unidade.setNome(nome);
+        unidade.setCnpj(cnpj);
+        unidade.setEnabled("true");
 
 
 
         try {
-            filial.inserirFilial(filial);
+            unidade.inserirUnidade(unidade);
             response.sendRedirect("mensagemCadastro.jsp");
         } catch (Exception ex) {
             response.sendRedirect("mensagemErro.jsp"); 

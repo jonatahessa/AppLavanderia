@@ -5,7 +5,7 @@
 --%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:useBean id="dao" class="Daos.DaoFilial"/>
+<jsp:useBean id="dao" class="Daos.DaoUnidade"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -44,8 +44,8 @@
                         <option name="Funcionario Retaguarda">Funcionário Retaguarda</option>
                     </select>   
                     <select id="campoempresa" class="campos" name="empresa">
-                        <c:forEach var="filial" items="${dao.listar()}"> 
-                        <option nome="${filial.cidade}">${filial.cidade}</option>
+                        <c:forEach var="unidade" items="${dao.listar()}"> 
+                        <option nome="${unidade.nome}">${unidade.nome}</option>
                         </c:forEach>
                         <input type="text" maxlength="15" id="Login" placeholder="Login">
                         <input type="password" maxlength="10" id="usuario" placeholder="Senha">

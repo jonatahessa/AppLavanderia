@@ -5,7 +5,7 @@
  */
 package Daos;
 
-import CRUDFilial.Filial;
+import CRUDUnidade.Unidade;
 import ConnectionBD.ConnectionUtils;
 import Exeptions.FilialException;
 import java.sql.Connection;
@@ -20,24 +20,21 @@ import java.util.List;
  *
  * @author Thalles
  */
-public class DaoFilial {
+public class DaoUnidade {
     
-    public static void inseriFilial (Filial filial) throws SQLException {
+    public static void inseriUnidade(Unidade unidade) throws SQLException {
 
-        String sql = "INSERT INTO Filial (endereco, numero, cep, cidade, estado, enabled) "
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Unidade (nome, cnpj, enabled) "
+                + "VALUES (?, ?, ?)";
         Connection connection = null;
         PreparedStatement statement = null;
         try {
             connection = ConnectionUtils.getConnection();
             statement = connection.prepareStatement(sql);
 
-            statement.setString(1, filial.getEndereco());
-            statement.setString(2, filial.getNumero());
-            statement.setString(3, filial.getCep());
-            statement.setString(4, filial.getCidade());
-            statement.setString(5, filial.getEstado());
-            statement.setString(6, filial.getEnabled());
+            statement.setString(1, unidade.getNome());
+            statement.setString(2, unidade.getCnpj());
+            statement.setString(3, unidade.getEnabled());
             System.out.println(statement.toString());
 
             System.out.println("Executando COMANDO SQL: " + sql);
@@ -52,9 +49,9 @@ public class DaoFilial {
         }
     }
     
-    public static List<Filial> executarConsulta(String sql) throws
+    public static List<Unidade> executarConsulta(String sql) throws
             FilialException, SQLException, Exception {
-        List<Filial> listaFiliais = null;
+        List<Unidade> listaUnidades = null;
         Connection connection = null;
         Statement statement = null;
         ResultSet result = null;
@@ -64,17 +61,14 @@ public class DaoFilial {
             System.out.println("Executando CONSULTA SQL: " + sql);
             result = statement.executeQuery(sql);
             while (result.next()) {
-                if (listaFiliais == null) {
-                    listaFiliais = new ArrayList<Filial>();
+                if (listaUnidades == null) {
+                    listaUnidades= new ArrayList<Unidade>();
                 }
-                Filial filiais = new Filial();
-                filiais.setEndereco(result.getString("endereco"));
-                filiais.setNumero(result.getString("numero"));
-                filiais.setCep(result.getString("cep"));
-                filiais.setCidade(result.getString("cidade"));
-                filiais.setEstado(result.getString("estado"));
-                filiais.setEnabled(result.getString("enabled"));
-                listaFiliais.add(filiais);
+                Unidade unidades = new Unidade();
+                unidades.setNome(result.getString("nome"));
+                unidades.setCnpj(result.getString("cnpj"));                
+                unidades.setEnabled(result.getString("enabled"));
+                listaUnidades.add(unidades);
             }
         } finally {
             if (result != null && !result.isClosed()) {
@@ -87,12 +81,12 @@ public class DaoFilial {
                 connection.close();
             }
         }
-        return listaFiliais;
+        return listaUnidades;
     }
 
-    public static List<Filial> listar()
+    public static List<Unidade> listar()
             throws SQLException, Exception {
-        String sql = "SELECT * FROM Filial WHERE enabled = 'true'";
+        String sql = "SELECT * FROM Unidade WHERE enabled = 'true'";
 
         return executarConsulta(sql);
     }
