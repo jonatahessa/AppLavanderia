@@ -4,6 +4,8 @@
     Author     : livia.cgsantos
 --%>
 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:useBean id="dao" class="Daos.DaoFilial"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -42,10 +44,9 @@
                         <option name="Funcionario Retaguarda">Funcionário Retaguarda</option>
                     </select>   
                     <select id="campoempresa" class="campos" name="empresa">
-                        <option nome="Matriz">01</option>
-                        <option nome="Santa Catarina">02</option>
-                        <option nome="Minas Gerais">03</option>
-                        <option nome="Espirito Santo">04</option>
+                        <c:forEach var="filial" items="${dao.listar()}"> 
+                        <option nome="${filial.cidade}">${filial.cidade}</option>
+                        </c:forEach>
                         <input type="text" maxlength="15" id="Login" placeholder="Login">
                         <input type="password" maxlength="10" id="usuario" placeholder="Senha">
                     </select>
