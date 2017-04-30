@@ -7,6 +7,7 @@ package Daos;
 
 import CRUDUnidade.Unidade;
 import ConnectionBD.ConnectionUtils;
+import static Daos.DaoFuncionario.executarConsulta;
 import Exeptions.FilialException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

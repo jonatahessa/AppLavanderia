@@ -3,9 +3,18 @@ package CRUDUnidade;
 import java.sql.SQLException;
 
 public class Unidade {
+    private int id;
     private String nome;
     private String cnpj;
     private String enabled;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
