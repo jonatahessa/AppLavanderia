@@ -37,8 +37,8 @@ public class CadastrarServico extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
      
-        String nomeServico = request.getParameter("nomeServico");
-        String precoPorPeca = request.getParameter("precoPorPeca");
+        String nomeServico = request.getParameter("nome");
+        String precoPorPeca = request.getParameter("preco");
         
        double preco = Double.parseDouble(precoPorPeca);
         Servico servico = new Servico();
