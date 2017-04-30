@@ -20,13 +20,15 @@
         <section id="principal">
             <form method="post" action= "./Vender" method="post">
                 <h1>Vender</h1>
-                <div>
-                    
-                    <select id="camposexo" class="campos" name="sexo">
+                <div>                    
+                    <select id="camposervico" class="campos" name="servico">
                         <c:forEach var="servico" items="${dao.listar()}"> 
                         <option name="${servico.nomeServico}">${servico.nomeServico}</option>
                         </c:forEach>
                     </select>
+                    <%-- <c:forEach var="servico" items="${dao.retornarPreco()}"> 
+                        <h2> ${servico.precoPorPeca}</h2>
+                    </c:forEach> --%>
                 </div>
                 
                 <div>
