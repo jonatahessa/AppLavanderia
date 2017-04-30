@@ -1,6 +1,7 @@
 package CRUDFilial;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Filial {
     private String endereco;
@@ -62,4 +63,7 @@ public class Filial {
         Daos.DaoFilial.inseriFilial(filial);
     }
     
+    public List<Filial> listarFiliais() throws SQLException, Exception {
+        return Daos.DaoFilial.listar();
+    }
 }

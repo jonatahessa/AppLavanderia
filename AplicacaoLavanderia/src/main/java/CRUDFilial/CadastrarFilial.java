@@ -39,6 +39,7 @@ public class CadastrarFilial extends HttpServlet {
         String cep = request.getParameter("cep");
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
+        
     
         Filial filial = new Filial();
         filial.setEndereco(endereco);
@@ -46,6 +47,7 @@ public class CadastrarFilial extends HttpServlet {
         filial.setCep(cep);
         filial.setCidade(cidade);
         filial.setEstado(estado);
+        filial.setEnabled("true");
 
 
 
