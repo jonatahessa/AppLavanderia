@@ -21,7 +21,7 @@ public class DaoServico {
             throws SQLException, Exception {
 
         String sql = "INSERT INTO Servico(nome, preco, enabled) "
-                + "VALUES (?, ?, ?, ?)";
+                + "VALUES (?, ?, ?)";
         Connection connection = null;
         PreparedStatement statement = null;
         try {
@@ -178,8 +178,8 @@ public class DaoServico {
                     listaServicos = new ArrayList<Servico>();
                 }
                 Servico servico = new Servico();
-                servico.setNomeServico(result.getString("nomeServico"));
-                servico.setPrecoPorPeca(result.getDouble("precoPorPeca"));
+                servico.setNomeServico(result.getString("nome"));
+                servico.setPrecoPorPeca(result.getDouble("preco"));
                 servico.setEnabled(result.getString("enabled"));
                 listaServicos.add(servico);
             }
@@ -200,15 +200,15 @@ public class DaoServico {
     //listar sem where
     public static List<Servico> listar()
             throws SQLException, Exception {
-        String sql = "SELECT * FROM servico WHERE enabled = 'true'";
+        String sql = "SELECT * FROM Servico WHERE enabled = 'true'";
 
         return executarConsulta(sql);
     }
 
-    public static Servico retornarCliente(String nomeServico) throws
+    public static Servico retornarPreco(String nomeServico) throws
             SQLException, Exception {
         String sql = "SELECT * FROM servico "
-                + " WHERE servico.nomeServico = ?";
+                + " WHERE servico.nome = ?";
         Servico servico = new Servico();
         Connection connection = null;
         PreparedStatement statement = null;
@@ -222,9 +222,7 @@ public class DaoServico {
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
-            servico.setNomeServico(result.getString("nomeServico"));
             servico.setPrecoPorPeca(result.getDouble("precoPorPeca"));
-            servico.setEnabled(result.getString("enabled"));
             connection.close();
             return servico;
         }
