@@ -16,29 +16,23 @@ public class DaoFuncionario {
     public static void inserir(Funcionario funcionario)
             throws SQLException, Exception {
            
-        String sql = "INSERT INTO Funcionario (admissao, cargo, ctps, unidade, login, senha, sexo, enabled) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Funcionario (Nome, Login, Senha, Cargo, ID_Unidade, Sexo, Admissao, Enabled) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Connection connection = null;
         PreparedStatement statement = null;
         try {
             connection = ConnectionUtils.getConnection();
             statement = connection.prepareStatement(sql);
             
-            statement.setDate(12, funcionario.getAdmissao());
-            statement.setString(1, funcionario.getNome());
-            statement.setString(3, funcionario.getCtps());
-            statement.setString(4, funcionario.getNascimento());
-            statement.setString(5, funcionario.getSexo());
-            statement.setString(6, funcionario.getTelefone());
-            statement.setString(7, funcionario.getEmail());
-            statement.setString(8, funcionario.getEndereco());
-            statement.setString(9, funcionario.getCep());
-            statement.setString(10, funcionario.getCidade());
-            statement.setString(11, funcionario.getEstado());
             
-            statement.setString(13, funcionario.getCargo());
-            statement.setString(14, funcionario.getEmpresa());
-            statement.setString(15, "true");
+            statement.setString(1, funcionario.getNome());
+            statement.setString(2, funcionario.getLogin());
+            statement.setString(3, funcionario.getSenha());           
+            statement.setString(4, funcionario.getCargo());
+            statement.setInt(5, funcionario.getIdUnidade());
+            statement.setString(6, funcionario.getSexo());
+            statement.setDate(7, funcionario.getAdmissao());
+            statement.setString(8, "true");
             System.out.println(statement.toString());
 
             System.out.println("Executando COMANDO SQL: " + sql);
@@ -53,10 +47,10 @@ public class DaoFuncionario {
         }
     }
 
-    public static void deletar(String cpf)
+    public static void deletar(int id)
             throws SQLException, Exception {
-        String sql = "UPDATE cliente SET enabled = ?"
-                + " WHERE cpf = ?;";
+        String sql = "UPDATE Funcionario SET enabled = ?"
+                + " WHERE id = ?;";
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -65,7 +59,7 @@ public class DaoFuncionario {
             statement = connection.prepareStatement(sql);
 
             statement.setString(1, "false");
-            statement.setString(2, cpf);
+            statement.setInt(2, id);
 
             System.out.println("Executando COMANDO SQL: " + sql);
             statement.execute();
@@ -79,13 +73,17 @@ public class DaoFuncionario {
         }
     }
 
-    public static void alterar(Funcionario funcionario, String cpf)
+    public static void alterar(Funcionario funcionario, int id)
             throws SQLException, Exception {
-        String sql = "UPDATE cliente "
+        String sql = "UPDATE Funcionario "
                 + "SET nome = ?, "
-                + "telefone = ?, "
-                + "email = ?, "
-                + "WHERE cpf = ?;";
+                + "login = ?, "
+                + "senha = ?, "
+                + "cargo = ?, "
+                + "admissao = ?, "
+                + "id_unidade = ?, "
+                + "sexo = ?, "
+                + "WHERE id = ?;";
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -94,9 +92,13 @@ public class DaoFuncionario {
             statement = connection.prepareStatement(sql);
 
             statement.setString(1, funcionario.getNome());
-            statement.setString(2, funcionario.getTelefone());
-            statement.setString(3, funcionario.getEmail());
-            statement.setString(10, cpf);
+            statement.setString(2, funcionario.getLogin());
+            statement.setString(3, funcionario.getSenha());
+            statement.setString(4, funcionario.getCargo());
+            statement.setDate(5, funcionario.getAdmissao());
+            statement.setInt(6, funcionario.getIdUnidade());
+            statement.setString(7, funcionario.getSexo());
+            statement.setInt(8, id);
             System.out.println(statement.toString());
 
             System.out.println("Executando COMANDO SQL: " + sql);
@@ -114,8 +116,8 @@ public class DaoFuncionario {
     public static List<Funcionario> pesquisar(String palavra)
             throws SQLException, Exception {
 
-        String sql = "SELECT * FROM cliente "
-                + " WHERE cliente.enabled = 'true';";
+        String sql = "SELECT * FROM Funcionario "
+                + " WHERE funcionario.enabled = 'true';";
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -135,10 +137,12 @@ public class DaoFuncionario {
                 }
                 Funcionario funcionario = new Funcionario();
                 statement.setString(1, funcionario.getNome());
-                statement.setString(2, funcionario.getCpf());
-                statement.setString(3, funcionario.getTelefone());
-                statement.setString(4, funcionario.getEmail());
-                statement.setString(5, funcionario.getEnabled());
+                statement.setString(2, funcionario.getLogin());
+                statement.setString(3, funcionario.getSenha());
+                statement.setString(4, funcionario.getCargo());
+                statement.setDate(5, funcionario.getAdmissao());
+                statement.setInt(6, funcionario.getIdUnidade());
+                statement.setString(4, funcionario.getSexo());
                 System.out.println(statement.toString());
 
                 listaFuncionarios.add(funcionario);
@@ -156,7 +160,7 @@ public class DaoFuncionario {
 
     public static Funcionario obter(String cpf)
             throws SQLException, Exception {
-        String sql = "SELECT * FROM cliente WHERE cpf = ? AND "
+        String sql = "SELECT * FROM Funcionario WHERE id = ? AND "
                 + "enabled = 'true';";
         PreparedStatement statement = null;
         Connection connection = null;
@@ -188,11 +192,15 @@ public class DaoFuncionario {
                     listaFuncionarios = new ArrayList<Funcionario>();
                 }
                 Funcionario funcionario = new Funcionario();
-                funcionario.setCpf(result.getString("cpf"));
-                funcionario.setNome(result.getString("nome"));
-                funcionario.setTelefone(result.getString("telefone"));
-                funcionario.setEmail(result.getString("email"));
-                funcionario.setEnabled(result.getString("enabled"));
+                funcionario.setId(result.getInt("ID"));
+                funcionario.setNome(result.getString("Nome"));
+                funcionario.setLogin(result.getString("Login"));
+                funcionario.setSenha(result.getString("Senha"));
+                funcionario.setCargo(result.getString("Cargo"));
+                funcionario.setAdmissao(result.getDate("Admissao"));
+                funcionario.setIdUnidade(result.getInt("ID_Unidade"));
+                funcionario.setSexo(result.getString("Sexo"));
+                funcionario.setEnabled(result.getString("Enabled"));
                 listaFuncionarios.add(funcionario);
             }
         } finally {
@@ -213,15 +221,15 @@ public class DaoFuncionario {
     //listar sem where
         public static List<Funcionario> listar()
             throws SQLException, Exception {
-        String sql = "SELECT * FROM cliente WHERE enabled = 'true'";
+        String sql = "SELECT * FROM Funcionario WHERE Enabled = 'true'";
 
         return executarConsulta(sql);
     }
 
-    public static Funcionario retornarCliente(String cpf) throws
+    public static Funcionario retornarFuncionario(int id) throws
             SQLException, Exception {
-        String sql = "SELECT * FROM cliente "
-                + " WHERE cliente.cpf = ?";
+        String sql = "SELECT * FROM Funcionario "
+                + " WHERE Funcionario.ID = ?";
         Funcionario funcionario = new Funcionario();
         Connection connection = null;
         PreparedStatement statement = null;
@@ -229,16 +237,20 @@ public class DaoFuncionario {
         connection = ConnectionUtils.getConnection();
         statement = connection.prepareStatement(sql);
 
-        statement.setString(1, cpf);
+        statement.setInt(1, id);
 
         System.out.println("Executando CONSULTA SQL: " + sql);
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
-            funcionario.setCpf(result.getString("cpf"));
-            funcionario.setNome(result.getString("nome"));
-            funcionario.setTelefone(result.getString("telefone"));
-            funcionario.setEmail(result.getString("email"));
+            funcionario.setId(result.getInt("ID"));
+            funcionario.setNome(result.getString("Nome"));
+            funcionario.setLogin(result.getString("Login"));
+            funcionario.setSenha(result.getString("Senha"));
+            funcionario.setCargo(result.getString("Cargo"));
+            funcionario.setAdmissao(result.getDate("Admissao"));
+            funcionario.setIdUnidade(result.getInt("ID_Unidade"));
+            funcionario.setSexo(result.getString("Sexo"));
             funcionario.setEnabled(result.getString("enabled"));
             connection.close();
             return funcionario;

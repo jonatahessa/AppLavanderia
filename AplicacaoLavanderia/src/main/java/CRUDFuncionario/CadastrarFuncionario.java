@@ -27,35 +27,22 @@ public class CadastrarFuncionario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
         String nome = request.getParameter("nome");
-        String cpf = request.getParameter("cpf");
-        String ctps = request.getParameter("ctps");
-        String nascimento = request.getParameter("nascimento");
-        String sexo = request.getParameter("sexo");
-        String telefone = request.getParameter("telefone");
-        String email = request.getParameter("email");
-        String endereco = request.getParameter("endereco");
-        String cep = request.getParameter("cep");
-        String cidade = request.getParameter("cidade");
-        String estado = request.getParameter("estado");
-        String admissao = request.getParameter("admissao");
+        String login = request.getParameter("login");
+        String senha = request.getParameter("senha");
         String cargo = request.getParameter("cargo");
-        String empresa = request.getParameter("empresa");
+        String admissao = request.getParameter("admissao");
+        String idUnidade = request.getParameter("unidade");
+        String sexo = request.getParameter("sexo");
 
         Funcionario funcionario = new Funcionario();
+        Utils utilitario = new Utils();
         funcionario.setNome(nome);
-        funcionario.setCpf(cpf);
-        funcionario.setCtps(ctps);
-        funcionario.setNascimento(nascimento);
-        funcionario.setSexo(sexo);
-        funcionario.setTelefone(telefone);
-        funcionario.setEmail(email);
-        funcionario.setEndereco(endereco);
-        funcionario.setCep(cep);
-        funcionario.setCidade(cidade);
-        funcionario.setEstado(estado);
-        //funcionario.setAdmissao(admissao);
+        funcionario.setLogin(login);
+        funcionario.setSenha(senha);
         funcionario.setCargo(cargo);
-        funcionario.setEmpresa(empresa);
+        funcionario.setAdmissao(utilitario.converterData(admissao));
+        funcionario.setIdUnidade(utilitario.converterInt(idUnidade));
+        funcionario.setSexo(sexo);
 
         try {
             funcionario.inserirFuncionario(funcionario);
