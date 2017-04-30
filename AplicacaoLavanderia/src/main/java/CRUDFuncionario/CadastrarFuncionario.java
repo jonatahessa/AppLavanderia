@@ -26,22 +26,22 @@ public class CadastrarFuncionario extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
+        UtilsFuncionario utilitario = new UtilsFuncionario();
         String nome = request.getParameter("nome");
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         String cargo = request.getParameter("cargo");
         String admissao = request.getParameter("admissao");
-        String idUnidade = request.getParameter("unidade");
+        String unidade = request.getParameter("unidade");
         String sexo = request.getParameter("sexo");
-
+        
         Funcionario funcionario = new Funcionario();
-        Utils utilitario = new Utils();
         funcionario.setNome(nome);
         funcionario.setLogin(login);
         funcionario.setSenha(senha);
         funcionario.setCargo(cargo);
         funcionario.setAdmissao(utilitario.converterData(admissao));
-        funcionario.setIdUnidade(utilitario.converterInt(idUnidade));
+        funcionario.setIdUnidade(0);
         funcionario.setSexo(sexo);
 
         try {

@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author jonat
  */
-public class Utils {
+public class UtilsFuncionario {
 
     public Date converterData(String recebe) {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -24,14 +24,8 @@ public class Utils {
             java.sql.Date data = new java.sql.Date(format.parse(recebe).getTime());
             return data;
         } catch (ParseException ex) {
-            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UtilsFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-    }
-    
-    public int converterInt(String recebe) {
-        int numero = Integer.parseInt(recebe);
-        
-        return numero;
     }
 }

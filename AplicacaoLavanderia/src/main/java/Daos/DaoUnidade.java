@@ -5,6 +5,7 @@
  */
 package Daos;
 
+import CRUDCliente.Cliente;
 import CRUDUnidade.Unidade;
 import ConnectionBD.ConnectionUtils;
 import static Daos.DaoFuncionario.executarConsulta;
@@ -90,5 +91,32 @@ public class DaoUnidade {
         String sql = "SELECT * FROM Unidade WHERE enabled = 'true'";
 
         return executarConsulta(sql);
+    }
+    
+    public static Unidade retornarUnidade(String nome) throws
+            SQLException, Exception {
+        String sql = "SELECT * FROM Unidade "
+                + " WHERE Unidade.Nome = ?";
+        Unidade unidade = new Unidade();
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+
+        statement.setString(1, nome);
+
+        System.out.println("Executando CONSULTA SQL: " + sql);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+            unidade.setId(result.getInt("id"));
+            unidade.setNome(result.getString("nome"));
+            unidade.setCnpj(result.getString("cnpj"));
+            connection.close();
+            return unidade;
+        }
+
+        return null;
     }
 }
