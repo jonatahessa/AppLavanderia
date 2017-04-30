@@ -10,4 +10,5 @@
     <form method="get" action="cadastroServico.jsp"><button class="botaomenu" type="submit">Serviços</button></form>
     <form method="get" action="relatorios.jsp"><button class="botaomenu" type="submit">Relatórios</button></form>
     <form method="get" action="vender.jsp"><button class="botaomenu" type="submit">Vender</button></form>
+    <form method="get" action="cadastroFilial.jsp"><button class="botaomenu" type="submit">Filiais</button></form>
 </div>
