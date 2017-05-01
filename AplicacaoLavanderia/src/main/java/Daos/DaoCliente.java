@@ -115,8 +115,8 @@ public class DaoCliente {
     public static List<Cliente> pesquisar(String palavra)
             throws SQLException, Exception {
 
-        String sql = "SELECT * FROM cliente "
-                + " WHERE cliente.enabled = 'true';";
+        String sql = "SELECT * FROM Cliente "
+                + " WHERE nome like ?";
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -143,6 +143,7 @@ public class DaoCliente {
                 System.out.println(statement.toString());
 
                 listaClientes.add(cliente);
+                statement.executeQuery();
             }
         } finally {
             if (statement != null && !statement.isClosed()) {

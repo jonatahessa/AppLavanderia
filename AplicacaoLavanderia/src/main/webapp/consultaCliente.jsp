@@ -6,6 +6,7 @@
 
 <%@page import="CRUDCliente.Cliente"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="Daos.DaoCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,6 +24,15 @@
         <div id ="logo"></div>
         <div id = "menu"></div>
         <h1>Consulta de Cliente</h1>
+        
+        <form action="consultaCliente.jsp" method="GET">
+            <fieldset>
+                <legend>Pesquisar</legend>
+                <input type="text" name="palavra" value="${param.palavra}"/>
+                <input type="submit" value="Pesquisar"/>
+            </fieldset>
+        </form>
+        
         <div id="table">
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
@@ -37,14 +47,17 @@
                 
                 <c:forEach var="clientes" items="${dao.listar()}">
                 <tr>
-                    <th>${clientes.nome}</th>
-                    <th>${clientes.cpf}</th>
-                    <th>${clientes.email}</th>
-                    <th>${clientes.telefone}</th>
-                    <th>${clientes.sexo}</th>
-                    <th><a class="btn btn-primary" href="">Alterar</a></th>
-                    <th><a class="btn btn-danger" href="">Remover</a></th>
+                    <td>${clientes.nome}</td>
+                    <td>${clientes.cpf}</td>
+                    <td>${clientes.email}</td>
+                    <td>${clientes.telefone}</td>
+                    <td>${clientes.sexo}</td>
+                    <td><a class="btn btn-primary" href="">Alterar</a></td>
+                    <td><a class="btn btn-danger" href="">Remover</a></td>
                 </tr>
+                </c:forEach>
+            </table>
+        
         </div>
     </body>
 </html>
