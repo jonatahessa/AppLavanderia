@@ -36,6 +36,8 @@
                 <tr>
                     <th>Nome do serviço</th>
                     <th>Preço por peça</th>
+                    <th>Alterar Cliente</th>
+                    <th>Remover Cliente</th>
                 </tr>
                 
                 <c:forEach var="servicos" items="${dao.listar()}">
