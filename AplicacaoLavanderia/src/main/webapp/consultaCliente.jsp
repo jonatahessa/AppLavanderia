@@ -18,23 +18,24 @@
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="" media="screen" >
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
         <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
         <title>Consulta Cliente</title>
     </head>
     <body>
         <div id ="logo"></div>
-        <div id = "menu"></div>
-        <h1>Consulta de Cliente</h1>
+        <%@ include file = "menu.jsp" %>
         
+        <div id="table">
         <form action="consultaCliente.jsp" method="GET">
             <fieldset>
-                <legend>Pesquisar</legend>
+                <h1>Pesquisar Cliente</h1>
                 <input type="text" name="palavra" value="${param.palavra}"/>
                 <input type="submit" value="Pesquisar"/>
             </fieldset>
         </form>
         
-        <div id="table">
+        
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>Nome</th>
