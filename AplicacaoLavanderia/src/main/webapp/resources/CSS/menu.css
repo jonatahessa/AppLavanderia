@@ -8,11 +8,14 @@
 }
 
 .botaomenu {
+    border: 1px solid gray;
+    transition: 1s;
     background-color: hsl(213, 76%, 76%);    
     width:100%;
     margin-left: 0;    
-    font-size: 100%
-    
+    font-size: 100%;
+    color: gray;
+    height: 50px;
 }
 
 .botaomenu:hover {
