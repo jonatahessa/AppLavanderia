@@ -22,31 +22,29 @@
     <body>
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
-        
         <div id="table">
-        <form action="consultaServico.jsp" method="GET">
-            <fieldset>
-                <h1>Pesquisar Serviço</h1>
-                <input type="text" name="palavra" value="${param.palavra}"/>
-                <input type="submit" value="Pesquisar"/>
-            </fieldset>
-        </form>
-        
-                <table id="tableID" class="table table-bordered" align="center">
+            <form action="consultaServico.jsp" method="GET">
+                <fieldset>
+                    <h1>Pesquisar Serviço</h1>
+                    <input type="text" name="palavra" value="${param.palavra}"/>
+                    <input type="submit" value="Pesquisar"/>
+                </fieldset>
+            </form>
+            <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>Nome do serviço</th>
                     <th>Preço por peça</th>
                     <th>Alterar Cliente</th>
                     <th>Remover Cliente</th>
                 </tr>
-                
+
                 <c:forEach var="servicos" items="${dao.listar()}">
-                <tr>
-                    <td>${servicos.nomeServico}</td>
-                    <td>${servicos.precoPorPeca}</td>
-                    <td><a class="btn btn-primary" href="">Alterar</a></td>
-                    <td><a class="btn btn-danger" href="">Remover</a></td>
-                </tr>
+                    <tr>
+                        <td>${servicos.nomeServico}</td>
+                        <td>${servicos.precoPorPeca}</td>
+                        <td><a class="btn btn-primary" href="">Alterar</a></td>
+                        <td><a class="btn btn-danger" href="">Remover</a></td>
+                    </tr>
                 </c:forEach>
             </table>        
         </div>

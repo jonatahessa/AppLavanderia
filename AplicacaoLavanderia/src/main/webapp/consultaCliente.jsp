@@ -25,17 +25,14 @@
     <body>
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
-        
         <div id="table">
-        <form action="consultaCliente.jsp" method="GET">
-            <fieldset>
-                <h1>Pesquisar Cliente</h1>
-                <input type="text" name="palavra" value="${param.palavra}"/>
-                <input type="submit" value="Pesquisar"/>
-            </fieldset>
-        </form>
-        
-        
+            <form action="consultaCliente.jsp" method="GET">
+                <fieldset>
+                    <h1>Pesquisar Cliente</h1>
+                    <input type="text" name="palavra" value="${param.palavra}"/>
+                    <input type="submit" value="Pesquisar"/>
+                </fieldset>
+            </form>
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>Nome</th>
@@ -46,20 +43,18 @@
                     <th>Alterar Cliente</th>
                     <th>Remover Cliente</th>
                 </tr>
-                
                 <c:forEach var="clientes" items="${dao.listar()}">
-                <tr>
-                    <td>${clientes.nome}</td>
-                    <td>${clientes.cpf}</td>
-                    <td>${clientes.email}</td>
-                    <td>${clientes.telefone}</td>
-                    <td>${clientes.sexo}</td>
-                    <td><a class="btn btn-primary" href="">Alterar</a></td>
-                    <td><a class="btn btn-danger" href="">Remover</a></td>
-                </tr>
+                    <tr>
+                        <td>${clientes.nome}</td>
+                        <td>${clientes.cpf}</td>
+                        <td>${clientes.email}</td>
+                        <td>${clientes.telefone}</td>
+                        <td>${clientes.sexo}</td>
+                        <td><a class="btn btn-primary" href="">Alterar</a></td>
+                        <td><a class="btn btn-danger" href="">Remover</a></td>
+                    </tr>
                 </c:forEach>
             </table>
-        
         </div>
     </body>
 </html>
