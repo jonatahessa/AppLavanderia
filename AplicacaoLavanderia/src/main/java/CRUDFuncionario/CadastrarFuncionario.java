@@ -41,7 +41,7 @@ public class CadastrarFuncionario extends HttpServlet {
         funcionario.setSenha(senha);
         funcionario.setCargo(cargo);
         funcionario.setAdmissao(utilitario.converterData(admissao));
-        funcionario.setIdUnidade(0);
+        funcionario.setUnidade(unidade);
         funcionario.setSexo(sexo);
 
         try {

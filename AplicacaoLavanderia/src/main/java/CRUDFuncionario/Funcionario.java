@@ -9,7 +9,7 @@ public class Funcionario {
     private String senha;
     private String cargo;
     private Date admissao;
-    private int idUnidade;
+    private String unidade;
     private String sexo;
     private String enabled;
 
@@ -77,12 +77,12 @@ public class Funcionario {
         this.senha = senha;
     }
 
-    public int getIdUnidade() {
-        return idUnidade;
+    public String getUnidade() {
+        return unidade;
     }
 
-    public void setIdUnidade(int id_unidade) {
-        this.idUnidade = id_unidade;
+    public void setUnidade(String unidade) {
+        this.unidade = unidade;
     }
     
     
@@ -90,4 +90,10 @@ public class Funcionario {
     public void inserirFuncionario (Funcionario funcionario) throws Exception {
         Daos.DaoFuncionario.inserir(funcionario);
     }
+
+    void pesquisarFuncionario(Funcionario funcionario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 }
