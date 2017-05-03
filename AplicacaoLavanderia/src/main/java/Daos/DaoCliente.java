@@ -114,7 +114,6 @@ public class DaoCliente {
 
     public static List<Cliente> pesquisar(String palavra)
             throws SQLException, Exception {
-
         String sql = "SELECT * FROM Cliente "
                 + " WHERE nome like ?";
 
