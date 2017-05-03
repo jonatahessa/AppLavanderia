@@ -8,6 +8,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <jsp:useBean id="dao" class="Daos.DaoFuncionario"/>
+<jsp:useBean id="dao1" class="Daos.DaoUnidade"/>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -47,11 +48,11 @@
                 </tr>
                 
                 <c:forEach var="funcionarios" items="${dao.listar()}">
-                <tr>
+                    <tr>
                     <td>${funcionarios.nome}</td>
                     <td>${funcionarios.sexo}</td>
                     <td>${funcionarios.cargo}</td>
-                    <td>${funcionarios.unidade}</td>
+                    <td>${funcionarios.idUnidade}</td>
                     <td><a class="btn btn-primary" href="">Alterar</a></td>
                     <td><a class="btn btn-danger" href="">Remover</a></td>
                 </tr>

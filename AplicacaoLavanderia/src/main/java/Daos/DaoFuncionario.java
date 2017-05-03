@@ -16,7 +16,7 @@ public class DaoFuncionario {
     public static void inserir(Funcionario funcionario)
             throws SQLException, Exception {
            
-        String sql = "INSERT INTO Funcionario (Nome, Login, Senha, Cargo, Unidade, Sexo, Admissao, Enabled) "
+        String sql = "INSERT INTO Funcionario (Nome, Login, Senha, Cargo, ID_Unidade, Sexo, Admissao, Enabled) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         Connection connection = null;
         PreparedStatement statement = null;
@@ -29,7 +29,7 @@ public class DaoFuncionario {
             statement.setString(2, funcionario.getLogin());
             statement.setString(3, funcionario.getSenha());           
             statement.setString(4, funcionario.getCargo());
-            statement.setString(5, funcionario.getUnidade());
+            statement.setInt(5, funcionario.getIdUnidade());
             statement.setString(6, funcionario.getSexo());
             statement.setDate(7, funcionario.getAdmissao());
             statement.setString(8, "true");
@@ -96,7 +96,7 @@ public class DaoFuncionario {
             statement.setString(3, funcionario.getSenha());
             statement.setString(4, funcionario.getCargo());
             statement.setDate(5, funcionario.getAdmissao());
-            statement.setString(6, funcionario.getUnidade());
+            statement.setInt(6, funcionario.getIdUnidade());
             statement.setString(7, funcionario.getSexo());
             statement.setInt(8, id);
             System.out.println(statement.toString());
@@ -141,7 +141,7 @@ public class DaoFuncionario {
                 statement.setString(3, funcionario.getSenha());
                 statement.setString(4, funcionario.getCargo());
                 statement.setDate(5, funcionario.getAdmissao());
-                statement.setString(6, funcionario.getUnidade());
+                statement.setInt(6, funcionario.getIdUnidade());
                 statement.setString(4, funcionario.getSexo());
                 System.out.println(statement.toString());
 
@@ -198,7 +198,7 @@ public class DaoFuncionario {
                 funcionario.setSenha(result.getString("Senha"));
                 funcionario.setCargo(result.getString("Cargo"));
                 funcionario.setAdmissao(result.getDate("Admissao"));
-                funcionario.setUnidade(result.getString("Unidade"));
+                funcionario.setIdUnidade(result.getInt("ID_Unidade"));
                 funcionario.setSexo(result.getString("Sexo"));
                 funcionario.setEnabled(result.getString("Enabled"));
                 listaFuncionarios.add(funcionario);
@@ -249,7 +249,7 @@ public class DaoFuncionario {
             funcionario.setSenha(result.getString("Senha"));
             funcionario.setCargo(result.getString("Cargo"));
             funcionario.setAdmissao(result.getDate("Admissao"));
-            funcionario.setUnidade("Unidade");
+            funcionario.setIdUnidade(result.getInt("ID_Unidade"));
             funcionario.setSexo(result.getString("Sexo"));
             funcionario.setEnabled(result.getString("enabled"));
             connection.close();
