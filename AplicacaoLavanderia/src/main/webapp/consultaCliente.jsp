@@ -2,6 +2,9 @@
     Document   : 
     Created on : 17/04/2017, 19:39:50
     Author     : jonata.hmoliveira
+
+
+    tutorial: http://stackoverflow.com/questions/32913032/how-to-acces-jstl-value-in-servlet
 --%>
 
 <%@page import="CRUDCliente.Cliente"%>
@@ -52,7 +55,7 @@
                         <td>${clientes.telefone}</td>
                         <td>${clientes.sexo}</td>
                         <td><a class="btn btn-primary" href="">Alterar</a></td>
-                        <td><a class="btn btn-danger" href="consultaCliente?action=DeletaCliente&CPF=${clientes.cpf}">Remover</a></td>
+                        <td><a class="btn btn-danger" href="consultaCliente.jsp?action=delete&CPF=${clientes.cpf}">Remover</a></td>
                     </tr>
                 </c:forEach>
             </table>
