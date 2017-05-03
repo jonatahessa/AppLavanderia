@@ -48,36 +48,43 @@ public class DaoCliente {
         }
     }
 
-    public boolean deletar(String cpf)
+    //Deleta um cliente na tabela "cliente" do banco de dados
+     public static void deletar(String cpf)
             throws SQLException, Exception {
-        String sql = "UPDATE cliente SET enabled = ?"
-                + " WHERE cpf = ?;";
-        Boolean retorno = false;
+        //Monta a string de remoção de um cliente no BD,
+        //utilizando os dados do clientes passados como parâmetro
+        String sql = "UPDATE Cliente SET enabled = ?"
+                + "WHERE cpf = ?; ";
+
+        //Conexão para abertura e fechamento
         Connection connection = null;
+        //Statement para obtenção através da conexão, execução de
+        //comandos SQL e fechamentos
         PreparedStatement statement = null;
         try {
+            //Abre uma conexão com o banco de dados
             connection = ConnectionUtils.getConnection();
+            //Cria um statement para execução de instruções SQL
             statement = connection.prepareStatement(sql);
 
             statement.setString(1, "false");
-            statement.setString(2, cpf);
+            statement.setString(2, ""+cpf);
+            
 
+            //Exibe no console o que será executado no banco de dados
             System.out.println("Executando COMANDO SQL: " + sql);
-            boolean pst = statement.execute();
-
-            if (pst == true) {
-                retorno = true;
-            }
-
+            //Executa o comando no banco de dados
+            statement.execute();
         } finally {
+            //Se o statement ainda estiver aberto, realiza seu fechamento
             if (statement != null && !statement.isClosed()) {
                 statement.close();
             }
+            //Se a conexão ainda estiver aberta, realiza seu fechamento
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
         }
-        return retorno;
     }
 
     public static void alterar(Cliente cliente, String cpf)
