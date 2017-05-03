@@ -53,7 +53,8 @@
                 </div>
 
                 <div id="buttons">
-                    <button id="salvar" type="submit">Salvar</button>
+                    <button action id="salvar" type="submit">Salvar</button>
+                    
                     <button id="cancelar" type="button">Cancelar</button>
                 </div>
 
