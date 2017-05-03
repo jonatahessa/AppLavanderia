@@ -44,7 +44,7 @@
                     <c:when test="${erroCpf}">  
                         <div class="input-group">
                             <span class="input-group-addon"><span class=" glyphicon glyphicon-user"></span></span>
-                            <input id="campocpf" maxlength="14" type="text" name="cpf" class="erro" onkeypress="mascara(this, '###.###.###-##')" class="form-control" placeholder="CPF">
+                            <input id="campocpf" maxlength="14" type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" class="form-control erro" placeholder="CPF">
                         </div>
                     </c:when>    
                     <c:otherwise>
