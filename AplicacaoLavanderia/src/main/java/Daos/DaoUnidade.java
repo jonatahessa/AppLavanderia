@@ -93,10 +93,10 @@ public class DaoUnidade {
         return executarConsulta(sql);
     }
     
-    public static Unidade retornarUnidade(String nome) throws
+    public static int retornarUnidade(String nome) throws
             SQLException, Exception {
         String sql = "SELECT * FROM Unidade "
-                + " WHERE Unidade.Nome = ?";
+                + " WHERE Nome = ?";
         Unidade unidade = new Unidade();
         Connection connection = null;
         PreparedStatement statement = null;
@@ -114,9 +114,9 @@ public class DaoUnidade {
             unidade.setNome(result.getString("nome"));
             unidade.setCnpj(result.getString("cnpj"));
             connection.close();
-            return unidade;
+            return unidade.getId();
         }
 
-        return null;
+        return 0;
     }
 }

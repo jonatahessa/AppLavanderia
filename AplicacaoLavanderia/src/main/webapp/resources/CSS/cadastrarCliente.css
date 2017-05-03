@@ -83,23 +83,4 @@ h1 {
 }
 
 
-.input-group{
-    border: solid 2px;
-}
-
-input-group-addon{
-    border: solid 1px;
-}
-
-.input-group-lg > .form-control,
-.input-group-lg > .input-group-addon,
-.input-group-lg > .input-group-btn > .btn {
-  /* testar no firefox */  
-  height: 45px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 6px;
-}
-
 

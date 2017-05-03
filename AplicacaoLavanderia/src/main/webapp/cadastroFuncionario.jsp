@@ -34,7 +34,7 @@
                 </div>
                 
                 <div id="profissional">
-                    <input type="date" id="campoadmissao" class="campos"  name="admissao" placeholder="Admissão"/>
+                    <input type="text" id="campoadmissao" class="campos"  name="admissao" placeholder="Admissão"/>
                     <select id="campocargo" name="cargo">
                         <option name="Gerente T.I">Gerente T.I</option>
                         <option name="Funcionario T.I">Funcionário T.I</option>
@@ -43,7 +43,7 @@
                         <option name="Gerente Retaguarda">Gerente Retaguarda</option>
                         <option name="Funcionario Retaguarda">Funcionário Retaguarda</option>
                     </select>   
-                    <select id="campoempresa" class="campos" name="empresa">
+                    <select id="campoempresa" class="campos" name="unidade">
                         <c:forEach var="unidade" items="${dao.listar()}"> 
                         <option nome="${unidade.nome}">${unidade.nome}</option>
                         </c:forEach>
