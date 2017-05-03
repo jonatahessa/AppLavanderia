@@ -48,12 +48,11 @@
                 </tr>
                 
                 <c:forEach var="funcionarios" items="${dao.listar()}">
-                <c:forEach var="unidades" items="${dao1.listar()}">
                     <tr>
                     <td>${funcionarios.nome}</td>
                     <td>${funcionarios.sexo}</td>
                     <td>${funcionarios.cargo}</td>
-                    <td>${unidade.nome}</td>
+                    <td>${funcionarios.idUnidade}</td>
                     <td><a class="btn btn-primary" href="">Alterar</a></td>
                     <td><a class="btn btn-danger" href="">Remover</a></td>
                 </tr>

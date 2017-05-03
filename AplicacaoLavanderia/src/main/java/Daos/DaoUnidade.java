@@ -93,7 +93,7 @@ public class DaoUnidade {
         return executarConsulta(sql);
     }
     
-    public static int retornarUnidade(String nome) throws
+    public static int retornarIdUnidade(String nome) throws
             SQLException, Exception {
         String sql = "SELECT * FROM Unidade "
                 + " WHERE Nome = ?";
@@ -118,5 +118,32 @@ public class DaoUnidade {
         }
 
         return 0;
+    }
+    
+    public static String retornarNomeUnidade(int id) throws
+            SQLException, Exception {
+        String sql = "SELECT * FROM Unidade "
+                + " WHERE ID = ?";
+        Unidade unidade = new Unidade();
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+
+        statement.setInt(1, id);
+
+        System.out.println("Executando CONSULTA SQL: " + sql);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+            unidade.setId(result.getInt("id"));
+            unidade.setNome(result.getString("nome"));
+            unidade.setCnpj(result.getString("cnpj"));
+            connection.close();
+            return unidade.getNome();
+        }
+
+        return null;
     }
 }
