@@ -65,12 +65,16 @@ public class Cliente {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-    
-    public void inserirCliente(Cliente cliente) throws Exception{
+
+    public void inserirCliente(Cliente cliente) throws Exception {
         Daos.DaoCliente.inserir(cliente);
     }
-    
-    public void pesquisarCliente(Cliente cliente) throws Exception{
+
+    public void pesquisarCliente(Cliente cliente) throws Exception {
         Daos.DaoCliente.obter(cpf);
+    }
+
+    public void deletarCliente(Cliente cliente) throws Exception {
+        Daos.DaoCliente.deletar(cpf);
     }
 }
