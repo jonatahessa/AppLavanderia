@@ -1,13 +1,10 @@
 <%-- 
-    Document   : 
-    Created on : 17/04/2017, 19:39:50
-    Author     : jonata.hmoliveira
+    Document   : servicos
+    Created on : 24/04/2017, 21:50:50
+    Author     : eloisa.asilva2
 --%>
 
-<%@page import="CRUDCliente.Cliente"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
-<jsp:useBean id="dao" class="Daos.DaoCliente"/>
+<jsp:useBean id="dao" class="Daos.DaoServico"/>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,43 +15,38 @@
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="" media="screen" >
-        <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
-        <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
-        <title>Consulta Cliente</title>
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaServico.css">
+        <script type="text/javascript" src="./resources/JavaScript/consultaServico.js"></script>
+        <title>Consulta Serviço</title>
     </head>
     <body>
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
         <div id="table">
-            <form action="consultaCliente.jsp" method="GET">
+            <form action="consultaServico.jsp" method="GET">
                 <fieldset>
-                    <h1>Pesquisar Cliente</h1>
+                    <h1>Pesquisar Serviço</h1>
                     <input type="text" name="palavra" value="${param.palavra}"/>
                     <input type="submit" value="Pesquisar"/>
                 </fieldset>
             </form>
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>E-mail</th>
-                    <th>Telefone</th>
-                    <th>Sexo</th>
+                    <th>Nome do serviço</th>
+                    <th>Preço por peça</th>
                     <th>Alterar Cliente</th>
                     <th>Remover Cliente</th>
                 </tr>
-                <c:forEach var="clientes" items="${dao.listar()}">
+
+                <c:forEach var="servicos" items="${dao.listar()}">
                     <tr>
-                        <td>${clientes.nome}</td>
-                        <td>${clientes.cpf}</td>
-                        <td>${clientes.email}</td>
-                        <td>${clientes.telefone}</td>
-                        <td>${clientes.sexo}</td>
+                        <td>${servicos.nomeServico}</td>
+                        <td>${servicos.precoPorPeca}</td>
                         <td><a class="btn btn-primary" href="">Alterar</a></td>
                         <td><a class="btn btn-danger" href="">Remover</a></td>
                     </tr>
                 </c:forEach>
-            </table>
+            </table>        
         </div>
     </body>
 </html>

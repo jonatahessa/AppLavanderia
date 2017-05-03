@@ -1,0 +1,34 @@
+html, body {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: hsl(213, 76%, 95%);
+}
+
+#table {
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 10%;
+    position: static;
+    width: 75%;
+    height: 35%;
+}
+
+input {
+    margin-top: 3%;
+}
+
+table {
+    margin-top: 1%;  
+}
+
+h1 {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    color: grey;
+    margin-top: 1%;
+}
