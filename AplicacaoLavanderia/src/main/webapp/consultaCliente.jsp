@@ -26,14 +26,14 @@
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
         <div id="table">
-            <form action="consultaCliente.jsp" method="GET">
+            <form action="consultaCliente.jsp" method="POST">
                 <fieldset>
                     <h1>Pesquisar Cliente</h1>
                     <input type="text" name="palavra" value="${param.palavra}"/>
                     <input type="submit" value="Pesquisar"/>
                 </fieldset>
             </form>
-            <form method="get" action="cadastroCliente.jsp"><button class="btn btn-success" type="submit">Cadastrar</button></form>
+            <form method="POST" action="cadastroCliente.jsp"><button class="btn btn-success" type="submit">Cadastrar</button></form>
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>Nome</th>
@@ -52,7 +52,7 @@
                         <td>${clientes.telefone}</td>
                         <td>${clientes.sexo}</td>
                         <td><a class="btn btn-primary" href="">Alterar</a></td>
-                        <td><a class="btn btn-danger" href="">Remover</a></td>
+                        <td><a class="btn btn-danger" href="consultaCliente?action=DeletaCliente&CPF=${clientes.cpf}">Remover</a></td>
                     </tr>
                 </c:forEach>
             </table>
