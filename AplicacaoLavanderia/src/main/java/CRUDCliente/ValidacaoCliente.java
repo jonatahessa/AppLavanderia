@@ -1,6 +1,6 @@
 package CRUDCliente;
 
-public class ServicoCliente {
+public class ValidacaoCliente {
     
     public boolean verificarCpf(String cpf) {
         int contador = 0;

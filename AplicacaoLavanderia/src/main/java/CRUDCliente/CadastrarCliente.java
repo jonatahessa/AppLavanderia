@@ -25,12 +25,12 @@ public class CadastrarCliente extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-        ServicoCliente sv = new ServicoCliente();
+        ValidacaoCliente vc = new ValidacaoCliente();
         boolean erro = false;
-        boolean nome = sv.verificarNome(request.getParameter("nome"));
-        boolean email = sv.verificarEmail(request.getParameter("email"));
-        boolean telefone = sv.verificarTelefone(request.getParameter("telefone"));
-        boolean cpf = sv.verificarCpf(request.getParameter("cpf"));
+        boolean nome = vc.verificarNome(request.getParameter("nome"));
+        boolean email = vc.verificarEmail(request.getParameter("email"));
+        boolean telefone = vc.verificarTelefone(request.getParameter("telefone"));
+        boolean cpf = vc.verificarCpf(request.getParameter("cpf"));
     
      
         if (nome != true) {

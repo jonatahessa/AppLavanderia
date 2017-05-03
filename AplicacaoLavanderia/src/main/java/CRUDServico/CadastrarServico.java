@@ -36,23 +36,35 @@ public class CadastrarServico extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-     
-        String nomeServico = request.getParameter("nome");
-        String precoPorPeca = request.getParameter("preco");
         
-       double preco = Double.parseDouble(precoPorPeca);
-        Servico servico = new Servico();
-      
-        servico.setNomeServico(nomeServico);
-        servico.setPrecoPorPeca(preco);
-       
-
-        try {
-            servico.inserirServico(servico);
-            response.sendRedirect("mensagemCadastro.jsp");
-        } catch (Exception ex) {
-            response.sendRedirect("mensagemErro.jsp"); 
-            Logger.getLogger(CadastrarServico.class.getName()).log(Level.SEVERE, null, ex);
+        boolean erro = false;
+        ValidacaoServico vs = new ValidacaoServico();
+        boolean nome = vs.verificarNome(request.getParameter("nome"));
+        boolean preco = vs.verificarPreco(request.getParameter("preco"));
+        
+        if (nome != true) {
+            erro = true;
+            request.setAttribute("erroNome", true);
+        }
+        if (preco != true) {
+            erro = true;
+            request.setAttribute("erroPreco", true);
+        }
+        
+        if (!erro) {
+            Servico servico = new Servico();
+            servico.setNomeServico(request.getParameter("nome"));
+            servico.setPrecoPorPeca(Double.parseDouble(request.getParameter("preco")));
+            try {
+                servico.inserirServico(servico);
+                response.sendRedirect("mensagemCadastro.jsp");
+            } catch (Exception ex) {
+                response.sendRedirect("mensagemErro.jsp"); 
+                Logger.getLogger(CadastrarServico.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroServico.jsp");
+            dispatcher.forward(request, response);
         }
     }
 
