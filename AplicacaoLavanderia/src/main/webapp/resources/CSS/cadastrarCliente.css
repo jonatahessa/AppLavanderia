@@ -82,5 +82,9 @@ h1 {
   background-color: #f4f4f4;
 }
 
+.erro {
+    background: hsl(0, 92%, 77%);
+}
+
 
 
