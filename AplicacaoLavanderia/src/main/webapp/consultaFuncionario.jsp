@@ -35,7 +35,7 @@
                 <input type="submit" value="Pesquisar"/>
             </fieldset>
         </form>
-        
+        <form method="POST" action="cadastroFuncionario.jsp"><button class="btn btn-success" type="submit">Cadastrar</button></form>
         
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
