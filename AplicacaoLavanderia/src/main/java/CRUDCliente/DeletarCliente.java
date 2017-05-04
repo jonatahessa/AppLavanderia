@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+//aula http://www.codejava.net/coding/jsp-servlet-jdbc-mysql-create-read-update-delete-crud-example
 @WebServlet(name = "DeletarCliente", urlPatterns = {"/DeletarCliente"})
 public class DeletarCliente extends HttpServlet {
 
