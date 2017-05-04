@@ -49,7 +49,7 @@ public class DaoCliente {
     }
 
     //Deleta um cliente na tabela "cliente" do banco de dados
-     public static void deletar(String cpf)
+    /*  public static void deletar(String cpf)
             throws SQLException, Exception {
         //Monta a string de remoção de um cliente no BD,
         //utilizando os dados do clientes passados como parâmetro
@@ -85,6 +85,23 @@ public class DaoCliente {
                 connection.close();
             }
         }
+    }*/
+    public boolean updateBook(Cliente cliente) throws SQLException {
+        String sql = "UPDATE book SET title = ?, author = ?, price = ?";
+        sql += " WHERE book_id = ?";
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, cliente.getCpf());
+
+        boolean rowUpdated = statement.executeUpdate() > 0;
+        statement.close();
+
+        return rowUpdated;
+
     }
 
     public static void alterar(Cliente cliente, String cpf)
