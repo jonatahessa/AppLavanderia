@@ -23,7 +23,7 @@ import java.util.List;
  * @author Thalles
  */
 public class DaoUnidade {
-    
+
     public static void inseriUnidade(Unidade unidade) throws SQLException {
 
         String sql = "INSERT INTO Unidade (nome, cnpj, enabled) "
@@ -50,7 +50,7 @@ public class DaoUnidade {
             }
         }
     }
-    
+
     public static List<Unidade> executarConsulta(String sql) throws
             FilialException, SQLException, Exception {
         List<Unidade> listaUnidades = null;
@@ -64,11 +64,11 @@ public class DaoUnidade {
             result = statement.executeQuery(sql);
             while (result.next()) {
                 if (listaUnidades == null) {
-                    listaUnidades= new ArrayList<Unidade>();
+                    listaUnidades = new ArrayList<Unidade>();
                 }
                 Unidade unidades = new Unidade();
                 unidades.setNome(result.getString("nome"));
-                unidades.setCnpj(result.getString("cnpj"));                
+                unidades.setCnpj(result.getString("cnpj"));
                 unidades.setEnabled(result.getString("enabled"));
                 listaUnidades.add(unidades);
             }
@@ -92,7 +92,7 @@ public class DaoUnidade {
 
         return executarConsulta(sql);
     }
-    
+
     public static int retornarIdUnidade(String nome) throws
             SQLException, Exception {
         String sql = "SELECT * FROM Unidade "
@@ -111,15 +111,13 @@ public class DaoUnidade {
 
         while (result.next()) {
             unidade.setId(result.getInt("id"));
-            unidade.setNome(result.getString("nome"));
-            unidade.setCnpj(result.getString("cnpj"));
             connection.close();
             return unidade.getId();
         }
 
         return 0;
     }
-    
+
     public static String retornarNomeUnidade(int id) throws
             SQLException, Exception {
         String sql = "SELECT * FROM Unidade "

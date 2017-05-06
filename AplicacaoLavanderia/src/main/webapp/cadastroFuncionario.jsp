@@ -32,7 +32,7 @@
                         <option name="Masculino">Masculino</option>
                     </select>
                 </div>
-                
+
                 <div id="profissional">
                     <input type="text" id="campoadmissao" class="campos"  name="admissao" placeholder="Admissão"/>
                     <select id="campocargo" name="cargo">
@@ -45,16 +45,16 @@
                     </select>   
                     <select id="campoempresa" class="campos" name="unidade">
                         <c:forEach var="unidade" items="${dao.listar()}"> 
-                        <option nome="${unidade.nome}">${unidade.nome}</option>
+                            <option nome="${unidade.nome}">${unidade.nome}</option>
                         </c:forEach>
-                        <input type="text" name="login" id="Login" placeholder="Login">
-                        <input type="password" name="senha" id="usuario" placeholder="Senha">
                     </select>
+                    <input type="text" name="login" id="Login" placeholder="Login">
+                    <input type="password" name="senha" id="usuario" placeholder="Senha">
                 </div>
 
                 <div id="buttons">
                     <button action id="salvar" type="submit">Salvar</button>
-                    
+
                     <button id="cancelar" type="button">Cancelar</button>
                 </div>
 
