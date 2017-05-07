@@ -12,11 +12,18 @@ package CRUDCliente;
 public class Cliente {
 
     private String nome;
-    String cpf;
+    protected String cpf;
     private String telefone;
     private String email;
     private String enabled;
     private String sexo;
+
+    public Cliente() {
+    }
+
+    public Cliente(String cpf) {
+        this.cpf = cpf;
+    }
 
     public String getNome() {
         return nome;
@@ -73,7 +80,7 @@ public class Cliente {
     public void pesquisarCliente(Cliente cliente) throws Exception {
         Daos.DaoCliente.obter(cpf);
     }
-/*
+    /*
     public void deletarCliente(Cliente cliente) throws Exception {
         Daos.DaoCliente.deletar(cpf);
     }*/

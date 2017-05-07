@@ -11,7 +11,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <jsp:useBean id="dao" class="Daos.DaoCliente"/>
-<jsp:forward page="/DAOCliente?action=deletar" />
+<!-- jsp:forward page="/DAOCliente?action=deletar" -- linha deletada (erro 404)>
 </body>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -57,7 +57,7 @@
                         <td>${clientes.telefone}</td>
                         <td>${clientes.sexo}</td>
                         <td><a class="btn btn-primary" href="">Alterar</a></td>
-                        <td><a class="btn btn-danger" href="consultaCliente.jsp?action=edit&CPF=${clientes.cpf}">Remover</a></td>
+                        <td><a href="/update?cpf=<c:out value='${clientes.cpf}' />">Remover</a></td>
                     </tr>
                 </c:forEach>
             </table>

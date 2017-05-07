@@ -48,6 +48,7 @@ public class DaoCliente {
         }
     }
 
+
     //Deleta um cliente na tabela "cliente" do banco de dados
     /*  public static void deletar(String cpf)
             throws SQLException, Exception {
@@ -87,8 +88,8 @@ public class DaoCliente {
         }
     }*/
     public boolean updateBook(Cliente cliente) throws SQLException {
-        String sql = "UPDATE book SET title = ?, author = ?, price = ?";
-        sql += " WHERE book_id = ?";
+        String sql = "UPDATE cliente SET enabled = 'false'";
+        sql += " WHERE cpf = ?";
 
         Connection connection = null;
         PreparedStatement statement = null;
