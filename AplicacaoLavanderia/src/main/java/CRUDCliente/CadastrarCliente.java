@@ -71,7 +71,7 @@ public class CadastrarCliente extends HttpServlet {
       
             RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroCliente.jsp");
             dispatcher.forward(request, response);
-    }
+        }
         
         
      

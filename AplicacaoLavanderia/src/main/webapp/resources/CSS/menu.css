@@ -7,6 +7,10 @@
     left: 1%;
 }
 
+body {
+    background-color: hsl(213, 76%, 95%);
+}
+
 .botaomenu {
     border: 1px solid gray;
     transition: 1s;
