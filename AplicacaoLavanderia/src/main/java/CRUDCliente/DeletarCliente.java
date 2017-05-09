@@ -24,21 +24,20 @@ public class DeletarCliente extends HttpServlet {
 	  throws ServletException, IOException {
         RequestDispatcher dispatcher = 
 	request.getRequestDispatcher("consultaCliente.jsp");
-        dispatcher.forward(request, response);
+        try {
+                DaoCliente.deletar(request.getParameter("cpf"));
+                response.sendRedirect("consultaCliente.jsp");
+            } catch (Exception ex) {
+                response.sendRedirect("mensagemErro.jsp"); 
+                Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
     }
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
 
-        String cpf = request.getParameter("cpf");
-        try {
-                DaoCliente.deletar(request.getParameter("cpf"));
-                response.sendRedirect("consultaServico.jsp");
-            } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
-                Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
-            }
     }
 
     
