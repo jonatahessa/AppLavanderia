@@ -51,14 +51,14 @@
                     <th>Remover Cliente</th>
                 </tr>
                 <c:forEach var="clientes" items="${dao.listar()}">
-                    <tr>
+                    <tr onclick="main();">
                         <td>${clientes.nome}</td>
                         <td>${clientes.cpf}</td>
                         <td>${clientes.email}</td>
                         <td>${clientes.telefone}</td>
                         <td>${clientes.sexo}</td>
-                        <td><a class="btn btn-primary" href="">Alterar</a></td>
-                        <td><a href="/update?cpf=<c:out value='${clientes.cpf}' />">Remover</a></td>
+                        <td><a href="./AlterarCliente?cpf=${clientes.cpf}" >Alterar</a></td>
+                        <td><a href="./DeletarCliente?cpf=${clientes.cpf}" >Remover </a></td>
                     </tr>
                 </c:forEach>
             </table>

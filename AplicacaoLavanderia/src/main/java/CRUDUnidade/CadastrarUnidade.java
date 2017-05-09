@@ -31,22 +31,34 @@ public class CadastrarUnidade extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-        String nome = request.getParameter("nome");
-        String cnpj = request.getParameter("cnpj");
+        ValidacaoUnidade vu = new ValidacaoUnidade();
+        boolean erro = false;
+        boolean nome = vu.verificarNome(request.getParameter("nome"));
+        boolean cnpj = vu.verificarCnpj(request.getParameter("cnpj"));
         
-    
-        Unidade unidade = new Unidade();
-        unidade.setNome(nome);
-        unidade.setCnpj(cnpj);
-        unidade.setEnabled("true");
-
-
-
-        try {
-            unidade.inserirUnidade(unidade);
-            response.sendRedirect("mensagemCadastro.jsp");
-        } catch (Exception ex) {
-            response.sendRedirect("mensagemErro.jsp"); 
+        if (nome != true) {
+            erro = true;
+            request.setAttribute("erroNome", true);
+        }
+        if (cnpj != true) {
+            erro = true;
+            request.setAttribute("erroCnpj", true);
+        }
+        
+        if (!erro) {
+            Unidade unidade = new Unidade();
+            unidade.setNome(request.getParameter("nome"));
+            unidade.setCnpj(request.getParameter("cnpj"));
+            unidade.setEnabled("true");
+            try {
+                unidade.inserirUnidade(unidade);
+                response.sendRedirect("mensagemCadastro.jsp");
+            } catch (Exception ex) {
+                response.sendRedirect("mensagemErro.jsp"); 
+            } 
+        } else {   
+            RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroUnidade.jsp");
+            dispatcher.forward(request, response);
         }
         
     }

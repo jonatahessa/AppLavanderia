@@ -21,3 +21,4 @@ function mascara(t, mask) {
     t.value += texto.substring(0, 1);
   }
 }
+

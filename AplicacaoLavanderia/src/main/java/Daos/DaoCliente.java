@@ -50,7 +50,7 @@ public class DaoCliente {
 
 
     //Deleta um cliente na tabela "cliente" do banco de dados
-    /*  public static void deletar(String cpf)
+      public static void deletar(String cpf)
             throws SQLException, Exception {
         //Monta a string de remoção de um cliente no BD,
         //utilizando os dados do clientes passados como parâmetro
@@ -86,24 +86,7 @@ public class DaoCliente {
                 connection.close();
             }
         }
-    }*/
-    public boolean updateBook(Cliente cpf) throws SQLException {
-        String sql = "UPDATE cliente SET enabled = 'false'";
-        sql += " WHERE cpf = ?";
-
-        Connection connection = null;
-        PreparedStatement statement = null;
-
-        connection = ConnectionUtils.getConnection();
-        statement = connection.prepareStatement(sql);
-        statement.setString(1, cpf.getCpf());
-
-        boolean rowUpdated = statement.executeUpdate() > 0;
-        statement.close();
-
-        return rowUpdated;
-
-    }
+      }
 
     public static void alterar(Cliente cliente, String cpf)
             throws SQLException, Exception {
@@ -111,6 +94,7 @@ public class DaoCliente {
                 + "SET nome = ?, "
                 + "telefone = ?, "
                 + "email = ?, "
+                + "sexo = ?, "
                 + "WHERE cpf = ?;";
 
         Connection connection = null;
@@ -122,7 +106,8 @@ public class DaoCliente {
             statement.setString(1, cliente.getNome());
             statement.setString(2, cliente.getTelefone());
             statement.setString(3, cliente.getEmail());
-            statement.setString(10, cpf);
+            statement.setString(4, cliente.getSexo());
+            statement.setString(5, cpf);
             System.out.println(statement.toString());
 
             System.out.println("Executando COMANDO SQL: " + sql);
@@ -180,15 +165,15 @@ public class DaoCliente {
         return listaClientes;
     }
 
-    public static Cliente obter(String cpf)
+    public static Cliente obter(Object cpf)
             throws SQLException, Exception {
-        String sql = "SELECT * FROM cliente WHERE cpf = ? AND "
+        String sql = "SELECT * FROM Cliente WHERE cpf = ? AND "
                 + "enabled = 'true';";
         PreparedStatement statement = null;
         Connection connection = null;
 
         statement = connection.prepareStatement(sql);
-        statement.setString(1, cpf);
+        statement.setObject(1, cpf);
         List<Cliente> listaClientes = (List<Cliente>) executarConsulta(sql);
 
         if (listaClientes != null && listaClientes.size() > 0) {

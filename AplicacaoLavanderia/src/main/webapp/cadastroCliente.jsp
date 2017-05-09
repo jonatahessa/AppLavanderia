@@ -26,7 +26,7 @@
             <form class="form-horizontal" action= "./CadastrarCliente" method="post">
 
                 <c:choose>
-                    <c:when test="${erroNome}">  
+                    <c:when test="${erroNome}"> 
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
                             <input id="camponome" type="text" name="nome" class="form-control erro" placeholder="Nome">
