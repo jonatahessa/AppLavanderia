@@ -87,7 +87,7 @@ public class DaoCliente {
             }
         }
     }*/
-    public boolean updateBook(Cliente cliente) throws SQLException {
+    public boolean updateBook(Cliente cpf) throws SQLException {
         String sql = "UPDATE cliente SET enabled = 'false'";
         sql += " WHERE cpf = ?";
 
@@ -96,7 +96,7 @@ public class DaoCliente {
 
         connection = ConnectionUtils.getConnection();
         statement = connection.prepareStatement(sql);
-        statement.setString(1, cliente.getCpf());
+        statement.setString(1, cpf.getCpf());
 
         boolean rowUpdated = statement.executeUpdate() > 0;
         statement.close();
