@@ -21,15 +21,16 @@
         <meta charset="utf-8">
         <!-- Bootstrap -->
         <%@ include file = "bootstrap.html" %>
+        <%@ include file = "header.jsp" %>
         <!-- Interface e Dinâmica -->
-        <link rel="StyleSheet" type="text/css" href="" media="screen" >
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
         <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
         <title>Consulta Cliente</title>
     </head>
+    <%@ include file = "menu.jsp" %>
     <body>
         <div id ="logo"></div>
-        <%@ include file = "menu.jsp" %>
+        
         <div id="table">
             <form action="consultaCliente.jsp" method="POST">
                 <fieldset>
@@ -65,6 +66,8 @@
                     </tr>
                 </c:forEach>
             </table>
+            
         </div>
+                  
     </body>
 </html>

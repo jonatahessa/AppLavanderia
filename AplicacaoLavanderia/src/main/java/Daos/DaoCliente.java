@@ -86,8 +86,7 @@ public class DaoCliente {
                 connection.close();
             }
         }
-    }
-
+      }
 
     public static void alterar(Cliente cliente, String cpf)
             throws SQLException, Exception {
