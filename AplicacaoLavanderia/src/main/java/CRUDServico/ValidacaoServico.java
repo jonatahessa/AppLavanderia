@@ -10,6 +10,8 @@ public class ValidacaoServico {
     }
     
     public boolean verificarPreco (String preco) {
+        preco = preco.replaceAll(",", "\\.");
+        
         if (preco == null || preco.equals("")){
             return false;
         }

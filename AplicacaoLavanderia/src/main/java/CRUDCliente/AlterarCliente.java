@@ -1,11 +1,9 @@
 
 package CRUDCliente;
 
-import Daos.DaoCliente;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +17,30 @@ public class AlterarCliente extends HttpServlet {
   
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-        RequestDispatcher dispatcher = 
-	request.getRequestDispatcher("consultaCliente.jsp");
-        request.setAttribute("cpf", request.getParameter("cpf"));
-        response.sendRedirect("alteraCliente.jsp"); 
+        
+        Cliente cliente = new Cliente();        
+
+            try {
+                cliente = Daos.DaoCliente.obter(request.getParameter("cpf"));
+            } catch (Exception ex) {
+                Logger.getLogger(AlterarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            request.setAttribute("nome", cliente.getNome());
+            request.setAttribute("cpf", cliente.getCpf());
+            request.setAttribute("email", cliente.getEmail());
+            request.setAttribute("telefone", cliente.getTelefone());
+            request.setAttribute("sexo", cliente.getSexo());
+            
+            response.sendRedirect("alteraCliente.jsp");
+      
+            
+        
+        
+        
+        //RequestDispatcher dispatcher = 
+	//request.getRequestDispatcher("alterarCliente.jsp");
+        //dispatcher.forward(request, response);
         
 
     }

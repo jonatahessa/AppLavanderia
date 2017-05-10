@@ -9,10 +9,11 @@
                     <li><a href="consultaFuncionario.jsp">Funcionários</a></li>
                     <li><a href="consultaCliente.jsp">Clientes</a></form></li>
                     <li><a href="consultaServico.jsp">Serviços</a></form></li>
-                    <li><a href="relatorios.jsp">Serviços</a></form></li>
+                    <li><a href="relatorios.jsp">Relatório</a></form></li>
                     <li><a href="vender.jsp">Lavar</a></form></li>
                     <li><a href="cadastroUnidade.jsp">Unidades</a></form></li>
                 </ul>
+
             </nav>
         </div>
     </div>

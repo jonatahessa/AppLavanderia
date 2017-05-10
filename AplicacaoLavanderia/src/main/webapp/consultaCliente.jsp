@@ -27,10 +27,10 @@
         <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
         <title>Consulta Cliente</title>
     </head>
-    <%@ include file = "menu.jsp" %>
+  
     <body>
         <div id ="logo"></div>
-        
+        <%@ include file = "menu.jsp" %>
         <div id="table">
             <form action="consultaCliente.jsp" method="POST">
                 <fieldset>
@@ -57,7 +57,11 @@
                         <td>${clientes.email}</td>
                         <td>${clientes.telefone}</td>
                         <td>${clientes.sexo}</td>
-                        <td><a href="./AlterarCliente?cpf=${clientes.cpf}" >Alterar</a></td>
+                         <td><a href="./AlterarCliente?cpf=${clientes.cpf}" >Alterar</a></td> 
+                                <!--<td><form action="AlterarCliente" method="post" id="frm${clientes.cpf}">
+                                        <input type="hidden" name="cpf" value="${clientes.cpf}">
+                                        <a href="#" onclick="document.getElementById('frm${clientes.cpf}').submit()">Alterar</a>-->
+                            </form></td>
                         <td><a href="./DeletarCliente?cpf=${clientes.cpf}" >Remover </a></td>
                     </tr>
                 </c:forEach>

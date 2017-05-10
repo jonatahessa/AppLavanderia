@@ -17,7 +17,7 @@
         <link rel="StyleSheet" type="text/css" href="./resources/bootstrap/css/bootstrap.css">
         <link rel="StyleSheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css">
 
-        <!-- Interface e Dinâmica -->
+        <!-- Interface e DinÃ¢mica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarServico.css" media="screen" >
         <script type="text/javascript" src="./resources/JavaScript/cadastrarServico.js"></script>
         <title>Cadastro de Serviço</title>

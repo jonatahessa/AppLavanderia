@@ -9,8 +9,6 @@ package CRUDServico;
  *
  * @author livia.cgsantos e eloisa.asilva2
  */
-
-
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,26 +19,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet(name = "CadastrarServico", urlPatterns = {"/CadastrarServico"})
 public class CadastrarServico extends HttpServlet {
 
-  @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-	  throws ServletException, IOException {
-        RequestDispatcher dispatcher = 
-	request.getRequestDispatcher("cadastroServico.jsp");
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("cadastroServico.jsp");
         dispatcher.forward(request, response);
     }
-    
-  @Override
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	  throws ServletException, IOException {
-        
+            throws ServletException, IOException {
+
         boolean erro = false;
         ValidacaoServico vs = new ValidacaoServico();
+        
         boolean nome = vs.verificarNome(request.getParameter("nome"));
-        boolean preco = vs.verificarPreco(request.getParameter("preco"));
+        
+        String precoCorrigido = request.getParameter("preco");
+        precoCorrigido = precoCorrigido.replaceAll(",", "\\.");
+        boolean preco = vs.verificarPreco(precoCorrigido);
         
         if (nome != true) {
             erro = true;
@@ -50,16 +51,16 @@ public class CadastrarServico extends HttpServlet {
             erro = true;
             request.setAttribute("erroPreco", true);
         }
-        
+
         if (!erro) {
             Servico servico = new Servico();
             servico.setNomeServico(request.getParameter("nome"));
-            servico.setPrecoPorPeca(Double.parseDouble(request.getParameter("preco")));
+            servico.setPrecoPorPeca(Double.parseDouble(precoCorrigido));
             try {
                 servico.inserirServico(servico);
                 response.sendRedirect("mensagemCadastro.jsp");
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                response.sendRedirect("mensagemErro.jsp");
                 Logger.getLogger(CadastrarServico.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
@@ -67,6 +68,5 @@ public class CadastrarServico extends HttpServlet {
             dispatcher.forward(request, response);
         }
     }
-
 
 }
