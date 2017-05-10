@@ -1,22 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="StyleSheet" type="text/css" href="./resources/CSS/menu.css" media="screen" >
 <div id="menu">
-    <div class="row">
-        <div class="col-sm-2">
-            <nav class="nav-sidebar">
-                <ul class="nav">
-                    <li class="active"><a href="javascript:;">Home</a></li>
-                    <li><a href="consultaFuncionario.jsp">Funcionários</a></li>
-                    <li><a href="consultaCliente.jsp">Clientes</a></form></li>
-                    <li><a href="consultaServico.jsp">Serviços</a></form></li>
-                    <li><a href="relatorios.jsp">Relatório</a></form></li>
-                    <li><a href="vender.jsp">Lavar</a></form></li>
-                    <li><a href="cadastroUnidade.jsp">Unidades</a></form></li>
-                </ul>
-
-            </nav>
+ <div class="col-md-1">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="index.jsp"><i class="fa fa-home fa-fw"></i> Início</a></li>
+                <li><a href="vender.jsp"><i class="fa fa-shower"></i> Lavar</a></li>
+                <li><a href="consultaServico.jsp"><i class="fa fa-cubes fa-fw"></i> Serviços</a></li>
+                <li><a href="consultaCliente.jsp"><i class="fa fa-users fa-fw"></i> Clientes</a></li>
+                <li><a href="consultaFuncionario.jsp"><i class="fa fa-id-card fa-fw"></i> Funcionário</a></li>
+                <li><a href="relatorios.jsp"><i class="fa fa-pie-chart fa-fw"></i> Relatório</a></li>
+                <li><a href="cadastroUnidade.jsp"><i class="fa fa-building fa-fw"></i> Unidades</a></li>
+            </ul>
         </div>
-    </div>
 </div>
 
 
