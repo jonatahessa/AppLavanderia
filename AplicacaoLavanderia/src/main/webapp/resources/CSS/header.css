@@ -1,10 +1,5 @@
 #header {
-  min-height: 50px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  background-image:url('https://uploaddeimagens.com.br/images/000/912/381/original/cabecalho.png?1494287860'); 
-  border-bottom: 1px solid #ccc;
-  z-index: 2;
+    top: 0px;
+    right: 0px;
+    left: 0px;
 }

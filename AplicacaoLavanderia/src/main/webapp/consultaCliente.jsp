@@ -27,10 +27,10 @@
         <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
         <title>Consulta Cliente</title>
     </head>
-    <%@ include file = "menu.jsp" %>
+  
     <body>
         <div id ="logo"></div>
-        
+        <%@ include file = "menu.jsp" %>
         <div id="table">
             <form action="consultaCliente.jsp" method="POST">
                 <fieldset>
