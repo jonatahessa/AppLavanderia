@@ -26,15 +26,17 @@
                         <option name="${servico.nomeServico}">${servico.nomeServico}</option>
                         </c:forEach>
                     </select>
+                    
                     <%-- <c:forEach var="servico" items="${dao.retornarPreco()}"> 
                         <h2> ${servico.precoPorPeca}</h2>
                     </c:forEach> --%>
+                      <label for="nome">Quantidade</label>
+                     <input type="number" id="quantidade" class="campos" maxlength="255" type="text" name="quantidade"/>
+                     <input id="valor" class="campos" maxlength="255" type="text" name="valor" placeholder="valor" />
                 </div>
                 
                 <div>
-                    
-                </div>
-
+                
                 <div id="buttons">
                     <button id="salvar" type="submit">Salvar</button>
                     <button id="cancelar" type="button">Cancelar</button>
