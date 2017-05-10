@@ -1,6 +1,6 @@
 package CRUDFuncionario;
 
-public class ValidacaoFuncionario {
+public class ServicoFuncionario {
     
     public boolean verificarNome(String nome) {
         if (nome == null || nome.equals("")){
@@ -49,6 +49,22 @@ public class ValidacaoFuncionario {
             return false;
         }
         return true;
+    }
+    
+     public void inserirCliente(Funcionario funcionario) throws Exception {
+        Daos.DaoFuncionario.inserir(funcionario);
+    }
+    
+    public void deletarCliente(String cpf) throws Exception {
+        Daos.DaoFuncionario.deletar(cpf);
+    }
+    
+    public void alterarCliente(Funcionario funcionario, String id) throws Exception {
+        Daos.DaoFuncionario.alterar(funcionario, id);
+    }
+    
+    public Funcionario obterCliente(String cpf) throws Exception {
+        return Daos.DaoFuncionario.obter(cpf);
     }
     
 }

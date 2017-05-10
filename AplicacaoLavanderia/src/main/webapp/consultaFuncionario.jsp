@@ -53,8 +53,11 @@
                     <td>${funcionarios.sexo}</td>
                     <td>${funcionarios.cargo}</td>
                     <td>${funcionarios.idUnidade}</td>
-                    <td><a class="btn btn-primary" href="">Alterar</a></td>
-                    <td><a class="btn btn-danger" href="">Remover</a></td>
+                    <td><a href="./AlterarFuncionario?cpf=${funcionario.cpf}" >Alterar</a></td>
+                    <td><form action="DeletarFuncionario" method="post" id="frm${funcionario.cpf}">
+                        <input type="hidden" name="cpf" value="${clientes.cpf}">
+                        <a href="#" onclick="document.getElementById('frm${funcionario.cpf}').submit()">Remover</a>
+                    </form></td>
                 </tr>
                 </c:forEach>
             </table>

@@ -14,9 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "DeletarCliente", urlPatterns = {"/DeletarCliente"})
 public class DeletarCliente extends HttpServlet {
-
-    private DaoCliente Dao;
-
     
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

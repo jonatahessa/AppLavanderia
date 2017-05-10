@@ -58,7 +58,6 @@
                         <td>${clientes.telefone}</td>
                         <td>${clientes.sexo}</td>
                         <td><a href="./AlterarCliente?cpf=${clientes.cpf}" >Alterar</a></td>
-                        <%--<td><a href="./DeletarCliente?cpf=${clientes.cpf}" >Remover </a></td>--%>
                         <td><form action="DeletarCliente" method="post" id="frm${clientes.cpf}">
                             <input type="hidden" name="cpf" value="${clientes.cpf}">
                             <a href="#" onclick="document.getElementById('frm${clientes.cpf}').submit()">Remover</a>
