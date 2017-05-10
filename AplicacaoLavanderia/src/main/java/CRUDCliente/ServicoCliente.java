@@ -1,6 +1,6 @@
 package CRUDCliente;
 
-public class ValidacaoCliente {
+public class ServicoCliente {
     
     public boolean verificarCpf(String cpf) {
         int contador = 0;
@@ -18,6 +18,13 @@ public class ValidacaoCliente {
     
     public boolean verificarNome(String nome) {
         if (nome == null || nome.equals("")){
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean verificarSexo(String sexo) {
+        if (sexo == null || sexo.equals("")){
             return false;
         }
         return true;
@@ -52,5 +59,17 @@ public class ValidacaoCliente {
             return false;
         }
         return true;
+    }
+    
+    public void inserirCliente(Cliente cliente) throws Exception {
+        Daos.DaoCliente.inserir(cliente);
+    }
+    
+    public void deletarCliente(String cpf) throws Exception {
+        Daos.DaoCliente.deletar(cpf);
+    }
+    
+    public void alterarCliente(Cliente cliente, String cpf) throws Exception {
+        Daos.DaoCliente.alterar(cliente, cpf);
     }
 }

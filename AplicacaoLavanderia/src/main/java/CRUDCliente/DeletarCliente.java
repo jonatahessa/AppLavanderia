@@ -21,6 +21,7 @@ public class DeletarCliente extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
+        
         RequestDispatcher dispatcher = 
 	request.getRequestDispatcher("consultaCliente.jsp");
         try {

@@ -55,6 +55,9 @@ h1 {
 
 }
 
+#id{
+   display: none; 
+}
 
 #camposexo {
   background-color: #f4f4f4;

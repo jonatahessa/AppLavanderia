@@ -25,33 +25,50 @@ public class CadastrarCliente extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-        ValidacaoCliente vc = new ValidacaoCliente();
+        ServicoCliente vc = new ServicoCliente();
         boolean erro = false;
         boolean nome = vc.verificarNome(request.getParameter("nome"));
         boolean email = vc.verificarEmail(request.getParameter("email"));
         boolean telefone = vc.verificarTelefone(request.getParameter("telefone"));
         boolean cpf = vc.verificarCpf(request.getParameter("cpf"));
+        boolean sexo = vc.verificarSexo(request.getParameter("sexo"));
     
      
         if (nome != true) {
             erro = true;
             request.setAttribute("erroNome", true);
+        } else {
+            request.setAttribute("nome", request.getParameter("nome"));
         }
+        
         if (email != true) {
             erro = true;
             request.setAttribute("erroEmail", true);
+        } else {
+            request.setAttribute("email", request.getParameter("email"));
         }
+        
         if (telefone != true) {
             erro = true;
             request.setAttribute("erroTelefone", true);
+        } else {
+            request.setAttribute("telefone", request.getParameter("telefone"));
         }
+        
         if (cpf != true) {
             erro = true;
             request.setAttribute("erroCpf", true);
+        } else {
+            request.setAttribute("cpf", request.getParameter("cpf"));
         }
         
+            request.setAttribute("sex", request.getParameter("sexo"));
+
+        
+            
+        
         if (!erro) {
-      
+            ServicoCliente sc = new ServicoCliente();
             Cliente cliente = new Cliente();
             cliente.setCpf(request.getParameter("cpf"));
             cliente.setEmail(request.getParameter("email"));
@@ -60,7 +77,7 @@ public class CadastrarCliente extends HttpServlet {
             cliente.setSexo(request.getParameter("sexo"));
             
             try {
-                cliente.inserirCliente(cliente);
+                sc.inserirCliente(cliente);
                 response.sendRedirect("mensagemCadastro.jsp");
             } catch (Exception ex) {
                 response.sendRedirect("mensagemErro.jsp"); 
