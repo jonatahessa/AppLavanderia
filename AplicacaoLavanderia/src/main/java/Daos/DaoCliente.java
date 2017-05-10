@@ -167,22 +167,30 @@ public class DaoCliente {
 
     public static Cliente obter(String cpf)
             throws SQLException, Exception {
-        String sql = "SELECT * FROM Cliente WHERE CPF = ? AND enabled = 'true'";
-
+        String sql = "SELECT * FROM Cliente WHERE CPF = ?;";
 
         PreparedStatement statement = null;
         Connection connection = null;
-
+        Cliente cliente = new Cliente();
         connection = ConnectionUtils.getConnection();
         statement = connection.prepareStatement(sql);
-        statement.setString(1, "'" + cpf + "'" );
-        List<Cliente> listaClientes = (List<Cliente>) executarConsulta(sql);
-
-        if (listaClientes != null && listaClientes.size() > 0) {
-            return listaClientes.get(0);
-        }
-
-        return null;
+        statement.setString(1, cpf);
+        System.out.println(statement.toString());
+         ResultSet result = null;
+         result = statement.executeQuery();
+         
+            while (result.next()) {
+  
+                cliente.setCpf(result.getString("cpf"));
+                cliente.setNome(result.getString("nome"));
+                cliente.setTelefone(result.getString("telefone"));
+                cliente.setEmail(result.getString("email"));
+                cliente.setSexo(result.getString("sexo"));
+                cliente.setEnabled(result.getString("enabled"));
+                cliente.setId(result.getInt("ID"));
+            }
+ 
+        return cliente;
     }
 
     public static List<Cliente> executarConsulta(String sql) throws

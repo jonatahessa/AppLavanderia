@@ -1,4 +1,4 @@
-package br.com.Daos;
+/*package br.com.Daos;
 
 import br.com.Classes.Venda;
 import br.com.ConexaoBanco.ConnectionUtils;
@@ -126,4 +126,4 @@ public class DaoVenda {
             }
             return 1;
     }
-}
+}*/

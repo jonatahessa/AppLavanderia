@@ -17,26 +17,26 @@
         <div id="principal">
             <h1 class="form-signin-heading">Alteração de Cliente</h1>  
 
-            <form class="form-horizontal" action= "./CadastrarCliente" method="post">
+            <form class="form-horizontal" action= "./AlterarCliente" method="post">
                 
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                        <input id="camponome" type="text" name="nome" class="form-control" placeholder="${nome}">
+                        <input id="camponome" type="text" name="nome" class="form-control" value="${nome}" placeholder="nome">
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-addon"><span class=" glyphicon glyphicon-user"></span></span>
-                        <input id="campocpf" maxlength="14" type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" class="form-control" placeholder="${cpf}">
+                        <input id="campocpf" maxlength="14" type="text" name="cpf" value="${cpf}" onkeypress="mascara(this, '###.###.###-##')" class="form-control" placeholder="cpf">
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-addon"><span class=" glyphicon glyphicon-envelope"></span></span>
-                        <input id="campoemail" type="text" name="email" class="form-control" placeholder="${email}">
+                        <input id="campoemail" type="text" name="email" class="form-control" value="${email}" placeholder="email">
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-addon"><span class=" glyphicon glyphicon-earphone"></span></span>
-                         <input id="campotelefone" maxlength="13" type="text" name="telefone" class="form-control" onkeypress="mascara(this, '## ####-####');" placeholder="${stelefone}">
+                         <input id="campotelefone" maxlength="13" type="text" name="telefone" class="form-control" value="${telefone}" onkeypress="mascara(this, '## ####-####');" placeholder="telefone">
                     </div>
     
                     <div class="input-group">

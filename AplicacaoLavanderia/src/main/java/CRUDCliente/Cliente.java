@@ -11,6 +11,7 @@ package CRUDCliente;
  */
 public class Cliente {
 
+    private int id;
     private String nome;
     protected String cpf;
     private String telefone;
@@ -19,6 +20,14 @@ public class Cliente {
     private String sexo;
 
     public Cliente() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Cliente(String cpf) {
@@ -80,8 +89,8 @@ public class Cliente {
     public void pesquisarCliente(Cliente cliente) throws Exception {
         Daos.DaoCliente.obter(cpf);
     }
-    /*
+    
     public void deletarCliente(Cliente cliente) throws Exception {
         Daos.DaoCliente.deletar(cpf);
-    }*/
+    }
 }
