@@ -1,6 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="dao" class="Daos.DaoCliente"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,27 +18,25 @@
             <h1 class="form-signin-heading">Alteração de Cliente</h1>  
 
             <form class="form-horizontal" action= "./CadastrarCliente" method="post">
-
-                <c:forEach var="cliente" items="${dao.obter('${cpf}')}">  
                 
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                        <input id="camponome" type="text" name="nome" class="form-control erro" placeholder="${cliente.nome}">
+                        <input id="camponome" type="text" name="nome" class="form-control" placeholder="${nome}">
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-addon"><span class=" glyphicon glyphicon-user"></span></span>
-                        <input id="campocpf" maxlength="14" type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" class="form-control erro" placeholder="${cliente.cpf}">
+                        <input id="campocpf" maxlength="14" type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" class="form-control" placeholder="${cpf}">
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-addon"><span class=" glyphicon glyphicon-envelope"></span></span>
-                        <input id="campoemail" type="text" name="email" class="form-control erro" placeholder="${cliente.email}">
+                        <input id="campoemail" type="text" name="email" class="form-control" placeholder="${email}">
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-addon"><span class=" glyphicon glyphicon-earphone"></span></span>
-                         <input id="campotelefone" maxlength="13" type="text" name="telefone" class="form-control erro" onkeypress="mascara(this, '## ####-####');" placeholder="${cliente.telefone}">
+                         <input id="campotelefone" maxlength="13" type="text" name="telefone" class="form-control" onkeypress="mascara(this, '## ####-####');" placeholder="${stelefone}">
                     </div>
     
                     <div class="input-group">
@@ -49,7 +46,6 @@
                             <option name="Masculino">Masculino</option>
                         </select>
                     </div>
-                </c:forEach>
                         
                             
                 <div id="buttons">
