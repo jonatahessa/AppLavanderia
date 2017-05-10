@@ -18,7 +18,7 @@
             <h1 class="form-signin-heading">Alteração de Cliente</h1>  
 
             <form class="form-horizontal" action= "./AlterarCliente" method="post">
-                <input type="text" value="${id}" name="id" id="id">
+                <input type="text" value="${id}" name="idCliente" id="id">
                 <c:choose>
                     <c:when test="${erroNome}"> 
                         <div class="input-group">

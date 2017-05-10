@@ -20,9 +20,9 @@ public class AlterarCliente extends HttpServlet {
 	  throws ServletException, IOException {
 
         Cliente cliente = new Cliente();        
-
+        ServicoCliente sc = new ServicoCliente();
         try {
-            cliente = Daos.DaoCliente.obter(request.getParameter("cpf"));
+            cliente = sc.obterCliente(request.getParameter("cpf"));
         } catch (Exception ex) {
             Logger.getLogger(AlterarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }        
@@ -87,7 +87,7 @@ public class AlterarCliente extends HttpServlet {
             cliente.setSexo(request.getParameter("sexo"));
             
             try {
-                sc.alterarCliente(cliente, request.getParameter("sexo"));
+                sc.alterarCliente(cliente, request.getParameter("idCliente"));
                 response.sendRedirect("mensagemAlteracao.jsp");
             } catch (Exception ex) {
                 response.sendRedirect("mensagemErro.jsp"); 

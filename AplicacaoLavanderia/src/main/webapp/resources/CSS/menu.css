@@ -7,6 +7,10 @@
     position: fixed;
 }
 
+body {
+    background-color: hsl(213, 76%, 95%);
+}
+
 .nav-sidebar { 
     width: 50%;
     padding: 8px 0; 

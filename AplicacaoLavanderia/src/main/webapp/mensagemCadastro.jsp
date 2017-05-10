@@ -10,7 +10,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/mensagens.css" media="screen" >
-        <title>Cadastro Cliente</title>
+        <title>Mensagem</title>
     </head>
     <body>
         <div id ="logo"></div>

@@ -69,7 +69,11 @@ public class ServicoCliente {
         Daos.DaoCliente.deletar(cpf);
     }
     
-    public void alterarCliente(Cliente cliente, String cpf) throws Exception {
-        Daos.DaoCliente.alterar(cliente, cpf);
+    public void alterarCliente(Cliente cliente, String id) throws Exception {
+        Daos.DaoCliente.alterar(cliente, id);
+    }
+    
+    public Cliente obterCliente(String cpf) throws Exception {
+        return Daos.DaoCliente.obter(cpf);
     }
 }
