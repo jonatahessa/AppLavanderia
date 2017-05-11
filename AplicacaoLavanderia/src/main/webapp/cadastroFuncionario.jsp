@@ -27,15 +27,38 @@
                 <h1>Cadastro de Funcionario</h1>
                 <div id="pessoais">
                     
-                    <div class="input-group">
+                    <c:choose>
+                    <c:when test="${erroNome}"> 
+                        <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control erro" placeholder="Nome">
-                    </div>
+                        </div>
+                    </c:when>    
+                    <c:otherwise>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <input id="camponome" type="text" value="${nome}" name="nome" class="form-control erro" placeholder="Nome">
+                        </div>
+                    </c:otherwise>
+                </c:choose>
                     
-                    <select id="camposexo" class="campos" name="sexo">
-                        <option name="Feminino">Feminino</option>
-                        <option name="Masculino">Masculino</option>
-                    </select>
+                    
+                <div class="input-group">
+                    <span class="input-group-addon"><span class=" glyphicon glyphicon-star"></span></span>
+                    <select id="camposexo" class="selectpicker form-control" data-live-search="true" name="sexo" title="Sexo">
+                        <c:choose>
+                            <c:when test="${sex eq 'Feminino'}">            
+                                <option name="Feminino">Feminino</option>
+                                <option name="Masculino">Masculino</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option name="Masculino">Masculino</option>
+                                <option name="Feminino">Feminino</option>
+                            </c:otherwise>
+                        </c:choose>
+                    </select>            
+                </div>       
+                
                 </div>
 
                 <div id="profissional">

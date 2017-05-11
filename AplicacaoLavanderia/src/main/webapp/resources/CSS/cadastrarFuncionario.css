@@ -27,12 +27,10 @@ h1 {
   margin-top: 1%;
 }
 
-
 .campos {
   margin-top: 2%;
   margin-bottom: 2%;
 }
-
 
 #principal {
   left: 0;
@@ -60,14 +58,6 @@ h1 {
   
 }
 
-select {
-  background-color: #f4f4f4;
-  border-color: white;
-  border-width: thin;
-  font-size: 16px;
-  margin-left: 2%;
-  text-indent: 10px;
-}
 
 
 
