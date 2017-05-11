@@ -9,6 +9,27 @@ public class ServicoFuncionario {
         return true;
     }
     
+    public boolean verificarCargo(String cargo) {
+        if (cargo == null || cargo.equals("")){
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean verificarUnidade(String unidade) {
+        if (unidade == null || unidade.equals("")){
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean verificarSexo(String sexo) {
+        if (sexo == null || sexo.equals("")){
+            return false;
+        }
+        return true;
+    }
+    
     public boolean verificarAdmissao(String data) {
         int contador = 0;
         if (data == null || data.equals("")){

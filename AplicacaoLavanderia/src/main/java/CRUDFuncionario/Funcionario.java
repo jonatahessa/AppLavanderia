@@ -85,13 +85,7 @@ public class Funcionario {
         this.idUnidade = unidade;
     }
     
-    
-       
-    public void inserirFuncionario (Funcionario funcionario) throws Exception {
-        Daos.DaoFuncionario.inserir(funcionario);
-    }
-
-    void pesquisarFuncionario(Funcionario funcionario) {
+   void pesquisarFuncionario(Funcionario funcionario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

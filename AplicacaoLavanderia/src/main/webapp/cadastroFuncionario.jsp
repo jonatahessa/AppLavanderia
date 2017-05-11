@@ -25,9 +25,8 @@
         <section id="principal">
             <form method="post" action= "./CadastrarFuncionario" method="post">
                 <h1>Cadastro de Funcionario</h1>
-                <div id="pessoais">
                     
-                    <c:choose>
+                <c:choose>
                     <c:when test="${erroNome}"> 
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
@@ -37,7 +36,7 @@
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="camponome" type="text" value="${nome}" name="nome" class="form-control erro" placeholder="Nome">
+                            <input id="camponome" type="text" value="${nome}" name="nome" class="form-control" placeholder="Nome">
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -59,31 +58,120 @@
                     </select>            
                 </div>       
                 
-                </div>
-
-                <div id="profissional">
-                    <input type="text" id="campoadmissao" class="campos"  name="admissao" placeholder="Admissão"/>
-                    <select id="campocargo" name="cargo">
-                        <option name="Gerente T.I">Gerente T.I</option>
-                        <option name="Funcionario T.I">Funcionário T.I</option>
-                        <option name="Gerente Vendas">Gerente Vendas</option>
-                        <option name="Funcionario Vendas">Funcionário Vendas</option>
-                        <option name="Gerente Retaguarda">Gerente Retaguarda</option>
-                        <option name="Funcionario Retaguarda">Funcionário Retaguarda</option>
-                    </select>   
-                    <select id="campoempresa" class="campos" name="unidade">
+                
+                <c:choose>
+                    <c:when test="${erroAdmissao}"> 
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <input id="camponome" type="text" value="${admissao}" name="nome" class="form-control erro" placeholder="Admissao">
+                        </div>
+                    </c:when>    
+                    <c:otherwise>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <input id="camponome" type="text" value="${admissao}" name="nome" class="form-control" placeholder="Admissao">
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+                
+                <div class="input-group">
+                    <span class="input-group-addon"><span class=" glyphicon glyphicon-star"></span></span>
+                    <select id="campocargo" class="selectpicker form-control" data-live-search="true" name="cargo" title="Sexo">
+                        <c:choose>
+                            <c:when test="${cargo eq 'Gerente T.I'}">         
+                                <option name="Gerente T.I">Gerente T.I</option> 
+                                <option name="Funcionario T.I">Funcionário T.I</option>  
+                                <option name="Gerente Vendas">Gerente Vendas</option>
+                                <option name="Funcionario Vendas">Funcionário Vendas</option>
+                                <option name="Gerente Retaguarda">Gerente Retaguarda</option>
+                                <option name="Funcionario Retaguarda">Funcionario Retaguarda</option> 
+                            </c:when>
+                            <c:when test="${cargo eq 'Funcionário T.I'}">   
+                                <option name="Funcionario T.I">Funcionário T.I</option>  
+                                <option name="Gerente T.I">Gerente T.I</option> 
+                                <option name="Gerente Vendas">Gerente Vendas</option>
+                                <option name="Funcionario Vendas">Funcionário Vendas</option>
+                                <option name="Gerente Retaguarda">Gerente Retaguarda</option>
+                                <option name="Funcionario Retaguarda">Funcionario Retaguarda</option>  
+                            </c:when>
+                            <c:when test="${cargo eq 'Gerente Vendas'}">   
+                                <option name="Gerente Vendas">Gerente Vendas</option>
+                                <option name="Gerente T.I">Gerente T.I</option> 
+                                <option name="Funcionario T.I">Funcionário T.I</option>  
+                                <option name="Funcionario Vendas">Funcionário Vendas</option>
+                                <option name="Gerente Retaguarda">Gerente Retaguarda</option>
+                                <option name="Funcionario Retaguarda">Funcionario Retaguarda</option>  
+                            </c:when>
+                            <c:when test="${cargo eq 'Funcionário Vendas'}"> 
+                                <option name="Funcionario Vendas">Funcionário Vendas</option>
+                                <option name="Gerente T.I">Gerente T.I</option> 
+                                <option name="Funcionario T.I">Funcionário T.I</option>  
+                                <option name="Gerente Vendas">Gerente Vendas</option>
+                                <option name="Gerente Retaguarda">Gerente Retaguarda</option>
+                                <option name="Funcionario Retaguarda">Funcionario Retaguarda</option> 
+                            </c:when>
+                            <c:when test="${cargo eq 'Gerente Retaguarda'}"> 
+                                <option name="Gerente Retaguarda">Gerente Retaguarda</option>
+                                <option name="Gerente T.I">Gerente T.I</option> 
+                                <option name="Funcionario T.I">Funcionário T.I</option>  
+                                <option name="Gerente Vendas">Gerente Vendas</option>
+                                <option name="Funcionario Vendas">Funcionário Vendas</option>
+                                <option name="Funcionario Retaguarda">Funcionario Retaguarda</option> 
+                            </c:when>
+                            <c:otherwise>
+                                <option name="Funcionario Retaguarda">Funcionario Retaguarda</option> 
+                                <option name="Gerente T.I">Gerente T.I</option> 
+                                <option name="Funcionario T.I">Funcionário T.I</option>  
+                                <option name="Gerente Vendas">Gerente Vendas</option>
+                                <option name="Funcionario Vendas">Funcionário Vendas</option>
+                                <option name="Gerente Retaguarda">Gerente Retaguarda</option>
+                            </c:otherwise>
+                        </c:choose>
+                    </select>            
+                </div>       
+   
+                <div class="input-group">
+                    <span class="input-group-addon"><span class=" glyphicon glyphicon-star"></span></span>
+                    <select id="campoempresa" class="selectpicker form-control" data-live-search="true" name="unidade" title="Unidadw">
+ 
                         <c:forEach var="unidade" items="${dao.listar()}"> 
                             <option nome="${unidade.nome}">${unidade.nome}</option>
                         </c:forEach>
                     </select>
-                    <input type="text" name="login" id="Login" placeholder="Login">
-                    <input type="password" name="senha" id="usuario" placeholder="Senha">
                 </div>
+ 
+                <c:choose>
+                    <c:when test="${erroLogin}"> 
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <input id="campologin" type="text" value="${login}" name="login" class="form-control erro" placeholder="Login">
+                        </div>
+                    </c:when>    
+                    <c:otherwise>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <input id="campologin" type="text" value="${login}" name="login" class="form-control" placeholder="Login">
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${erroSenha}"> 
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <input id="campologin" type="password" value="${senha}" name="senha" class="form-control erro" placeholder="Senha">
+                        </div>
+                    </c:when>    
+                    <c:otherwise>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <input id="campologin" type="password" value="${senha}" name="senha" class="form-control" placeholder="Senha">
+                        </div>
+                    </c:otherwise>
+                </c:choose>
 
                 <div id="buttons">
-                    <button action id="salvar" type="submit">Salvar</button>
-
-                    <button id="cancelar" type="button">Cancelar</button>
+                    <button id="salvar" type="submit" class="btn btn-success">Salvar</button>
+                    <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
                 </div>
 
             </form>
