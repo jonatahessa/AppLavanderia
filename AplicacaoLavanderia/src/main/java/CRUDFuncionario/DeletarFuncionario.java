@@ -6,7 +6,6 @@
 package CRUDFuncionario;
 
 import java.io.IOException;
-import java.util.logging.Level;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,28 +16,32 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author thales.dsouza
  */
-public class DeletarFuncionario {
-   @WebServlet(name = "DeletarCliente", urlPatterns = {"/DeletarCliente"})
-public class DeletarCliente extends HttpServlet {
+@WebServlet(name = "DeletarFuncionario", urlPatterns = {"/DeletarFuncionario"})
+public class DeletarFuncionario extends HttpServlet {
 
-
+    
+   @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
+        
     }
 
+    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
-        ServicoFuncionario sf = new ServicoFuncionario();
+        
         try {
-                sf.deletarFuncionario(request.getParameter("cpf"));
-                response.sendRedirect("mensagemExclusao.jsp");
-            } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
-            }
+            ServicoFuncionario sf = new ServicoFuncionario();
+            sf.deletarFuncionario(request.getParameter("id"));
+            response.sendRedirect("mensagemExclusao.jsp");
+        } catch (Exception ex) {
+            response.sendRedirect("mensagemErro.jsp"); 
+        }
+        
     }
+}
 
     
-}
- 
-}
+
+

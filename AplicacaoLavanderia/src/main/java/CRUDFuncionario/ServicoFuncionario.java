@@ -51,19 +51,19 @@ public class ServicoFuncionario {
         return true;
     }
     
-     public void inserirCliente(Funcionario funcionario) throws Exception {
+     public void inserirFuncionario(Funcionario funcionario) throws Exception {
         Daos.DaoFuncionario.inserir(funcionario);
     }
     
-    public void deletarCliente(String cpf) throws Exception {
+    public void deletarFuncionario(String cpf) throws Exception {
         Daos.DaoFuncionario.deletar(cpf);
     }
     
-    public void alterarCliente(Funcionario funcionario, String id) throws Exception {
-        Daos.DaoFuncionario.alterar(funcionario, id);
-    }
+   // public void alterarFuncionario(Funcionario funcionario, String id) throws Exception {
+     //   Daos.DaoFuncionario.alterar(funcionario, id);
+    //}
     
-    public Funcionario obterCliente(String cpf) throws Exception {
+    public Funcionario obterFuncionario(String cpf) throws Exception {
         return Daos.DaoFuncionario.obter(cpf);
     }
     

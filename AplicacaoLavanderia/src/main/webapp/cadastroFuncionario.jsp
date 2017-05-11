@@ -26,7 +26,12 @@
             <form method="post" action= "./CadastrarFuncionario" method="post">
                 <h1>Cadastro de Funcionario</h1>
                 <div id="pessoais">
-                    <input id="camponome" class="campos" maxlength="255" type="text" name="nome" placeholder="Nome" />
+                    
+                    <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <input id="camponome" type="text" value="${nome}" name="nome" class="form-control erro" placeholder="Nome">
+                    </div>
+                    
                     <select id="camposexo" class="campos" name="sexo">
                         <option name="Feminino">Feminino</option>
                         <option name="Masculino">Masculino</option>

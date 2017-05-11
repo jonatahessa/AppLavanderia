@@ -34,8 +34,3 @@ h1 {
     color: grey;
     margin-top: 1%;
 }
-
-#tr:hover {
-  color: red; 
-  transition: 1s;  
-}

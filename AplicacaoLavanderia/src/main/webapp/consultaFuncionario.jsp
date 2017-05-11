@@ -4,9 +4,6 @@
     Author     : livia.cgsantos
 --%>
 
-<%@page import="CRUDFuncionario.Funcionario"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
 <jsp:useBean id="dao" class="Daos.DaoFuncionario"/>
 <jsp:useBean id="dao1" class="Daos.DaoUnidade"/>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -39,7 +36,7 @@
         
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
-                    <th>Nome</th>
+                     <th>Nome</th>
                     <th>Sexo</th>
                     <th>Cargo</th>
                     <th>Unidade</th>
@@ -53,11 +50,12 @@
                     <td>${funcionarios.sexo}</td>
                     <td>${funcionarios.cargo}</td>
                     <td>${funcionarios.idUnidade}</td>
-                    <td><a href="./AlterarFuncionario?cpf=${funcionario.cpf}" >Alterar</a></td>
-                    <td><form action="DeletarFuncionario" method="post" id="frm${funcionario.cpf}">
-                        <input type="hidden" name="cpf" value="${clientes.cpf}">
-                        <a href="#" onclick="document.getElementById('frm${funcionario.cpf}').submit()">Remover</a>
+                    <td><a href="./AlterarFuncionario?cpf=${funcionarios.id}" >Alterar</a></td>
+                    <td><form action="DeletarFuncionario" method="post" id="frm${funcionarios.id}">
+                        <input type="hidden" name="id" value="${funcionarios.id}">
+                        <a href="#" onclick="document.getElementById('frm${funcionarios.id}').submit()">Remover</a>
                     </form></td>
+                    
                 </tr>
                 </c:forEach>
             </table>

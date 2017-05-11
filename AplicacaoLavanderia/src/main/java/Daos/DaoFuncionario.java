@@ -47,31 +47,44 @@ public class DaoFuncionario {
         }
     }
 
-    public static void deletar(int id)
+    //Deleta um cliente na tabela "funcionario" do banco de dados
+      public static void deletar(String id)
             throws SQLException, Exception {
-        String sql = "UPDATE Funcionario SET enabled = ?"
-                + " WHERE id = ?;";
+        //Monta a string de remoção de um cliente no BD,
+        //utilizando os dados do funcionario passados como parâmetro
+        String sql = "UPDATE Funcionario SET Enabled = ?"
+                + "WHERE ID = ?; ";
 
+        //Conexão para abertura e fechamento
         Connection connection = null;
+        //Statement para obtenção através da conexão, execução de
+        //comandos SQL e fechamentos
         PreparedStatement statement = null;
         try {
+            //Abre uma conexão com o banco de dados
             connection = ConnectionUtils.getConnection();
+            //Cria um statement para execução de instruções SQL
             statement = connection.prepareStatement(sql);
-
+            int idtrue = Integer.parseInt(id);
             statement.setString(1, "false");
-            statement.setInt(2, id);
+            statement.setInt(2, idtrue);
+            
 
+            //Exibe no console o que será executado no banco de dados
             System.out.println("Executando COMANDO SQL: " + sql);
+            //Executa o comando no banco de dados
             statement.execute();
         } finally {
+            //Se o statement ainda estiver aberto, realiza seu fechamento
             if (statement != null && !statement.isClosed()) {
                 statement.close();
             }
+            //Se a conexão ainda estiver aberta, realiza seu fechamento
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
         }
-    }
+      }
 
     public static void alterar(Funcionario funcionario, int id)
             throws SQLException, Exception {
