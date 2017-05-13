@@ -10,6 +10,7 @@ public class Funcionario {
     private String cargo;
     private Date admissao;
     private int idUnidade;
+    private String nomeUnidade;
     private String sexo;
     private String enabled;
 
@@ -84,7 +85,15 @@ public class Funcionario {
     public void setIdUnidade(int unidade) {
         this.idUnidade = unidade;
     }
-    
+
+    public String getNomeUnidade() {
+        return nomeUnidade;
+    }
+
+    public void setNomeUnidade(String nomeUnidade) {
+        this.nomeUnidade = nomeUnidade;
+    }
+        
    void pesquisarFuncionario(Funcionario funcionario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
