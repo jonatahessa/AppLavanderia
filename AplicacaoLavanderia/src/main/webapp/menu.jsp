@@ -8,8 +8,9 @@
                 <li><a href="consultaServico.jsp"><i class="fa fa-cubes fa-fw"></i> Serviços</a></li>
                 <li><a href="consultaCliente.jsp"><i class="fa fa-users fa-fw"></i> Clientes</a></li>
                 <li><a href="consultaFuncionario.jsp"><i class="fa fa-id-card fa-fw"></i> Funcionário</a></li>
+                <li><a href="consultaUnidade.jsp"><i class="fa fa-building fa-fw"></i> Unidades</a></li>
                 <li><a href="relatorios.jsp"><i class="fa fa-pie-chart fa-fw"></i> Relatório</a></li>
-                <li><a href="cadastroUnidade.jsp"><i class="fa fa-building fa-fw"></i> Unidades</a></li>
+                
             </ul>
         </div>
 </div>

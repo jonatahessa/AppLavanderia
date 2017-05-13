@@ -35,7 +35,7 @@ public class CadastrarServico extends HttpServlet {
             throws ServletException, IOException {
 
         boolean erro = false;
-        ValidacaoServico vs = new ValidacaoServico();
+        ServicoServico vs = new ServicoServico();
         
         boolean nome = vs.verificarNome(request.getParameter("nome"));
         
@@ -46,10 +46,14 @@ public class CadastrarServico extends HttpServlet {
         if (nome != true) {
             erro = true;
             request.setAttribute("erroNome", true);
+        } else {
+            request.setAttribute("nome", request.getParameter("nome"));
         }
         if (preco != true) {
             erro = true;
             request.setAttribute("erroPreco", true);
+        } else {
+            request.setAttribute("preco", request.getParameter("preco"));
         }
 
         if (!erro) {
@@ -57,7 +61,7 @@ public class CadastrarServico extends HttpServlet {
             servico.setNomeServico(request.getParameter("nome"));
             servico.setPrecoPorPeca(Double.parseDouble(precoCorrigido));
             try {
-                servico.inserirServico(servico);
+                vs.inserirServico(servico);
                 response.sendRedirect("mensagemCadastro.jsp");
             } catch (Exception ex) {
                 response.sendRedirect("mensagemErro.jsp");

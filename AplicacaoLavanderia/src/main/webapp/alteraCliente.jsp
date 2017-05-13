@@ -7,8 +7,8 @@
         <!-- Bootstrap -->
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
-        <link rel="StyleSheet" type="text/css" href="./resources/CSS/alterarCliente.css" media="screen" >
-        <script type="text/javascript" src="./resources/JavaScript/alterarCliente.js"></script>
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarCliente.css" media="screen" >
+        <script type="text/javascript" src="./resources/JavaScript/cadastrarCliente.js"></script>
         <title>Alterar Cliente</title>
     </head>
     <body>

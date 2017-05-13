@@ -11,8 +11,6 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <jsp:useBean id="dao" class="Daos.DaoCliente"/>
-<!-- jsp:forward page="/DAOCliente?action=deletar" -- linha deletada (erro 404)>
-</body>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

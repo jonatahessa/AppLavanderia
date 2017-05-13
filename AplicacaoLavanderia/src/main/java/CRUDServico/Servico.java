@@ -10,12 +10,20 @@ package CRUDServico;
  * @author livia.cgsantos e eloisa.asilva2
  */
 public class Servico {
-
+    
+    private int id;
     private String nomeServico;
     private double precoPorPeca;
     private String enabled;
-    
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+     
     public String getNomeServico() {
         return nomeServico;
     }
@@ -40,15 +48,7 @@ public class Servico {
     public void setEnabled(String enabled) {
         this.enabled = enabled;
     }
-       
-    public void inserirServico (Servico servico) throws Exception {
-        Daos.DaoServico.inserir(servico);
-    }
-
-    
-    public void pesquisarServico(Servico servico) throws Exception{
-        Daos.DaoServico.obter(nomeServico);
-    }
+  
 }    
  
     

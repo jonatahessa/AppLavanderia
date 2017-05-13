@@ -64,5 +64,8 @@ h1 {
     background: hsl(0, 92%, 77%);
 }
 
+#id{
+   display: none; 
+}
 
 

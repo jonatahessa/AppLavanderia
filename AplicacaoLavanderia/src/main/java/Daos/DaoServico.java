@@ -44,28 +44,22 @@ public class DaoServico {
             }
         }
     }
-
-    public boolean deletar(String cpf)
+    
+    public static void deletar(int id)
             throws SQLException, Exception {
-        String sql = "UPDATE servico SET enabled = ?"
-                + " WHERE nomeServico = ?;";
-        Boolean retorno = false;
+        String sql = "UPDATE Servico SET Enabled = 'false'"
+                + " WHERE ID = ?;";
+
         Connection connection = null;
         PreparedStatement statement = null;
         try {
             connection = ConnectionUtils.getConnection();
             statement = connection.prepareStatement(sql);
-
-            statement.setString(1, "false");
-            statement.setString(2, cpf);
+            statement.setInt(1, id);
 
             System.out.println("Executando COMANDO SQL: " + sql);
-            boolean pst = statement.execute();
 
-            if (pst == true) {
-                retorno = true;
-            }
-
+            statement.execute();
         } finally {
             if (statement != null && !statement.isClosed()) {
                 statement.close();
@@ -74,15 +68,14 @@ public class DaoServico {
                 connection.close();
             }
         }
-        return retorno;
-    }
+      }
 
-    public static void alterar(Servico servico, int idServico)
+    public static void alterar(Servico servico, String idServico)
             throws SQLException, Exception {
-        String sql = "UPDATE servico "
-                + "SET nomeServico = ?, "
-                + "precoPorPeca = ?, "
-                + "WHERE nomeServico = ?;";
+        String sql = "UPDATE Servico "
+                + "SET Nome = ?, "
+                + "preco = ?"
+                + "WHERE ID = ?;";
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -90,8 +83,10 @@ public class DaoServico {
             connection = ConnectionUtils.getConnection();
             statement = connection.prepareStatement(sql);
 
+            int idtrue = Integer.parseInt(idServico);
             statement.setString(1, servico.getNomeServico());
             statement.setDouble(2, servico.getPrecoPorPeca());
+            statement.setInt(3, idtrue);
 
             System.out.println("Executando COMANDO SQL: " + sql);
             statement.execute();
@@ -144,22 +139,29 @@ public class DaoServico {
         return listaServicos;
     }
 
-    public static Servico obter(String nomeServico)
+    public static Servico obter(int id)
             throws SQLException, Exception {
-        String sql = "SELECT * FROM servico WHERE nomeServico = ? AND "
-                + "enabled = 'true';";
+        String sql = "SELECT * FROM Servico WHERE ID = ?;";
+
         PreparedStatement statement = null;
         Connection connection = null;
-
+        Servico servico = new Servico();
+        connection = ConnectionUtils.getConnection();
         statement = connection.prepareStatement(sql);
-        statement.setString(1, nomeServico);
-        List<Servico> listaServicos = (List<Servico>) executarConsulta(sql);
-
-        if (listaServicos != null && listaServicos.size() > 0) {
-            return listaServicos.get(0);
-        }
-
-        return null;
+        statement.setInt(1, id);
+        System.out.println(statement.toString());
+         ResultSet result = null;
+         result = statement.executeQuery();
+         
+            while (result.next()) {
+  
+                servico.setNomeServico(result.getString("Nome"));
+                servico.setId(result.getInt("ID"));
+                servico.setPrecoPorPeca(result.getDouble("Preco"));
+                
+            }
+ 
+        return servico;
     }
 
     public static List<Servico> executarConsulta(String sql) throws
@@ -181,6 +183,7 @@ public class DaoServico {
                 servico.setNomeServico(result.getString("nome"));
                 servico.setPrecoPorPeca(result.getDouble("preco"));
                 servico.setEnabled(result.getString("enabled"));
+                servico.setId(result.getInt("ID"));
                 listaServicos.add(servico);
             }
         } finally {

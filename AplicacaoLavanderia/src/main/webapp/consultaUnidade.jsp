@@ -23,10 +23,9 @@
                     <input type="submit" value="Pesquisar"/>
                 </fieldset>
             </form>
-            <form method="POST" action="cadastroServico.jsp"><button class="btn btn-success" type="submit">Cadastrar</button></form>        
+            <form method="POST" action="cadastroUnidade.jsp"><button class="btn btn-success" type="submit">Cadastrar</button></form>        
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
-                    <th>Id da Unidade</th>
                     <th>Nome da Unidade</th>
                     <th>CNPJ</th>
                     <th>Alterar Unidade</th>
@@ -35,7 +34,6 @@
 
                 <c:forEach var="unidades" items="${dao.listar()}">
                     <tr>
-                        <td>${unidades.id}</td>
                         <td>${unidades.nome}</td>
                         <td>${unidades.cnpj}</td>
                         <td><a class="btn btn-primary" href="">Alterar</a></td>

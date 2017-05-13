@@ -1,0 +1,79 @@
+html, body {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+    background-color: hsl(213, 76%, 95%);
+}
+
+h1 {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  color: grey;
+  margin-top: 1%;
+}
+
+.campos {
+  background-color: #f4f4f4;
+  border-color: white;
+  border-width: thin;
+  height: 50%;
+  font-size: 16px;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  width: 95%;
+  text-indent: 10px;
+
+}
+
+.camposdestacados {
+  background-color: #ffcccc;
+  border-color: red;
+  border-width: thin;
+  height: 30px;
+  font-size: 16px;
+  margin-top: 5%;
+  margin-left: 2%;
+  width: 95%;
+  text-indent: 10px;
+}
+
+#principal {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  top: 10%;
+  position: fixed;
+  border: 1px solid hsl(0,0%,0%);
+  background-color: hsl(213, 76%, 76%);
+  width: 40%;
+  height: 20%;
+
+}
+
+.btn {
+  margin: auto;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 0;
+  margin-top: 1%;
+  width: 45%;
+}
+
+#camposexo {
+  background-color: #f4f4f4;
+}
+
+.erro {
+    background: hsl(0, 92%, 77%);
+}
+
+#id{
+   display: none; 
+}
+

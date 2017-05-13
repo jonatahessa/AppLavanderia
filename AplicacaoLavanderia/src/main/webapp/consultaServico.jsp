@@ -13,11 +13,11 @@
         <meta charset="utf-8">
         <!-- Bootstrap -->
         <%@ include file = "bootstrap.html" %>
+        <%@ include file = "header.jsp" %>
         <!-- Interface e Dinâmica -->
-        <link rel="StyleSheet" type="text/css" href="" media="screen" >
-        <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaServico.css">
-        <script type="text/javascript" src="./resources/JavaScript/consultaServico.js"></script>
-        <title>Consulta Serviço</title>
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
+        <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
+        <title>Consulta Cliente</title>
     </head>
     <body>
         <div id ="logo"></div>
@@ -43,8 +43,11 @@
                     <tr>
                         <td>${servicos.nomeServico}</td>
                         <td>${servicos.precoPorPeca}</td>
-                        <td><a class="btn btn-primary" href="">Alterar</a></td>
-                        <td><a class="btn btn-danger" href="">Remover</a></td>
+                        <td><a href="./AlterarServico?id=${servicos.id}" >Alterar</a></td>
+                        <td><form action="DeletarServico" method="post" id="frm${servicos.id}">
+                            <input type="hidden" name="id" value="${servicos.id}">
+                            <a href="#" onclick="document.getElementById('frm${servicos.id}').submit()">Remover</a>
+                        </form></td>
                     </tr>
                 </c:forEach>
             </table>        

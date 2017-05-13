@@ -72,7 +72,7 @@ public class ServicoFuncionario {
         return true;
     }
     
-     public void inserirFuncionario(Funcionario funcionario) throws Exception {
+    public void inserirFuncionario(Funcionario funcionario) throws Exception {
         Daos.DaoFuncionario.inserir(funcionario);
     }
     
