@@ -5,7 +5,6 @@
 --%>
 
 <jsp:useBean id="dao" class="Daos.DaoFuncionario"/>
-<jsp:useBean id="dao1" class="Daos.DaoUnidade"/>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -36,7 +35,7 @@
         
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
-                     <th>Nome</th>
+                    <th>Nome</th>
                     <th>Sexo</th>
                     <th>Cargo</th>
                     <th>Unidade</th>
@@ -49,7 +48,7 @@
                     <td>${funcionarios.nome}</td>
                     <td>${funcionarios.sexo}</td>
                     <td>${funcionarios.cargo}</td>
-                    <td>${funcionarios.idUnidade}</td>
+                    <td>${funcionarios.nomeUnidade}</td>
                     <td><a href="./AlterarFuncionario?cpf=${funcionarios.id}" >Alterar</a></td>
                     <td><form action="DeletarFuncionario" method="post" id="frm${funcionarios.id}">
                         <input type="hidden" name="id" value="${funcionarios.id}">

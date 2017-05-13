@@ -26,20 +26,20 @@ public class DeletarFuncionario extends HttpServlet {
         
     }
 
-    @Override
+    /*@Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
         
         try {
             ServicoFuncionario sf = new ServicoFuncionario();
-            sf.deletarFuncionario(request.getParameter("id"));
+            sf.deletarFuncionario(request.getParameter(id));
             response.sendRedirect("mensagemExclusao.jsp");
         } catch (Exception ex) {
             response.sendRedirect("mensagemErro.jsp"); 
         }
         
-    }
+    }*/
 }
 
     

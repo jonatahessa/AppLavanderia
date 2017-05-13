@@ -31,7 +31,7 @@ public class ConsultaFuncionario extends HttpServlet {
         funcionario.setNome(nome);
         funcionario.setSexo(sexo);
         funcionario.setCargo(cargo);
-        funcionario.setIdUnidade(Integer.parseInt(unidade));
+        funcionario.setNomeUnidade(unidade);
 
         try {
             funcionario.pesquisarFuncionario(funcionario);

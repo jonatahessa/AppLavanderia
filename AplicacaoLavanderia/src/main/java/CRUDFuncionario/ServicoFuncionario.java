@@ -1,52 +1,54 @@
 package CRUDFuncionario;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ServicoFuncionario {
-    
+
     public boolean verificarNome(String nome) {
-        if (nome == null || nome.equals("")){
+        if (nome == null || nome.equals("")) {
             return false;
         }
         return true;
     }
-    
+
     public boolean verificarCargo(String cargo) {
-        if (cargo == null || cargo.equals("")){
+        if (cargo == null || cargo.equals("")) {
             return false;
         }
         return true;
     }
-    
+
     public boolean verificarUnidade(String unidade) {
-        if (unidade == null || unidade.equals("")){
+        if (unidade == null || unidade.equals("")) {
             return false;
         }
         return true;
     }
-    
+
     public boolean verificarSexo(String sexo) {
-        if (sexo == null || sexo.equals("")){
+        if (sexo == null || sexo.equals("")) {
             return false;
         }
         return true;
     }
-    
+
     public boolean verificarAdmissao(String data) {
-        int contador = 0;
-        if (data == null || data.equals("")){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        sdf.setLenient(false);
+
+        try {
+            Date dataValida = sdf.parse(data);
+            return true;
+        } catch (ParseException e) {
             return false;
         }
-        for (int i = 0; i < data.length(); i++) {
-            contador++;
-        }
-        if (contador != 10) {
-            return false;
-        }
-        return true;
     }
-    
+
     public boolean verificarLogin(String login) {
         int contador = 0;
-        if (login == null || login.equals("")){
+        if (login == null || login.equals("")) {
             return false;
         }
         for (int i = 0; i < login.length(); i++) {
@@ -57,10 +59,10 @@ public class ServicoFuncionario {
         }
         return true;
     }
-    
+
     public boolean verificarSenha(String senha) {
         int contador = 0;
-        if (senha == null || senha.equals("")){
+        if (senha == null || senha.equals("")) {
             return false;
         }
         for (int i = 0; i < senha.length(); i++) {
@@ -71,21 +73,20 @@ public class ServicoFuncionario {
         }
         return true;
     }
-    
+
     public void inserirFuncionario(Funcionario funcionario) throws Exception {
         Daos.DaoFuncionario.inserir(funcionario);
     }
-    
-    public void deletarFuncionario(String cpf) throws Exception {
-        Daos.DaoFuncionario.deletar(cpf);
+
+    public void deletarFuncionario(int id) throws Exception {
+        Daos.DaoFuncionario.deletar(id);
     }
-    
-   // public void alterarFuncionario(Funcionario funcionario, String id) throws Exception {
-     //   Daos.DaoFuncionario.alterar(funcionario, id);
+
+    // public void alterarFuncionario(Funcionario funcionario, String id) throws Exception {
+    //   Daos.DaoFuncionario.alterar(funcionario, id);
     //}
-    
-    public Funcionario obterFuncionario(String cpf) throws Exception {
-        return Daos.DaoFuncionario.obter(cpf);
+    public Funcionario obterFuncionario(int id) throws Exception {
+        return Daos.DaoFuncionario.obter(id);
     }
-    
+
 }

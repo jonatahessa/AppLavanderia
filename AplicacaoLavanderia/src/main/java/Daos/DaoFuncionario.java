@@ -47,10 +47,10 @@ public class DaoFuncionario {
         }
     }
 
-    //Deleta um cliente na tabela "funcionario" do banco de dados
-      public static void deletar(String id)
+    //Deleta um funcionario na tabela "funcionario" do banco de dados
+      public static void deletar(int id)
             throws SQLException, Exception {
-        //Monta a string de remoção de um cliente no BD,
+        //Monta a string de remoção de um funcionario no BD,
         //utilizando os dados do funcionario passados como parâmetro
         String sql = "UPDATE Funcionario SET Enabled = ?"
                 + "WHERE ID = ?; ";
@@ -65,9 +65,8 @@ public class DaoFuncionario {
             connection = ConnectionUtils.getConnection();
             //Cria um statement para execução de instruções SQL
             statement = connection.prepareStatement(sql);
-            int idtrue = Integer.parseInt(id);
             statement.setString(1, "false");
-            statement.setInt(2, idtrue);
+            statement.setInt(2, id);
             
 
             //Exibe no console o que será executado no banco de dados
@@ -129,8 +128,8 @@ public class DaoFuncionario {
     public static List<Funcionario> pesquisar(String palavra)
             throws SQLException, Exception {
 
-        String sql = "SELECT * FROM Funcionario "
-                + " WHERE funcionario.enabled = 'true';";
+        String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario"
+                + " INNER JOIN Unidade on Unidade.ID WHERE funcionario.enabled = 'true';";
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -155,7 +154,7 @@ public class DaoFuncionario {
                 statement.setString(4, funcionario.getCargo());
                 statement.setDate(5, funcionario.getAdmissao());
                 statement.setInt(6, funcionario.getIdUnidade());
-                statement.setString(4, funcionario.getSexo());
+                statement.setString(7, funcionario.getSexo());
                 System.out.println(statement.toString());
 
                 listaFuncionarios.add(funcionario);
@@ -171,22 +170,35 @@ public class DaoFuncionario {
         return listaFuncionarios;
     }
 
-    public static Funcionario obter(String cpf)
+    public static Funcionario obter(int id)
             throws SQLException, Exception {
-        String sql = "SELECT * FROM Funcionario WHERE id = ? AND "
-                + "enabled = 'true';";
+        String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Cliente"
+                + " INNER JOIN Unidade ON Unidade.Id WHERE Funcionario.ID = ?;";
+
         PreparedStatement statement = null;
         Connection connection = null;
-
+        Funcionario funcionario = new Funcionario();
+        connection = ConnectionUtils.getConnection();
         statement = connection.prepareStatement(sql);
-        statement.setString(1, cpf);
-        List<Funcionario> listaFuncionarios = (List<Funcionario>) executarConsulta(sql);
-
-        if (listaFuncionarios != null && listaFuncionarios.size() > 0) {
-            return listaFuncionarios.get(0);
-        }
-
-        return null;
+        statement.setInt(1, id);
+        System.out.println(statement.toString());
+         ResultSet result = null;
+         result = statement.executeQuery();
+         
+            while (result.next()) {
+  
+                funcionario.setId(result.getInt("id"));
+                funcionario.setNome(result.getString("nome"));
+                funcionario.setCargo(result.getString("cargo"));
+                funcionario.setLogin(result.getString("login"));
+                funcionario.setNomeUnidade(result.getString("NomeUnidade"));
+                funcionario.setSenha(result.getString("senha"));
+                funcionario.setAdmissao(result.getDate("admissao"));
+                funcionario.setSexo(result.getString("sexo"));
+                funcionario.setEnabled(result.getString("enabled"));
+            }
+ 
+        return funcionario;
     }
 
     public static List<Funcionario> executarConsulta(String sql) throws
@@ -211,6 +223,7 @@ public class DaoFuncionario {
                 funcionario.setSenha(result.getString("Senha"));
                 funcionario.setCargo(result.getString("Cargo"));
                 funcionario.setAdmissao(result.getDate("Admissao"));
+                funcionario.setNomeUnidade(result.getString("NomeUnidade"));
                 funcionario.setIdUnidade(result.getInt("ID_Unidade"));
                 funcionario.setSexo(result.getString("Sexo"));
                 funcionario.setEnabled(result.getString("Enabled"));
@@ -234,7 +247,8 @@ public class DaoFuncionario {
     //listar sem where
         public static List<Funcionario> listar()
             throws SQLException, Exception {
-        String sql = "SELECT * FROM Funcionario WHERE Enabled = 'true'";
+        String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario "
+                + " INNER JOIN Unidade ON Unidade.ID WHERE Funcionario.enabled = 'true';";
 
         return executarConsulta(sql);
     }

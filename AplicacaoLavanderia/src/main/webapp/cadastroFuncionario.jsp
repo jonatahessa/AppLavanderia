@@ -63,13 +63,13 @@
                     <c:when test="${erroAdmissao}"> 
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-list-alt"></span></span>
-                            <input id="camponome" type="text" value="${admissao}" name="nome" class="form-control erro" placeholder="Admissao">
+                            <input id="camponome" type="text" value="${admissao}" name="admissao" maxlength="10" onkeypress="mascara(this, '##/##/####');" class="form-control erro" placeholder="Admissao">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-list-alt"></span></span>
-                            <input id="camponome" type="text" value="${admissao}" name="nome" class="form-control" placeholder="Admissao">
+                            <input id="camponome" type="text" value="${admissao}" name="admissao" maxlength="10" onkeypress="mascara(this, '##/##/####');" class="form-control" placeholder="Admissao">
                         </div>
                     </c:otherwise>
                 </c:choose>

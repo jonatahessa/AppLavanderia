@@ -1,9 +1,6 @@
-
 package CRUDFuncionario;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,25 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet(name = "CadastrarFuncionario", urlPatterns = {"/CadastrarFuncionario"})
 public class CadastrarFuncionario extends HttpServlet {
 
-  @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-	  throws ServletException, IOException {
-        RequestDispatcher dispatcher = 
-	request.getRequestDispatcher("cadastroFuncionario.jsp");
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("cadastroFuncionario.jsp");
         dispatcher.forward(request, response);
     }
-    
-  @Override
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	  throws ServletException, IOException {
+            throws ServletException, IOException {
         UtilsFuncionario utilitario = new UtilsFuncionario();
         ServicoFuncionario sf = new ServicoFuncionario();
         boolean erro = false;
-        
+
         boolean nome = sf.verificarNome(request.getParameter("nome"));
         boolean login = sf.verificarLogin(request.getParameter("login"));
         boolean senha = sf.verificarSenha(request.getParameter("senha"));
@@ -37,7 +33,7 @@ public class CadastrarFuncionario extends HttpServlet {
         boolean admissao = sf.verificarAdmissao(request.getParameter("admissao"));
         boolean unidade = sf.verificarUnidade(request.getParameter("unidade"));
         boolean sexo = sf.verificarSexo(request.getParameter("sexo"));
-        
+
         if (nome != true) {
             erro = true;
             request.setAttribute("erroNome", true);
@@ -83,7 +79,7 @@ public class CadastrarFuncionario extends HttpServlet {
 
         if (!erro) {
             Funcionario funcionario = new Funcionario();
- 
+
             try {
                 funcionario.setIdUnidade(Daos.DaoUnidade.retornarIdUnidade(request.getParameter("unidade")));
             } catch (Exception ex) {
@@ -93,18 +89,17 @@ public class CadastrarFuncionario extends HttpServlet {
             funcionario.setLogin(request.getParameter("login"));
             funcionario.setNome(request.getParameter("nome"));
             funcionario.setSenha(request.getParameter("senha"));
-            funcionario.setSexo(request.getParameter("sexo"));    
+            funcionario.setSexo(request.getParameter("sexo"));
             try {
                 sf.inserirFuncionario(funcionario);
                 response.sendRedirect("mensagemCadastro.jsp");
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                response.sendRedirect("mensagemErro.jsp");
             }
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroFuncionario.jsp");
             dispatcher.forward(request, response);
         }
     }
-
 
 }

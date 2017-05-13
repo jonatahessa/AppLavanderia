@@ -24,7 +24,7 @@ public class DaoUnidade {
 
     public static void inseriUnidade(Unidade unidade) throws SQLException {
 
-        String sql = "INSERT INTO Unidade (nome, cnpj, enabled) "
+        String sql = "INSERT INTO Unidade (NomeUnidade, cnpj, enabled) "
                 + "VALUES (?, ?, ?)";
         Connection connection = null;
         PreparedStatement statement = null;
@@ -89,7 +89,7 @@ public class DaoUnidade {
                     listaUnidades = new ArrayList<Unidade>();
                 }
                 Unidade unidades = new Unidade();
-                unidades.setNome(result.getString("nome"));
+                unidades.setNome(result.getString("NomeUnidade"));
                 unidades.setCnpj(result.getString("cnpj"));
                 unidades.setId(result.getInt("ID"));
                 listaUnidades.add(unidades);
@@ -113,7 +113,7 @@ public class DaoUnidade {
     public static int retornarIdUnidade(String nome) throws
             SQLException, Exception {
         String sql = "SELECT * FROM Unidade "
-                + " WHERE Nome = ?";
+                + " WHERE NomeUnidade = ?";
         Unidade unidade = new Unidade();
         Connection connection = null;
         PreparedStatement statement = null;
@@ -153,7 +153,7 @@ public class DaoUnidade {
 
         while (result.next()) {
             unidade.setId(result.getInt("id"));
-            unidade.setNome(result.getString("nome"));
+            unidade.setNome(result.getString("NomeUnidade"));
             unidade.setCnpj(result.getString("cnpj"));
             connection.close();
             return unidade.getNome();
