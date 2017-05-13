@@ -31,7 +31,7 @@ public class CadastrarUnidade extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-        ValidacaoUnidade vu = new ValidacaoUnidade();
+        ServicoUnidade vu = new ServicoUnidade();
         boolean erro = false;
         boolean nome = vu.verificarNome(request.getParameter("nome"));
         boolean cnpj = vu.verificarCnpj(request.getParameter("cnpj"));
@@ -51,7 +51,7 @@ public class CadastrarUnidade extends HttpServlet {
             unidade.setCnpj(request.getParameter("cnpj"));
             unidade.setEnabled("true");
             try {
-                unidade.inserirUnidade(unidade);
+                vu.inserirUnidade(unidade);
                 response.sendRedirect("mensagemCadastro.jsp");
             } catch (Exception ex) {
                 response.sendRedirect("mensagemErro.jsp"); 

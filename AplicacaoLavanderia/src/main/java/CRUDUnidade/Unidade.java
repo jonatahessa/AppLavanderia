@@ -1,7 +1,5 @@
 package CRUDUnidade;
 
-import java.sql.SQLException;
-
 public class Unidade {
     private int id;
     private String nome;
@@ -40,8 +38,6 @@ public class Unidade {
         this.enabled = enabled;
     }
     
-    public void inserirUnidade(Unidade unidade) throws SQLException {
-        Daos.DaoUnidade.inseriUnidade(unidade);
-    }
+    
     
 }

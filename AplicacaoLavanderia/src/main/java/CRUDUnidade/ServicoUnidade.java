@@ -1,6 +1,8 @@
 package CRUDUnidade;
 
-public class ValidacaoUnidade {
+import java.sql.SQLException;
+
+public class ServicoUnidade {
     
     public boolean verificarNome(String nome) {
         if (nome == null || nome.equals("")){
@@ -21,5 +23,13 @@ public class ValidacaoUnidade {
             return false;
         }
         return true;
+    }
+    
+    public void inserirUnidade(Unidade unidade) throws SQLException {
+        Daos.DaoUnidade.inseriUnidade(unidade);
+    }
+    
+    public void deletarUnidade(String id) throws SQLException, Exception {
+        Daos.DaoUnidade.deletar(id);
     }
 }

@@ -5,10 +5,8 @@
  */
 package Daos;
 
-import CRUDCliente.Cliente;
 import CRUDUnidade.Unidade;
 import ConnectionBD.ConnectionUtils;
-import static Daos.DaoFuncionario.executarConsulta;
 import Exeptions.FilialException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -50,9 +48,33 @@ public class DaoUnidade {
             }
         }
     }
+    
+    public static void deletar(String id)
+            throws SQLException, Exception {
+        String sql = "UPDATE Unidade SET Enabled = 'false'"
+                + " WHERE ID = ?;";
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = ConnectionUtils.getConnection();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, Integer.parseInt(id));
+            System.out.println("Executando COMANDO SQL: " + sql);
+            statement.execute();
+        } finally {
+            if (statement != null && !statement.isClosed()) {
+                statement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+    }
 
-    public static List<Unidade> executarConsulta(String sql) throws
-            FilialException, SQLException, Exception {
+    public static List<Unidade> listar()
+            throws SQLException, Exception {
+        String sql = "SELECT * FROM Unidade WHERE enabled = 'true'";
+        
         List<Unidade> listaUnidades = null;
         Connection connection = null;
         Statement statement = null;
@@ -69,7 +91,7 @@ public class DaoUnidade {
                 Unidade unidades = new Unidade();
                 unidades.setNome(result.getString("nome"));
                 unidades.setCnpj(result.getString("cnpj"));
-                unidades.setEnabled(result.getString("enabled"));
+                unidades.setId(result.getInt("ID"));
                 listaUnidades.add(unidades);
             }
         } finally {
@@ -85,13 +107,8 @@ public class DaoUnidade {
         }
         return listaUnidades;
     }
-
-    public static List<Unidade> listar()
-            throws SQLException, Exception {
-        String sql = "SELECT * FROM Unidade WHERE enabled = 'true'";
-
-        return executarConsulta(sql);
-    }
+    
+    
 
     public static int retornarIdUnidade(String nome) throws
             SQLException, Exception {

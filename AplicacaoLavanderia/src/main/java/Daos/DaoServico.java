@@ -68,7 +68,7 @@ public class DaoServico {
                 connection.close();
             }
         }
-      }
+    }
 
     public static void alterar(Servico servico, String idServico)
             throws SQLException, Exception {

@@ -36,8 +36,11 @@
                     <tr>
                         <td>${unidades.nome}</td>
                         <td>${unidades.cnpj}</td>
-                        <td><a class="btn btn-primary" href="">Alterar</a></td>
-                        <td><a class="btn btn-danger" href="">Remover</a></td>
+                        <td><a href="./AlterarUnidade?cpf=${unidades.id}" >Alterar</a></td>
+                        <td><form action="DeletarUnidade" method="post" id="frm${unidades.id}">
+                            <input type="hidden" name="id" value="${unidades.id}">
+                            <a href="#" onclick="document.getElementById('frm${unidades.id}').submit()">Remover</a>
+                        </form></td>
                     </tr>
                 </c:forEach>
             </table>        
