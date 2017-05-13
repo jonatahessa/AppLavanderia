@@ -29,13 +29,13 @@
                 <c:choose>
                     <c:when test="${erroNome}"> 
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control erro" placeholder="Nome">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control" placeholder="Nome">
                         </div>
                     </c:otherwise>
@@ -62,20 +62,20 @@
                 <c:choose>
                     <c:when test="${erroAdmissao}"> 
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-list-alt"></span></span>
                             <input id="camponome" type="text" value="${admissao}" name="nome" class="form-control erro" placeholder="Admissao">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-list-alt"></span></span>
                             <input id="camponome" type="text" value="${admissao}" name="nome" class="form-control" placeholder="Admissao">
                         </div>
                     </c:otherwise>
                 </c:choose>
                 
                 <div class="input-group">
-                    <span class="input-group-addon"><span class=" glyphicon glyphicon-star"></span></span>
+                    <span class="input-group-addon"><span class=" glyphicon glyphicon-briefcase"></span></span>
                     <select id="campocargo" class="selectpicker form-control" data-live-search="true" name="cargo" title="Sexo">
                         <c:choose>
                             <c:when test="${cargo eq 'Gerente T.I'}">         
@@ -131,7 +131,7 @@
                 </div>       
    
                 <div class="input-group">
-                    <span class="input-group-addon"><span class=" glyphicon glyphicon-star"></span></span>
+                    <span class="input-group-addon"><span class=" glyphicon glyphicon-home"></span></span>
                     <select id="campoempresa" class="selectpicker form-control" data-live-search="true" name="unidade" title="Unidadw">
  
                         <c:forEach var="unidade" items="${dao.listar()}"> 
@@ -143,13 +143,13 @@
                 <c:choose>
                     <c:when test="${erroLogin}"> 
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                             <input id="campologin" type="text" value="${login}" name="login" class="form-control erro" placeholder="Login">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                             <input id="campologin" type="text" value="${login}" name="login" class="form-control" placeholder="Login">
                         </div>
                     </c:otherwise>
@@ -157,13 +157,13 @@
                 <c:choose>
                     <c:when test="${erroSenha}"> 
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                             <input id="campologin" type="password" value="${senha}" name="senha" class="form-control erro" placeholder="Senha">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                             <input id="campologin" type="password" value="${senha}" name="senha" class="form-control" placeholder="Senha">
                         </div>
                     </c:otherwise>

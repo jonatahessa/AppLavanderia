@@ -78,7 +78,7 @@ public class CadastrarFuncionario extends HttpServlet {
             erro = true;
             request.setAttribute("erroSexo", true);
         } else {
-            request.setAttribute("sexo", request.getParameter("sexo"));
+            request.setAttribute("sex", request.getParameter("sexo"));
         }
 
         if (!erro) {
