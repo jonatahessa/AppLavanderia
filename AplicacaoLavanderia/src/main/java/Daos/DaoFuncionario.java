@@ -248,7 +248,7 @@ public class DaoFuncionario {
         public static List<Funcionario> listar()
             throws SQLException, Exception {
         String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario "
-                + " INNER JOIN Unidade ON Unidade.ID WHERE Funcionario.enabled = 'true';";
+                + " INNER JOIN Unidade ON Unidade.ID WHERE Funcionario.enabled = 'true' GROUP BY Funcionario.ID;";
 
         return executarConsulta(sql);
     }
