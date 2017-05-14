@@ -22,7 +22,6 @@ public class CadastrarFuncionario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UtilsFuncionario utilitario = new UtilsFuncionario();
         ServicoFuncionario sf = new ServicoFuncionario();
         boolean erro = false;
 
@@ -84,7 +83,7 @@ public class CadastrarFuncionario extends HttpServlet {
                 funcionario.setIdUnidade(Daos.DaoUnidade.retornarIdUnidade(request.getParameter("unidade")));
             } catch (Exception ex) {
             }
-            funcionario.setAdmissao(utilitario.converterData(request.getParameter("admissao")));
+            funcionario.setAdmissao(sf.converterData(request.getParameter("admissao")));
             funcionario.setCargo(request.getParameter("cargo"));
             funcionario.setLogin(request.getParameter("login"));
             funcionario.setNome(request.getParameter("nome"));
