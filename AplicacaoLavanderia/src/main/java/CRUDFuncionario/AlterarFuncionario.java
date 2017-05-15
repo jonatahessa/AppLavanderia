@@ -2,6 +2,8 @@
 package CRUDFuncionario;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -18,9 +20,12 @@ public class AlterarFuncionario extends HttpServlet {
   
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-
+        
         Funcionario funcionario = new Funcionario();        
         ServicoFuncionario sf = new ServicoFuncionario();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        df.setLenient(false);
+        
         try {
             funcionario = sf.obterFuncionario(request.getParameter("id"));
         } catch (Exception ex) {
@@ -28,7 +33,8 @@ public class AlterarFuncionario extends HttpServlet {
         }        
         request.setAttribute("nome", funcionario.getNome());
         request.setAttribute("sexo", funcionario.getSexo());
-        request.setAttribute("admissao", funcionario.getAdmissao());
+        String data = df.format(funcionario.getAdmissao());
+        request.setAttribute("admissao", data);
         request.setAttribute("cargo", funcionario.getCargo());
         request.setAttribute("unidade", funcionario.getNomeUnidade());
         request.setAttribute("login", funcionario.getLogin());
