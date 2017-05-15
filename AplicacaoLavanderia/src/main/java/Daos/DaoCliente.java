@@ -48,9 +48,8 @@ public class DaoCliente {
         }
     }
 
-
     //Deleta um cliente na tabela "cliente" do banco de dados
-      public static void deletar(String cpf)
+    public static void deletar(String cpf)
             throws SQLException, Exception {
         //Monta a string de remoção de um cliente no BD,
         //utilizando os dados do clientes passados como parâmetro
@@ -69,8 +68,7 @@ public class DaoCliente {
             statement = connection.prepareStatement(sql);
 
             statement.setString(1, "false");
-            statement.setString(2, ""+cpf);
-            
+            statement.setString(2, "" + cpf);
 
             //Exibe no console o que será executado no banco de dados
             System.out.println("Executando COMANDO SQL: " + sql);
@@ -86,7 +84,7 @@ public class DaoCliente {
                 connection.close();
             }
         }
-      }
+    }
 
     public static void alterar(Cliente cliente, String id)
             throws SQLException, Exception {
@@ -119,47 +117,74 @@ public class DaoCliente {
         }
     }
 
-    public static List<Cliente> pesquisar(String palavra)
+//    public static List<Cliente> pesquisar(String palavra)
+//            throws SQLException, Exception {
+//        String sql = "SELECT * FROM Cliente "
+//                + " WHERE nome like ?";
+//
+//        Connection connection = null;
+//        PreparedStatement statement = null;
+//        List<Cliente> listaClientes = new ArrayList<>();
+//        try {
+//            connection = ConnectionUtils.getConnection();
+//            statement = connection.prepareStatement(sql);
+//
+//            statement.setString(1, "%" + palavra + "%");
+//
+//            System.out.println("Executando COMANDO SQL: " + sql);
+//
+//            ResultSet result = statement.executeQuery();
+//            while (result.next()) {
+//                if (listaClientes == null) {
+//                    listaClientes = new ArrayList<Cliente>();
+//                }
+//                Cliente cliente = new Cliente();
+//                statement.setString(1, cliente.getNome());
+//                statement.setString(2, cliente.getCpf());
+//                statement.setString(3, cliente.getTelefone());
+//                statement.setString(4, cliente.getEmail());
+//                statement.setString(5, cliente.getEnabled());
+//                System.out.println(statement.toString());
+//
+//                listaClientes.add(cliente);
+//                statement.executeQuery();
+//            }
+//        } finally {
+//            if (statement != null && !statement.isClosed()) {
+//                statement.close();
+//            }
+//            if (connection != null && !connection.isClosed()) {
+//                connection.close();
+//            }
+//        }
+//        return listaClientes;
+//    }
+    public static Cliente pesquisar(String nome)
             throws SQLException, Exception {
-        String sql = "SELECT * FROM Cliente "
-                + " WHERE nome like ?";
+        String sql = "SELECT * FROM Cliente WHERE nome = ?;";
 
-        Connection connection = null;
         PreparedStatement statement = null;
-        List<Cliente> listaClientes = new ArrayList<>();
-        try {
-            connection = ConnectionUtils.getConnection();
-            statement = connection.prepareStatement(sql);
+        Connection connection = null;
+        Cliente cliente = new Cliente();
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, "%" + nome + "%");
+        System.out.println(statement.toString());
+        ResultSet result = null;
+        result = statement.executeQuery();
 
-            statement.setString(1, "%" + palavra + "%");
+        while (result.next()) {
 
-            System.out.println("Executando COMANDO SQL: " + sql);
-
-            ResultSet result = statement.executeQuery();
-            while (result.next()) {
-                if (listaClientes == null) {
-                    listaClientes = new ArrayList<Cliente>();
-                }
-                Cliente cliente = new Cliente();
-                statement.setString(1, cliente.getNome());
-                statement.setString(2, cliente.getCpf());
-                statement.setString(3, cliente.getTelefone());
-                statement.setString(4, cliente.getEmail());
-                statement.setString(5, cliente.getEnabled());
-                System.out.println(statement.toString());
-
-                listaClientes.add(cliente);
-                statement.executeQuery();
-            }
-        } finally {
-            if (statement != null && !statement.isClosed()) {
-                statement.close();
-            }
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
+            cliente.setCpf(result.getString("cpf"));
+            cliente.setNome(result.getString("nome"));
+            cliente.setTelefone(result.getString("telefone"));
+            cliente.setEmail(result.getString("email"));
+            cliente.setSexo(result.getString("sexo"));
+            cliente.setEnabled(result.getString("enabled"));
+            cliente.setId(result.getInt("ID"));
         }
-        return listaClientes;
+
+        return cliente;
     }
 
     public static Cliente obter(String cpf)
@@ -173,20 +198,20 @@ public class DaoCliente {
         statement = connection.prepareStatement(sql);
         statement.setString(1, cpf);
         System.out.println(statement.toString());
-         ResultSet result = null;
-         result = statement.executeQuery();
-         
-            while (result.next()) {
-  
-                cliente.setCpf(result.getString("cpf"));
-                cliente.setNome(result.getString("nome"));
-                cliente.setTelefone(result.getString("telefone"));
-                cliente.setEmail(result.getString("email"));
-                cliente.setSexo(result.getString("sexo"));
-                cliente.setEnabled(result.getString("enabled"));
-                cliente.setId(result.getInt("ID"));
-            }
- 
+        ResultSet result = null;
+        result = statement.executeQuery();
+
+        while (result.next()) {
+
+            cliente.setCpf(result.getString("cpf"));
+            cliente.setNome(result.getString("nome"));
+            cliente.setTelefone(result.getString("telefone"));
+            cliente.setEmail(result.getString("email"));
+            cliente.setSexo(result.getString("sexo"));
+            cliente.setEnabled(result.getString("enabled"));
+            cliente.setId(result.getInt("ID"));
+        }
+
         return cliente;
     }
 
