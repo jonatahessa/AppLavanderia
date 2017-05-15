@@ -51,7 +51,7 @@
                         <td>${funcionarios.sexo}</td>
                         <td>${funcionarios.cargo}</td>
                         <td>${funcionarios.nomeUnidade}</td>
-                        <td><a href="./AlterarFuncionario?cpf=${funcionarios.id}" >Alterar</a></td>
+                        <td><a href="./AlterarFuncionario?id=${funcionarios.id}" >Alterar</a></td>
                         <td><form action="DeletarFuncionario" method="post" id="frm${funcionarios.id}">
                                 <input type="hidden" name="id" value="${funcionarios.id}">
                                 <a href="#" onclick="document.getElementById('frm${funcionarios.id}').submit()">Remover</a>

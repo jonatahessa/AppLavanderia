@@ -15,7 +15,7 @@ body {
   bottom: 0;
   margin: auto;
   top: 10%;
-  position: fixed;
+  position: absolute;
   width: 75%;
   height: 90%;
 }

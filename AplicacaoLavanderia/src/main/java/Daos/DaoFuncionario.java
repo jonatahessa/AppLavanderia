@@ -16,8 +16,8 @@ public class DaoFuncionario {
     public static void inserir(Funcionario funcionario)
             throws SQLException, Exception {
            
-        String sql = "INSERT INTO Funcionario (Nome, Login, Senha, Cargo, ID_Unidade, Sexo, Admissao, Enabled) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Funcionario (Nome, Login, Senha, Cargo, ID_Unidade, Sexo, Admissao, Enabled)"
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         Connection connection = null;
         PreparedStatement statement = null;
         try {
@@ -172,8 +172,9 @@ public class DaoFuncionario {
 
     public static Funcionario obter(int id)
             throws SQLException, Exception {
-        String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Cliente"
-                + " INNER JOIN Unidade ON Unidade.Id WHERE Funcionario.ID = ?;";
+        String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario"
+                + " INNER JOIN Unidade ON Unidade.ID = Funcionario.ID_Unidade"
+                + " WHERE Funcionario.enabled = 'true' ORDER BY Funcionario.ID;";
 
         PreparedStatement statement = null;
         Connection connection = null;
@@ -247,8 +248,9 @@ public class DaoFuncionario {
     //listar sem where
         public static List<Funcionario> listar()
             throws SQLException, Exception {
-        String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario "
-                + " INNER JOIN Unidade ON Unidade.ID WHERE Funcionario.enabled = 'true' GROUP BY Funcionario.ID;";
+        String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario"
+                + " INNER JOIN Unidade ON Unidade.ID = Funcionario.ID_Unidade"
+                + " WHERE Funcionario.enabled = 'true' ORDER BY Funcionario.ID;";
 
         return executarConsulta(sql);
     }

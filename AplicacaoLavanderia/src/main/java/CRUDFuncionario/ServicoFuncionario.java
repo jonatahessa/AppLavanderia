@@ -9,31 +9,19 @@ import java.util.logging.Logger;
 public class ServicoFuncionario {
 
     public boolean verificarNome(String nome) {
-        if (nome == null || nome.equals("")) {
-            return false;
-        }
-        return true;
+        return !(nome == null || nome.equals(""));
     }
 
     public boolean verificarCargo(String cargo) {
-        if (cargo == null || cargo.equals("")) {
-            return false;
-        }
-        return true;
+        return !(cargo == null || cargo.equals(""));
     }
 
     public boolean verificarUnidade(String unidade) {
-        if (unidade == null || unidade.equals("")) {
-            return false;
-        }
-        return true;
+        return !(unidade == null || unidade.equals(""));
     }
 
     public boolean verificarSexo(String sexo) {
-        if (sexo == null || sexo.equals("")) {
-            return false;
-        }
-        return true;
+        return !(sexo == null || sexo.equals(""));
     }
 
     public boolean verificarAdmissao(String data) {
@@ -49,31 +37,11 @@ public class ServicoFuncionario {
     }
 
     public boolean verificarLogin(String login) {
-        int contador = 0;
-        if (login == null || login.equals("")) {
-            return false;
-        }
-        for (int i = 0; i < login.length(); i++) {
-            contador++;
-        }
-        if (contador > 12 || contador < 6) {
-            return false;
-        }
-        return true;
+        return !(login == null || login.equals(""));
     }
 
     public boolean verificarSenha(String senha) {
-        int contador = 0;
-        if (senha == null || senha.equals("")) {
-            return false;
-        }
-        for (int i = 0; i < senha.length(); i++) {
-            contador++;
-        }
-        if (contador > 8 || contador < 4) {
-            return false;
-        }
-        return true;
+        return !(senha == null || senha.equals(""));
     }
     
     public java.sql.Date converterData(String recebe) {
