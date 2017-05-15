@@ -15,7 +15,7 @@ public class ServicoFuncionario {
     public boolean verificarCargo(String cargo) {
         return !(cargo == null || cargo.equals(""));
     }
-
+    
     public boolean verificarUnidade(String unidade) {
         return !(unidade == null || unidade.equals(""));
     }
@@ -59,14 +59,17 @@ public class ServicoFuncionario {
         Daos.DaoFuncionario.inserir(funcionario);
     }
 
-    public void deletarFuncionario(int id) throws Exception {
+    public void deletarFuncionario(String recebe) throws Exception {
+        int id = Integer.parseInt(recebe);
         Daos.DaoFuncionario.deletar(id);
     }
 
-    // public void alterarFuncionario(Funcionario funcionario, String id) throws Exception {
-    //   Daos.DaoFuncionario.alterar(funcionario, id);
-    //}
-    public Funcionario obterFuncionario(int id) throws Exception {
+     public void alterarFuncionario(Funcionario funcionario, String recebe) throws Exception {
+         int id = Integer.parseInt(recebe);
+       Daos.DaoFuncionario.alterar(funcionario, id);
+    }
+    public Funcionario obterFuncionario(String recebe) throws Exception {
+        int id = Integer.parseInt(recebe);
         return Daos.DaoFuncionario.obter(id);
     }
 

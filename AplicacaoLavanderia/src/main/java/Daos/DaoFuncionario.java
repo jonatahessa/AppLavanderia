@@ -172,10 +172,7 @@ public class DaoFuncionario {
 
     public static Funcionario obter(int id)
             throws SQLException, Exception {
-        String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario"
-                + " INNER JOIN Unidade ON Unidade.ID = Funcionario.ID_Unidade"
-                + " WHERE Funcionario.enabled = 'true' ORDER BY Funcionario.ID;";
-
+        String sql = "SELECT * FROM Funcionario WHERE ID = ?;";
         PreparedStatement statement = null;
         Connection connection = null;
         Funcionario funcionario = new Funcionario();
@@ -192,7 +189,7 @@ public class DaoFuncionario {
                 funcionario.setNome(result.getString("nome"));
                 funcionario.setCargo(result.getString("cargo"));
                 funcionario.setLogin(result.getString("login"));
-                funcionario.setNomeUnidade(result.getString("NomeUnidade"));
+                funcionario.setIdUnidade(result.getInt("ID_Unidade"));
                 funcionario.setSenha(result.getString("senha"));
                 funcionario.setAdmissao(result.getDate("admissao"));
                 funcionario.setSexo(result.getString("sexo"));

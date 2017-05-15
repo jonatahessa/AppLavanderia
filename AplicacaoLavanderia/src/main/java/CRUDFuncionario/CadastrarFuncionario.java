@@ -30,7 +30,6 @@ public class CadastrarFuncionario extends HttpServlet {
         boolean senha = sf.verificarSenha(request.getParameter("senha"));
         boolean cargo = sf.verificarCargo(request.getParameter("cargo"));
         boolean admissao = sf.verificarAdmissao(request.getParameter("admissao"));
-        boolean unidade = sf.verificarUnidade(request.getParameter("unidade"));
         boolean sexo = sf.verificarSexo(request.getParameter("sexo"));
 
         if (nome != true) {
@@ -62,12 +61,6 @@ public class CadastrarFuncionario extends HttpServlet {
             request.setAttribute("erroAdmissao", true);
         } else {
             request.setAttribute("admissao", request.getParameter("admissao"));
-        }
-        if (unidade != true) {
-            erro = true;
-            request.setAttribute("erroUnidade", true);
-        } else {
-            request.setAttribute("unidade", request.getParameter("unidade"));
         }
         if (sexo != true) {
             erro = true;
