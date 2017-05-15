@@ -22,14 +22,14 @@
                 <c:choose>
                     <c:when test="${erroNome}">  
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="camponome" type="text" name="nome" class="form-control erro" placeholder="nome">
+                            <span class="input-group-addon"><span class="fa fa-location-arrow fa-fw"></span></span>
+                            <input id="camponome" type="text" name="nome" class="form-control erro" placeholder="Nome">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="camponome" type="text" name="nome" class="form-control" placeholder="nome">
+                            <span class="input-group-addon"><span class="fa fa-location-arrow fa-fw"></span></span>
+                            <input id="camponome" type="text" name="nome" class="form-control" placeholder="Nome">
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -37,14 +37,14 @@
                 <c:choose>
                     <c:when test="${erroCnpj}">  
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" class="form-control erro" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="cnpj">
+                            <span class="input-group-addon"><span class="fa fa-map-marker fa-fw"></span></span>
+                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" class="form-control erro" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" class="form-control" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="cnpj">
+                            <span class="input-group-addon"><span class="fa fa-map-marker fa-fw"></span></span>
+                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" class="form-control" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
                         </div>
                     </c:otherwise>
                 </c:choose>

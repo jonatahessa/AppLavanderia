@@ -28,13 +28,13 @@
                 <c:choose>
                     <c:when test="${erroNome}"> 
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <span class="input-group-addon"><span class="fa fa-user fa-fw"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control erro" placeholder="Nome">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
+                            <span class="input-group-addon"><span class="fa fa-user fa-fw"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control" placeholder="Nome">
                         </div>
                     </c:otherwise>
@@ -43,13 +43,13 @@
                 <c:choose>
                     <c:when test="${erroCpf}">  
                         <div class="input-group">
-                            <span class="input-group-addon"><span class=" glyphicon glyphicon-user"></span></span>
+                            <span class="input-group-addon"><span class="fa fa-id-card fa-fw"></span></span>
                             <input id="campocpf" maxlength="14" value="${cpf}" type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" class="form-control erro" placeholder="CPF">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class=" glyphicon glyphicon-user"></span></span>
+                            <span class="input-group-addon"><span class="fa fa-id-card fa-fw"></span></span>
                             <input id="campocpf" maxlength="14" value="${cpf}" type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" class="form-control" placeholder="CPF">
                         </div>
                     </c:otherwise>
@@ -58,13 +58,13 @@
                <c:choose>
                     <c:when test="${erroEmail}">  
                         <div class="input-group">
-                            <span class="input-group-addon"><span class=" glyphicon glyphicon-envelope"></span></span>
+                            <span class="input-group-addon"><span class="fa fa-envelope fa-fw"></span></span>
                             <input id="campoemail" type="text" value="${email}" name="email" class="form-control erro" placeholder="E-mail">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class=" glyphicon glyphicon-envelope"></span></span>
+                            <span class="input-group-addon"><span class="fa fa-envelope fa-fw"></span></span>
                             <input id="campoemail" type="text" value="${email}" name="email" class="form-control" placeholder="E-mail">
                         </div>
                     </c:otherwise>
@@ -73,20 +73,20 @@
                 <c:choose>
                     <c:when test="${erroTelefone}">  
                         <div class="input-group">
-                            <span class="input-group-addon"><span class=" glyphicon glyphicon-earphone"></span></span>
+                            <span class="input-group-addon"><span class="fa fa-phone fa-fw"></span></span>
                             <input id="campotelefone" value="${telefone}" maxlength="13" type="text" name="telefone" class="form-control erro" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
-                            <span class="input-group-addon"><span class=" glyphicon glyphicon-earphone"></span></span>
+                            <span class="input-group-addon"><span class="fa fa-phone fa-fw"></span></span>
                             <input id="campotelefone" value="${telefone}" maxlength="13" type="text" name="telefone" class="form-control" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
                         </div>
                     </c:otherwise>
                 </c:choose>
                                
                 <div class="input-group">
-                    <span class="input-group-addon"><span class=" glyphicon glyphicon-star"></span></span>
+                    <span class="input-group-addon"><span class="fa fa-venus-mars fa-fw"></span></span>
                     <select id="camposexo" class="selectpicker form-control" data-live-search="true" name="sexo" title="Sexo">
                         <c:choose>
                             <c:when test="${sex eq 'Feminino'}">            
