@@ -32,7 +32,7 @@
 
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
-                    <th>Id</th>
+                  
                     <th>Nome</th>
                     <th>Sexo</th>
                     <th>Cargo</th>
@@ -43,7 +43,7 @@
 
                 <c:forEach var="funcionarios" items="${dao.listar()}">
                     <tr>
-                        <td>${funcionarios.id}</td>
+
                         <td>${funcionarios.nome}</td>
                         <td>${funcionarios.sexo}</td>
                         <td>${funcionarios.cargo}</td>

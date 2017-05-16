@@ -35,6 +35,7 @@ public class AlterarFuncionario extends HttpServlet {
         request.setAttribute("cargo", funcionario.getCargo());
         request.setAttribute("unidade", funcionario.getNomeUnidade());
         request.setAttribute("login", funcionario.getLogin());
+        request.setAttribute("senha", funcionario.getSenha());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("alteraFuncionario.jsp");
         dispatcher.forward(request, response);
