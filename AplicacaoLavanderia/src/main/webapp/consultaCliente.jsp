@@ -10,7 +10,6 @@
         <meta charset="utf-8">
         <!-- Bootstrap -->
         <%@ include file = "bootstrap.html" %>
-        <%@ include file = "header.jsp" %>
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
         <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>

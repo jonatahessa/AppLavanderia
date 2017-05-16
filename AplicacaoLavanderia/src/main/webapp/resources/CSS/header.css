@@ -1,14 +1,10 @@
-body{
-   float:right;
-   position: fixed;
-    
-}
-
 #header {
     left:0;
     bottom:0;
     width:100%;
     border: solid;
+    float:right;
+    position: fixed;
 }
 
 .post-content{
