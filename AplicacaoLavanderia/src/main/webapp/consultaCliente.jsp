@@ -25,7 +25,7 @@
                 <fieldset>
                     <h1>Pesquisar Cliente</h1>
                     <input type="text" name="palavra" />
-                    <input type="submit" value="Pesquisar" href="./AlterarCliente?cpf=${clientes.cpf}"/>
+                    <input type="submit" value="Pesquisar" href="./PesquisarCliente?nome"/>
                 </fieldset>
             </form>
             <form method="POST" action="cadastroCliente.jsp"><button class="btn btn-success" type="submit">Cadastrar</button></form>

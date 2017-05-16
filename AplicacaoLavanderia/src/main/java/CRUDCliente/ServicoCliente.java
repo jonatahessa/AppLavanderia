@@ -1,5 +1,9 @@
 package CRUDCliente;
 
+import Daos.DaoCliente;
+import java.sql.SQLException;
+import java.util.List;
+
 public class ServicoCliente {
 
     public boolean verificarCpf(String cpf) {
@@ -63,10 +67,6 @@ public class ServicoCliente {
 
     public void inserirCliente(Cliente cliente) throws Exception {
         Daos.DaoCliente.inserir(cliente);
-    }
-
-    public void pesquisarCliente(String nome) throws Exception {
-        Daos.DaoCliente.pesquisar(nome);
     }
 
     public void deletarCliente(String cpf) throws Exception {
