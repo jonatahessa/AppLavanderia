@@ -4,9 +4,17 @@
         <servlet-name>AlterarFuncionario</servlet-name>
         <servlet-class>CRUDFuncionario.AlterarFuncionario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarUnidade</servlet-name>
+        <servlet-class>CRUDUnidade.AlterarUnidade</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlterarFuncionario</servlet-name>
         <url-pattern>/AlterarFuncionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarUnidade</servlet-name>
+        <url-pattern>/AlterarUnidade</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

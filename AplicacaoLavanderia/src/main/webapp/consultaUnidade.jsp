@@ -1,3 +1,6 @@
+<%@page import="CRUDUnidade.Unidade"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <jsp:useBean id="dao" class="Daos.DaoUnidade"/>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,6 +29,7 @@
             <form method="POST" action="cadastroUnidade.jsp"><button class="btn btn-success" type="submit">Cadastrar</button></form>        
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
+                    <th>Id</th>
                     <th>Nome da Unidade</th>
                     <th>CNPJ</th>
                     <th>Alterar Unidade</th>
@@ -34,9 +38,10 @@
 
                 <c:forEach var="unidades" items="${dao.listar()}">
                     <tr>
+                        <td>${unidades.id}</td>
                         <td>${unidades.nome}</td>
                         <td>${unidades.cnpj}</td>
-                        <td><a href="./AlterarUnidade?cpf=${unidades.id}" >Alterar</a></td>
+                        <td><a href="./AlterarUnidade?id=${unidades.id}" >Alterar</a></td>
                         <td><form action="DeletarUnidade" method="post" id="frm${unidades.id}">
                             <input type="hidden" name="id" value="${unidades.id}">
                             <a href="#" onclick="document.getElementById('frm${unidades.id}').submit()">Remover</a>

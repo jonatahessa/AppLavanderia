@@ -70,6 +70,35 @@ public class DaoUnidade {
             }
         }
     }
+    
+    public static void alterar(Unidade unidade, int id)
+            throws SQLException, Exception {
+        String sql = "UPDATE Unidade "
+                + "SET NomeUnidade = ?, "
+                + "CNPJ = ? "
+                + "WHERE ID = ?;";
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = ConnectionUtils.getConnection();
+            statement = connection.prepareStatement(sql);
+
+            statement.setString(1, unidade.getNome());
+            statement.setString(2, unidade.getCnpj());
+            statement.setInt(3, id);
+
+            System.out.println("Executando COMANDO SQL: " + sql);
+            statement.execute();
+        } finally {
+            if (statement != null && !statement.isClosed()) {
+                statement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+    }
 
     public static List<Unidade> listar()
             throws SQLException, Exception {
@@ -90,7 +119,7 @@ public class DaoUnidade {
                 }
                 Unidade unidades = new Unidade();
                 unidades.setNome(result.getString("NomeUnidade"));
-                unidades.setCnpj(result.getString("cnpj"));
+                unidades.setCnpj(result.getString("Cnpj"));
                 unidades.setId(result.getInt("ID"));
                 listaUnidades.add(unidades);
             }
@@ -106,6 +135,33 @@ public class DaoUnidade {
             }
         }
         return listaUnidades;
+    }
+    
+    public static Unidade obter(int id) throws
+            SQLException, Exception {
+        String sql = "SELECT * FROM Unidade"
+                + " WHERE ID = ?;";
+        Unidade unidade = new Unidade();
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+
+        statement.setInt(1, id);
+
+        System.out.println("Executando CONSULTA SQL: " + sql);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+            unidade.setId(result.getInt("ID"));
+            unidade.setNome(result.getString("NomeUnidade"));
+            unidade.setCnpj(result.getString("CNPJ"));
+            connection.close();
+            return unidade;
+        }
+
+        return null;
     }
     
     

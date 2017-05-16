@@ -1,12 +1,3 @@
-<%-- 
-    Document   : 
-    Created on : 17/04/2017, 19:39:50
-    Author     : jonata.hmoliveira
-
-
-    tutorial: http://stackoverflow.com/questions/32913032/how-to-acces-jstl-value-in-servlet
---%>
-
 <%@page import="CRUDCliente.Cliente"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>

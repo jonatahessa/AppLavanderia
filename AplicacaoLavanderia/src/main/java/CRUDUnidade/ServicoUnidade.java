@@ -3,17 +3,17 @@ package CRUDUnidade;
 import java.sql.SQLException;
 
 public class ServicoUnidade {
-    
+
     public boolean verificarNome(String nome) {
-        if (nome == null || nome.equals("")){
+        if (nome == null || nome.equals("")) {
             return false;
         }
         return true;
     }
-    
-    public boolean verificarCnpj (String cnpj) {
+
+    public boolean verificarCnpj(String cnpj) {
         int contador = 0;
-        if (cnpj == null || cnpj.equals("")){
+        if (cnpj == null || cnpj.equals("")) {
             return false;
         }
         for (int i = 0; i < cnpj.length(); i++) {
@@ -24,12 +24,22 @@ public class ServicoUnidade {
         }
         return true;
     }
-    
+
     public void inserirUnidade(Unidade unidade) throws SQLException {
         Daos.DaoUnidade.inseriUnidade(unidade);
     }
-    
+
+    public Unidade obterUnidade(String recebe) throws SQLException, Exception {
+        int id = Integer.parseInt(recebe);
+        return Daos.DaoUnidade.obter(id);
+    }
+
     public void deletarUnidade(String id) throws SQLException, Exception {
         Daos.DaoUnidade.deletar(id);
+    }
+    
+    public void alterarUnidade(Unidade unidade, String recebe) throws Exception {
+        int id = Integer.parseInt(recebe);
+       Daos.DaoUnidade.alterar(unidade, id);
     }
 }

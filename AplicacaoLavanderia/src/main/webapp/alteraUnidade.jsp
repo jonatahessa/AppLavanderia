@@ -9,27 +9,27 @@
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarUnidade.css" media="screen" >
         <script type="text/javascript" src="./resources/JavaScript/cadastrarUnidade.js"></script>
-        <title>Cadastro Unidades</title>
+        <title>Alterar Unidade</title>
     </head>
     <body>
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>   
         <div id="principal">
-            <h1 class="form-signin-heading">Cadastro de Unidade</h1>  
+            <h1 class="form-signin-heading">Alteração de Unidade</h1>  
 
-            <form class="form-horizontal" action= "./CadastrarUnidade" method="post">
-                
+            <form class="form-horizontal" action= "./AlterarUnidade" method="post">
+                <input type="text" value="${id}" name="idUnidade" id="id">
                 <c:choose>
-                    <c:when test="${erroNome}">  
+                    <c:when test="${erroNome}">
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="camponome" type="text" name="nome" class="form-control erro" placeholder="Nome">
+                            <input id="camponome" type="text" name="nome" value="${nome}" class="form-control erro" placeholder="Nome">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="camponome" type="text" name="nome" class="form-control" placeholder="Nome">
+                            <input id="camponome" type="text" name="nome" value="${nome}" class="form-control" placeholder="Nome">
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -38,13 +38,13 @@
                     <c:when test="${erroCnpj}">  
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" class="form-control erro" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
+                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" value="${cnpj}" class="form-control erro" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" class="form-control" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
+                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" value="${cnpj}" class="form-control" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
                         </div>
                     </c:otherwise>
                 </c:choose>
