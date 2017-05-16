@@ -16,7 +16,7 @@
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarFuncionario.css">
         <script type="text/javascript" src="./resources/JavaScript/cadastrarFuncionario.js">
         </script>
-        <title>Cadastro Funcionario</title>
+        <title>Cadastro de Funcionario</title>
     </head>
     <body>
         <div id ="logo"></div>

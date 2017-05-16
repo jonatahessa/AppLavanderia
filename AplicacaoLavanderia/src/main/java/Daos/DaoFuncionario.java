@@ -94,7 +94,7 @@ public class DaoFuncionario {
                 + "cargo = ?, "
                 + "admissao = ?, "
                 + "id_unidade = ?, "
-                + "sexo = ?, "
+                + "sexo = ? "
                 + "WHERE id = ?;";
 
         Connection connection = null;
