@@ -7,8 +7,8 @@
         <!-- Bootstrap -->
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
-        <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarUnidade.css" media="screen" >
-        <script type="text/javascript" src="./resources/JavaScript/cadastrarUnidade.js"></script>
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/alterarUnidade.css" media="screen" >
+        <script type="text/javascript" src="./resources/JavaScript/alterarUnidade.js"></script>
         <title>Alterar Unidade</title>
     </head>
     <body>
@@ -38,13 +38,13 @@
                     <c:when test="${erroCnpj}">  
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" value="${cnpj}" class="form-control erro" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
+                            <input id="campocnpj" type="text" maxlength="18" name="cn" value="${cnpj}" class="form-control erro" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" value="${cnpj}" class="form-control" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
+                            <input id="campocnpj" type="text" maxlength="18" name="cn" value="${cnpj}" class="form-control" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
                         </div>
                     </c:otherwise>
                 </c:choose>
