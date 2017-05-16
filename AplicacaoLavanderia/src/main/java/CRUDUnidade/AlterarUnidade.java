@@ -26,7 +26,7 @@ public class AlterarUnidade extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(AlterarUnidade.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.setAttribute("idUnidade", unidade.getId());
+        request.setAttribute("id", unidade.getId());
         request.setAttribute("nome", unidade.getNome());
         request.setAttribute("cnpj", unidade.getCnpj());
             
@@ -42,7 +42,7 @@ public class AlterarUnidade extends HttpServlet {
         ServicoUnidade sf = new ServicoUnidade();
         boolean erro = false;
         boolean nome = sf.verificarNome(request.getParameter("nome"));
-        boolean cnpj = sf.verificarCnpj(request.getParameter("cnpj"));
+        boolean cnpj = sf.verificarCnpj(request.getParameter("cn"));
     
      
         if (nome != true) {
@@ -53,7 +53,7 @@ public class AlterarUnidade extends HttpServlet {
         }
         if (cnpj != true) {
             erro = true;
-            request.setAttribute("erroCargo", true);
+            request.setAttribute("erroCnpj", true);
         } else {
             request.setAttribute("cnpj", request.getParameter("cnpj"));
         }
@@ -62,7 +62,7 @@ public class AlterarUnidade extends HttpServlet {
             ServicoUnidade su2 = new ServicoUnidade();
             Unidade unidade = new Unidade();
             unidade.setNome(request.getParameter("nome"));
-            unidade.setCnpj(request.getParameter("cnjp"));
+            unidade.setCnpj(request.getParameter("cn"));
             
             try {
                 su2.alterarUnidade(unidade, request.getParameter("idUnidade"));
