@@ -51,14 +51,15 @@ public class DaoUnidade {
     
     public static void deletar(String id)
             throws SQLException, Exception {
-        String sql = "UPDATE Unidade SET Enabled = 'false'"
-                + " WHERE ID = ?;";
+        String sql = "UPDATE Unidade SET Enabled = 'false'WHERE ID = ?;"
+                + "UPDATE Funcionario SET Enabled = 'false' WHERE ID_Unidade = ?";
         Connection connection = null;
         PreparedStatement statement = null;
         try {
             connection = ConnectionUtils.getConnection();
             statement = connection.prepareStatement(sql);
             statement.setInt(1, Integer.parseInt(id));
+            statement.setInt(2, Integer.parseInt(id));
             System.out.println("Executando COMANDO SQL: " + sql);
             statement.execute();
         } finally {
