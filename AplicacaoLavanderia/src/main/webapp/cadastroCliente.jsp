@@ -13,6 +13,7 @@
         <!-- Bootstrap -->
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
+        <%@ include file = "header.jsp" %>
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarCliente.css" media="screen" >
         <script type="text/javascript" src="./resources/JavaScript/cadastrarCliente.js"></script>
         <title>Cadastro Cliente</title>

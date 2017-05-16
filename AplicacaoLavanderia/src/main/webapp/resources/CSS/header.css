@@ -1,5 +1,19 @@
+body{
+   float:right;
+   position: fixed;
+    
+}
+
 #header {
-    top: 0px;
-    right: 0px;
-    left: 0px;
+    left:0;
+    bottom:0;
+    width:100%;
+    border: solid;
+}
+
+.post-content{
+    max-width:700px;
+}
+.post-content img{
+    max-width:100% !important;
 }

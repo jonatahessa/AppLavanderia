@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 /**
  *
  * @author jonata
@@ -159,33 +161,7 @@ public class DaoCliente {
 //        }
 //        return listaClientes;
 //    }
-    public static Cliente pesquisar(String nome)
-            throws SQLException, Exception {
-        String sql = "SELECT * FROM Cliente WHERE nome = ?;";
-
-        PreparedStatement statement = null;
-        Connection connection = null;
-        Cliente cliente = new Cliente();
-        connection = ConnectionUtils.getConnection();
-        statement = connection.prepareStatement(sql);
-        statement.setString(1, "%" + nome + "%");
-        System.out.println(statement.toString());
-        ResultSet result = null;
-        result = statement.executeQuery();
-
-        while (result.next()) {
-
-            cliente.setCpf(result.getString("cpf"));
-            cliente.setNome(result.getString("nome"));
-            cliente.setTelefone(result.getString("telefone"));
-            cliente.setEmail(result.getString("email"));
-            cliente.setSexo(result.getString("sexo"));
-            cliente.setEnabled(result.getString("enabled"));
-            cliente.setId(result.getInt("ID"));
-        }
-
-        return cliente;
-    }
+    
 
     public static Cliente obter(String cpf)
             throws SQLException, Exception {
