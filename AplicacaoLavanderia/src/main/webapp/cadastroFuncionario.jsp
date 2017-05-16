@@ -47,12 +47,12 @@
                     <select id="camposexo" class="selectpicker form-control" data-live-search="true" name="sexo" title="Sexo">
                         <c:choose>
                             <c:when test="${sex eq 'Feminino'}">   
-                                <option value="">Selecione o sexo</option> 
+                                
                                 <option name="Feminino">Feminino</option>
                                 <option name="Masculino">Masculino</option>
                             </c:when>
                             <c:otherwise>
-                                <option value="">Selecione o sexo</option>
+                                
                                 <option name="Masculino">Masculino</option>
                                 <option name="Feminino">Feminino</option>
                             </c:otherwise>
@@ -81,7 +81,7 @@
                     <select id="campocargo" class="selectpicker form-control" data-live-search="true" name="cargo" title="Sexo">
                         <c:choose>
                             <c:when test="${cargo eq 'Gerente T.I'}">
-                                <option value="">Selecione o cargo</option> 
+                                
                                 <option name="Gerente T.I">Gerente T.I</option> 
                                 <option name="Funcionario T.I">Funcionário T.I</option>  
                                 <option name="Gerente Vendas">Gerente Vendas</option>
@@ -90,7 +90,7 @@
                                 <option name="Funcionario Retaguarda">Funcionario Retaguarda</option> 
                             </c:when>
                             <c:when test="${cargo eq 'Funcionário T.I'}">
-                                <option value="">Selecione cargo</option> 
+                                
                                 <option name="Funcionario T.I">Funcionário T.I</option>  
                                 <option name="Gerente T.I">Gerente T.I</option> 
                                 <option name="Gerente Vendas">Gerente Vendas</option>
@@ -99,7 +99,7 @@
                                 <option name="Funcionario Retaguarda">Funcionario Retaguarda</option>  
                             </c:when>
                             <c:when test="${cargo eq 'Gerente Vendas'}">  
-                                <option value="">Selecione cargo</option> 
+                                
                                 <option name="Gerente Vendas">Gerente Vendas</option>
                                 <option name="Gerente T.I">Gerente T.I</option> 
                                 <option name="Funcionario T.I">Funcionário T.I</option>  
@@ -108,7 +108,7 @@
                                 <option name="Funcionario Retaguarda">Funcionario Retaguarda</option>  
                             </c:when>
                             <c:when test="${cargo eq 'Funcionário Vendas'}"> 
-                                <option value="">Selecione cargo</option> 
+                               
                                 <option name="Funcionario Vendas">Funcionário Vendas</option>
                                 <option name="Gerente T.I">Gerente T.I</option> 
                                 <option name="Funcionario T.I">Funcionário T.I</option>  
@@ -117,7 +117,7 @@
                                 <option name="Funcionario Retaguarda">Funcionario Retaguarda</option> 
                             </c:when>
                             <c:when test="${cargo eq 'Gerente Retaguarda'}">
-                                <option value="">Selecione cargo</option> 
+                                
                                 <option name="Gerente Retaguarda">Gerente Retaguarda</option>
                                 <option name="Gerente T.I">Gerente T.I</option> 
                                 <option name="Funcionario T.I">Funcionário T.I</option>  
@@ -126,7 +126,7 @@
                                 <option name="Funcionario Retaguarda">Funcionario Retaguarda</option> 
                             </c:when>
                             <c:otherwise>
-                                <option value="">Selecione cargo</option> 
+                                
                                 <option name="Funcionario Retaguarda">Funcionario Retaguarda</option> 
                                 <option name="Gerente T.I">Gerente T.I</option> 
                                 <option name="Funcionario T.I">Funcionário T.I</option>  
@@ -140,10 +140,8 @@
    
                 <div class="input-group">
                     <span class="input-group-addon"><span class="fa fa-building fa-fw"></span></span>
-                    <select id="campoempresa" class="selectpicker form-control" data-live-search="true" name="unidade" title="Unidadw">
- 
-                        <c:forEach var="unidade" items="${dao.listar()}"> 
-                            <option value="">Unidade da lavanderia</option> 
+                    <select id="campoempresa" class="selectpicker form-control" data-live-search="true" name="unidade" title="Unidadw">   
+                            <c:forEach var="unidade" items="${dao.listar()}"> 
                             <option nome="${unidade.nome}">${unidade.nome}</option>
                         </c:forEach>
                     </select>
