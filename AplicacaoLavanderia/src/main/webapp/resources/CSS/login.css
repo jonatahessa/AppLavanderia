@@ -1,0 +1,46 @@
+html, body {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+    background-color: hsl(213, 76%, 95%);
+}
+
+#principal {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  top: 10%;
+  position: fixed;
+  border: 1px solid hsl(0,0%,0%);
+  background-color: hsl(213, 76%, 76%);
+  width: 30%;
+  height: 30%;
+
+}
+
+input {
+    margin-top: 1%;
+}
+
+h1 {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  color: grey;
+  margin-top: 1%;
+}
+
+#logar {
+    margin-top: 5%;
+    margin-left: 75%;
+}
+
+.erro {
+    border-color: hsl(0, 92%, 60%);
+    animation: treme 0.1s;
+    animation-iteration-count: 3;
+}
