@@ -15,7 +15,7 @@
         </script>
         <title>Vender</title>
     </head>
-    <%-- https://pt.stackoverflow.com/questions/26421/pegar-valor-de-um-atributo-na-td -->
+    <%-- https://pt.stackoverflow.com/questions/26421/pegar-valor-de-um-atributo-na-td  --%>
     <body>
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
