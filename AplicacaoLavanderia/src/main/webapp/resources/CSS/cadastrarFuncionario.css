@@ -1,4 +1,12 @@
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@keyframes treme {
+  0% {margin-left: 0;}
+  25% {margin-left: 3px;}
+  50% {margin-left: 0;}
+  75% {margin-left: -3px;}
+  100% {margin-left: 0;}
+}
+
 
 html, body {
   height: 100%;
@@ -61,7 +69,8 @@ h1 {
 }
 
 .erro {
-    background: hsl(0, 92%, 77%);
+    border-color: hsl(0, 92%, 60%);
+   animation: treme 0.2s;
 }
 
 #id {

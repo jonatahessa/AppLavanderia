@@ -1,3 +1,11 @@
+@keyframes treme {
+  0% {margin-left: 0;}
+  25% {margin-left: 3px;}
+  50% {margin-left: 0;}
+  75% {margin-left: -3px;}
+  100% {margin-left: 0;}
+}
+
 html, body {
   height: 100%;
   padding: 0px;
@@ -60,7 +68,8 @@ h1 {
 }
 
 .erro {
-    background: hsl(0, 92%, 77%);
+    border-color: hsl(0, 92%, 60%);
+   animation: treme 0.2s;
 }
 
 
