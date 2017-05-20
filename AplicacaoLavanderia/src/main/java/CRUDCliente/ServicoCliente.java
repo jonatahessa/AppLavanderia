@@ -7,14 +7,10 @@ import java.util.List;
 public class ServicoCliente {
 
     public boolean verificarCpf(String cpf) {
-        int contador = 0;
         if (cpf == null || cpf.equals("")) {
             return false;
         }
-        for (int i = 0; i < cpf.length(); i++) {
-            contador++;
-        }
-        if (contador != 14) {
+        if (cpf.length()+1 != 15) {
             return false;
         }
         try {
@@ -67,14 +63,11 @@ public class ServicoCliente {
     }
 
     public boolean verificarTelefone(String telefone) {
-        int contador = 0;
+
         if (telefone == null || telefone.equals("")) {
             return false;
         }
-        for (int i = 0; i < telefone.length(); i++) {
-            contador++;
-        }
-        if (contador != 12) {
+        if (telefone.length()+1 != 13) {
             return false;
         }
         try {
