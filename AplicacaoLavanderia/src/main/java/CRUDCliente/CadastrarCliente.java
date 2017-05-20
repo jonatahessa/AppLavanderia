@@ -27,12 +27,16 @@ public class CadastrarCliente extends HttpServlet {
 	  throws ServletException, IOException {
         ServicoCliente vc = new ServicoCliente();
         boolean erro = false;
+         boolean duplo = false;
         boolean nome = vc.verificarNome(request.getParameter("nome"));
         boolean email = vc.verificarEmail(request.getParameter("email"));
         boolean telefone = vc.verificarTelefone(request.getParameter("telefone"));
         boolean cpf = vc.verificarCpf(request.getParameter("cpf"));
         boolean sexo = vc.verificarSexo(request.getParameter("sexo"));
-    
+      try {
+        duplo = vc.verificarDuplicada(request.getParameter("cpf"));
+      } catch (Exception ex) {
+      }
      
         if (nome != true) {
             erro = true;
@@ -58,7 +62,7 @@ public class CadastrarCliente extends HttpServlet {
             request.setAttribute("trueTelefone", true);
         }
         
-        if (cpf != true) {
+        if (cpf != true || duplo == true) {
             erro = true;
             request.setAttribute("erroCpf", true);
         } else {

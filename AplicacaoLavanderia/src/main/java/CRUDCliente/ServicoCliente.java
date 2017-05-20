@@ -103,4 +103,8 @@ public class ServicoCliente {
     public List<Cliente> ListarClientes() throws Exception {
         return Daos.DaoCliente.listar();
     }
+    
+    public boolean verificarDuplicada(String cpf) throws Exception {
+        return Daos.DaoCliente.verificarDuplicada(cpf);
+    }
 }

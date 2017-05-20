@@ -266,4 +266,33 @@ public class DaoCliente {
         }
         return listaClientes;
     }
+    
+    public static boolean verificarDuplicada(String cpf) throws
+            SQLException, Exception {
+        String sql = "SELECT * FROM Cliente "
+                + " WHERE Cliente.cpf = ? AND Enabled = 'true'";
+        Cliente cliente = new Cliente();
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+
+        statement.setString(1, cpf);
+        System.out.println(statement.toString());
+        System.out.println("Executando CONSULTA SQL: " + sql);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+            cliente.setCpf(result.getString("cpf"));
+            cliente.setNome(result.getString("nome"));
+            cliente.setTelefone(result.getString("telefone"));
+            cliente.setEmail(result.getString("email"));
+            cliente.setEnabled(result.getString("enabled"));
+            connection.close();
+            return true;
+        }
+
+        return false;
+    }
 }
