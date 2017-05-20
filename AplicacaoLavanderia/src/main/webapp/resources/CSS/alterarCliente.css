@@ -77,4 +77,11 @@ h1 {
    animation: treme 0.2s;
 }
 
+.ok {
+   color: green;
+}
+
+.remove {
+   color: red; 
+}
 

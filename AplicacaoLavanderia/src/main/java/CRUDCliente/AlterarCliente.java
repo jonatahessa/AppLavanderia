@@ -55,24 +55,28 @@ public class AlterarCliente extends HttpServlet {
             request.setAttribute("erroNome", true);
         } else {
             request.setAttribute("nome", request.getParameter("nome"));
+            request.setAttribute("trueNome", true);
         }
         if (email != true) {
             erro = true;
             request.setAttribute("erroEmail", true);
         } else {
             request.setAttribute("email", request.getParameter("email"));
+            request.setAttribute("trueEmail", true);
         }
         if (telefone != true) {
             erro = true;
             request.setAttribute("erroTelefone", true);
         } else {
             request.setAttribute("telefone", request.getParameter("telefone"));
+            request.setAttribute("trueTelefone", true);
         }
         if (cpf != true) {
             erro = true;
             request.setAttribute("erroCpf", true);
         } else {
             request.setAttribute("cpf", request.getParameter("cpf"));
+            request.setAttribute("trueCpf", true);
         }
         
         request.setAttribute("sex", request.getParameter("sexo"));

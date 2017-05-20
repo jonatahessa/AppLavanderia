@@ -24,12 +24,16 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control erro" placeholder="Nome">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control" placeholder="Nome">
+                            <c:if test="${trueNome}">
+                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if>  
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -39,12 +43,16 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class=" glyphicon glyphicon-user"></span></span>
                             <input id="campocpf" maxlength="14" value="${cpf}" type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" class="form-control erro" placeholder="CPF">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class=" glyphicon glyphicon-user"></span></span>
                             <input id="campocpf" maxlength="14" value="${cpf}" type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" class="form-control" placeholder="CPF">
+                            <c:if test="${trueCpf}">
+                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if>  
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -54,12 +62,16 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class=" glyphicon glyphicon-envelope"></span></span>
                             <input id="campoemail" type="text" value="${email}" name="email" class="form-control erro" placeholder="E-mail">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class=" glyphicon glyphicon-envelope"></span></span>
                             <input id="campoemail" type="text" value="${email}" name="email" class="form-control" placeholder="E-mail">
+                            <c:if test="${trueEmail}">
+                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if>  
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -68,13 +80,17 @@
                     <c:when test="${erroTelefone}">  
                         <div class="input-group">
                             <span class="input-group-addon"><span class=" glyphicon glyphicon-earphone"></span></span>
-                            <input id="campotelefone" value="${telefone}" maxlength="13" type="text" name="telefone" class="form-control erro" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
+                            <input id="campotelefone" value="${telefone}" maxlength="12" type="text" name="telefone" class="form-control erro" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class=" glyphicon glyphicon-earphone"></span></span>
-                            <input id="campotelefone" value="${telefone}" maxlength="13" type="text" name="telefone" class="form-control" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
+                            <input id="campotelefone" value="${telefone}" maxlength="12" type="text" name="telefone" class="form-control" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
+                            <c:if test="${trueTelefone}">
+                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if>  
                         </div>
                     </c:otherwise>
                 </c:choose>
