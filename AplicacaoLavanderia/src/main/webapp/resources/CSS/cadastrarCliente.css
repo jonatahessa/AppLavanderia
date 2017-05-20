@@ -27,6 +27,11 @@ button {
   font-size: 16px;
 }
 
+#buttons {
+    margin-top: 8%;
+    margin-left: 8%;
+}
+
 h1 {
   text-align: center;
   font-family: Helvetica, sans-serif;
@@ -42,10 +47,9 @@ h1 {
   margin: auto;
   top: 10%;
   position: fixed;
-  border: 1px solid hsl(0,0%,0%);
   background-color: hsl(213, 76%, 76%);
   width: 40%;
-  height: 35%;
+  height: 40%;
   border-radius: 10px;
 
 }
@@ -61,7 +65,7 @@ form{
 }
 
 .erro {
-    border-color: hsl(0, 92%, 60%);
+   border-color: hsl(0, 92%, 60%);
    animation: treme 0.2s;
 }
 
@@ -69,4 +73,10 @@ form{
    display: none; 
 }
 
+.ok {
+   color: green;
+}
 
+.remove {
+   color: red; 
+}

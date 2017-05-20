@@ -24,10 +24,9 @@ body {
   margin: auto;
   top: 10%;
   position: fixed;
-  
   background-color: hsl(213, 76%, 76%);
-  width: 15%;
-  height: 25%;
+  width: 25%;
+  height: 22%;
   border-radius: 10px;
 }
 
@@ -43,11 +42,15 @@ h1 {
 }
 
 #logar {
-    margin-top: 5%;
-    margin-left: 70%;
+    margin-top: 6%;
+    margin-left: 80%;
 }
 
 .erro {
    border-color: hsl(0, 92%, 60%);
    animation: treme 0.2s;
+}
+
+.remove {
+   color: red; 
 }

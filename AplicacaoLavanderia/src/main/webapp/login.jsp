@@ -23,6 +23,8 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-user fa-fw"></span></span>
                             <input id="campologin" type="text" value="${login}" name="login" class="form-control erro" placeholder="Usuario">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
+
                         </div>
                     </c:when>    
                     <c:otherwise>
@@ -38,6 +40,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-id-card fa-fw"></span></span>
                             <input id="camposenha" value="${senha}" type="password" name="senha"  class="form-control erro" placeholder="Senha">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>

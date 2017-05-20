@@ -39,6 +39,7 @@ public class CadastrarCliente extends HttpServlet {
             request.setAttribute("erroNome", true);
         } else {
             request.setAttribute("nome", request.getParameter("nome"));
+            request.setAttribute("trueNome", true);
         }
         
         if (email != true) {
@@ -46,6 +47,7 @@ public class CadastrarCliente extends HttpServlet {
             request.setAttribute("erroEmail", true);
         } else {
             request.setAttribute("email", request.getParameter("email"));
+            request.setAttribute("trueEmail", true);
         }
         
         if (telefone != true) {
@@ -53,6 +55,7 @@ public class CadastrarCliente extends HttpServlet {
             request.setAttribute("erroTelefone", true);
         } else {
             request.setAttribute("telefone", request.getParameter("telefone"));
+            request.setAttribute("trueTelefone", true);
         }
         
         if (cpf != true) {
@@ -60,6 +63,7 @@ public class CadastrarCliente extends HttpServlet {
             request.setAttribute("erroCpf", true);
         } else {
             request.setAttribute("cpf", request.getParameter("cpf"));
+            request.setAttribute("trueCpf", true);
         }
         
             request.setAttribute("sex", request.getParameter("sexo"));
