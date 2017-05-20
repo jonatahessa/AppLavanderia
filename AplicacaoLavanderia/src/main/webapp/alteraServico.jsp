@@ -23,12 +23,16 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
                             <input id="camponome" type="text" name="nome" value="${nome}" class="form-control erro" placeholder="Nome">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
                             <input id="camponome" type="text" name="nome" value="${nome}" class="form-control" placeholder="Nome">
+                            <c:if test="${trueNome}">
+                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if> 
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -38,12 +42,16 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
                             <input id="campopreco" type="text" value="${preco}" name="preco" class="form-control erro" placeholder="preco">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
                             <input id="campopreco" type="text" value="${preco}" name="preco" class="form-control" placeholder="preco">
+                            <c:if test="${truePreco}">
+                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if> 
                         </div>
                     </c:otherwise>
                 </c:choose>

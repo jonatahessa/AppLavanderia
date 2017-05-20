@@ -36,12 +36,16 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-shower fa-fw"></span></span>
                             <input id="camponome" type="text" name="nome" value="${nome}" class="form-control erro" placeholder="Nome">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-shower fa-fw"></span></span>
                             <input id="camponome" type="text" name="nome" value="${nome}" class="form-control" placeholder="Nome">
+                            <c:if test="${trueNome}">
+                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if> 
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -51,12 +55,16 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-usd fa-fw"></span></span>
                             <input id="campopreco" type="text" value="${preco}" name="preco" class="form-control erro" placeholder="Preço">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-usd fa-fw"></span></span>
                             <input id="campopreco" type="text" value="${preco}" name="preco" class="form-control" placeholder="Preço">
+                            <c:if test="${truePreco}">
+                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if> 
                         </div>
                     </c:otherwise>
                 </c:choose>

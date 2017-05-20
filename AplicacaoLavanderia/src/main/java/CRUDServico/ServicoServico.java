@@ -1,17 +1,25 @@
 package CRUDServico;
 
+import java.util.List;
+
 public class ServicoServico {
     
     public boolean verificarNome(String nome) {
-        if (nome == null || nome.equals("")){
+        if (nome == null || nome.equals("")) {
+            return false;
+        }
+        if (nome.length()> 100) {
             return false;
         }
         return true;
     }
     
+    public String converterPreco (String preco) {
+        return preco = preco.replaceAll(",", "\\.");
+    }
+    
     public boolean verificarPreco (String preco) {
-        preco = preco.replaceAll(",", "\\.");
-        
+       
         if (preco == null || preco.equals("")){
             return false;
         }
@@ -37,5 +45,13 @@ public class ServicoServico {
     
     public void alterarServico(Servico servico, String id) throws Exception {
         Daos.DaoServico.alterar(servico, id);
+    }
+    
+    public List<Servico> ListarFuncionarios() throws Exception {
+        return Daos.DaoServico.listar();
+    }
+
+    public List<Servico> pesquisarServico(String nome) throws Exception {
+        return Daos.DaoServico.pesquisarServico(nome);
     }
 }

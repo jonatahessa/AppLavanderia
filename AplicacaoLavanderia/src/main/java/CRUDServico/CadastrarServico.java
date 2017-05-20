@@ -35,25 +35,28 @@ public class CadastrarServico extends HttpServlet {
             throws ServletException, IOException {
 
         boolean erro = false;
-        ServicoServico vs = new ServicoServico();
+        ServicoServico ss = new ServicoServico();
         
-        boolean nome = vs.verificarNome(request.getParameter("nome"));
+        boolean nome = ss.verificarNome(request.getParameter("nome"));
         
-        String precoCorrigido = request.getParameter("preco");
-        precoCorrigido = precoCorrigido.replaceAll(",", "\\.");
-        boolean preco = vs.verificarPreco(precoCorrigido);
+       String precoCorrigido = ss.converterPreco(request.getParameter("preco"));
+       boolean preco = ss.verificarPreco(precoCorrigido);
+        //precoCorrigido = precoCorrigido.replaceAll(",", "\\.");
+        
         
         if (nome != true) {
             erro = true;
             request.setAttribute("erroNome", true);
         } else {
             request.setAttribute("nome", request.getParameter("nome"));
+            request.setAttribute("trueNome", true);
         }
         if (preco != true) {
             erro = true;
             request.setAttribute("erroPreco", true);
         } else {
             request.setAttribute("preco", request.getParameter("preco"));
+            request.setAttribute("truePreco", true);
         }
 
         if (!erro) {
@@ -61,7 +64,7 @@ public class CadastrarServico extends HttpServlet {
             servico.setNomeServico(request.getParameter("nome"));
             servico.setPrecoPorPeca(Double.parseDouble(precoCorrigido));
             try {
-                vs.inserirServico(servico);
+                ss.inserirServico(servico);
                 response.sendRedirect("mensagemCadastro.jsp");
             } catch (Exception ex) {
                 response.sendRedirect("mensagemErro.jsp");

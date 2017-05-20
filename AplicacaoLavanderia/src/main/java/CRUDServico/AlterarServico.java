@@ -37,25 +37,28 @@ public class AlterarServico extends HttpServlet {
         ServicoServico ss = new ServicoServico();
         boolean erro = false;
         boolean nome = ss.verificarNome(request.getParameter("nome"));
-        boolean preco = ss.verificarPreco(request.getParameter("preco"));
+        String precoCorrigido = ss.converterPreco(request.getParameter("preco"));
+        boolean preco = ss.verificarPreco(precoCorrigido);
      
         if (nome != true) {
             erro = true;
             request.setAttribute("erroNome", true);
         } else {
             request.setAttribute("nome", request.getParameter("nome"));
+            request.setAttribute("trueNome", true);
         }
         if (preco != true) {
             erro = true;
             request.setAttribute("erroPreco", true);
         } else {
             request.setAttribute("preco", request.getParameter("preco"));
+            request.setAttribute("truePreco", true);
         }
         
         if (!erro) {
             Servico servico = new Servico();
             servico.setNomeServico(request.getParameter("nome"));
-            servico.setPrecoPorPeca(Double.parseDouble(request.getParameter("preco")));
+            servico.setPrecoPorPeca(Double.parseDouble(precoCorrigido));;
             
             try {
                 ss.alterarServico(servico, request.getParameter("id"));

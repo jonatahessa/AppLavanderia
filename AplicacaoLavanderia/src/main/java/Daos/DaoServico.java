@@ -233,4 +233,49 @@ public class DaoServico {
         return null;
     }
 
+    public static List<Servico> pesquisarServico(String nome) throws
+        ServicoException, SQLException, Exception {
+        String sql = "SELECT * FROM Servico WHERE Nome LIKE ? AND Enabled = 'true'";
+        
+        List<Servico> listaServicos = null;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet result = null;
+        
+        try {
+            connection = ConnectionUtils.getConnection();
+            statement = connection.prepareStatement(sql);
+            nome = "%"+nome+"%";
+            statement.setString(1, nome);
+            System.out.println(statement.toString());
+            System.out.println("Executando CONSULTA SQL: " + sql);
+            result = statement.executeQuery();
+            while (result.next()) {
+                if (listaServicos == null) {
+                    listaServicos = new ArrayList<Servico>();
+                }
+                Servico servico = new Servico();
+                servico.setNomeServico(result.getString("nome"));
+                servico.setPrecoPorPeca(result.getDouble("preco"));
+                servico.setEnabled(result.getString("enabled"));
+                servico.setId(result.getInt("ID"));
+                listaServicos.add(servico);
+            }
+        } finally {
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            if (statement != null && !statement.isClosed()) {
+                statement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+        return listaServicos;
+    }
+
 }
+
+
+
