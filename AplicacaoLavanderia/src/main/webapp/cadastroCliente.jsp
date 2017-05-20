@@ -75,13 +75,13 @@
                     <c:when test="${erroTelefone}">  
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-phone fa-fw"></span></span>
-                            <input id="campotelefone" value="${telefone}" maxlength="13" type="text" name="telefone" class="form-control erro" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
+                            <input id="campotelefone" value="${telefone}" maxlength="12" type="text" name="telefone" class="form-control erro" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-phone fa-fw"></span></span>
-                            <input id="campotelefone" value="${telefone}" maxlength="13" type="text" name="telefone" class="form-control" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
+                            <input id="campotelefone" value="${telefone}" maxlength="12" type="text" name="telefone" class="form-control" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
                         </div>
                     </c:otherwise>
                 </c:choose>

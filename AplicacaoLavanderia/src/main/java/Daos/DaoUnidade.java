@@ -7,7 +7,6 @@ package Daos;
 
 import CRUDUnidade.Unidade;
 import ConnectionBD.ConnectionUtils;
-import Exeptions.FilialException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -136,6 +135,8 @@ public class DaoUnidade {
         }
         return listaUnidades;
     }
+    
+    
     
     public static Unidade obter(int id) throws
             SQLException, Exception {

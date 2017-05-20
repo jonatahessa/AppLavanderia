@@ -20,11 +20,11 @@
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
         <div id="table">
-            <form action="consultaCliente.jsp" method="POST">
+            <form action= "./PesquisarCliente" method="post">
                 <fieldset>
                     <h1>Pesquisar Cliente</h1>
-                    <input type="text" name="palavra" />
-                    <input type="submit" value="Pesquisar" href="./PesquisarCliente?nome"/>
+                    <input type="text" name="palavra" placeholder="Pesquisa por nome"/>
+                    <button class="btn btn-info" type="submit">Pesquisar</button>
                 </fieldset>
             </form>
             <form method="POST" action="cadastroCliente.jsp"><button class="btn btn-success" type="submit">Cadastrar</button></form>
@@ -38,7 +38,7 @@
                     <th>Alterar Cliente</th>
                     <th>Remover Cliente</th>
                 </tr>
-                <c:forEach var="clientes" items="${dao.listar()}">
+                <c:forEach var="clientes" items="${resultado}">
                     <tr onclick="main();">
                         <td>${clientes.nome}</td>
                         <td>${clientes.cpf}</td>

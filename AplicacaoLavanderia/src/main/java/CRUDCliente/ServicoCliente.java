@@ -17,11 +17,24 @@ public class ServicoCliente {
         if (contador != 14) {
             return false;
         }
+        try {
+            int teste = Integer.parseInt(cpf.substring(0,2));
+            int teste2 = Integer.parseInt(cpf.substring(4,6));
+            int teste3 = Integer.parseInt(cpf.substring(8,10));
+            int teste4 = Integer.parseInt(cpf.substring(12,13));
+            
+        } catch (Exception e){
+            return false;
+        }
+        
         return true;
     }
 
     public boolean verificarNome(String nome) {
         if (nome == null || nome.equals("")) {
+            return false;
+        }
+        if (nome.length()+1 > 100) {
             return false;
         }
         return true;
@@ -44,10 +57,12 @@ public class ServicoCliente {
                 contador++;
             }
         }
-        if (contador != 1) {
+        if (!email.contains(".com")) {
             return false;
         }
-
+        if (contador != 1 || email.length()+1 > 100) {
+            return false;
+        }
         return true;
     }
 
@@ -59,7 +74,14 @@ public class ServicoCliente {
         for (int i = 0; i < telefone.length(); i++) {
             contador++;
         }
-        if (contador != 13) {
+        if (contador != 12) {
+            return false;
+        }
+        try {
+            int teste = Integer.parseInt(telefone.substring(0,1));
+            int teste2 = Integer.parseInt(telefone.substring(3,6));
+            int teste3 = Integer.parseInt(telefone.substring(8,12));            
+        } catch (Exception e){
             return false;
         }
         return true;
@@ -79,5 +101,13 @@ public class ServicoCliente {
 
     public Cliente obterCliente(String cpf) throws Exception {
         return Daos.DaoCliente.obter(cpf);
+    }
+    
+    public List<Cliente> pesquisarCliente(String nome) throws Exception {
+        return Daos.DaoCliente.pesquisarCliente(nome);
+    }
+    
+    public List<Cliente> ListarClientes() throws Exception {
+        return Daos.DaoCliente.listar();
     }
 }

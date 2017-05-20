@@ -120,50 +120,6 @@ public class DaoCliente {
         }
     }
 
-//    public static List<Cliente> pesquisar(String palavra)
-//            throws SQLException, Exception {
-//        String sql = "SELECT * FROM Cliente "
-//                + " WHERE nome like ?";
-//
-//        Connection connection = null;
-//        PreparedStatement statement = null;
-//        List<Cliente> listaClientes = new ArrayList<>();
-//        try {
-//            connection = ConnectionUtils.getConnection();
-//            statement = connection.prepareStatement(sql);
-//
-//            statement.setString(1, "%" + palavra + "%");
-//
-//            System.out.println("Executando COMANDO SQL: " + sql);
-//
-//            ResultSet result = statement.executeQuery();
-//            while (result.next()) {
-//                if (listaClientes == null) {
-//                    listaClientes = new ArrayList<Cliente>();
-//                }
-//                Cliente cliente = new Cliente();
-//                statement.setString(1, cliente.getNome());
-//                statement.setString(2, cliente.getCpf());
-//                statement.setString(3, cliente.getTelefone());
-//                statement.setString(4, cliente.getEmail());
-//                statement.setString(5, cliente.getEnabled());
-//                System.out.println(statement.toString());
-//
-//                listaClientes.add(cliente);
-//                statement.executeQuery();
-//            }
-//        } finally {
-//            if (statement != null && !statement.isClosed()) {
-//                statement.close();
-//            }
-//            if (connection != null && !connection.isClosed()) {
-//                connection.close();
-//            }
-//        }
-//        return listaClientes;
-//    }
-    
-
     public static Cliente obter(String cpf)
             throws SQLException, Exception {
         String sql = "SELECT * FROM Cliente WHERE CPF = ?;";
@@ -230,7 +186,6 @@ public class DaoCliente {
         return listaClientes;
     }
 
-    //listar sem where
     public static List<Cliente> listar()
             throws SQLException, Exception {
         String sql = "SELECT * FROM Cliente WHERE enabled = 'true'";
@@ -250,7 +205,7 @@ public class DaoCliente {
         statement = connection.prepareStatement(sql);
 
         statement.setString(1, cpf);
-
+        System.out.println(statement.toString());
         System.out.println("Executando CONSULTA SQL: " + sql);
         ResultSet result = statement.executeQuery();
 
@@ -267,4 +222,48 @@ public class DaoCliente {
         return null;
     }
 
+
+    public static List<Cliente> pesquisarCliente(String nome) throws
+        ClienteException, SQLException, Exception {
+        String sql = "SELECT * FROM Cliente WHERE Nome LIKE ? AND Enabled = 'true'";
+        
+        List<Cliente> listaClientes = null;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet result = null;
+        
+        try {
+            connection = ConnectionUtils.getConnection();
+            statement = connection.prepareStatement(sql);
+            nome = "%"+nome+"%";
+            statement.setString(1, nome);
+            System.out.println(statement.toString());
+            System.out.println("Executando CONSULTA SQL: " + sql);
+            result = statement.executeQuery();
+            while (result.next()) {
+                if (listaClientes == null) {
+                    listaClientes = new ArrayList<Cliente>();
+                }
+                Cliente cliente = new Cliente();
+                cliente.setCpf(result.getString("cpf"));
+                cliente.setNome(result.getString("nome"));
+                cliente.setTelefone(result.getString("telefone"));
+                cliente.setEmail(result.getString("email"));
+                cliente.setSexo(result.getString("sexo"));
+                cliente.setEnabled(result.getString("enabled"));
+                listaClientes.add(cliente);
+            }
+        } finally {
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            if (statement != null && !statement.isClosed()) {
+                statement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+        return listaClientes;
+    }
 }
