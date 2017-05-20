@@ -37,18 +37,21 @@ public class CadastrarFuncionario extends HttpServlet {
             request.setAttribute("erroNome", true);
         } else {
             request.setAttribute("nome", request.getParameter("nome"));
+            request.setAttribute("trueNome", true);
         }
         if (login != true) {
             erro = true;
             request.setAttribute("erroLogin", true);
         } else {
             request.setAttribute("login", request.getParameter("login"));
+            request.setAttribute("trueLogin", true);
         }
         if (senha != true) {
             erro = true;
             request.setAttribute("erroSenha", true);
         } else {
             request.setAttribute("senha", request.getParameter("senha"));
+            request.setAttribute("trueSenha", true);
         }
         if (cargo != true) {
             erro = true;
@@ -61,6 +64,7 @@ public class CadastrarFuncionario extends HttpServlet {
             request.setAttribute("erroAdmissao", true);
         } else {
             request.setAttribute("admissao", request.getParameter("admissao"));
+            request.setAttribute("trueAdmissao", true);
         }
         if (sexo != true) {
             erro = true;

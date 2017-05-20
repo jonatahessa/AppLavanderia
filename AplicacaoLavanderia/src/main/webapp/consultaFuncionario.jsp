@@ -21,11 +21,11 @@
         <%@ include file = "menu.jsp" %>
 
         <div id="table">
-            <form action="consultaFuncionario.jsp" method="GET">
+            <form action="./PesquisarFuncionario" method="post">
                 <fieldset>
                     <h1>Pesquisar Funcionario</h1>
-                    <input type="text" name="palavra" value="${param.palavra}"/>
-                    <input type="submit" value="Pesquisar"/>
+                    <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
+                    <button class="btn btn-info" type="submit">Pesquisar</button>
                 </fieldset>
             </form>
             <form method="POST" action="cadastroFuncionario.jsp"><button class="btn btn-success" type="submit">Cadastrar</button></form>
@@ -41,7 +41,7 @@
                     <th>Remover Cliente</th>
                 </tr>
 
-                <c:forEach var="funcionarios" items="${dao.listar()}">
+                <c:forEach var="funcionarios" items="${resultado}">
                     <tr>
 
                         <td>${funcionarios.nome}</td>

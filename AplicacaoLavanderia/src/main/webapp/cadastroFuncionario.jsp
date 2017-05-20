@@ -31,12 +31,16 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-id-badge fa-fw"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control erro" placeholder="Nome">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-id-badge fa-fw"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control" placeholder="Nome">
+                            <c:if test="${trueNome}">
+                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if>     
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -66,12 +70,16 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-calendar-check-o fa-fw"></span></span>
                             <input id="camponome" type="text" value="${admissao}" name="admissao" maxlength="10" onkeypress="mascara(this, '##/##/####');" class="form-control erro" placeholder="Admissão">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-calendar-check-o fa-fw"></span></span>
                             <input id="camponome" type="text" value="${admissao}" name="admissao" maxlength="10" onkeypress="mascara(this, '##/##/####');" class="form-control" placeholder="Admissão">
+                            <c:if test="${trueAdmissao}">
+                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if>     
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -151,13 +159,17 @@
                     <c:when test="${erroLogin}"> 
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-user-circle fa-fw"></span></span>
-                            <input id="campologin" type="text" value="${login}" name="login" class="form-control erro" placeholder="Login">
+                            <input id="campologin" type="text" value="${login}" name="login" class="form-control erro" placeholder="Login (min.5 max.10)">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-user-circle fa-fw"></span></span>
-                            <input id="campologin" type="text" value="${login}" name="login" class="form-control" placeholder="Login">
+                            <input id="campologin" type="text" value="${login}" name="login" class="form-control" placeholder="Login (min.5 max.10)">
+                            <c:if test="${trueLogin}">
+                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if>     
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -165,13 +177,17 @@
                     <c:when test="${erroSenha}"> 
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-key fa-fw"></span></span>
-                            <input id="campologin" type="password" value="${senha}" name="senha" class="form-control erro" placeholder="Senha">
+                            <input id="campologin" type="password" value="${senha}" name="senha" class="form-control erro" placeholder="Senha (min.4 max.8)">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-key fa-fw"></span></span>
-                            <input id="campologin" type="password" value="${senha}" name="senha" class="form-control" placeholder="Senha">
+                            <input id="campologin" type="password" value="${senha}" name="senha" class="form-control" placeholder="Senha (min.4 max.8)">
+                            <c:if test="${trueSenha}">
+                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if>     
                         </div>
                     </c:otherwise>
                 </c:choose>

@@ -1,7 +1,8 @@
-package CRUDCliente;
 
+package CRUDFuncionario;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,42 +12,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-
-
-@WebServlet(name = "PesquisarCliente", urlPatterns = {"/PesquisarCliente"})
-public class PesquisarCliente extends HttpServlet {
-
+@WebServlet(name = "PesquisarFuncionario", urlPatterns = {"/PesquisarFuncionario"})
+public class PesquisarFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
         
     }
 
-
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-        ServicoCliente sc = new ServicoCliente();
+        ServicoFuncionario sf = new ServicoFuncionario();
         
         if (request.getParameter("palavra").equals("") || request.getParameter("palavra") == null) {
             try {
-                List<Cliente> resultado = sc.ListarClientes();
+                List<Funcionario> resultado = sf.ListarFuncionarios();
                 request.setAttribute("resultado", resultado);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaCliente.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaFuncionario.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
                 response.sendRedirect("mensagemErro.jsp"); 
             }
         } else {
             try {
-                List<Cliente> resultado = sc.pesquisarCliente(request.getParameter("palavra"));
+                List<Funcionario> resultado = sf.pesquisarFuncionario(request.getParameter("palavra"));
                 if (resultado == null){
                     request.setAttribute("palavra", request.getParameter("palavra"));
                 } else {
                     request.setAttribute("palavra", request.getParameter("palavra"));
                     request.setAttribute("resultado", resultado);
                 }
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaCliente.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaFuncionario.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
                 response.sendRedirect("mensagemErro.jsp"); 
@@ -55,3 +52,5 @@ public class PesquisarCliente extends HttpServlet {
     }
     
 }
+
+

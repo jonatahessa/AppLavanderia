@@ -284,6 +284,52 @@ public class DaoFuncionario {
 
         return null;
     }
+    
+    public static List<Funcionario> pesquisarFuncionario(String nome) throws
+        FuncionarioException, SQLException, Exception {
+        String sql = "SELECT * FROM Funcionario WHERE Nome LIKE ? AND Enabled = 'true'";
+        
+        List<Funcionario> listaFuncionarios = null;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet result = null;
+        
+        try {
+            connection = ConnectionUtils.getConnection();
+            statement = connection.prepareStatement(sql);
+            nome = "%"+nome+"%";
+            statement.setString(1, nome);
+            System.out.println(statement.toString());
+            System.out.println("Executando CONSULTA SQL: " + sql);
+            result = statement.executeQuery();
+            while (result.next()) {
+                if (listaFuncionarios== null) {
+                    listaFuncionarios = new ArrayList<Funcionario>();
+                }
+                Funcionario funcionario = new Funcionario();
+                funcionario.setNome(result.getString("Nome"));
+                funcionario.setLogin(result.getString("Login"));
+                funcionario.setSenha(result.getString("Senha"));
+                funcionario.setCargo(result.getString("Cargo"));
+                funcionario.setAdmissao(result.getDate("Admissao"));
+                funcionario.setIdUnidade(result.getInt("ID_Unidade"));
+                funcionario.setSexo(result.getString("Sexo"));
+                funcionario.setEnabled(result.getString("enabled"));
+                listaFuncionarios.add(funcionario);
+            }
+        } finally {
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            if (statement != null && !statement.isClosed()) {
+                statement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+        return listaFuncionarios;
+    }
 
 }
 

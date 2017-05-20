@@ -23,7 +23,7 @@
             <form action= "./PesquisarCliente" method="post">
                 <fieldset>
                     <h1>Pesquisar Cliente</h1>
-                    <input type="text" name="palavra" placeholder="Pesquisa por nome"/>
+                    <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
                     <button class="btn btn-info" type="submit">Pesquisar</button>
                 </fieldset>
             </form>

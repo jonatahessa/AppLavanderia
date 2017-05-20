@@ -51,3 +51,11 @@ h1 {
     border-color: hsl(0, 92%, 60%);
    animation: treme 0.2s;
 }
+
+.ok {
+   color: green;
+}
+
+.remove {
+   color: red; 
+}

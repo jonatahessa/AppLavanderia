@@ -1,7 +1,6 @@
 package CRUDCliente;
 
-import Daos.DaoCliente;
-import java.sql.SQLException;
+
 import java.util.List;
 
 public class ServicoCliente {
@@ -10,7 +9,7 @@ public class ServicoCliente {
         if (cpf == null || cpf.equals("")) {
             return false;
         }
-        if (cpf.length()+1 != 15) {
+        if (cpf.length() != 14) {
             return false;
         }
         try {
@@ -30,7 +29,7 @@ public class ServicoCliente {
         if (nome == null || nome.equals("")) {
             return false;
         }
-        if (nome.length()+1 > 100) {
+        if (nome.length() > 100) {
             return false;
         }
         return true;
@@ -56,7 +55,7 @@ public class ServicoCliente {
         if (!email.contains(".com")) {
             return false;
         }
-        if (contador != 1 || email.length()+1 > 100) {
+        if (contador != 1 || email.length() > 100) {
             return false;
         }
         return true;
@@ -67,7 +66,7 @@ public class ServicoCliente {
         if (telefone == null || telefone.equals("")) {
             return false;
         }
-        if (telefone.length()+1 != 13) {
+        if (telefone.length() != 12) {
             return false;
         }
         try {

@@ -3,13 +3,20 @@ package CRUDFuncionario;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ServicoFuncionario {
 
     public boolean verificarNome(String nome) {
-        return !(nome == null || nome.equals(""));
+        if (nome == null || nome.equals("")) {
+            return false;
+        }
+        if (nome.length()> 100) {
+            return false;
+        }
+        return true;
     }
 
     public boolean verificarCargo(String cargo) {
@@ -28,20 +35,38 @@ public class ServicoFuncionario {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setLenient(false);
 
+        if (data.length() > 10) {
+            return false;
+        }
+        
         try {
             Date dataValida = sdf.parse(data);
             return true;
         } catch (ParseException e) {
             return false;
         }
+
     }
 
     public boolean verificarLogin(String login) {
-        return !(login == null || login.equals(""));
+        if (login == null || login.equals("")) {
+            return false;
+        }
+        if (login.length() > 10 || login.length() < 5) {
+            return false;
+        }
+        return true;
     }
+    
 
     public boolean verificarSenha(String senha) {
-        return !(senha == null || senha.equals(""));
+        if (senha == null || senha.equals("")) {
+            return false;
+        }
+        if (senha.length() > 8 || senha.length() < 4) {
+            return false;
+        }
+        return true;
     }
     
     public java.sql.Date converterData(String recebe) {
@@ -64,13 +89,21 @@ public class ServicoFuncionario {
         Daos.DaoFuncionario.deletar(id);
     }
 
-     public void alterarFuncionario(Funcionario funcionario, String recebe) throws Exception {
-         int id = Integer.parseInt(recebe);
-       Daos.DaoFuncionario.alterar(funcionario, id);
+    public void alterarFuncionario(Funcionario funcionario, String recebe) throws Exception {
+        int id = Integer.parseInt(recebe);
+        Daos.DaoFuncionario.alterar(funcionario, id);
     }
+    
     public Funcionario obterFuncionario(String recebe) throws Exception {
         int id = Integer.parseInt(recebe);
         return Daos.DaoFuncionario.obter(id);
     }
+    
+    public List<Funcionario> ListarFuncionarios() throws Exception {
+        return Daos.DaoFuncionario.listar();
+    }
 
+    public List<Funcionario> pesquisarFuncionario(String nome) throws Exception {
+        return Daos.DaoFuncionario.pesquisarFuncionario(nome);
+    }
 }
