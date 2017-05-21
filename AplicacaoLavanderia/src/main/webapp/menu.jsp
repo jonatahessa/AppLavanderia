@@ -4,7 +4,7 @@
  <div class="col-md-1">
             <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a href="index.jsp"><i class="fa fa-home fa-fw"></i> Início</a></li>
-                <li><a href="vender.jsp"><i class="fa fa-shower"></i> Lavar</a></li>
+                <li><a href="lavar.jsp"><i class="fa fa-shower"></i>Lavar</a></li>
                 <li><a href="consultaServico.jsp"><i class="fa fa-cubes fa-fw"></i> Serviços</a></li>
                 <li><a href="consultaCliente.jsp"><i class="fa fa-users fa-fw"></i> Clientes</a></li>
                 <li><a href="consultaFuncionario.jsp"><i class="fa fa-id-card fa-fw"></i> Funcionários</a></li>

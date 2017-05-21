@@ -1,8 +1,9 @@
 
-package CRUDServico;
+package CRUDVenda;
 
+import CRUDServico.Servico;
+import CRUDServico.ServicoServico;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thalles
  */
-@WebServlet(name = "PesquisarServico", urlPatterns = {"/PesquisarServico"})
-public class PesquisarServico extends HttpServlet {
+@WebServlet(name = "AdicionarServico", urlPatterns = {"/AdicionarServico"})
+public class AdicionarServico extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
@@ -32,7 +33,7 @@ public class PesquisarServico extends HttpServlet {
             try {
                 List<Servico> resultado = ss.ListarServicos();
                 request.setAttribute("resultado", resultado);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaServico.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("adicionarServicoVenda.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
                 response.sendRedirect("mensagemErro.jsp"); 
@@ -46,7 +47,7 @@ public class PesquisarServico extends HttpServlet {
                     request.setAttribute("palavra", request.getParameter("palavra"));
                     request.setAttribute("resultado", resultado);
                 }
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaServico.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("adicionarServicoVenda.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
                 response.sendRedirect("mensagemErro.jsp"); 

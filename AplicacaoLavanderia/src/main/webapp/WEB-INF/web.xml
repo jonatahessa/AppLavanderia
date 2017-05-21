@@ -8,6 +8,14 @@
         <servlet-name>AlterarUnidade</servlet-name>
         <servlet-class>CRUDUnidade.AlterarUnidade</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RealizaVenda</servlet-name>
+        <servlet-class>CRUDVenda.RealizaVenda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdicionarServico</servlet-name>
+        <servlet-class>CRUDVenda.AdicionarServico</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlterarFuncionario</servlet-name>
         <url-pattern>/AlterarFuncionario</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>AlterarUnidade</servlet-name>
         <url-pattern>/AlterarUnidade</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RealizaVenda</servlet-name>
+        <url-pattern>/RealizaVenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarServico</servlet-name>
+        <url-pattern>/AdicionarServico</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

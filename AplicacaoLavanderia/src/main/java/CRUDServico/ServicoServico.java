@@ -47,7 +47,7 @@ public class ServicoServico {
         Daos.DaoServico.alterar(servico, id);
     }
     
-    public List<Servico> ListarFuncionarios() throws Exception {
+    public List<Servico> ListarServicos() throws Exception {
         return Daos.DaoServico.listar();
     }
 

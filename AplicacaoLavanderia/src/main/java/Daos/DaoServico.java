@@ -29,7 +29,7 @@ public class DaoServico {
             statement = connection.prepareStatement(sql);
 
             statement.setString(1, servico.getNomeServico());
-            statement.setDouble(2, servico.getPrecoPorPeca());
+            statement.setDouble(2, servico.getPrecoServico());
             statement.setString(3, "true");
             System.out.println(statement.toString());
 
@@ -85,7 +85,7 @@ public class DaoServico {
 
             int idtrue = Integer.parseInt(idServico);
             statement.setString(1, servico.getNomeServico());
-            statement.setDouble(2, servico.getPrecoPorPeca());
+            statement.setDouble(2, servico.getPrecoServico());
             statement.setInt(3, idtrue);
 
             System.out.println("Executando COMANDO SQL: " + sql);
@@ -124,7 +124,7 @@ public class DaoServico {
                 }
                 Servico servico = new Servico();
                 statement.setString(1, servico.getNomeServico());
-                statement.setDouble(2, servico.getPrecoPorPeca());
+                statement.setDouble(2, servico.getPrecoServico());
 
                 listaServicos.add(servico);
             }
@@ -157,7 +157,7 @@ public class DaoServico {
   
                 servico.setNomeServico(result.getString("Nome"));
                 servico.setId(result.getInt("ID"));
-                servico.setPrecoPorPeca(result.getDouble("Preco"));
+                servico.setPrecoServico(result.getDouble("Preco"));
                 
             }
  
@@ -181,8 +181,7 @@ public class DaoServico {
                 }
                 Servico servico = new Servico();
                 servico.setNomeServico(result.getString("nome"));
-                servico.setPrecoPorPeca(result.getDouble("preco"));
-                servico.setEnabled(result.getString("enabled"));
+                servico.setPrecoServico(result.getDouble("preco"));
                 servico.setId(result.getInt("ID"));
                 listaServicos.add(servico);
             }
@@ -203,7 +202,7 @@ public class DaoServico {
     //listar sem where
     public static List<Servico> listar()
             throws SQLException, Exception {
-        String sql = "SELECT * FROM Servico WHERE enabled = 'true'";
+        String sql = "SELECT * FROM Servico WHERE enabled = 'true';";
 
         return executarConsulta(sql);
     }
@@ -225,7 +224,7 @@ public class DaoServico {
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
-            servico.setPrecoPorPeca(result.getDouble("precoPorPeca"));
+            servico.setPrecoServico(result.getDouble("precoPorPeca"));
             connection.close();
             return servico;
         }
@@ -256,8 +255,7 @@ public class DaoServico {
                 }
                 Servico servico = new Servico();
                 servico.setNomeServico(result.getString("nome"));
-                servico.setPrecoPorPeca(result.getDouble("preco"));
-                servico.setEnabled(result.getString("enabled"));
+                servico.setPrecoServico(result.getDouble("preco"));
                 servico.setId(result.getInt("ID"));
                 listaServicos.add(servico);
             }

@@ -13,7 +13,7 @@ public class Servico {
     
     private int id;
     private String nomeServico;
-    private double precoPorPeca;
+    private double precoServico;
     private String enabled;
 
     public int getId() {
@@ -32,12 +32,12 @@ public class Servico {
         this.nomeServico = nomeServico;
     }
 
-    public double getPrecoPorPeca() {
-        return precoPorPeca;
+    public double getPrecoServico() {
+        return precoServico;
     }
 
-    public void setPrecoPorPeca(double precoPorPeca) {
-        this.precoPorPeca = precoPorPeca;
+    public void setPrecoServico(double precoServico) {
+        this.precoServico = precoServico;
     }
   
 

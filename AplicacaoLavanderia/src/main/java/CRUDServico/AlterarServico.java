@@ -22,7 +22,7 @@ public class AlterarServico extends HttpServlet {
 
         }        
         request.setAttribute("nome", servico.getNomeServico());
-        request.setAttribute("preco", servico.getPrecoPorPeca());
+        request.setAttribute("preco", servico.getPrecoServico());
         request.setAttribute("id", servico.getId());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("alteraServico.jsp");
@@ -58,7 +58,7 @@ public class AlterarServico extends HttpServlet {
         if (!erro) {
             Servico servico = new Servico();
             servico.setNomeServico(request.getParameter("nome"));
-            servico.setPrecoPorPeca(Double.parseDouble(precoCorrigido));;
+            servico.setPrecoServico(Double.parseDouble(precoCorrigido));;
             
             try {
                 ss.alterarServico(servico, request.getParameter("id"));
