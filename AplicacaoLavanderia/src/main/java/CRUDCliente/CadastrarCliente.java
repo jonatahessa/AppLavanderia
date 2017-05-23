@@ -86,15 +86,18 @@ public class CadastrarCliente extends HttpServlet {
             
             try {
                 sc.inserirCliente(cliente);
-                response.sendRedirect("mensagemCadastro.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemCadastro");
+                dispatcher.forward(request, response);
+
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro");
+                dispatcher.forward(request, response);
                 Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         } else {
       
-            RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroCliente.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/cadastroCliente.jsp");
             dispatcher.forward(request, response);
         }
         

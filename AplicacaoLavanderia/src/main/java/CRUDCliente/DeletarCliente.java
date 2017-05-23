@@ -27,10 +27,11 @@ public class DeletarCliente extends HttpServlet {
         ServicoCliente sc = new ServicoCliente();
         try {
                 sc.deletarCliente(request.getParameter("cpf"));
-                response.sendRedirect("mensagemExclusao.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemExclusao.jsp");
+                dispatcher.forward(request, response);
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
-                Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
     }
 

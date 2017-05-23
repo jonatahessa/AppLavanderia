@@ -25,7 +25,7 @@ public class AlterarServico extends HttpServlet {
         request.setAttribute("preco", servico.getPrecoServico());
         request.setAttribute("id", servico.getId());
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("alteraServico.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraServico.jsp");
         dispatcher.forward(request, response);
    
     }
@@ -62,14 +62,16 @@ public class AlterarServico extends HttpServlet {
             
             try {
                 ss.alterarServico(servico, request.getParameter("id"));
-                response.sendRedirect("mensagemAlteracao.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemAlteracao.jsp");
+                dispatcher.forward(request, response);
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
             
         } else {
       
-            RequestDispatcher dispatcher = request.getRequestDispatcher("alteraServico.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraServico.jsp");
             dispatcher.forward(request, response);
         }
 

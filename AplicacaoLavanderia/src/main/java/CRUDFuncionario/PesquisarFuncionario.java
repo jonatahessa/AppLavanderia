@@ -29,10 +29,11 @@ public class PesquisarFuncionario extends HttpServlet {
             try {
                 List<Funcionario> resultado = sf.ListarFuncionarios();
                 request.setAttribute("resultado", resultado);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaFuncionario.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/consultaFuncionario.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
         } else {
             try {
@@ -43,10 +44,11 @@ public class PesquisarFuncionario extends HttpServlet {
                     request.setAttribute("palavra", request.getParameter("palavra"));
                     request.setAttribute("resultado", resultado);
                 }
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaFuncionario.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/consultaFuncionario.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
         }
     }

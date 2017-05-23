@@ -32,10 +32,11 @@ public class PesquisarCliente extends HttpServlet {
             try {
                 List<Cliente> resultado = sc.ListarClientes();
                 request.setAttribute("resultado", resultado);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaCliente.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/consultaCliente.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
         } else {
             try {

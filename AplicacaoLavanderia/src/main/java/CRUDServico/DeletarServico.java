@@ -8,6 +8,7 @@ package CRUDServico;
 import CRUDServico.ServicoServico;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,9 +36,11 @@ public class DeletarServico extends HttpServlet {
         try {
             ServicoServico ss = new ServicoServico();
             ss.deletarServico(Integer.parseInt(request.getParameter("id")));
-            response.sendRedirect("mensagemExclusao.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemExclusao.jsp");
+                dispatcher.forward(request, response);
         } catch (Exception ex) {
-            response.sendRedirect("mensagemErro.jsp"); 
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
         }
         
     }

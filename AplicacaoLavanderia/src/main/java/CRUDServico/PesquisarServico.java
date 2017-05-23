@@ -32,10 +32,11 @@ public class PesquisarServico extends HttpServlet {
             try {
                 List<Servico> resultado = ss.ListarServicos();
                 request.setAttribute("resultado", resultado);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaServico.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/consultaServico.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
         } else {
             try {
@@ -46,10 +47,11 @@ public class PesquisarServico extends HttpServlet {
                     request.setAttribute("palavra", request.getParameter("palavra"));
                     request.setAttribute("resultado", resultado);
                 }
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaServico.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/consultaServico.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
         }
     }

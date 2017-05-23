@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Mensagens
-    Created on : 21/04/2017, 13:28:47
-    Author     : Thalles
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +12,6 @@
             <h1> Cadastro realizado com sucesso! </h1>
         </div>
         
-         <META HTTP-EQUIV="Refresh" CONTENT="1;URL= ./index.jsp">
+         <META HTTP-EQUIV="Refresh" CONTENT="1;URL= home.jsp">
     </body>
 </html>

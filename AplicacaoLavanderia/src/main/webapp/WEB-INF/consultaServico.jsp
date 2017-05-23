@@ -16,25 +16,27 @@
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
         <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
-        <title>Adicionar Serviço</title>
+        <title>Consulta Serviço</title>
     </head>
     <body>
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
         <div id="table">
-            <form action="./AdicionarServico" method="post">
+            <form action="./PesquisarServico" method="post">
                 <fieldset>
-                    <h1>Adicionar Serviço</h1>
+                    <h1>Pesquisar Serviço</h1>
                     <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
                     <button class="btn btn-info" type="submit">Pesquisar</button>
                 </fieldset>
-            </form>   
+            </form>
+            <form method="POST" action="Redirecionar"><button class="btn btn-success" name="tela" value="/WEB-INF/cadastroServico.jsp" type="submit">Cadastrar</button></form>        
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>ID</th>
                     <th>Nome do serviço</th>
                     <th>Preço por peça</th>
-                    <th>Adicionar Serviço</th>
+                    <th>Alterar Serviço</th>
+                    <th>Remover Serviço</th>
                 </tr>
 
                 <c:forEach var="servicos" items="${resultado}">
@@ -42,7 +44,10 @@
                         <td>${servicos.id}</td>
                         <td>${servicos.nomeServico}</td>
                         <td>${servicos.precoServico}</td>
-                        <td><a href="./Lavar?id=${servicos.id}" >Adicionar</a></td>
+                        <td><a href="./AlterarServico?id=${servicos.id}" >Alterar</a></td>
+                        <td><form action="DeletarServico" method="post" id="frm${servicos.id}">
+                            <input type="hidden" name="id" value="${servicos.id}">
+                            <a href="#" onclick="document.getElementById('frm${servicos.id}').submit()">Remover</a>
                         </form></td>
                     </tr>
                 </c:forEach>

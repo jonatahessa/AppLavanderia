@@ -23,7 +23,7 @@ public class CadastrarUnidade extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
         RequestDispatcher dispatcher = 
-	request.getRequestDispatcher("cadastroUnidade.jsp");
+	request.getRequestDispatcher("/WEB-INF/cadastroUnidade.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -52,12 +52,14 @@ public class CadastrarUnidade extends HttpServlet {
             unidade.setEnabled("true");
             try {
                 vu.inserirUnidade(unidade);
-                response.sendRedirect("mensagemCadastro.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemaCadastro.jsp");
+                dispatcher.forward(request, response);
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             } 
         } else {   
-            RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroUnidade.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/cadastroUnidade.jsp");
             dispatcher.forward(request, response);
         }
         

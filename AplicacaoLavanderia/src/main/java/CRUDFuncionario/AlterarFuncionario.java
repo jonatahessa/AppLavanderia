@@ -37,7 +37,7 @@ public class AlterarFuncionario extends HttpServlet {
         request.setAttribute("login", funcionario.getLogin());
         request.setAttribute("senha", funcionario.getSenha());
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("alteraFuncionario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraFuncionario.jsp");
         dispatcher.forward(request, response);
 
     }
@@ -113,12 +113,14 @@ public class AlterarFuncionario extends HttpServlet {
             funcionario.setSexo(request.getParameter("sexo"));
             try {
                 sf2.alterarFuncionario(funcionario, request.getParameter("idFuncionario"));
-                response.sendRedirect("mensagemAlteracao.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemAlteracao.jsp");
+                dispatcher.forward(request, response);
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
         } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("alteraFuncionario.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraFuncionario.jsp");
             dispatcher.forward(request, response);
         }
     }

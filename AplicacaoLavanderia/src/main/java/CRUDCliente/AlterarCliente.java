@@ -33,7 +33,7 @@ public class AlterarCliente extends HttpServlet {
         request.setAttribute("sexo", cliente.getSexo());
         request.setAttribute("id", cliente.getId());
             
-        RequestDispatcher dispatcher = request.getRequestDispatcher("alteraCliente.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraCliente.jsp");
         dispatcher.forward(request, response);
    
     }
@@ -92,15 +92,17 @@ public class AlterarCliente extends HttpServlet {
             
             try {
                 sc.alterarCliente(cliente, request.getParameter("idCliente"));
-                response.sendRedirect("mensagemAlteracao.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemAlteracao.jsp");
+                dispatcher.forward(request, response);
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
-                Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
+                
             }
             
         } else {
       
-            RequestDispatcher dispatcher = request.getRequestDispatcher("alteraCliente.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraCliente.jsp");
             dispatcher.forward(request, response);
         }
 

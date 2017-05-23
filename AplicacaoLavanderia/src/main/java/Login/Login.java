@@ -2,7 +2,6 @@
 package Login;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,16 +56,17 @@ public class Login extends HttpServlet {
             }
             
             if (existe) {
-                response.sendRedirect("index.jsp");
+               RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/home.jsp");
+               dispatcher.forward(request, response);
             } else {
                 request.setAttribute("erroLogin", true);
                 request.setAttribute("erroSenha", true);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/login.jsp");
                 dispatcher.forward(request, response);
             }
             
         } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/login.jsp");
             dispatcher.forward(request, response);
         }
         

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : mensagemErro
-    Created on : 21/04/2017, 13:38:42
-    Author     : Thalles
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,6 +13,6 @@
         <div id="aviso">
             <h1> Erro ao realizar a ação! </h1>
         </div>
-        <META HTTP-EQUIV="Refresh" CONTENT="1;URL= ./index.jsp">
+        <META HTTP-EQUIV="Refresh" CONTENT="1;URL= home.jsp">
     </body>
 </html>

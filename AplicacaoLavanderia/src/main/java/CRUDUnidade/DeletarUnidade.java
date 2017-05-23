@@ -1,6 +1,7 @@
 package CRUDUnidade;
 
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,9 +22,11 @@ public class DeletarUnidade extends HttpServlet {
         ServicoUnidade su = new ServicoUnidade();
         try {
                 su.deletarUnidade(request.getParameter("id"));
-                response.sendRedirect("mensagemExclusao.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemExclusao.jsp");
+                dispatcher.forward(request, response);
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
     }
 

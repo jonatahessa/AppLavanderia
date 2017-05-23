@@ -25,7 +25,7 @@
                     <h1>Lavar</h1>
                 </fieldset>
             </form>
-            <form method="POST" action="adicionarServicoVenda.jsp"><button class="btn btn-success" type="submit">Adicionar Serviço</button></form>
+            <form method="POST" action="Redirecionar"><button class="btn btn-success" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit">Adicionar Serviço</button></form>
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>ID</th>

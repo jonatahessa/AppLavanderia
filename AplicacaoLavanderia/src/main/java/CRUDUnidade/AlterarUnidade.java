@@ -30,7 +30,7 @@ public class AlterarUnidade extends HttpServlet {
         request.setAttribute("nome", unidade.getNome());
         request.setAttribute("cnpj", unidade.getCnpj());
             
-        RequestDispatcher dispatcher = request.getRequestDispatcher("alteraUnidade.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraUnidade.jsp");
         dispatcher.forward(request, response);
    
     }
@@ -66,15 +66,17 @@ public class AlterarUnidade extends HttpServlet {
             
             try {
                 su2.alterarUnidade(unidade, request.getParameter("idUnidade"));
-                response.sendRedirect("mensagemAlteracao.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemaAlteracao.jsp");
+                dispatcher.forward(request, response);
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemaErro.jsp");
+                dispatcher.forward(request, response);
                 Logger.getLogger(CadastrarUnidade.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         } else {
       
-            RequestDispatcher dispatcher = request.getRequestDispatcher("alteraUnidade.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraUnidade.jsp");
             dispatcher.forward(request, response);
         }
 

@@ -14,9 +14,7 @@ public class CadastrarFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("cadastroFuncionario.jsp");
-        dispatcher.forward(request, response);
+
     }
 
     @Override
@@ -88,12 +86,14 @@ public class CadastrarFuncionario extends HttpServlet {
             funcionario.setSexo(request.getParameter("sexo"));
             try {
                 sf.inserirFuncionario(funcionario);
-                response.sendRedirect("mensagemCadastro.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemCadastro.jsp");
+                dispatcher.forward(request, response);
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
         } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroFuncionario.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/cadastroFuncionario.jsp");
             dispatcher.forward(request, response);
         }
     }
