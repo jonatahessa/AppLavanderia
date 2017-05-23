@@ -14,7 +14,7 @@
     </servlet>
     <servlet>
         <servlet-name>AdicionarServico</servlet-name>
-        <servlet-class>CRUDVenda.AdicionarServico</servlet-class>
+        <servlet-class>CRUDVenda.AdicionarServicoVenda</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Entrada</servlet-name>
