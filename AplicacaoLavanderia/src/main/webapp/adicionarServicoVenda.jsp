@@ -34,6 +34,7 @@
                     <th>ID</th>
                     <th>Nome do serviço</th>
                     <th>Preço por peça</th>
+                    <th>Quantidade</th>
                     <th>Adicionar Serviço</th>
                 </tr>
 
@@ -42,8 +43,8 @@
                         <td>${servicos.id}</td>
                         <td>${servicos.nomeServico}</td>
                         <td>${servicos.precoServico}</td>
-                        <td><a href="./Lavar?id=${servicos.id}" >Adicionar</a></td>
-                        </form></td>
+                        <td><input type="number" name="qtde" min="1"/></td>
+                        <td><a href="./Lavar?id=${servicos.id}">Adicionar</a></td>
                     </tr>
                 </c:forEach>
             </table>        

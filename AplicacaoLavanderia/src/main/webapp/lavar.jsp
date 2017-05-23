@@ -30,8 +30,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>Preço</th>
                     <th>Quantidade</th>
+                    <th>Total</th>
                     <th>Remover</th>
                 </tr>
                 <c:forEach var="servicos" items="${resultado}">

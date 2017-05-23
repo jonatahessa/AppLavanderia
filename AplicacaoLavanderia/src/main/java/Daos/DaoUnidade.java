@@ -50,8 +50,10 @@ public class DaoUnidade {
     
     public static void deletar(String id)
             throws SQLException, Exception {
-        String sql = "UPDATE Unidade SET Enabled = 'false'WHERE ID = ?;";
-  
+        String sql = "UPDATE Unidade INNER JOIN"
+                + " Funcionario ON Unidade.ID = Funcionario.ID_Unidade"
+                + " SET Unidade.Enabled = 'false', Funcionario.Enabled = 'false'"
+                + " WHERE Unidade.ID = ?;";  
         Connection connection = null;
         PreparedStatement statement = null;
         try {

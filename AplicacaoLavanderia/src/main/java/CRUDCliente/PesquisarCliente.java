@@ -26,32 +26,6 @@ public class PesquisarCliente extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-        ServicoCliente sc = new ServicoCliente();
-        
-        if (request.getParameter("palavra").equals("") || request.getParameter("palavra") == null) {
-            try {
-                List<Cliente> resultado = sc.ListarClientes();
-                request.setAttribute("resultado", resultado);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaCliente.jsp");
-                dispatcher.forward(request, response);
-            } catch (Exception e) {
-                response.sendRedirect("mensagemErro.jsp"); 
-            }
-        } else {
-            try {
-                List<Cliente> resultado = sc.pesquisarCliente(request.getParameter("palavra"));
-                if (resultado == null){
-                    request.setAttribute("palavra", request.getParameter("palavra"));
-                } else {
-                    request.setAttribute("palavra", request.getParameter("palavra"));
-                    request.setAttribute("resultado", resultado);
-                }
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaCliente.jsp");
-                dispatcher.forward(request, response);
-            } catch (Exception e) {
-                response.sendRedirect("mensagemErro.jsp"); 
-            }
-        }
     }
     
 }
