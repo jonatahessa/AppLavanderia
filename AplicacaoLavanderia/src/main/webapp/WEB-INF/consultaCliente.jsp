@@ -31,7 +31,7 @@
                     </article> 
                 </fieldset>
             </form>
-            <form method="POST" action="cadastroCliente.jsp"><button class="btn btn-success" type="submit">Cadastrar</button></form>
+            <form method="POST" action="Redirecionar"><button class="btn btn-success" name="tela" value="/WEB-INF/cadastroCliente.jsp" type="submit">Cadastrar</button></form>
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>Nome</th>

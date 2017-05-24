@@ -47,7 +47,7 @@ public class PesquisarCliente extends HttpServlet {
                     request.setAttribute("palavra", request.getParameter("palavra"));
                     request.setAttribute("resultado", resultado);
                 }
-                RequestDispatcher dispatcher = request.getRequestDispatcher("consultaCliente.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/consultaCliente.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
                 response.sendRedirect("mensagemErro.jsp"); 
