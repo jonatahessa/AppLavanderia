@@ -1,6 +1,7 @@
 package CRUDUnidade;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class ServicoUnidade {
 
@@ -41,5 +42,13 @@ public class ServicoUnidade {
     public void alterarUnidade(Unidade unidade, String recebe) throws Exception {
         int id = Integer.parseInt(recebe);
        Daos.DaoUnidade.alterar(unidade, id);
+    }
+    
+    public List<Unidade> pesquisarUnidade(String nome) throws Exception {
+        return Daos.DaoUnidade.pesquisarUnidade(nome);
+    }
+    
+    public List<Unidade> ListarUnidades() throws Exception {
+        return Daos.DaoUnidade.listar();
     }
 }

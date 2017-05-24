@@ -7,6 +7,7 @@ package Daos;
 
 import CRUDUnidade.Unidade;
 import ConnectionBD.ConnectionUtils;
+import Exeptions.UnidadeException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -167,8 +168,6 @@ public class DaoUnidade {
         return null;
     }
     
-    
-
     public static int retornarIdUnidade(String nome) throws
             SQLException, Exception {
         String sql = "SELECT * FROM Unidade "
@@ -220,4 +219,47 @@ public class DaoUnidade {
 
         return null;
     }
+    
+    public static List<Unidade> pesquisarUnidade(String nome) throws
+        UnidadeException, SQLException, Exception {
+        String sql = "SELECT * FROM Unidade WHERE NomeUnidade LIKE ? AND Enabled = 'true'";
+        
+        List<Unidade> listaUnidades = null;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet result = null;
+        
+        try {
+            connection = ConnectionUtils.getConnection();
+            statement = connection.prepareStatement(sql);
+            nome = "%"+nome+"%";
+            statement.setString(1, nome);
+            System.out.println(statement.toString());
+            System.out.println("Executando CONSULTA SQL: " + sql);
+            result = statement.executeQuery();
+            while (result.next()) {
+                if (listaUnidades == null) {
+                    listaUnidades = new ArrayList<Unidade>();
+                }
+                Unidade unidade = new Unidade();
+                unidade.setId(result.getInt("ID"));
+                unidade.setNome(result.getString("NomeUnidade"));
+                unidade.setCnpj(result.getString("CNPJ"));
+                listaUnidades.add(unidade);
+            }
+        } finally {
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            if (statement != null && !statement.isClosed()) {
+                statement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+        return listaUnidades;
+    }
 }
+
+

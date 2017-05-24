@@ -26,7 +26,7 @@
                     <article>
                     <section class="color-pattern-1">
                     <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
-                    <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span>   Pesquisar</button>
+                    <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
                     </section>
                     </article> 
                 </fieldset>

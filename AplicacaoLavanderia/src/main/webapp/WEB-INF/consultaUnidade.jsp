@@ -19,11 +19,15 @@
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
         <div id="table">
-            <form action="consultaUnidade.jsp" method="GET">
+            <form action= "./PesquisarUnidade" method="post">
                 <fieldset>
                     <h1>Pesquisar Unidade</h1>
-                    <input type="text" name="palavra" value="${param.palavra}"/>
-                    <input type="submit" value="Pesquisar"/>
+                    <article>
+                    <section class="color-pattern-1">
+                    <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
+                    <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span>Pesquisar</button>
+                    </section>
+                    </article> 
                 </fieldset>
             </form>
             <form method="POST" action="Redirecionar"><button class="btn btn-success" name="tela" value="/WEB-INF/cadastroUnidade.jsp" type="submit">Cadastrar</button></form>        

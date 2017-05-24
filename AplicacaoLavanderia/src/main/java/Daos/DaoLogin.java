@@ -12,7 +12,8 @@ public class DaoLogin {
             SQLException, Exception {
         String sql = "SELECT * FROM Funcionario"
                 + " WHERE Login = ?"
-                + " AND Senha = ?;";
+                + " AND Senha = ?"
+                + " AND Enabled = 'true';";
         Connection connection = null;
         PreparedStatement statement = null;
 

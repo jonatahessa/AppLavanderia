@@ -52,7 +52,7 @@ public class CadastrarUnidade extends HttpServlet {
             unidade.setEnabled("true");
             try {
                 vu.inserirUnidade(unidade);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemaCadastro.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemCadastro.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception ex) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");

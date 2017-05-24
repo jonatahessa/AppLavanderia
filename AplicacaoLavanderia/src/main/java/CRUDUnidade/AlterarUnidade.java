@@ -66,10 +66,10 @@ public class AlterarUnidade extends HttpServlet {
             
             try {
                 su2.alterarUnidade(unidade, request.getParameter("idUnidade"));
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemaAlteracao.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemAlteracao.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception ex) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemaErro.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
                 dispatcher.forward(request, response);
                 Logger.getLogger(CadastrarUnidade.class.getName()).log(Level.SEVERE, null, ex);
             }
