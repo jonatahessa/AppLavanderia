@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import sun.security.pkcs11.wrapper.Functions;
 
 /**
  *
@@ -56,6 +58,10 @@ public class Login extends HttpServlet {
             }
             
             if (existe) {
+                HttpSession permissao = request.getSession();
+                String user = (String) permissao.getAttribute("pemissao");
+                permissao.setAttribute("permissao", );
+                
                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/home.jsp");
                dispatcher.forward(request, response);
             } else {
