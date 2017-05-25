@@ -2,6 +2,8 @@
 package Login;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,7 +62,11 @@ public class Login extends HttpServlet {
             if (existe) {
                 HttpSession permissao = request.getSession();
                 String user = (String) permissao.getAttribute("pemissao");
-                permissao.setAttribute("permissao", );
+                try {
+                    permissao.setAttribute("permissao", sl.permissao(request.getParameter("login"), request.getParameter("senha")));
+                } catch (Exception ex) {
+
+                }
                 
                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/home.jsp");
                dispatcher.forward(request, response);

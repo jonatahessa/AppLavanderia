@@ -13,7 +13,10 @@ public class ServicoLogin {
     }
     
     public boolean verificarUsuario (String login, String senha) throws Exception {
-        return Daos.DaoLogin.verificarUsuario(login, senha);
-        
+        return Daos.DaoLogin.verificarUsuario(login, senha);   
+    }
+    
+    public String permissao (String login, String senha) throws Exception {
+        return Daos.DaoLogin.permissao(login, senha);   
     }
 }
