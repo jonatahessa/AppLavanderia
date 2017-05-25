@@ -9,6 +9,10 @@
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/alterarUnidade.css" media="screen" >
         <script type="text/javascript" src="./resources/JavaScript/alterarUnidade.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- bootbox code -->
+        <script src="./resources/JavaScript/bootbox.min.js"></script>
+
         <title>Alterar Unidade</title>
     </head>
     <body>
@@ -37,7 +41,7 @@
                         </div>
                     </c:otherwise>
                 </c:choose>
-                
+
                 <c:choose>
                     <c:when test="${erroCnpj}">  
                         <div class="input-group">
@@ -56,7 +60,7 @@
                         </div>
                     </c:otherwise>
                 </c:choose>
-                
+
                 <div id="buttons">
                     <button id="salvar" type="submit" class="btn btn-success">Salvar</button>
                     <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>

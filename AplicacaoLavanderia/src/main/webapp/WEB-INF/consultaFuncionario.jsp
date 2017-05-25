@@ -14,6 +14,10 @@
         <link rel="StyleSheet" type="text/css" href="" media="screen" >
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaFuncionario.css">
         <script type="text/javascript" src="./resources/JavaScript/consultaFuncionario.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- bootbox code -->
+        <script src="./resources/JavaScript/bootbox.min.js"></script>
+
         <title>Consulta Funcionario</title>
     </head>
     <body>
@@ -25,21 +29,21 @@
                 <fieldset>
                     <h1>Pesquisar Funcionario</h1>
                     <article>
-                    <section class="color-pattern-1">
-                    <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
-                    <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
-                    </section>
+                        <section class="color-pattern-1">
+                            <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
+                            <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
+                        </section>
                     </article> 
                 </fieldset>
             </form>
-                    
 
-                    
+
+
             <form method="POST" action="Redirecionar"><button class="btn btn-success" name="tela" value="/WEB-INF/cadastroFuncionario.jsp" type="submit">Cadastrar</button></form>
 
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
-                  
+
                     <th>Nome</th>
                     <th>Sexo</th>
                     <th>Cargo</th>

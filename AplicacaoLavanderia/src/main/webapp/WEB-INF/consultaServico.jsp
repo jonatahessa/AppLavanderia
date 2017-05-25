@@ -16,6 +16,10 @@
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
         <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- bootbox code -->
+        <script src="./resources/JavaScript/bootbox.min.js"></script>
+
         <title>Consulta Serviço</title>
     </head>
     <body>
@@ -26,10 +30,10 @@
                 <fieldset>
                     <h1>Pesquisar Serviço</h1>
                     <article>
-                    <section class="color-pattern-1">
-                    <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
-                    <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
-                    </section>
+                        <section class="color-pattern-1">
+                            <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
+                            <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
+                        </section>
                     </article> 
                 </fieldset>
             </form>
@@ -50,9 +54,9 @@
                         <td>${servicos.precoServico}</td>
                         <td><a href="./AlterarServico?id=${servicos.id}" >Alterar</a></td>
                         <td><form action="DeletarServico" method="post" id="frm${servicos.id}">
-                            <input type="hidden" name="id" value="${servicos.id}">
-                            <a href="#" onclick="document.getElementById('frm${servicos.id}').submit()">Remover</a>
-                        </form></td>
+                                <input type="hidden" name="id" value="${servicos.id}">
+                                <a href="#" onclick="document.getElementById('frm${servicos.id}').submit()">Remover</a>
+                            </form></td>
                     </tr>
                 </c:forEach>
             </table>        

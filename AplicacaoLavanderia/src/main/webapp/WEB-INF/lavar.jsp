@@ -13,6 +13,10 @@
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
         <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- bootbox code -->
+        <script src="./resources/JavaScript/bootbox.min.js"></script>
+
         <title>Lavar</title>
     </head>
 
@@ -38,12 +42,12 @@
                     <th>Quantidade</th>
                     <th>Remover</th>
                 </tr>
-                
-                    <c:forEach var="servicos" items="${resultado}">
+
+                <c:forEach var="servicos" items="${resultado}">
                     <tr>
                         <td>${servicos.idServico}<input type="hidden" name="id" value="${servicos.idServico}"/></td>
                         <td>${servicos.quantidade}<input type="hidden" name="id" value="${servicos.quantidade}"/></td>
-                        
+
                         <td><button type="submit" class="btn btn-danger">Remover</button></td>
                         </form>
                     </tr>

@@ -10,6 +10,10 @@
         <%@ include file = "header.jsp" %>
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/login.css" media="screen" >
         <script type="text/javascript" src="./resources/JavaScript/login.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- bootbox code -->
+        <script src="./resources/JavaScript/bootbox.min.js"></script>
+
         <title>Login</title>
     </head>
     <body>
@@ -34,7 +38,7 @@
                         </div>
                     </c:otherwise>
                 </c:choose>
-                
+
                 <c:choose>
                     <c:when test="${erroSenha}">  
                         <div class="input-group">
@@ -50,7 +54,7 @@
                         </div>
                     </c:otherwise>
                 </c:choose>
-               
+
                 <div id="buttons">
                     <button id="logar" type="submit" class="btn btn-success">Logar</button>
                 </div>
