@@ -14,19 +14,20 @@
         <!-- Bootstrap -->
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
-        <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
-        <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaServico.css">
+        <script type="text/javascript" src="./resources/JavaScript/consultaServico.js"></script>
         <title>Adicionar Serviço</title>
     </head>
     <body>
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
         <div id="table">
-            <form action="./AdicionarServico" method="post">
+            <form action="./AdicionarServicoVenda" method="post">
                 <fieldset>
                     <h1>Adicionar Serviço</h1>
                     <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
                     <button class="btn btn-info" type="submit">Pesquisar</button>
+                    <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
                 </fieldset>
             </form>   
             <table id="tableID" class="table table-bordered" align="center">
@@ -34,15 +35,19 @@
                     <th>ID</th>
                     <th>Nome do serviço</th>
                     <th>Preço por peça</th>
+                    <th>Quantidade</th>
                     <th>Adicionar Serviço</th>
                 </tr>
 
                 <c:forEach var="servicos" items="${resultado}">
                     <tr>
-                        <td>${servicos.id}</td>
+                        <form action="./Lavar">
+                        <td>${servicos.id}<input type="hidden" name="id" value="${servicos.id}"/></td>
                         <td>${servicos.nomeServico}</td>
                         <td>${servicos.precoServico}</td>
-                        <td><a href="./Lavar?id=${servicos.id}" >Adicionar</a></td>
+                        <td><input type="number" name="qtde" min="1" value="${param.qtde ? param.qtde : 1}" max="999"></td>
+                        <td><button type="submit" class="btn btn-success">Adicionar</button></td>
+                        </form>
                     </tr>
                 </c:forEach>
             </table>        

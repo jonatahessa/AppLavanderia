@@ -25,7 +25,11 @@
                     <h1>Lavar</h1>
                 </fieldset>
             </form>
-            <form method="POST" action="Redirecionar"><button class="btn btn-success" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit">Adicionar Serviço</button></form>
+            <form method="POST" action="Redirecionar">
+                <button class="btn btn-success" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit">Adicionar Serviço</button>
+                <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
+                <button id="cancelar" type="button" class="btn btn-info">Finalizar</button>
+            </form>
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>ID</th>
@@ -34,16 +38,14 @@
                     <th>Quantidade</th>
                     <th>Remover</th>
                 </tr>
-                <c:forEach var="servicos" items="${resultado}">
-                    <tr onclick="main();">
-                        <td>${servicos.id}</td>
-                        <td>${servicos.nome}</td>
-                        <td>${servicos.preco}</td>
-                        <td>${servicos.quantidade}</td>
-                        <td><form action="DeletarServico" method="post" id="frm${servicos.id}">
-                                <input type="hidden" name="id" value="${servicos.id}">
-                                <a href="#" onclick="document.getElementById('frm${servicos.id}').submit()">Remover</a>
-                            </form></td>
+                
+                    <c:forEach var="servicos" items="${resultado}">
+                    <tr>
+                        <td>${servicos.idServico}<input type="hidden" name="id" value="${servicos.idServico}"/></td>
+                        <td>${servicos.quantidade}<input type="hidden" name="id" value="${servicos.quantidade}"/></td>
+                        
+                        <td><button type="submit" class="btn btn-danger">Remover</button></td>
+                        </form>
                     </tr>
                 </c:forEach>
             </table>

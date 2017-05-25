@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thalles
  */
-@WebServlet(name = "AdicionarServico", urlPatterns = {"/AdicionarServico"})
+@WebServlet(name = "AdicionarServicoVenda", urlPatterns = {"/AdicionarServicoVenda"})
 public class AdicionarServicoVenda extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -33,10 +33,11 @@ public class AdicionarServicoVenda extends HttpServlet {
             try {
                 List<Servico> resultado = ss.ListarServicos();
                 request.setAttribute("resultado", resultado);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("adicionarServicoVenda.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/adicionarServicoVenda.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
         } else {
             try {
@@ -47,10 +48,11 @@ public class AdicionarServicoVenda extends HttpServlet {
                     request.setAttribute("palavra", request.getParameter("palavra"));
                     request.setAttribute("resultado", resultado);
                 }
-                RequestDispatcher dispatcher = request.getRequestDispatcher("adicionarServicoVenda.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/adicionarServicoVenda.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception e) {
-                response.sendRedirect("mensagemErro.jsp"); 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
         }
     }

@@ -7,11 +7,14 @@ package CRUDVenda;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -20,23 +23,29 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Lavar", urlPatterns = {"/Lavar"})
 public class Lavar extends HttpServlet {
 
-   @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-	  throws ServletException, IOException {
-        ItemVenda item = new ItemVenda();
-        item.setIdServico(Integer.parseInt(request.getParameter("id")));
-        item.setQuantidade(Integer.parseInt(request.getParameter("qtde")));
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        ArrayList<ItemVenda> itens = (ArrayList<ItemVenda>) session.getAttribute("resultado");
+        if(itens == null){
+            itens = new ArrayList<ItemVenda>();
+            session.setAttribute("resultado", itens);
+        }
+        ItemVenda itemVenda = new ItemVenda();
+        itemVenda.setIdServico(Integer.parseInt(request.getParameter("id")));
+        itemVenda.setQuantidade(Integer.parseInt(request.getParameter("qtde")));
+        itens.add(itemVenda);
+        request.setAttribute("lista", this);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/lavar.jsp");
+        dispatcher.forward(request, response);
+
     }
 
-
-  @Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	  throws ServletException, IOException {
-        
-        ItemVenda item = new ItemVenda();
-        
-        item.setIdServico( Integer.parseInt(request.getParameter("id")));
-       
+            throws ServletException, IOException {
+
     }
-    
+
 }
