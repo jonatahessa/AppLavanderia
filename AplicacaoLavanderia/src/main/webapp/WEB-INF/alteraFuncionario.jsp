@@ -136,7 +136,14 @@
                     <select id="campoempresa" class="selectpicker form-control" value="${unidade}" data-live-search="true" name="unidade" title="Unidadw">
  
                         <c:forEach var="unidade" items="${dao.listar()}">
+                            <c:if test="${unidade.nome eq unidadeFuncionario}">
                             <option nome="${unidade.nome}">${unidade.nome}</option>
+                            </c:if>
+                        </c:forEach>
+                        <c:forEach var="unidade" items="${dao.listar()}">
+                            <c:if test="${unidade.nome ne unidadeFuncionario}">
+                            <option nome="${unidade.nome}">${unidade.nome}</option>
+                            </c:if>
                         </c:forEach>
                     </select>
                 </div>

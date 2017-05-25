@@ -24,6 +24,10 @@
         <servlet-name>Redirecionar</servlet-name>
         <servlet-class>Login.Redirecionar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RedirecionarHome</servlet-name>
+        <servlet-class>Login.RedirecionarHome</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlterarFuncionario</servlet-name>
         <url-pattern>/AlterarFuncionario</url-pattern>
@@ -48,6 +52,10 @@
     <servlet-mapping>
         <servlet-name>Redirecionar</servlet-name>
         <url-pattern>/Redirecionar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RedirecionarHome</servlet-name>
+        <url-pattern>/RedirecionarHome</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

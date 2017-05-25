@@ -39,10 +39,16 @@ public class CadastrarUnidade extends HttpServlet {
         if (nome != true) {
             erro = true;
             request.setAttribute("erroNome", true);
+        } else {
+            request.setAttribute("nome", request.getParameter("nome"));
+            request.setAttribute("trueNome", true);
         }
         if (cnpj != true) {
             erro = true;
             request.setAttribute("erroCnpj", true);
+        } else {
+            request.setAttribute("cnpj", request.getParameter("cnpj"));
+            request.setAttribute("trueCnpj", true);
         }
         
         if (!erro) {

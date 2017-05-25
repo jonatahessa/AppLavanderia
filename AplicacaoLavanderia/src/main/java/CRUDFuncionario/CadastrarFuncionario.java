@@ -1,5 +1,7 @@
 package CRUDFuncionario;
 
+import CRUDUnidade.ServicoUnidade;
+import CRUDUnidade.Unidade;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -94,6 +96,17 @@ public class CadastrarFuncionario extends HttpServlet {
                 dispatcher.forward(request, response);
             }
         } else {
+            int id = 0;
+            try {
+                id = Daos.DaoUnidade.retornarIdUnidade(request.getParameter("unidade"));
+            } catch (Exception ex) {
+            }
+            try{
+            Unidade unidade = Daos.DaoUnidade.obter(id);
+            ServicoUnidade su = new ServicoUnidade();
+            request.setAttribute("unidadeFuncionario", unidade.getNome());
+        } catch (Exception e) {
+        }
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/cadastroFuncionario.jsp");
             dispatcher.forward(request, response);
         }

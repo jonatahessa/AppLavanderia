@@ -50,19 +50,21 @@ public class AlterarUnidade extends HttpServlet {
             request.setAttribute("erroNome", true);
         } else {
             request.setAttribute("nome", request.getParameter("nome"));
+            request.setAttribute("trueNome", true);
         }
         if (cnpj != true) {
             erro = true;
             request.setAttribute("erroCnpj", true);
         } else {
             request.setAttribute("cnpj", request.getParameter("cnpj"));
+            request.setAttribute("trueCnpj", true);
         }
         
         if (!erro) {
             ServicoUnidade su2 = new ServicoUnidade();
             Unidade unidade = new Unidade();
             unidade.setNome(request.getParameter("nome"));
-            unidade.setCnpj(request.getParameter("cn"));
+            unidade.setCnpj(request.getParameter("cnpj"));
             
             try {
                 su2.alterarUnidade(unidade, request.getParameter("idUnidade"));
