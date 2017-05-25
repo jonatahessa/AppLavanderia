@@ -32,6 +32,14 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>Login.Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeletarItemVenda</servlet-name>
+        <servlet-class>CRUDVenda.DeletarItemVenda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FinalizarVenda</servlet-name>
+        <servlet-class>CRUDVenda.FinalizarVenda</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlterarFuncionario</servlet-name>
         <url-pattern>/AlterarFuncionario</url-pattern>
@@ -64,6 +72,14 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletarItemVenda</servlet-name>
+        <url-pattern>/DeletarItemVenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinalizarVenda</servlet-name>
+        <url-pattern>/FinalizarVenda</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

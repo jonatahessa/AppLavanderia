@@ -41,7 +41,7 @@
 
                 <c:forEach var="servicos" items="${resultado}">
                     <tr>
-                        <form action="./Lavar">
+                    <form method="post" action="./Lavar">
                         <td>${servicos.id}<input type="hidden" name="id" value="${servicos.id}"/></td>
                         <td>${servicos.nomeServico}</td>
                         <td>${servicos.precoServico}</td>

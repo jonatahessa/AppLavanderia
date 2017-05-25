@@ -31,25 +31,32 @@
             </form>
             <form method="POST" action="Redirecionar">
                 <button class="btn btn-success" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit">Adicionar Serviço</button>
+            </form>
+            <form>
                 <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
-                <button id="cancelar" type="button" class="btn btn-info">Finalizar</button>
+            </form>
+            <form method="post" action="FinalizarVenda">
+                <button id="cancelar" type="submit" class="btn btn-info">Finalizar</button>
             </form>
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>Preço</th>
                     <th>Quantidade</th>
+                    <th>Preço</th>
                     <th>Remover</th>
                 </tr>
 
-                <c:forEach var="servicos" items="${resultado}">
+                <c:forEach var="itens" items="${resultado}">
                     <tr>
-                        <td>${servicos.idServico}<input type="hidden" name="id" value="${servicos.idServico}"/></td>
-                        <td>${servicos.quantidade}<input type="hidden" name="id" value="${servicos.quantidade}"/></td>
-
-                        <td><button type="submit" class="btn btn-danger">Remover</button></td>
-                        </form>
+                        <td>${itens.id}<input type="hidden" name="id" value="${itens.id}"/></td>
+                        <td>${itens.nomeServico}<input type="hidden" name="nome" value="${itens.nomeServico}"/></td>
+                        <td>${itens.quantidade}<input type="hidden" name="qtde" value="${itens.quantidade}"/></td>
+                        <td>${itens.precoServico}<input type="hidden" name="preco" value="${itens.precoServico}"/></td>
+                        <td><form action="DeletarItemVenda" method="post" id="frm${itens.id}">
+                                <input type="hidden" name="id" value="${itens.id}">
+                                <a href="#" onclick="document.getElementById('frm${itens.id}').submit()">Remover</a>
+                            </form></td>
                     </tr>
                 </c:forEach>
             </table>

@@ -7,16 +7,25 @@ package CRUDVenda;
 
 public class ItemVenda {
     
-    private int idServico;
+    private String nomeServico;
+    private int id;
     private int quantidade;
-    private double preco;
+    private double precoServico;
 
-    public int getIdServico() {
-        return idServico;
+    public int getId() {
+        return id;
     }
 
-    public void setIdServico(int idServico) {
-        this.idServico = idServico;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNomeServico() {
+        return nomeServico;
+    }
+
+    public void setNomeServico(String nomeServico) {
+        this.nomeServico = nomeServico;
     }
 
     public int getQuantidade() {
@@ -27,12 +36,12 @@ public class ItemVenda {
         this.quantidade = quantidade;
     }
 
-    public double getPreco() {
-        return preco;
+    public double getPrecoServico() {
+        return precoServico;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public void setPrecoServico(double precoServico) {
+        this.precoServico = precoServico;
     }
 
     
