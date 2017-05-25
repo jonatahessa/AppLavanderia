@@ -1,6 +1,8 @@
 
 package Login;
 
+import CRUDFuncionario.Funcionario;
+import CRUDFuncionario.ServicoFuncionario;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,10 +62,13 @@ public class Login extends HttpServlet {
             }
             
             if (existe) {
+                Funcionario funcionario = new Funcionario();
+                HttpSession nomeLogado = request.getSession();
                 HttpSession permissao = request.getSession();
-                String user = (String) permissao.getAttribute("pemissao");
+                        
                 try {
                     permissao.setAttribute("permissao", sl.permissao(request.getParameter("login"), request.getParameter("senha")));
+                    nomeLogado.setAttribute("nomeLogado", sl.Nome(request.getParameter("login"), request.getParameter("senha")));
                 } catch (Exception ex) {
 
                 }

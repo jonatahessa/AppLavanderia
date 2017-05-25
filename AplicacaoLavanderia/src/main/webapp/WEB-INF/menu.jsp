@@ -98,12 +98,13 @@
             </li>
         </c:otherwise>
 </c:choose>
-            <li><form action="Logout" method="post" id="logout">
-                    <input type="hidden" name="tela">
-                    <a href="#" onclick="document.getElementById('logout').submit()"><i class="fa fa-users fa-lg"></i>   Sair</a>
-                </form>
-            </li>
-    
+            
+<li><form action="Logout" method="post" id="logout">
+        <input type="hidden" name="tela">
+        <a href="#" onclick="document.getElementById('logout').submit()"><i class="fa fa-users fa-lg"></i>   Sair</a>
+    </form>
+</li>
+    <h1 id="usuarioLogado">Bem vindo(a) ${nomeLogado}</h1>
     
     
     <%--

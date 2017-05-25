@@ -30,4 +30,17 @@ li:hover  {
     background-color: #ddd;
 }
 
+#usuarioLogado {
+    margin-top: 1.5%;
+    font-size: 90%;
+    right: 15%;
+    position: fixed;
+}
+
+#logout {
+    color: red;
+    right: 9%;
+    position: fixed;
+}
+
 

@@ -19,4 +19,8 @@ public class ServicoLogin {
     public String permissao (String login, String senha) throws Exception {
         return Daos.DaoLogin.permissao(login, senha);   
     }
+    
+    public String Nome (String login, String senha) throws Exception {
+        return Daos.DaoLogin.nome(login, senha);   
+    }
 }
