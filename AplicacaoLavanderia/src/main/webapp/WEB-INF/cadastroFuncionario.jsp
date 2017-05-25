@@ -18,9 +18,10 @@
         </script>
         <title>Cadastro de Funcionario</title>
     </head>
+    <%@ include file = "menu.jsp" %>
     <body>
         <div id ="logo"></div>
-        <%@ include file = "menu.jsp" %>
+        
 
         <section id="principal">
             <form method="post" action= "./CadastrarFuncionario" method="post">
@@ -39,7 +40,7 @@
                             <span class="input-group-addon"><span class="fa fa-id-badge fa-fw"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control" placeholder="Nome">
                             <c:if test="${trueNome}">
-                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                             </c:if>     
                         </div>
                     </c:otherwise>
@@ -149,8 +150,15 @@
                 <div class="input-group">
                     <span class="input-group-addon"><span class="fa fa-building fa-fw"></span></span>
                     <select id="campoempresa" class="selectpicker form-control" data-live-search="true" name="unidade" title="Unidadw">   
-                            <c:forEach var="unidade" items="${dao.listar()}"> 
+                        <c:forEach var="unidade" items="${dao.listar()}">
+                            <c:if test="${unidade.nome eq unidadeFuncionario}">
                             <option nome="${unidade.nome}">${unidade.nome}</option>
+                            </c:if>
+                        </c:forEach>
+                        <c:forEach var="unidade" items="${dao.listar()}">
+                            <c:if test="${unidade.nome ne unidadeFuncionario}">
+                            <option nome="${unidade.nome}">${unidade.nome}</option>
+                            </c:if>
                         </c:forEach>
                     </select>
                 </div>
