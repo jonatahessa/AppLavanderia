@@ -13,6 +13,6 @@
         <div id="aviso">
             <h1> Erro ao realizar a ação! </h1>
         </div>
-        <META HTTP-EQUIV="Refresh" CONTENT="1;URL= home.jsp">
+        <META HTTP-EQUIV="Refresh" CONTENT="1;URL=./RedirecionarHome">
     </body>
 </html>
