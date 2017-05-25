@@ -24,12 +24,16 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
                             <input id="camponome" type="text" name="nome" value="${nome}" class="form-control erro" placeholder="Nome">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
                             <input id="camponome" type="text" name="nome" value="${nome}" class="form-control" placeholder="Nome">
+                            <c:if test="${trueNome}">
+                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if>
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -38,13 +42,17 @@
                     <c:when test="${erroCnpj}">  
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="campocnpj" type="text" maxlength="18" name="cn" value="${cnpj}" class="form-control erro" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
+                            <input id="campocnpj" type="text" maxlength="18" name="cnpj" value="${cnpj}" class="form-control erro" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
+                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-text-background"></span></span>
-                            <input id="campocnpj" type="text" maxlength="18" name="cn" value="${cnpj}" class="form-control" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
+                            <input id="campocnpj" type="text" value="${cnpj}" maxlength="18" name="cnpj" class="form-control" onkeypress="mascara(this, '##.###.###/####-##')" placeholder="CNPJ">
+                            <c:if test="${trueCnpj}">
+                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                            </c:if>
                         </div>
                     </c:otherwise>
                 </c:choose>

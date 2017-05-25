@@ -34,7 +34,7 @@ public class ServicoUnidade {
         int id = Integer.parseInt(recebe);
         return Daos.DaoUnidade.obter(id);
     }
-
+    
     public void deletarUnidade(String id) throws SQLException, Exception {
         Daos.DaoUnidade.deletar(id);
     }

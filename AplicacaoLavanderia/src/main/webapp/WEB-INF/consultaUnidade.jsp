@@ -40,7 +40,7 @@
                     <th>Remover Unidade</th>
                 </tr>
 
-                <c:forEach var="unidades" items="${dao.listar()}">
+                <c:forEach var="unidades" items="${resultado}">
                     <tr>
                       
                         <td>${unidades.nome}</td>
