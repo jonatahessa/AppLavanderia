@@ -18,9 +18,10 @@
         </script>
         <title>Cadastro de Funcionario</title>
     </head>
+    <%@ include file = "menu.jsp" %>
     <body>
         <div id ="logo"></div>
-        <%@ include file = "menu.jsp" %>
+        
 
         <section id="principal">
             <form method="post" action= "./CadastrarFuncionario" method="post">
