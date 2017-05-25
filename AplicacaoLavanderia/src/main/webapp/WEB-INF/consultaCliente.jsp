@@ -13,9 +13,13 @@
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
         <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- bootbox code -->
+        <script src="./resources/JavaScript/bootbox.min.js"></script>
+
         <title>Consulta Cliente</title>
     </head>
-  
+
     <body>
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
@@ -24,10 +28,10 @@
                 <fieldset>
                     <h1>Pesquisar Cliente</h1>
                     <article>
-                    <section class="color-pattern-1">
-                    <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
-                    <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
-                    </section>
+                        <section class="color-pattern-1">
+                            <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
+                            <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
+                        </section>
                     </article> 
                 </fieldset>
             </form>
@@ -51,14 +55,14 @@
                         <td>${clientes.sexo}</td>
                         <td><a href="./AlterarCliente?cpf=${clientes.cpf}" >Alterar</a></td>
                         <td><form action="DeletarCliente" method="post" id="frm${clientes.cpf}">
-                            <input type="hidden" name="cpf" value="${clientes.cpf}">
-                            <a href="#" onclick="document.getElementById('frm${clientes.cpf}').submit()">Remover</a>
-                        </form></td>
+                                <input type="hidden" name="cpf" value="${clientes.cpf}">
+                                <a href="#" onclick="document.getElementById('frm${clientes.cpf}').submit()">Remover</a>
+                            </form></td>
                     </tr>
                 </c:forEach>
             </table>
-            
+
         </div>
-                  
+
     </body>
 </html>

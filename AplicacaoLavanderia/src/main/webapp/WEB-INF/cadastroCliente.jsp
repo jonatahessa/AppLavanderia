@@ -16,6 +16,10 @@
         <%@ include file = "header.jsp" %>
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarCliente.css" media="screen" >
         <script type="text/javascript" src="./resources/JavaScript/cadastrarCliente.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- bootbox code -->
+        <script src="./resources/JavaScript/bootbox.min.js"></script>
+        
         <title>Cadastro Cliente</title>
     </head>
     <body>
@@ -39,12 +43,12 @@
                             <span class="input-group-addon"><span class="fa fa-user fa-fw"></span></span>
                             <input id="camponome" type="text" value="${nome}" name="nome" class="form-control" placeholder="Nome">
                             <c:if test="${trueNome}">
-                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                             </c:if>            
                         </div>
                     </c:otherwise>
                 </c:choose>
-                
+
                 <c:choose>
                     <c:when test="${erroCpf}">  
                         <div class="input-group">
@@ -58,13 +62,13 @@
                             <span class="input-group-addon"><span class="fa fa-id-card fa-fw"></span></span>
                             <input id="campocpf" maxlength="14" value="${cpf}" type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" class="form-control" placeholder="CPF">
                             <c:if test="${trueCpf}">
-                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                             </c:if>
                         </div>
                     </c:otherwise>
                 </c:choose>
-                
-               <c:choose>
+
+                <c:choose>
                     <c:when test="${erroEmail}">  
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-envelope fa-fw"></span></span>
@@ -77,7 +81,7 @@
                             <span class="input-group-addon"><span class="fa fa-envelope fa-fw"></span></span>
                             <input id="campoemail" type="text" value="${email}" name="email" class="form-control" placeholder="E-mail">
                             <c:if test="${trueEmail}">
-                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                             </c:if>
                         </div>
                     </c:otherwise>
@@ -96,12 +100,12 @@
                             <span class="input-group-addon"><span class="fa fa-phone fa-fw"></span></span>
                             <input id="campotelefone" value="${telefone}" maxlength="12" type="text" name="telefone" class="form-control" onkeypress="mascara(this, '## ####-####');" placeholder="Telefone">
                             <c:if test="${trueTelefone}">
-                            <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                             </c:if>
                         </div>
                     </c:otherwise>
                 </c:choose>
-                               
+
                 <div class="input-group">
                     <span class="input-group-addon"><span class="fa fa-venus-mars fa-fw"></span></span>
                     <select id="camposexo" class="selectpicker form-control" data-live-search="true" name="sexo" title="Sexo">
