@@ -24,10 +24,17 @@
             <form action="./PesquisarFuncionario" method="post">
                 <fieldset>
                     <h1>Pesquisar Funcionario</h1>
+                    <article>
+                    <section class="color-pattern-1">
                     <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
-                    <button class="btn btn-info" type="submit">Pesquisar</button>
+                    <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
+                    </section>
+                    </article> 
                 </fieldset>
             </form>
+                    
+
+                    
             <form method="POST" action="Redirecionar"><button class="btn btn-success" name="tela" value="/WEB-INF/cadastroFuncionario.jsp" type="submit">Cadastrar</button></form>
 
             <table id="tableID" class="table table-bordered" align="center">

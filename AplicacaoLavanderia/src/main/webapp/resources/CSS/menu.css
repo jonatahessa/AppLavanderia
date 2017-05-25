@@ -1,8 +1,8 @@
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
 ul {
-     width: 75%;
-    height: 90%;
+
+    float: right;
     list-style-type: none;
     font-weight: bold;
     margin: 0;
@@ -27,7 +27,7 @@ a:link,a:visited {
 }
 
 li:hover  {
-  background-color: #ddd;
+    background-color: #ddd;
 }
 
 

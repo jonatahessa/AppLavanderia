@@ -12,7 +12,7 @@
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="" media="screen" >
-        <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaServico.css">
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaUnidade.css">
         <title>Consulta Unidade</title>
     </head>
     <body>
@@ -25,7 +25,7 @@
                     <article>
                     <section class="color-pattern-1">
                     <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
-                    <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span>Pesquisar</button>
+                    <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
                     </section>
                     </article> 
                 </fieldset>
