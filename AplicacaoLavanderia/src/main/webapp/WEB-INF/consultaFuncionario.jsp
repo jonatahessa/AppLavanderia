@@ -11,7 +11,6 @@
         <!-- Bootstrap -->
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
-        <link rel="StyleSheet" type="text/css" href="" media="screen" >
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaFuncionario.css">
         <script type="text/javascript" src="./resources/JavaScript/consultaFuncionario.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
