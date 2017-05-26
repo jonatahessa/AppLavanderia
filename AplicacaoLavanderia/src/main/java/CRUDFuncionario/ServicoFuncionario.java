@@ -106,4 +106,8 @@ public class ServicoFuncionario {
     public List<Funcionario> pesquisarFuncionario(String nome) throws Exception {
         return Daos.DaoFuncionario.pesquisarFuncionario(nome);
     }
+    
+    public boolean verificarDuplicidade (String login, String senha) throws Exception {
+        return Daos.DaoFuncionario.verificarDuplicidade(login, senha);
+    }
 }

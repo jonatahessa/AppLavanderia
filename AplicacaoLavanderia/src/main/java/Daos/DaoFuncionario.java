@@ -331,6 +331,30 @@ public class DaoFuncionario {
         return listaFuncionarios;
     }
 
+    public static boolean verificarDuplicidade (String login, String senha) throws
+            SQLException, Exception {
+        String sql = "SELECT * FROM Funcionario"
+                + " WHERE Login = ?"
+                + " AND Senha = ?";
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+
+        statement.setString(1, login);
+        statement.setString(2, senha);
+
+        System.out.println("Executando CONSULTA SQL: " + sql);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+            return true;
+        }
+
+        return false;
+    }
+    
 }
 
 
