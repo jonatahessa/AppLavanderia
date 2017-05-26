@@ -23,7 +23,7 @@ public class CadastrarFuncionario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ServicoFuncionario sf = new ServicoFuncionario();
-        boolean erro = false;
+        boolean erro = false, duplicidade = false;
 
         boolean nome = sf.verificarNome(request.getParameter("nome"));
         boolean login = sf.verificarLogin(request.getParameter("login"));
@@ -31,7 +31,14 @@ public class CadastrarFuncionario extends HttpServlet {
         boolean cargo = sf.verificarCargo(request.getParameter("cargo"));
         boolean admissao = sf.verificarAdmissao(request.getParameter("admissao"));
         boolean sexo = sf.verificarSexo(request.getParameter("sexo"));
+        try {
+           duplicidade = sf.verificarDuplicidade(request.getParameter("login"),request.getParameter("senha"));
+        } catch (Exception ex) {
+            
+        }
 
+        
+        
         if (nome != true) {
             erro = true;
             request.setAttribute("erroNome", true);
@@ -39,14 +46,14 @@ public class CadastrarFuncionario extends HttpServlet {
             request.setAttribute("nome", request.getParameter("nome"));
             request.setAttribute("trueNome", true);
         }
-        if (login != true) {
+        if (login != true || duplicidade == true) {
             erro = true;
             request.setAttribute("erroLogin", true);
         } else {
             request.setAttribute("login", request.getParameter("login"));
             request.setAttribute("trueLogin", true);
         }
-        if (senha != true) {
+        if (senha != true || duplicidade == true) {
             erro = true;
             request.setAttribute("erroSenha", true);
         } else {
