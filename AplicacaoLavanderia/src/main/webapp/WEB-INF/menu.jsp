@@ -57,7 +57,7 @@
             </li>
             <li><form action="Redirecionar" method="post" id="unidade">
                 <input type="hidden" name="tela" value="/WEB-INF/consultaUnidade.jsp">
-                <a href="#" onclick="document.getElementById('unidade').submit()"><i class="fa fa-building fa-lg"></i>   Unidades</a>
+                <a href="#" onclick="document.getElementById('unidade').submit()"><i class="fa fa-map-marker fa-lg"></i>   Unidades</a>
                 </form>
             </li>
         </c:when>
