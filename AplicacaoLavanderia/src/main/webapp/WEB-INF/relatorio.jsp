@@ -11,11 +11,16 @@
         <!-- Bootstrap -->
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
-        <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
-        <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/relatorio.css">
+        <script type="text/javascript" src="./resources/JavaScript/relatorio.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <!-- bootbox code -->
+        <!-- lib box de confirmação -->
         <script src="./resources/JavaScript/bootbox.min.js"></script>
+        <!-- lib salvar para excel -->
+        <link rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+        <script type="text/javascript" src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+        <script type="text/javascript" src="https://www.shieldui.com/shared/components/latest/js/jszip.min.js"></script>
+
 
         <title>Consulta Cliente</title>
     </head>
@@ -31,16 +36,20 @@
                         <section class="color-pattern-1">
                             <div class="campoTotal">
                                 <div class="filho">
-                                    <input type="text" name="palavra" value="${palavra}" placeholder="De"/>
-                                    <input type="text" name="palavra" value="${palavra}" placeholder="Até"/>
-                                </div>
-                            </div>
-                            <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
+                                    <label>De:</label>
+                                    <input type="text" name="palavra" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${palavra}"/>
+                                </div>      
+                                <div class="filho">
+                                    <label>Até:</label>
+                                    <input type="text" name="palavra" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${palavra}"/>
+                                </div>   
+                                <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
+                                <button id="exportButton" class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-file-excel-o fa-lg"></span> Salvar</button>  
                         </section>
                     </article> 
                 </fieldset>
             </form>
-            <table id="tableID" class="table table-bordered" align="center">
+            <table id="exportTable" class="table table-bordered" align="center">
                 <tr>
                     <th>ID - Venda</th>
                     <th>ID - Funcionário</th>
@@ -61,8 +70,7 @@
                         <td>${vendas.data}</td>
                     </tr>
                 </c:forEach>
-            </table>
-            <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-file-excel-o"></span> Salvar como...</button>                   
+            </table>                          
         </div>
 
     </body>

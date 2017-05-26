@@ -20,11 +20,14 @@ body {
     height: 90%;
 }
 
-input {
+
+
+.campoTotal {
     margin-left: 1%;
     margin-top: 1.2%;
     margin-bottom: 1%;
 }
+
 
 table {
     margin-top: 1%;  
@@ -53,14 +56,12 @@ article {
 /* General button style (reset) */
 .button {
     border: none;
-    font-family: inherit;
-    font-size: inherit;
+    font-size: 13px;
     color: inherit;
     background: none;
     cursor: pointer;
-    padding: 2.9px 13px;
+    padding: 2.0px 13px;
     display: inline-block;
-    text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
     outline: none;
@@ -79,7 +80,7 @@ article {
 }
 /* Button 1 */
 .button-1 {
-    border: 1.5px solid #000;
+    border: 1.4px solid #000;
     color: #000;
 }
 /* Button 1a */
@@ -88,3 +89,10 @@ article {
     color: #0e83cd;
     background: #fff;
 }
+
+.filho{
+    float:left;
+    padding-left: 2%;
+    padding-right: 0.7%;
+}
+
