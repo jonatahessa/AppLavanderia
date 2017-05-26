@@ -101,7 +101,7 @@
             
 <li><form action="Logout" method="post" id="logout">
         <input type="hidden" name="tela">
-        <a href="#" onclick="document.getElementById('logout').submit()"><i class="fa fa-users fa-lg"></i>   Sair</a>
+        <a href="#" onclick="document.getElementById('logout').submit()"><i class="fa fa-power-off fa-lg"></i>   Sair</a>
     </form>
 </li>
     <h1 id="usuarioLogado">Bem vindo(a) ${nomeLogado}</h1>

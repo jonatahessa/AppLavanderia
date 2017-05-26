@@ -21,7 +21,6 @@
         <title>Home</title>
     </head>
     <body>
-        <%@ include file = "header.jsp" %>
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>
     </body>

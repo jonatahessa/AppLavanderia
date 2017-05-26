@@ -1,0 +1,90 @@
+html, body {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: hsl(213, 76%, 95%);
+}
+
+#table {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    top: 10%;
+    position: absolute;
+    width: 75%;
+    height: 90%;
+}
+
+input {
+    margin-left: 1%;
+    margin-top: 1.2%;
+    margin-bottom: 1%;
+}
+
+table {
+    margin-top: 1%;  
+}
+
+h1 {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    color: grey;
+    margin-top: 1%;
+}
+
+article {
+    border: 2px solid #000;
+    width: 100%;
+    padding: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    margin-bottom: 1%;
+}
+
+
+
+/* General button style (reset) */
+.button {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 2.9px 13px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.button:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+/* Button 1 */
+.button-1 {
+    border: 1.5px solid #000;
+    color: #000;
+}
+/* Button 1a */
+.button-1a:hover,
+.button-1a:active {
+    color: #0e83cd;
+    background: #fff;
+}

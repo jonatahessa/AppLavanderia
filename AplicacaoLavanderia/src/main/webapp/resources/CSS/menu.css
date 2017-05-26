@@ -43,4 +43,6 @@ li:hover  {
     position: fixed;
 }
 
-
+h1 {
+    font-weight: bold;
+}
