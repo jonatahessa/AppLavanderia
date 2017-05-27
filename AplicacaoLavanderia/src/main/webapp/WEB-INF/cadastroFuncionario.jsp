@@ -27,9 +27,9 @@
 
 
         <section id="principal">
+
             <form method="post" action= "./CadastrarFuncionario" method="post">
                 <h1>Cadastro de Funcionario</h1>
-
                 <c:choose>
                     <c:when test="${erroNome}"> 
                         <div class="input-group">

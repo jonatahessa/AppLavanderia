@@ -54,4 +54,8 @@ public class ServicoServico {
     public List<Servico> pesquisarServico(String nome) throws Exception {
         return Daos.DaoServico.pesquisarServico(nome);
     }
+    
+    public boolean verificarDuplicidade (String nome) throws Exception {
+        return Daos.DaoServico.verificarDuplicada(nome);
+    }
 }

@@ -273,7 +273,31 @@ public class DaoServico {
         return listaServicos;
     }
 
+    public static boolean verificarDuplicada(String nome) throws
+            SQLException, Exception {
+        String sql = "SELECT * FROM Servico "
+                + " WHERE Servico.Nome = ? AND Enabled = 'true'";
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+
+        statement.setString(1, nome);
+        System.out.println(statement.toString());
+        System.out.println("Executando CONSULTA SQL: " + sql);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+
+            return true;
+        }
+
+        return false;
+    }
 }
+
 
 
 

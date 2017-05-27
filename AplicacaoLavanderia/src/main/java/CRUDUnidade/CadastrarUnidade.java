@@ -1,11 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package CRUDUnidade;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,10 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Thalles
- */
 @WebServlet(name = "CadastrarUnidade", urlPatterns = {"/CadastrarUnidade"})
 public class CadastrarUnidade extends HttpServlet {
 @Override
@@ -32,9 +26,15 @@ public class CadastrarUnidade extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
         ServicoUnidade vu = new ServicoUnidade();
-        boolean erro = false;
+        boolean erro = false, duplicidade = false;
         boolean nome = vu.verificarNome(request.getParameter("nome"));
         boolean cnpj = vu.verificarCnpj(request.getParameter("cnpj"));
+        try {
+            duplicidade = vu.verificarDuplicada(request.getParameter("cnpj"));
+        } catch (Exception ex) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+            dispatcher.forward(request, response);
+        }   
         
         if (nome != true) {
             erro = true;
@@ -43,7 +43,7 @@ public class CadastrarUnidade extends HttpServlet {
             request.setAttribute("nome", request.getParameter("nome"));
             request.setAttribute("trueNome", true);
         }
-        if (cnpj != true) {
+        if (cnpj != true || duplicidade == true) {
             erro = true;
             request.setAttribute("erroCnpj", true);
         } else {

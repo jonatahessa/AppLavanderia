@@ -260,6 +260,30 @@ public class DaoUnidade {
         }
         return listaUnidades;
     }
+    
+    public static boolean verificarDuplicada(String cnpj) throws
+            SQLException, Exception {
+        String sql = "SELECT * FROM Unidade "
+                + " WHERE Unidade.Cnpj = ? AND Enabled = 'true'";
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+
+        statement.setString(1, cnpj);
+        System.out.println(statement.toString());
+        System.out.println("Executando CONSULTA SQL: " + sql);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+
+            return true;
+        }
+
+        return false;
+    }
 }
 
 

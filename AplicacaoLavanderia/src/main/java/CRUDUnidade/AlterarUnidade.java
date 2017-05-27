@@ -39,11 +39,10 @@ public class AlterarUnidade extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
         
-        ServicoUnidade sf = new ServicoUnidade();
+        ServicoUnidade su = new ServicoUnidade();
         boolean erro = false;
-        boolean nome = sf.verificarNome(request.getParameter("nome"));
-        boolean cnpj = sf.verificarCnpj(request.getParameter("cn"));
-    
+        boolean nome = su.verificarNome(request.getParameter("nome"));
+        boolean cnpj = su.verificarCnpj(request.getParameter("cn"));
      
         if (nome != true) {
             erro = true;
@@ -61,13 +60,12 @@ public class AlterarUnidade extends HttpServlet {
         }
         
         if (!erro) {
-            ServicoUnidade su2 = new ServicoUnidade();
             Unidade unidade = new Unidade();
             unidade.setNome(request.getParameter("nome"));
             unidade.setCnpj(request.getParameter("cnpj"));
             
             try {
-                su2.alterarUnidade(unidade, request.getParameter("idUnidade"));
+                su.alterarUnidade(unidade, request.getParameter("idUnidade"));
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemAlteracao.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception ex) {

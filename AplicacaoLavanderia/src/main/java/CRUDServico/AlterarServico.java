@@ -39,7 +39,7 @@ public class AlterarServico extends HttpServlet {
         boolean nome = ss.verificarNome(request.getParameter("nome"));
         String precoCorrigido = ss.converterPreco(request.getParameter("preco"));
         boolean preco = ss.verificarPreco(precoCorrigido);
-     
+        
         if (nome != true) {
             erro = true;
             request.setAttribute("erroNome", true);

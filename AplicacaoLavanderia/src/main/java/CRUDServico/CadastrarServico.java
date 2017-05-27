@@ -10,8 +10,6 @@ package CRUDServico;
  * @author livia.cgsantos e eloisa.asilva2
  */
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,18 +28,21 @@ public class CadastrarServico extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        boolean erro = false;
         ServicoServico ss = new ServicoServico();
         
+        boolean erro = false, duplicidade = false;
         boolean nome = ss.verificarNome(request.getParameter("nome"));
+        String precoCorrigido = ss.converterPreco(request.getParameter("preco"));
+        boolean preco = ss.verificarPreco(precoCorrigido);
+        try {
+            duplicidade = ss.verificarDuplicidade(request.getParameter("nome"));
+        } catch (Exception ex) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro");
+            dispatcher.forward(request, response);
+        }
         
-       String precoCorrigido = ss.converterPreco(request.getParameter("preco"));
-       boolean preco = ss.verificarPreco(precoCorrigido);
-        //precoCorrigido = precoCorrigido.replaceAll(",", "\\.");
         
-        
-        if (nome != true) {
+        if (nome != true || duplicidade == true) {
             erro = true;
             request.setAttribute("erroNome", true);
         } else {

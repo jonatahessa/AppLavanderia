@@ -51,4 +51,8 @@ public class ServicoUnidade {
     public List<Unidade> ListarUnidades() throws Exception {
         return Daos.DaoUnidade.listar();
     }
+    
+    public boolean verificarDuplicada (String cnpj) throws Exception {
+        return Daos.DaoUnidade.verificarDuplicada(cnpj);
+    }
 }

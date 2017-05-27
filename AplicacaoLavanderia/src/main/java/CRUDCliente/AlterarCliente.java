@@ -48,7 +48,7 @@ public class AlterarCliente extends HttpServlet {
         boolean email = vc.verificarEmail(request.getParameter("email"));
         boolean telefone = vc.verificarTelefone(request.getParameter("telefone"));
         boolean cpf = vc.verificarCpf(request.getParameter("cpf"));
-    
+ 
      
         if (nome != true) {
             erro = true;

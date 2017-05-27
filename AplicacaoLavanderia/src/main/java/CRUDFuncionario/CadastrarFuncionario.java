@@ -109,11 +109,11 @@ public class CadastrarFuncionario extends HttpServlet {
             } catch (Exception ex) {
             }
             try{
-            Unidade unidade = Daos.DaoUnidade.obter(id);
-            ServicoUnidade su = new ServicoUnidade();
-            request.setAttribute("unidadeFuncionario", unidade.getNome());
-        } catch (Exception e) {
-        }
+                Unidade unidade = Daos.DaoUnidade.obter(id);
+                ServicoUnidade su = new ServicoUnidade();
+                request.setAttribute("unidadeFuncionario", unidade.getNome());
+            } catch (Exception e) {
+            }
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/cadastroFuncionario.jsp");
             dispatcher.forward(request, response);
         }

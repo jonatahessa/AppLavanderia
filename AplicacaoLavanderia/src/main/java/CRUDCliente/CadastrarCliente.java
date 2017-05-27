@@ -27,16 +27,18 @@ public class CadastrarCliente extends HttpServlet {
 	  throws ServletException, IOException {
         ServicoCliente vc = new ServicoCliente();
         boolean erro = false;
-         boolean duplo = false;
+        boolean duplo = false;
         boolean nome = vc.verificarNome(request.getParameter("nome"));
         boolean email = vc.verificarEmail(request.getParameter("email"));
         boolean telefone = vc.verificarTelefone(request.getParameter("telefone"));
         boolean cpf = vc.verificarCpf(request.getParameter("cpf"));
         boolean sexo = vc.verificarSexo(request.getParameter("sexo"));
-      try {
-        duplo = vc.verificarDuplicada(request.getParameter("cpf"));
-      } catch (Exception ex) {
-      }
+        try {
+            duplo = vc.verificarDuplicada(request.getParameter("cpf"));
+        } catch (Exception ex) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro");
+            dispatcher.forward(request, response);
+        }
      
         if (nome != true) {
             erro = true;
@@ -92,7 +94,7 @@ public class CadastrarCliente extends HttpServlet {
             } catch (Exception ex) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro");
                 dispatcher.forward(request, response);
-                Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+
             }
             
         } else {
