@@ -62,13 +62,14 @@ public class CadastrarServico extends HttpServlet {
             servico.setPrecoServico(Double.parseDouble(precoCorrigido));
             try {
                 ss.inserirServico(servico);
-                response.sendRedirect("mensagemCadastro.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemCadastro.jsp");
+                dispatcher.forward(request, response);
             } catch (Exception ex) {
-                response.sendRedirect("mensagemErro.jsp");
-                Logger.getLogger(CadastrarServico.class.getName()).log(Level.SEVERE, null, ex);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                dispatcher.forward(request, response);
             }
         } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroServico.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/cadastroServico.jsp");
             dispatcher.forward(request, response);
         }
     }

@@ -86,7 +86,7 @@ public class CadastrarCliente extends HttpServlet {
             
             try {
                 sc.inserirCliente(cliente);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemCadastro");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemCadastro.jsp");
                 dispatcher.forward(request, response);
 
             } catch (Exception ex) {
