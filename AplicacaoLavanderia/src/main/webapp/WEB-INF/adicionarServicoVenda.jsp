@@ -25,9 +25,11 @@
             <form action="./AdicionarServicoVenda" method="post">
                 <fieldset>
                     <h1>Adicionar Serviço</h1>
-                    <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
-                    <button class="btn btn-info" type="submit">Pesquisar</button>
-                    <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
+                    <section class="color-pattern-1 form-inline">
+                            <input class="form-control" type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
+                            <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
+                            <button id="cancelar" class="btn button button-1 button-1a" type="button"><span class="fa fa-times"></span> Cancelar</button>
+                        </section>
                 </fieldset>
             </form>   
             <table id="tableID" class="table table-bordered" align="center">
@@ -36,7 +38,7 @@
                     <th>Nome do serviço</th>
                     <th>Preço por peça</th>
                     <th>Quantidade</th>
-                    <th>Adicionar Serviço</th>
+                    <th>Selecionar Serviço</th>
                 </tr>
 
                 <c:forEach var="servicos" items="${resultado}">
@@ -45,8 +47,8 @@
                         <td>${servicos.id}<input type="hidden" name="id" value="${servicos.id}"/></td>
                         <td>${servicos.nomeServico}</td>
                         <td>${servicos.precoServico}</td>
-                        <td><input type="number" name="qtde" min="1" value="${param.qtde ? param.qtde : 1}" max="999"></td>
-                        <td><button type="submit" class="btn btn-success">Adicionar</button></td>
+                        <td><input class="qtde" type="number" name="qtde" min="1" value="${param.qtde ? param.qtde : 1}" max="999"></td>
+                        <td><button class="btn button button-1 button-1a" type="submit"><span class="fa fa-plus"></span> Selecionar</button></td>
                         </form>
                     </tr>
                 </c:forEach>

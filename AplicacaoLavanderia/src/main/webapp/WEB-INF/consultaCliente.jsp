@@ -28,15 +28,19 @@
                 <fieldset>
                     <h1>Pesquisar Cliente</h1>
                     <article>
-                        <section class="color-pattern-1">
-                            <input type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
+                        <section class="color-pattern-1 form-inline">
+                            <input class="form-control" type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
                             <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
-                            <button id="exportButton" class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-file-excel-o fa-lg"></span> Salvar</button>  
+                            <button id="exportButton" class="btn button button-1 button-1a" type="submit"><span class="fa fa-file-excel-o fa-lg"></span> Salvar</button>  
                         </section>
                     </article> 
                 </fieldset>
             </form>
-            <form method="POST" action="Redirecionar"><button class="btn btn-success" name="tela" value="/WEB-INF/cadastroCliente.jsp" type="submit">Cadastrar</button></form>
+                            
+            <form method="POST" action="Redirecionar">
+                <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/cadastroCliente.jsp" type="submit"><span class="fa fa-plus"></span> Cadastrar</button>
+            </form>
+                            
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>Nome</th>

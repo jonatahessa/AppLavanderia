@@ -29,15 +29,12 @@
                     <h1>Lavar</h1>
                 </fieldset>
             </form>
+            
             <form method="POST" action="Redirecionar">
-                <button class="btn btn-success" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit">Adicionar Serviço</button>
+                <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit"><span class="fa fa-plus"></span> Selecionar Serviço</button>
             </form>
-            <form>
-                <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
-            </form>
-            <form method="post" action="FinalizarVenda">
-                <button id="cancelar" type="submit" class="btn btn-info">Finalizar</button>
-            </form>
+            
+            
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>ID</th>
@@ -55,12 +52,16 @@
                         <td>${itens.precoServico}<input type="hidden" name="preco" value="${itens.precoServico}"/></td>
                         <td><form action="DeletarItemVenda" method="post" id="frm${itens.id}">
                                 <input type="hidden" name="id" value="${itens.id}">
-                                <a href="#" onclick="document.getElementById('frm${itens.id}').submit()">Remover</a>
+                                <a href="#" class="btn button button-1 button-1a" onclick="document.getElementById('frm${itens.id}').submit()"><span class="fa fa-minus"></span> Remover</a>
                             </form></td>
                     </tr>
                 </c:forEach>
             </table>
-
+            
+            <form method="POST" action="FinalizarVenda">
+                <button id="cancelar" class="btn button button-1 button-1a" name="tela" type="submit"><span class="fa fa-usd"></span> Finalizar</button>
+            </form> 
+            
         </div>
     </body>
 </html>

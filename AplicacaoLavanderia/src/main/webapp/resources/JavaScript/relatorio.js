@@ -7,10 +7,10 @@ function mascara(t, mask) {
     }
 }
 
-function exportToExcel(tableID){
+function exportToExcel(exTable){
     var tab_text="<table border='2px'><tr bgcolor='#87AFC6' style='height: 75px; text-align: center; width: 250px'>";
     var textRange; var j=0;
-    tab = document.getElementById(tableID); // id of table
+    tab = document.getElementById(exTable); // id of table
 
     for(j = 0 ; j < tab.rows.length ; j++)
     {

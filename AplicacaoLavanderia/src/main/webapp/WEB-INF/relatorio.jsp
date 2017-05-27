@@ -43,39 +43,42 @@
                                     <label>Até:</label>
                                     <input type="text" name="palavra" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${palavra}"/>
                                 </div>   
-                                <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search fa-la"></span> Pesquisar</button>
-                                <input type="button" class="btn btn-info button button-1 button-1a button_add" value=" Salvar" onclick="exportToExcel('exTable')" /></span>
+                                <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-search fa-la"></span> Pesquisar</button>
+                                <input type="button" class="btn button button-1 button-2a button_add" value=" Salvar" onclick="exportToExcel('exTable')" /></span>
                         </section>
                     </article> 
                 </fieldset>
             </form>
-            <table id="exTable" border="1">
+            <table id="exTable" class="table table-bordered" align="center" border="1">
                 <thead class="lockedRecordsBg">
                     <tr>
-                        <th>S#</th>
-                        <th>name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Country</th>
+                        <th>Nome</th>
+                        <th>Sexo</th>
+                        <th>Cargo</th>
+                        <th>Unidade</th>
+                        <th>Alterar Cliente</th>
+                        <th>Remover Cliente</th>
                 </thead>
                 <tbody>
+                    
+                <c:forEach var="funcionarios" items="${resultado}">
                     <tr>
-                        <td rel="client">1</td>
-                        <td rel="regionName">Sudhir K Gupta</td>
-                        <td rel="date">sudhirgupta.456@gmail.com</td>
-                        <td rel="shift">+91 89********</td> 
-                        <td rel="shift">India</td>             
+
+                        <td>${funcionarios.nome}</td>
+                        <td>${funcionarios.sexo}</td>
+                        <td>${funcionarios.cargo}</td>
+                        <td>${funcionarios.nomeUnidade}</td>
+                        <td><a href="./AlterarFuncionario?id=${funcionarios.id}" >Alterar</a></td>
+                        <td><form action="DeletarFuncionario" method="post" id="frm${funcionarios.id}">
+                                <input type="hidden" name="id" value="${funcionarios.id}">
+                                <a href="#" onclick="document.getElementById('frm${funcionarios.id}').submit()">Remover</a>
+                            </form></td>
+
                     </tr>
-                    <tr>
-                        <td rel="client">2</td>
-                        <td rel="regionName">Sudhir K Gupta</td>
-                        <td rel="date">test@gmail.com</td>
-                        <td rel="shift">+91 89********</td> 
-                        <td rel="shift">USA</td>             
-                    </tr>
+                </c:forEach>
                 </tbody>
             </table> 
-            
+
         </div>
 
     </body>
