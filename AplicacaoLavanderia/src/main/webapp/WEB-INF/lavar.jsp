@@ -12,7 +12,7 @@
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaCliente.css">
-        <script type="text/javascript" src="./resources/JavaScript/consultaCliente.js"></script>
+        <script type="text/javascript" src="./resources/JavaScript/cadastrarCliente.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <!-- bootbox code -->
         <script src="./resources/JavaScript/bootbox.min.js"></script>
@@ -34,31 +34,40 @@
                 <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit"><span class="fa fa-plus"></span> Selecionar Serviço</button>
             </form>
             
+            <form method="POST" action="Redirecionar">
+                <button class="btn button button-1 button-1a" name="telacliente" value="/WEB-INF/adicionarClienteVenda.jsp" type="submit"><span class="fa fa-plus"></span> Buscar Cliente</button>
+            </form>
+            
             
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Quantidade</th>
-                    <th>Preço</th>
+                    <th>Valor Unitário</th>
+                    <th>Valor</th>
                     <th>Remover</th>
                 </tr>
 
-                <c:forEach var="itens" items="${resultado}">
+                <c:forEach var="itens" items="${listaItensVenda}">
                     <tr>
-                        <td>${itens.id}<input type="hidden" name="id" value="${itens.id}"/></td>
+                        <td>${itens.id}<input type="hidden" name="iditem" value="${itens.id}"/></td>
                         <td>${itens.nomeServico}<input type="hidden" name="nome" value="${itens.nomeServico}"/></td>
                         <td>${itens.quantidade}<input type="hidden" name="qtde" value="${itens.quantidade}"/></td>
+                        <td>${itens.precoUnitario}<input type="hidden" name="precounitario" value="${itens.precoUnitario}"/></td>
                         <td>${itens.precoServico}<input type="hidden" name="preco" value="${itens.precoServico}"/></td>
                         <td><form action="DeletarItemVenda" method="post" id="frm${itens.id}">
-                                <input type="hidden" name="id" value="${itens.id}">
+                                <input type="hidden" name="iditem" value="${itens.id}">
                                 <a href="#" class="btn button button-1 button-1a" onclick="document.getElementById('frm${itens.id}').submit()"><span class="fa fa-minus"></span> Remover</a>
                             </form></td>
                     </tr>
                 </c:forEach>
             </table>
             
+            <p name="total" value="${total}">Total: ${total}</p>
+            
             <form method="POST" action="FinalizarVenda">
+                <input type="text" name="cpf" placeholder="CPF do Cliente" maxlength="14" onkeypress="mascara(this, '###.###.###-##');"/> 
                 <button id="cancelar" class="btn button button-1 button-1a" name="tela" type="submit"><span class="fa fa-usd"></span> Finalizar</button>
             </form> 
             

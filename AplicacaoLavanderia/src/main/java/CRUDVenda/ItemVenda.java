@@ -10,6 +10,7 @@ public class ItemVenda {
     private String nomeServico;
     private int id;
     private int quantidade;
+    private double precoUnitario;
     private double precoServico;
 
     public int getId() {
@@ -34,6 +35,14 @@ public class ItemVenda {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public double getPrecoUnitario() {
+        return precoUnitario;
+    }
+
+    public void setPrecoUnitario(double precoUnitario) {
+        this.precoUnitario = precoUnitario;
     }
 
     public double getPrecoServico() {

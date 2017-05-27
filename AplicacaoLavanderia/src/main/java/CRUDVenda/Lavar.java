@@ -38,10 +38,10 @@ public class Lavar extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        ArrayList<ItemVenda> itens = (ArrayList<ItemVenda>) session.getAttribute("resultado");
+        ArrayList<ItemVenda> itens = (ArrayList<ItemVenda>) session.getAttribute("listaItensVenda");
         if (itens == null) {
             itens = new ArrayList<ItemVenda>();
-            session.setAttribute("resultado", itens);
+            session.setAttribute("listaItensVenda", itens);
         }
         ServicoServico ss = new ServicoServico();
         Servico servico = new Servico();
@@ -53,12 +53,18 @@ public class Lavar extends HttpServlet {
 
         ItemVenda itemVenda = new ItemVenda();
         itemVenda.setId(Integer.parseInt(request.getParameter("id")));
-        itemVenda.setPrecoServico(servico.getPrecoServico());
         itemVenda.setNomeServico(servico.getNomeServico());
-        servico = new Servico();
+        double totalDaVenda = 0;
+        
         itemVenda.setQuantidade(Integer.parseInt(request.getParameter("qtde")));
+        itemVenda.setPrecoUnitario(servico.getPrecoServico());
+        itemVenda.setPrecoServico(servico.getPrecoServico() * itemVenda.getQuantidade());
         itens.add(itemVenda);
-        request.setAttribute("lista", itens);
+        for (ItemVenda item : itens) {
+            totalDaVenda += item.getPrecoServico();
+        }
+        request.setAttribute("listaItensVenda", itens);
+        request.setAttribute("total", totalDaVenda);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/lavar.jsp");
         dispatcher.forward(request, response);
 
