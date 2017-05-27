@@ -1,8 +1,7 @@
 /*package br.com.Daos;
 
-import br.com.Classes.Venda;
-import br.com.ConexaoBanco.ConnectionUtils;
-import br.com.Servicos.ServicoVenda;
+
+import ConnectionBD.ConnectionUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

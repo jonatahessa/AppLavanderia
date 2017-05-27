@@ -9,7 +9,6 @@ body {
 }
 
 #table {
-    color: #467fb4;
     left: 0;
     right: 0;
     top: 0;
@@ -28,6 +27,7 @@ input {
 }
 
 table {
+        border: 2px solid black;
     margin-top: 1%;  
 }
 
@@ -54,14 +54,12 @@ article {
 /* General button style (reset) */
 .button {
     border: none;
-    font-family: inherit;
-    font-size: inherit;
+    font-size: 13px;
     color: inherit;
     background: none;
     cursor: pointer;
-    padding: 2.4px 13px;
+    padding: 2.0px 13px;
     display: inline-block;
-    text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
     outline: none;
@@ -80,7 +78,7 @@ article {
 }
 /* Button 1 */
 .button-1 {
-    border: 1.5px solid #000;
+    border: 1.4px solid #000;
     color: #000;
 }
 /* Button 1a */
@@ -89,3 +87,4 @@ article {
     color: #0e83cd;
     background: #fff;
 }
+

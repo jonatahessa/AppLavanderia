@@ -43,34 +43,39 @@
                                     <label>Até:</label>
                                     <input type="text" name="palavra" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${palavra}"/>
                                 </div>   
-                                <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
-                                <button id="exportButton" class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-file-excel-o fa-lg"></span> Salvar</button>  
+                                <button class="btn btn-info button button-1 button-1a" type="submit"><span class="fa fa-search fa-la"></span> Pesquisar</button>
+                                <input type="button" class="btn btn-info button button-1 button-1a button_add" value=" Salvar" onclick="exportToExcel('exTable')" /></span>
                         </section>
                     </article> 
                 </fieldset>
             </form>
-            <table id="exportTable" class="table table-bordered" align="center">
-                <tr>
-                    <th>ID - Venda</th>
-                    <th>ID - Funcionário</th>
-                    <th>CPF - Cliente</th>
-                    <th>Serviço</th>
-                    <th>Quantidade</th>
-                    <th>Total</th>
-                    <th>Data</th>
-                </tr>
-                <c:forEach var="vendas" items="${resultado}">
-                    <tr onclick="main();">
-                        <td>${vendas.idvenda}</td>
-                        <td>${vendas.idfuncionario}</td>
-                        <td>${vendas.cpfcliente}</td>
-                        <td>${vendas.servico}</td>
-                        <td>${vendas.quantidade}</td>
-                        <td>${vendas.total}</td>
-                        <td>${vendas.data}</td>
+            <table id="exTable" border="1">
+                <thead class="lockedRecordsBg">
+                    <tr>
+                        <th>S#</th>
+                        <th>name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Country</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rel="client">1</td>
+                        <td rel="regionName">Sudhir K Gupta</td>
+                        <td rel="date">sudhirgupta.456@gmail.com</td>
+                        <td rel="shift">+91 89********</td> 
+                        <td rel="shift">India</td>             
                     </tr>
-                </c:forEach>
-            </table>                          
+                    <tr>
+                        <td rel="client">2</td>
+                        <td rel="regionName">Sudhir K Gupta</td>
+                        <td rel="date">test@gmail.com</td>
+                        <td rel="shift">+91 89********</td> 
+                        <td rel="shift">USA</td>             
+                    </tr>
+                </tbody>
+            </table> 
+            
         </div>
 
     </body>
