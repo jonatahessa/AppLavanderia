@@ -198,6 +198,35 @@ public class DaoFuncionario {
  
         return funcionario;
     }
+    
+     public static Funcionario obterPorLogin(String login)
+            throws SQLException, Exception {
+        String sql = "SELECT * FROM Funcionario WHERE Login = ?;";
+        PreparedStatement statement = null;
+        Connection connection = null;
+        Funcionario funcionario = new Funcionario();
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, login);
+        System.out.println(statement.toString());
+         ResultSet result = null;
+         result = statement.executeQuery();
+         
+            while (result.next()) {
+  
+                funcionario.setId(result.getInt("id"));
+                funcionario.setNome(result.getString("nome"));
+                funcionario.setCargo(result.getString("cargo"));
+                funcionario.setLogin(result.getString("login"));
+                funcionario.setIdUnidade(result.getInt("ID_Unidade"));
+                funcionario.setSenha(result.getString("senha"));
+                funcionario.setAdmissao(result.getDate("admissao"));
+                funcionario.setSexo(result.getString("sexo"));
+                funcionario.setEnabled(result.getString("enabled"));
+            }
+ 
+        return funcionario;
+    }
 
     public static List<Funcionario> executarConsulta(String sql) throws
             FuncionarioException, SQLException, Exception {

@@ -30,10 +30,6 @@ public class Cliente {
         this.id = id;
     }
 
-    public Cliente(String cpf) {
-        this.cpf = cpf;
-    }
-
     public String getNome() {
         return nome;
     }

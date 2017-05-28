@@ -99,6 +99,10 @@ public class ServicoFuncionario {
         return Daos.DaoFuncionario.obter(id);
     }
     
+    public Funcionario obterFuncionarioPorLogin(String recebe) throws Exception {
+        return Daos.DaoFuncionario.obterPorLogin(recebe);
+    }
+    
     public List<Funcionario> ListarFuncionarios() throws Exception {
         return Daos.DaoFuncionario.listar();
     }

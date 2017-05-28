@@ -11,4 +11,8 @@ package CRUDVenda;
  */
 public class ServicoVenda {
     
+    
+    public void finalizarVenda(Venda venda) throws Exception {
+        Daos.DaoVenda.inserir(venda);
+    }
 }

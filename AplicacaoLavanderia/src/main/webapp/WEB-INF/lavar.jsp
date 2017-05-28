@@ -34,11 +34,6 @@
                 <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit"><span class="fa fa-plus"></span> Selecionar Serviço</button>
             </form>
             
-            <form method="POST" action="Redirecionar">
-                <button class="btn button button-1 button-1a" name="telacliente" value="/WEB-INF/adicionarClienteVenda.jsp" type="submit"><span class="fa fa-plus"></span> Buscar Cliente</button>
-            </form>
-            
-            
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
                     <th>ID</th>
@@ -66,10 +61,14 @@
             
             <p name="total" value="${total}">Total: ${total}</p>
             
-            <form method="POST" action="FinalizarVenda">
-                <input type="text" name="cpf" placeholder="CPF do Cliente" maxlength="14" onkeypress="mascara(this, '###.###.###-##');"/> 
-                <button id="cancelar" class="btn button button-1 button-1a" name="tela" type="submit"><span class="fa fa-usd"></span> Finalizar</button>
-            </form> 
+            <form method="POST" action="Redirecionar">
+                <input type="text" name="cpf" placeholder="CPF do Cliente" value="${cpf}" maxlength="14" onkeypress="mascara(this, '###.###.###-##');"/> 
+                <button id="cancelar" class="btn button button-1 button-1a" name="tela" value="/FinalizarVenda" type="submit"><span class="fa fa-usd"></span> Finalizar</button>
+            </form>
+            
+            <form method="POST" action="Redirecionar">
+                <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/adicionarClienteVenda.jsp" type="submit"><span class="fa fa-plus"></span> Buscar Cliente</button>
+            </form>
             
         </div>
     </body>
