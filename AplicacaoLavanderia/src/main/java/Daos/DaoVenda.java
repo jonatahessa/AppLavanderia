@@ -1,5 +1,6 @@
 package Daos;
 
+import CRUDVenda.ItemVenda;
 import CRUDVenda.Venda;
 import ConnectionBD.ConnectionUtils;
 import java.sql.Connection;
@@ -43,12 +44,12 @@ public class DaoVenda {
     }
 
     //Insere um produto na tabela "ItensVenda" do banco de dados
-    public static void inserirItensVenda(int itemVendaID, int idProduto, int qnt, String produtoTitulo)
+    public static void inserirItensVenda(ItemVenda item)
             throws SQLException, Exception {
         //Monta a string de inserção de um ItenVenda no BD,
         //utilizando os dados do produto passados como parâmetro
-        String sql = "INSERT INTO ItensVenda (ItemVendaID, produtoId, ProdutoQuantidade, ProdutoTitulo) "
-                + "VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO ServicoVenda (ID_Servico, ID_Venda, Quantidade,"
+                + " Preco) VALUES (?, ?, ?, ?);";
 
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -61,10 +62,10 @@ public class DaoVenda {
             //Cria um statement para execução de instruções SQL
             statement = connection.prepareStatement(sql);
 
-            statement.setInt(1, itemVendaID);
-            statement.setInt(2, idProduto);
-            statement.setInt(3, qnt);
-            statement.setString(4, produtoTitulo);
+            statement.setInt(1, item.getId());
+            statement.setInt(2, item.getIdVenda());
+            statement.setInt(3, item.getQuantidade());
+            statement.setDouble(4, item.getPrecoUnitario());
 
             //Exibe no console o que será executado no banco de dados
             System.out.println("Executando COMANDO SQL: " + sql);
@@ -86,7 +87,7 @@ public class DaoVenda {
     public static int retornarMaiorID()
             throws SQLException, Exception {
         //Monta a string de inserção de um ItenVenda no BD,
-        String sql = "SELECT MAX(ItemVendaID) FROM ItensVenda";
+        String sql = "SELECT MAX(ID) FROM Venda";
         int maiorID = 0;
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -104,11 +105,11 @@ public class DaoVenda {
         ResultSet result = statement.executeQuery(sql);
 
         while (result.next()) {
-            maiorID = (result.getInt("MAX(ItemVendaID)"));
+            maiorID = (result.getInt("MAX(ID)"));
             connection.close();
             statement.close();
             return maiorID;
         }
-        return 1;
+        return 0;
     }
 }

@@ -15,4 +15,12 @@ public class ServicoVenda {
     public void finalizarVenda(Venda venda) throws Exception {
         Daos.DaoVenda.inserir(venda);
     }
+    
+    public int retornarIdUltimaVenda() throws Exception{
+       return Daos.DaoVenda.retornarMaiorID();
+    }
+    
+    public void inserirItensVenda(ItemVenda item) throws Exception {
+        Daos.DaoVenda.inserirItensVenda(item);
+    }
 }

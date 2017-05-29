@@ -53,10 +53,14 @@ public class FinalizarVenda extends HttpServlet {
 
         try {
             sv.finalizarVenda(venda);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemCadastro.jsp");
+            for (ItemVenda item : itens) {
+                item.setIdVenda(sv.retornarIdUltimaVenda());
+                sv.inserirItensVenda(item);
+            }
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemVendaSucesso.jsp");
             dispatcher.forward(request, response);
         } catch (Exception ex) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErroVenda.jsp");
             dispatcher.forward(request, response);
         }
 

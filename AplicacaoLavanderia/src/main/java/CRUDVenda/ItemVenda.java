@@ -9,6 +9,7 @@ public class ItemVenda {
     
     private String nomeServico;
     private int id;
+    private int idVenda;
     private int quantidade;
     private double precoUnitario;
     private double precoServico;
@@ -21,6 +22,14 @@ public class ItemVenda {
         this.id = id;
     }
 
+    public int getIdVenda() {
+        return idVenda;
+    }
+
+    public void setIdVenda(int idVenda) {
+        this.idVenda = idVenda;
+    }
+    
     public String getNomeServico() {
         return nomeServico;
     }

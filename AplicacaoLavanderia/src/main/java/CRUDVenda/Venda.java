@@ -18,6 +18,7 @@ public class Venda {
     private int idCliente;
     private int idFuncionario;
     private int idVenda;
+    private int idUnidade;
 
     public Date getDataVenda() {
         return dataVenda;
@@ -58,5 +59,15 @@ public class Venda {
     public void setIdVenda(int idVenda) {
         this.idVenda = idVenda;
     }
+
+    public int getIdUnidade() {
+        return idUnidade;
+    }
+
+    public void setIdUnidade(int idUnidade) {
+        this.idUnidade = idUnidade;
+    }
+    
+    
     
 }
