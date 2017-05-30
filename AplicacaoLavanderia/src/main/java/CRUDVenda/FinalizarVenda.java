@@ -40,33 +40,39 @@ public class FinalizarVenda extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         ArrayList<ItemVenda> itens = (ArrayList<ItemVenda>) session.getAttribute("listaItensVenda");
-        double totalDaVenda = 0;
-        for (ItemVenda item : itens) {
-            totalDaVenda += item.getPrecoServico();
-        }
-
-        ServicoVenda sv = new ServicoVenda();
         Cliente cliente = (Cliente) session.getAttribute("clienteVenda");
-        Venda venda = new Venda();
-        int funcionarioId = (int) session.getAttribute("idFuncionario");
-        venda.setIdCliente(cliente.getId());
-        venda.setIdFuncionario(funcionarioId);
-        venda.setTotalVenda(totalDaVenda);
-
-        try {
-            sv.finalizarVenda(venda);
+        if (cliente == null || itens.isEmpty()) {
+            request.setAttribute("erroCpf", true);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Lavar");
+            dispatcher.forward(request, response);
+        } else {
+            double totalDaVenda = 0;
             for (ItemVenda item : itens) {
-                item.setIdVenda(sv.retornarIdUltimaVenda());
-                sv.inserirItensVenda(item);
+                totalDaVenda += item.getPrecoServico();
             }
-            session.removeAttribute("listaItensVenda");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemVendaSucesso.jsp");
-            dispatcher.forward(request, response);
-        } catch (Exception ex) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErroVenda.jsp");
-            dispatcher.forward(request, response);
+
+            ServicoVenda sv = new ServicoVenda();
+            Venda venda = new Venda();
+            int funcionarioId = (int) session.getAttribute("idFuncionario");
+            venda.setIdCliente(cliente.getId());
+            venda.setIdFuncionario(funcionarioId);
+            venda.setTotalVenda(totalDaVenda);
+
+            try {
+                sv.finalizarVenda(venda);
+                for (ItemVenda item : itens) {
+                    item.setIdVenda(sv.retornarIdUltimaVenda());
+                    sv.inserirItensVenda(item);
+                }
+
+                session.removeAttribute("listaItensVenda");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemVendaSucesso.jsp");
+                dispatcher.forward(request, response);
+            } catch (Exception ex) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErroVenda.jsp");
+                dispatcher.forward(request, response);
+            }
+
         }
-
     }
-
 }
