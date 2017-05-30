@@ -44,6 +44,10 @@
         <servlet-name>RedirecionarLogin</servlet-name>
         <servlet-class>Login.RedirecionarLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>relatorio</servlet-name>
+        <servlet-class>Relatorio.relatorioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlterarFuncionario</servlet-name>
         <url-pattern>/AlterarFuncionario</url-pattern>
@@ -88,6 +92,10 @@
     <servlet-mapping>
         <servlet-name>RedirecionarLogin</servlet-name>
         <url-pattern>/RedirecionarLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>relatorio</servlet-name>
+        <url-pattern>/relatorio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

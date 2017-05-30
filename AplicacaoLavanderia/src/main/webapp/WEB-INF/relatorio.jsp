@@ -35,14 +35,45 @@
                     <article>
                         <section class="color-pattern-1">
                             <div class="campoTotal">
-                                <div class="filho">
-                                    <label>De:</label>
-                                    <input type="text" name="palavra" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${palavra}"/>
-                                </div>      
-                                <div class="filho">
-                                    <label>Até:</label>
-                                    <input type="text" name="palavra" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${palavra}"/>
-                                </div>   
+
+                                <c:choose>
+                                    <c:when test="${erroDeData}"> 
+                                        <div class="input-group filho">
+                                            <label>De:</label>
+                                    <input type="text" name="DeData" class="erro" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${DeData}"/>
+                                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
+                                        </div>
+                                    </c:when>    
+                                    <c:otherwise>
+                                        <div class="input-group filho">
+                                            <label>De:</label>
+                                    <input type="text" name="DeData" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${DeData}"/>
+                                            <c:if test="${DeData}">
+                                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                                            </c:if>     
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+                                
+                                <c:choose>
+                                    <c:when test="${erroDeData}"> 
+                                        <div class="input-group filho">
+                                            <label>Até:</label>
+                                    <input type="text" name="AteData" class="erro" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${AteData}"/>
+                                            <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
+                                        </div>
+                                    </c:when>    
+                                    <c:otherwise>
+                                        <div class="input-group filho">
+                                            <label>Até:</label>
+                                    <input type="text" name="AteData" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${AteData}"/>
+                                            <c:if test="${DeData}">
+                                                <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
+                                            </c:if>     
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+
                                 <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-search fa-la"></span> Pesquisar</button>
                                 <input type="button" class="btn button button-1 button-2a button_add" value=" Salvar" onclick="exportToExcel('exTable')" /></span>
                         </section>
@@ -52,30 +83,30 @@
             <table id="exTable" class="table table-bordered" align="center" border="1">
                 <thead class="lockedRecordsBg">
                     <tr>
-                        <th>Nome</th>
-                        <th>Sexo</th>
+                        <th>ID - Venda</th>
+                        <th>Cliente</th>
                         <th>Cargo</th>
                         <th>Unidade</th>
                         <th>Alterar Cliente</th>
                         <th>Remover Cliente</th>
                 </thead>
                 <tbody>
-                    
-                <c:forEach var="funcionarios" items="${resultado}">
-                    <tr>
 
-                        <td>${funcionarios.nome}</td>
-                        <td>${funcionarios.sexo}</td>
-                        <td>${funcionarios.cargo}</td>
-                        <td>${funcionarios.nomeUnidade}</td>
-                        <td><a href="./AlterarFuncionario?id=${funcionarios.id}" >Alterar</a></td>
-                        <td><form action="DeletarFuncionario" method="post" id="frm${funcionarios.id}">
-                                <input type="hidden" name="id" value="${funcionarios.id}">
-                                <a href="#" onclick="document.getElementById('frm${funcionarios.id}').submit()">Remover</a>
-                            </form></td>
+                    <c:forEach var="venda" items="${ListaVenda}">
+                        <tr>
 
-                    </tr>
-                </c:forEach>
+                            <td>${funcionarios.nome}</td>
+                            <td>${funcionarios.sexo}</td>
+                            <td>${funcionarios.cargo}</td>
+                            <td>${funcionarios.nomeUnidade}</td>
+                            <td><a href="./AlterarFuncionario?id=${funcionarios.id}" >Alterar</a></td>
+                            <td><form action="DeletarFuncionario" method="post" id="frm${funcionarios.id}">
+                                    <input type="hidden" name="id" value="${funcionarios.id}">
+                                    <a href="#" onclick="document.getElementById('frm${funcionarios.id}').submit()">Remover</a>
+                                </form></td>
+
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table> 
 
