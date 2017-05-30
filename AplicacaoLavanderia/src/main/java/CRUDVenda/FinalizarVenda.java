@@ -6,9 +6,11 @@
 package CRUDVenda;
 
 import CRUDCliente.Cliente;
+import CRUDServico.Servico;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -57,6 +59,7 @@ public class FinalizarVenda extends HttpServlet {
                 item.setIdVenda(sv.retornarIdUltimaVenda());
                 sv.inserirItensVenda(item);
             }
+            session.removeAttribute("listaItensVenda");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemVendaSucesso.jsp");
             dispatcher.forward(request, response);
         } catch (Exception ex) {

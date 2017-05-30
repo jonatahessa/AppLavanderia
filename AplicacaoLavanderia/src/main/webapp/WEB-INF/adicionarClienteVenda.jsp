@@ -31,7 +31,6 @@
                         <section class="color-pattern-1 form-inline">
                             <input class="form-control" type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
                             <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
-                            <button id="exportButton" class="btn button button-1 button-1a" type="submit"><span class="fa fa-file-excel-o fa-lg"></span> Salvar</button>  
                         </section>
                     </article> 
                 </fieldset>

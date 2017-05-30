@@ -40,6 +40,10 @@
         <servlet-name>FinalizarVenda</servlet-name>
         <servlet-class>CRUDVenda.FinalizarVenda</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RedirecionarLogin</servlet-name>
+        <servlet-class>Login.RedirecionarLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlterarFuncionario</servlet-name>
         <url-pattern>/AlterarFuncionario</url-pattern>
@@ -80,6 +84,10 @@
     <servlet-mapping>
         <servlet-name>FinalizarVenda</servlet-name>
         <url-pattern>/FinalizarVenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RedirecionarLogin</servlet-name>
+        <url-pattern>/RedirecionarLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -36,7 +36,6 @@
             
             <table id="tableID" class="table table-bordered" align="center">
                 <tr>
-                    <th>ID</th>
                     <th>Nome</th>
                     <th>Quantidade</th>
                     <th>Valor Unitário</th>
@@ -46,7 +45,7 @@
 
                 <c:forEach var="itens" items="${listaItensVenda}">
                     <tr>
-                        <td>${itens.id}<input type="hidden" name="iditem" value="${itens.id}"/></td>
+                        <input type="hidden" name="iditem" value="${itens.id}"/>
                         <td>${itens.nomeServico}<input type="hidden" name="nome" value="${itens.nomeServico}"/></td>
                         <td>${itens.quantidade}<input type="hidden" name="qtde" value="${itens.quantidade}"/></td>
                         <td>${itens.precoUnitario}<input type="hidden" name="precounitario" value="${itens.precoUnitario}"/></td>

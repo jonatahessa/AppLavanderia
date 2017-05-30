@@ -1,5 +1,10 @@
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
+
+body {
+    background-color: hsl(213, 76%, 95%);
+}
+
 ul {
 
     float: right;

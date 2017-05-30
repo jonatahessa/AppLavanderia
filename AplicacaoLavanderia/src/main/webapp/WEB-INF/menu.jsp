@@ -11,6 +11,8 @@
     <li><a href="relatorios.jsp"><i class="fa fa-pie-chart fa-fw"></i> Relatórios</a></li>
     -->
 
+    <c:choose> 
+        <c:when test="${permissao ne null}"  >
 <c:choose>
         <c:when test="${permissao eq 'Gerente T.I'}"  >
             <li class="active"><form action="Redirecionar" method="post" id="home">
@@ -19,7 +21,7 @@
                 </form>
             </li>
             <li><form action="Redirecionar" method="post" id="lavar">
-                <input type="hidden" name="tela" value="/WEB-INF/lavar.jsp">
+                <input type="hidden" name="tela" value="/Lavar">
                 <a href="#" onclick="document.getElementById('lavar').submit()"><i class="fa fa-shower fa-lg"></i>   Lavar</a>
                 </form>
             </li>
@@ -105,7 +107,11 @@
     </form>
 </li>
     <h1 id="usuarioLogado">Bem vindo(a) ${nomeLogado}</h1>
-    
+    </c:when>
+    <c:otherwise>
+        <META HTTP-EQUIV="Refresh" CONTENT="0;URL=./RedirecionarLogin">
+    </c:otherwise>
+    </c:choose>
     
     <%--
     
