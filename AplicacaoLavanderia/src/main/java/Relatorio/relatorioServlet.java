@@ -11,6 +11,7 @@ import CRUDFuncionario.Funcionario;
 import CRUDVenda.Venda;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,35 +27,25 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class relatorioServlet extends HttpServlet {
 
-
-   @Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	  throws ServletException, IOException {
+            throws ServletException, IOException {
         boolean erro = false;
         List<Venda> listaVenda = null;
         ServicoRelatorio sr = new ServicoRelatorio();
-        boolean DeData =  sr.verificarDeData(request.getParameter("DeData"));
-        boolean AteData =  sr.verificarDeData(request.getParameter("AteData"));
-        
-        if(DeData == true){
-            erro = true;
-            request.setAttribute("DeData", true);
-        }else{
-            request.setAttribute("ErroDeData", request.getParameter("DeData"));
-            request.setAttribute("DeData", true);
-            
-        }
-        
-        if(DeData == true){
-            erro = true;
-            request.setAttribute("AteData", true);
-        }else{
-            request.setAttribute("ErroAteData", request.getParameter("AteData"));
-            request.setAttribute("AteData", true);
-            
+        boolean deData = sr.verificarDeData(request.getParameter("DeData"));
+        boolean ateData = sr.verificarDeData(request.getParameter("AteData"));
+
+        if (deData == false && ateData == false) {
+            try {
+                List<Relatorio> itens = sr.ListarRelatorio();
+                request.setAttribute("itens", itens);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
+                dispatcher.forward(request, response);
+            } catch (Exception ex) {
+                Logger.getLogger(relatorioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
 }
-
-

@@ -9,7 +9,6 @@ public class Relatorio {
     private String cliente;
     private String funcionario;
     private String unidade;
-    private List<ItemVenda> carrinho;
     private double total;
     private Date data;
 
@@ -35,14 +34,6 @@ public class Relatorio {
 
     public void setUnidade(String unidade) {
         this.unidade = unidade;
-    }
-    
-    public List<ItemVenda> getCarrinho() {
-        return carrinho;
-    }
-
-    public void setCarrinho(List<ItemVenda> carrinho) {
-        this.carrinho = carrinho;
     }
 
     public double getTotal() {
