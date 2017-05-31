@@ -5,9 +5,9 @@
  */
 package Daos;
 
-import CRUDVenda.Venda;
 import ConnectionBD.ConnectionUtils;
 import Exeptions.RelatorioException;
+import Relatorio.Relatorio;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,16 +21,20 @@ import java.util.List;
  */
 public class DaoRelatorio {
     
-    public static List<Venda> listar()
+    public static List<Relatorio> listarSemDataAdmin()
             throws SQLException, Exception {
-        String sql = "SELECT * FROM Venda";
+        String sql = "SELECT Unidade.NomeUnidade, Funcionario.NomeFuncionario,"
+                + " Cliente.NomeCliente, Venda.Data, Venda.Total FROM Unidade"
+                + " INNER JOIN Funcionario ON Unidade.ID = Funcionario.ID_Unidade"
+                + " INNER JOIN Venda ON Funcionario.ID = Venda.ID_Funcionario"
+                + " INNER JOIN Cliente ON Cliente.ID = Venda.ID_Cliente ORDER BY Venda.Data;";
 
         return executarConsulta(sql);
     }
    
-        public static List<Venda> executarConsulta(String sql) throws
+        public static List<Relatorio> executarConsulta(String sql) throws
             RelatorioException, SQLException, Exception {
-        List<Venda> listaVendas = null;
+        List<Relatorio> listaRelatorio = null;
         Connection connection = null;
         Statement statement = null;
         ResultSet result = null;
@@ -40,16 +44,16 @@ public class DaoRelatorio {
             System.out.println("Executando CONSULTA SQL: " + sql);
             result = statement.executeQuery(sql);
             while (result.next()) {
-                if (listaVendas == null) {
-                    listaVendas = new ArrayList<Venda>();
+                if (listaRelatorio == null) {
+                    listaRelatorio = new ArrayList<Relatorio>();
                 }
-                Venda venda = new Venda();
-                venda.setDataVenda(result.getDate("Data"));
-                venda.setIdCliente(result.getInt("ID_Cliente"));
-                venda.setIdFuncionario(result.getInt("ID_Funcionario"));
-                venda.setIdVenda(result.getInt("ID"));
-                venda.setTotalVenda(result.getDouble("Total"));
-                listaVendas.add(venda);
+                Relatorio relatorio = new Relatorio();
+                relatorio.setUnidade(result.getString("NomeUnidade"));
+                relatorio.setFuncionario(result.getString("NomeFuncionario"));
+                relatorio.setCliente(result.getString("NomeCliente"));
+                relatorio.setData(result.getDate("Data"));
+                relatorio.setTotal(result.getDouble("Total"));
+                listaRelatorio.add(relatorio);
             }
         } finally {
             if (result != null && !result.isClosed()) {
@@ -62,7 +66,7 @@ public class DaoRelatorio {
                 connection.close();
             }
         }
-        return listaVendas;
+        return listaRelatorio;
     }
 
 }

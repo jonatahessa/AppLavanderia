@@ -53,34 +53,6 @@ public class relatorioServlet extends HttpServlet {
             request.setAttribute("AteData", true);
             
         }
-        
-        if (erro == false){
-            List<Venda> lv = null;
-            try {
-                lv = sr.ListarVenda();
-            } catch (Exception ex) {
-            }
-            
-            for(Venda venda : lv) {
-                Cliente cliente = new Cliente();
-                Funcionario funcionario = new Funcionario();
-                try {
-                    cliente = Daos.DaoCliente.retornarClienteId(venda.getIdCliente());
-                } catch (Exception ex) {
-                }
-                
-                Relatorio relatorio = new Relatorio();
-                relatorio.setCliente(cliente);
-                relatorio.setFuncionario(funcionario);
-                relatorio.setData(venda.getDataVenda());
-                relatorio.setTotal(venda.getTotalVenda());
-                
-            }
-            
-            
-            request.setAttribute("ListaVenda", ListaVenda);
-            
-        }
     }
 
 }

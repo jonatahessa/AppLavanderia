@@ -51,8 +51,8 @@ public class ServicoRelatorio {
 
     }
     
-    public List<Venda> ListarVenda() throws Exception {
-        return Daos.DaoRelatorio.listar();
+    public List<Relatorio> ListarRelatorio() throws Exception {
+        return Daos.DaoRelatorio.listarSemDataAdmin();
     }
     
 }
