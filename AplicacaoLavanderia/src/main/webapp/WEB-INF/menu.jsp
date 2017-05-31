@@ -77,7 +77,7 @@
                 </form>
             </li>
             <li><form action="Redirecionar" method="post" id="lavar">
-                <input type="hidden" name="tela" value="/WEB-INF/lavar.jsp">
+                <input type="hidden" name="tela" value="/Lavar">
                 <a href="#" onclick="document.getElementById('lavar').submit()"><i class="fa fa-shower fa-lg"></i>   Lavar</a>
                 </form>
             </li>
@@ -94,7 +94,7 @@
                 </form>
             </li>
             <li><form action="Redirecionar" method="post" id="lavar">
-                    <input type="hidden" name="tela" value="/WEB-INF/lavar.jsp">
+                    <input type="hidden" name="tela" value="/Lavar">
                     <a href="#" onclick="document.getElementById('lavar').submit()"><i class="fa fa-shower fa-lg"></i>   Lavar</a>
                 </form>
             </li>
