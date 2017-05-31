@@ -91,12 +91,13 @@
                 </thead>
                 <tbody>
 
-                    <c:forEach var="venda" items="${ListaVenda}">
+                    <c:forEach var="relatorio" items="${itens}">
                         <tr>
-                            <td>${funcionarios.nome}</td>
-                            <td>${funcionarios.sexo}</td>
-                            <td>${funcionarios.cargo}</td>
-                            <td>${funcionarios.nomeUnidade}</td>
+                            <td>${relatorio.unidade}</td>
+                            <td>${relatorio.funcionario}</td>
+                            <td>${relatorio.cliente}</td>
+                            <td>${relatorio.data}</td>
+                            <td>${relatorio.total}</td>
                         </tr>
                     </c:forEach>
                 </tbody>

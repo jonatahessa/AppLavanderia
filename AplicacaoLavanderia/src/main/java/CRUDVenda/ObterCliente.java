@@ -51,6 +51,7 @@ public class ObterCliente extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(ObterCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
+        session.removeAttribute("clienteVenda");
         session.setAttribute("clienteVenda", cliente);
         ServletContext context = getServletContext();
         RequestDispatcher rd = context.getRequestDispatcher("/Lavar");
