@@ -51,6 +51,9 @@ public class ServicoCliente {
             if (email.charAt(i) == '@') {
                 contador++;
             }
+            if (email.charAt(i) == ',') {
+                return false;
+            }
         }
         if (!email.contains(".com")) {
             return false;
