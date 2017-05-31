@@ -22,7 +22,7 @@ public class DaoCliente {
     public static void inserir(Cliente cliente)
             throws SQLException, Exception {
 
-        String sql = "INSERT INTO Cliente (nome, cpf, telefone, email, enabled, sexo) "
+        String sql = "INSERT INTO Cliente (NomeCliente, cpf, telefone, email, enabled, sexo) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
         Connection connection = null;
         PreparedStatement statement = null;
@@ -90,7 +90,7 @@ public class DaoCliente {
 
     public static void alterar(Cliente cliente, String id)
             throws SQLException, Exception {
-        String sql = "UPDATE Cliente SET nome = ?, cpf = ?,telefone = ?, email = ?, sexo = ? "
+        String sql = "UPDATE Cliente SET NomeCliente = ?, cpf = ?,telefone = ?, email = ?, sexo = ? "
                 + "WHERE ID = ?;";
 
         Connection connection = null;
@@ -137,7 +137,7 @@ public class DaoCliente {
         while (result.next()) {
 
             cliente.setCpf(result.getString("cpf"));
-            cliente.setNome(result.getString("nome"));
+            cliente.setNome(result.getString("NomeCliente"));
             cliente.setTelefone(result.getString("telefone"));
             cliente.setEmail(result.getString("email"));
             cliente.setSexo(result.getString("sexo"));
@@ -165,7 +165,7 @@ public class DaoCliente {
                 }
                 Cliente cliente = new Cliente();
                 cliente.setCpf(result.getString("cpf"));
-                cliente.setNome(result.getString("nome"));
+                cliente.setNome(result.getString("NomeCliente"));
                 cliente.setTelefone(result.getString("telefone"));
                 cliente.setEmail(result.getString("email"));
                 cliente.setSexo(result.getString("sexo"));
@@ -211,7 +211,7 @@ public class DaoCliente {
 
         while (result.next()) {
             cliente.setCpf(result.getString("cpf"));
-            cliente.setNome(result.getString("nome"));
+            cliente.setNome(result.getString("NomeCliente"));
             cliente.setTelefone(result.getString("telefone"));
             cliente.setEmail(result.getString("email"));
             cliente.setEnabled(result.getString("enabled"));
@@ -239,7 +239,7 @@ public class DaoCliente {
 
         while (result.next()) {
             cliente.setCpf(result.getString("cpf"));
-            cliente.setNome(result.getString("nome"));
+            cliente.setNome(result.getString("NomeCliente"));
             cliente.setTelefone(result.getString("telefone"));
             cliente.setEmail(result.getString("email"));
             cliente.setEnabled(result.getString("enabled"));
@@ -253,7 +253,7 @@ public class DaoCliente {
 
     public static List<Cliente> pesquisarCliente(String nome) throws
         ClienteException, SQLException, Exception {
-        String sql = "SELECT * FROM Cliente WHERE Nome LIKE ? AND Enabled = 'true'";
+        String sql = "SELECT * FROM Cliente WHERE NomeCliente LIKE ? AND Enabled = 'true'";
         
         List<Cliente> listaClientes = null;
         Connection connection = null;
@@ -274,7 +274,7 @@ public class DaoCliente {
                 }
                 Cliente cliente = new Cliente();
                 cliente.setCpf(result.getString("cpf"));
-                cliente.setNome(result.getString("nome"));
+                cliente.setNome(result.getString("NomeCliente"));
                 cliente.setTelefone(result.getString("telefone"));
                 cliente.setEmail(result.getString("email"));
                 cliente.setSexo(result.getString("sexo"));
@@ -313,7 +313,7 @@ public class DaoCliente {
 
         while (result.next()) {
             cliente.setCpf(result.getString("cpf"));
-            cliente.setNome(result.getString("nome"));
+            cliente.setNome(result.getString("NomeCliente"));
             cliente.setTelefone(result.getString("telefone"));
             cliente.setEmail(result.getString("email"));
             cliente.setEnabled(result.getString("enabled"));
@@ -323,4 +323,27 @@ public class DaoCliente {
 
         return false;
     }
+    
+    public static boolean verificarCliente(String cpf) throws
+            SQLException, Exception {
+        String sql = "SELECT * FROM Cliente "
+                + " WHERE Cliente.cpf = ? AND Enabled = 'true'";
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+
+        statement.setString(1, cpf);
+        System.out.println(statement.toString());
+        System.out.println("Executando CONSULTA SQL: " + sql);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+            return true;
+        }
+
+        return false;
+    }
+
 }

@@ -23,4 +23,9 @@ public class ServicoVenda {
     public void inserirItensVenda(ItemVenda item) throws Exception {
         Daos.DaoVenda.inserirItensVenda(item);
     }
+    
+    public boolean verificarCliente (String cpf) throws Exception {
+        return Daos.DaoCliente.verificarCliente(cpf);
+    }
+        
 }

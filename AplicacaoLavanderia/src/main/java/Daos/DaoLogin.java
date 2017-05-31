@@ -77,7 +77,7 @@ public class DaoLogin {
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
-            return result.getString("Nome");
+            return result.getString("NomeFuncionario");
         }
 
         return null;

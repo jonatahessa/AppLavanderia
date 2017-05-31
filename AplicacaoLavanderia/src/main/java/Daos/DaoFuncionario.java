@@ -16,7 +16,7 @@ public class DaoFuncionario {
     public static void inserir(Funcionario funcionario)
             throws SQLException, Exception {
            
-        String sql = "INSERT INTO Funcionario (Nome, Login, Senha, Cargo, ID_Unidade, Sexo, Admissao, Enabled)"
+        String sql = "INSERT INTO Funcionario (NomeFuncionario, Login, Senha, Cargo, ID_Unidade, Sexo, Admissao, Enabled)"
                 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         Connection connection = null;
         PreparedStatement statement = null;
@@ -88,7 +88,7 @@ public class DaoFuncionario {
     public static void alterar(Funcionario funcionario, int id)
             throws SQLException, Exception {
         String sql = "UPDATE Funcionario "
-                + "SET nome = ?, "
+                + "SET NomeFuncionario = ?, "
                 + "login = ?, "
                 + "senha = ?, "
                 + "cargo = ?, "
@@ -186,7 +186,7 @@ public class DaoFuncionario {
             while (result.next()) {
   
                 funcionario.setId(result.getInt("id"));
-                funcionario.setNome(result.getString("nome"));
+                funcionario.setNome(result.getString("NomeFuncionario"));
                 funcionario.setCargo(result.getString("cargo"));
                 funcionario.setLogin(result.getString("login"));
                 funcionario.setIdUnidade(result.getInt("ID_Unidade"));
@@ -215,7 +215,7 @@ public class DaoFuncionario {
             while (result.next()) {
   
                 funcionario.setId(result.getInt("id"));
-                funcionario.setNome(result.getString("nome"));
+                funcionario.setNome(result.getString("NomeFuncionario"));
                 funcionario.setCargo(result.getString("cargo"));
                 funcionario.setLogin(result.getString("login"));
                 funcionario.setIdUnidade(result.getInt("ID_Unidade"));
@@ -245,7 +245,7 @@ public class DaoFuncionario {
                 }
                 Funcionario funcionario = new Funcionario();
                 funcionario.setId(result.getInt("ID"));
-                funcionario.setNome(result.getString("Nome"));
+                funcionario.setNome(result.getString("NomeFuncionario"));
                 funcionario.setLogin(result.getString("Login"));
                 funcionario.setSenha(result.getString("Senha"));
                 funcionario.setCargo(result.getString("Cargo"));
@@ -299,7 +299,7 @@ public class DaoFuncionario {
 
         while (result.next()) {
             funcionario.setId(result.getInt("ID"));
-            funcionario.setNome(result.getString("Nome"));
+            funcionario.setNome(result.getString("NomeFuncionario"));
             funcionario.setLogin(result.getString("Login"));
             funcionario.setSenha(result.getString("Senha"));
             funcionario.setCargo(result.getString("Cargo"));
@@ -316,7 +316,7 @@ public class DaoFuncionario {
     
     public static List<Funcionario> pesquisarFuncionario(String nome) throws
         FuncionarioException, SQLException, Exception {
-        String sql = "SELECT * FROM Funcionario WHERE Nome LIKE ? AND Enabled = 'true'";
+        String sql = "SELECT * FROM Funcionario WHERE NomeFuncionario LIKE ? AND Enabled = 'true'";
         
         List<Funcionario> listaFuncionarios = null;
         Connection connection = null;
@@ -336,7 +336,7 @@ public class DaoFuncionario {
                     listaFuncionarios = new ArrayList<Funcionario>();
                 }
                 Funcionario funcionario = new Funcionario();
-                funcionario.setNome(result.getString("Nome"));
+                funcionario.setNome(result.getString("NomeFuncionario"));
                 funcionario.setLogin(result.getString("Login"));
                 funcionario.setSenha(result.getString("Senha"));
                 funcionario.setCargo(result.getString("Cargo"));

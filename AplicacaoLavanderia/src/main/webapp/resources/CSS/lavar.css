@@ -97,4 +97,16 @@ article {
     background: #fff;
 }
 
+.erro {
+   border: solid 1px hsl(0, 92%, 60%);
+   animation: treme 0.2s;
+}
+
+.ok {
+   color: green;
+}
+
+.remove {
+   color: red; 
+}
 

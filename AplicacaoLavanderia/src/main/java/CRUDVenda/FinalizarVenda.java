@@ -6,6 +6,7 @@
 package CRUDVenda;
 
 import CRUDCliente.Cliente;
+import CRUDCliente.ServicoCliente;
 import CRUDServico.Servico;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,26 +39,49 @@ public class FinalizarVenda extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ServicoVenda sv = new ServicoVenda();
         HttpSession session = request.getSession();
         ArrayList<ItemVenda> itens = (ArrayList<ItemVenda>) session.getAttribute("listaItensVenda");
-        Cliente cliente = (Cliente) session.getAttribute("clienteVenda");
-        if (cliente == null || itens.isEmpty()) {
+        boolean verificarCliente = false, erro = false;
+        try {
+            verificarCliente = sv.verificarCliente(request.getParameter("cpf"));
+        } catch (Exception ex) {
+        }
+
+        if (verificarCliente == false) {
             request.setAttribute("erroCpf", true);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Lavar");
-            dispatcher.forward(request, response);
+            erro = true;
         } else {
+            request.setAttribute("cpf", request.getParameter("cpf"));
+            request.setAttribute("trueNome", true);
+        }
+
+        if (itens.isEmpty()) {
+            request.setAttribute("carrinhoVazio", true);
+            erro = true;
+        }
+
+        if (!erro) {
+
             double totalDaVenda = 0;
             for (ItemVenda item : itens) {
                 totalDaVenda += item.getPrecoServico();
             }
 
-            ServicoVenda sv = new ServicoVenda();
             Venda venda = new Venda();
             int funcionarioId = (int) session.getAttribute("idFuncionario");
+            
+            
+            ServicoCliente sc = new ServicoCliente();
+            Cliente cliente = new Cliente();
+            try {
+                cliente = sc.obterCliente(request.getParameter("cpf"));
+            } catch (Exception ex) {
+            }
+            
             venda.setIdCliente(cliente.getId());
             venda.setIdFuncionario(funcionarioId);
             venda.setTotalVenda(totalDaVenda);
-
             try {
                 sv.finalizarVenda(venda);
                 for (ItemVenda item : itens) {
@@ -72,7 +96,10 @@ public class FinalizarVenda extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErroVenda.jsp");
                 dispatcher.forward(request, response);
             }
-
+        } else {
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/lavar.jsp");
+            dispatcher.forward(request, response);
         }
     }
 }
