@@ -42,7 +42,9 @@ public class AlterarUnidade extends HttpServlet {
         ServicoUnidade su = new ServicoUnidade();
         boolean erro = false;
         boolean nome = su.verificarNome(request.getParameter("nome"));
-        boolean cnpj = su.verificarCnpj(request.getParameter("cn"));
+        System.out.println("*************");
+        System.out.println(request.getParameter("cnpj"));
+        boolean cnpj = su.verificarCnpj(request.getParameter("cnpj"));
      
         if (nome != true) {
             erro = true;

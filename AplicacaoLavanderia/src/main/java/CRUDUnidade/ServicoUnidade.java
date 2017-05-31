@@ -20,6 +20,15 @@ public class ServicoUnidade {
         for (int i = 0; i < cnpj.length(); i++) {
             contador++;
         }
+        try {
+            int teste = Integer.parseInt(cnpj.substring(0,1));
+            int teste2 = Integer.parseInt(cnpj.substring(3,5));
+            int teste3 = Integer.parseInt(cnpj.substring(11,14));
+
+            
+        } catch (Exception e){
+            return false;
+        }
         if (contador != 18) {
             return false;
         }
