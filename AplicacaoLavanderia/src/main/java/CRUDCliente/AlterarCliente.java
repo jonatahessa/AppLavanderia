@@ -84,11 +84,11 @@ public class AlterarCliente extends HttpServlet {
         if (!erro) {
             ServicoCliente sc = new ServicoCliente();
             Cliente cliente = new Cliente();
-            cliente.setCpf(request.getParameter("cpf"));
-            cliente.setEmail(request.getParameter("email"));
-            cliente.setNome(request.getParameter("nome"));
-            cliente.setTelefone(request.getParameter("telefone"));
-            cliente.setSexo(request.getParameter("sexo"));
+            cliente.setCpf(request.getParameter("cpf").trim());
+            cliente.setEmail(request.getParameter("email").trim());
+            cliente.setNome(request.getParameter("nome").trim());
+            cliente.setTelefone(request.getParameter("telefone").trim());
+            cliente.setSexo(request.getParameter("sexo").trim());
             
             try {
                 sc.alterarCliente(cliente, request.getParameter("idCliente"));

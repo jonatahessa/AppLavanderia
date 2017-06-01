@@ -63,8 +63,8 @@ public class AlterarUnidade extends HttpServlet {
         
         if (!erro) {
             Unidade unidade = new Unidade();
-            unidade.setNome(request.getParameter("nome"));
-            unidade.setCnpj(request.getParameter("cnpj"));
+            unidade.setNome(request.getParameter("nome").trim());
+            unidade.setCnpj(request.getParameter("cnpj").trim());
             
             try {
                 su.alterarUnidade(unidade, request.getParameter("idUnidade"));

@@ -205,7 +205,6 @@
 
                 <div id="buttons">
                     <button id="salvar" type="submit" class="btn btn-success">Salvar</button>
-                    <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
                 </div>
 
             </form>

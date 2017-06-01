@@ -53,8 +53,8 @@ public class CadastrarUnidade extends HttpServlet {
         
         if (!erro) {
             Unidade unidade = new Unidade();
-            unidade.setNome(request.getParameter("nome"));
-            unidade.setCnpj(request.getParameter("cnpj"));
+            unidade.setNome(request.getParameter("nome").trim());
+            unidade.setCnpj(request.getParameter("cnpj").trim());
             unidade.setEnabled("true");
             try {
                 vu.inserirUnidade(unidade);

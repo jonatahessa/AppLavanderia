@@ -33,14 +33,14 @@
                     <c:when test="${erroNome}"> 
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-user fa-fw"></span></span>
-                            <input id="camponome" type="text" value="${nome}" name="nome" class="form-control erro" placeholder="Nome">
+                            <input id="camponome" maxlength="50" type="text" value="${nome}" name="nome" class="form-control erro" placeholder="Nome">
                             <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-user fa-fw"></span></span>
-                            <input id="camponome" type="text" value="${nome}" name="nome" class="form-control" placeholder="Nome">
+                            <input id="camponome" maxlength="50" type="text" value="${nome}" name="nome" class="form-control" placeholder="Nome">
                             <c:if test="${trueNome}">
                                 <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                             </c:if>            
@@ -71,14 +71,14 @@
                     <c:when test="${erroEmail}">  
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-envelope fa-fw"></span></span>
-                            <input id="campoemail" type="text" value="${email}" name="email" class="form-control erro" placeholder="E-mail">
+                            <input id="campoemail" maxlength="100" type="text" value="${email}" name="email" class="form-control erro" placeholder="E-mail">
                             <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                         </div>
                     </c:when>    
                     <c:otherwise>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="fa fa-envelope fa-fw"></span></span>
-                            <input id="campoemail" type="text" value="${email}" name="email" class="form-control" placeholder="E-mail">
+                            <input id="campoemail" maxlength="100" type="text" value="${email}" name="email" class="form-control" placeholder="E-mail">
                             <c:if test="${trueEmail}">
                                 <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                             </c:if>
@@ -123,7 +123,6 @@
 
                 <div id="buttons">
                     <button id="salvar" type="submit" class="btn btn-success">Salvar</button>
-                    <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
                 </div>
 
             </form>

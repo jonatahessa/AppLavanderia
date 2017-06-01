@@ -28,8 +28,18 @@ button {
 }
 
 #buttons {
-    margin-top: 8%;
-    margin-left: 8%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  margin: auto;
+  position: static;
+  }
+
+#salvar{
+  width: 100%;
+  margin-top: 3%;
 }
 
 h1 {
@@ -48,13 +58,19 @@ h1 {
   top: 10%;
   position: fixed;
   background-color: hsl(213, 76%, 76%);
-  width: 40%;
-  height: 40%;
+  width: 35%;
+  height: 35%;
   border-radius: 10px;
 
 }
 
-
+.input-group{
+    padding: .5%;
+    width:70%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
 
 #camposexo {
   background-color: #f4f4f4;

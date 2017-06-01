@@ -88,12 +88,12 @@ public class CadastrarFuncionario extends HttpServlet {
             } catch (Exception ex) {
             }
             
-            funcionario.setAdmissao(sf.converterData(request.getParameter("admissao")));
-            funcionario.setCargo(request.getParameter("cargo"));
-            funcionario.setLogin(request.getParameter("login"));
-            funcionario.setNome(request.getParameter("nome"));
-            funcionario.setSenha(request.getParameter("senha"));
-            funcionario.setSexo(request.getParameter("sexo"));
+            funcionario.setAdmissao(sf.converterData(request.getParameter("admissao").trim()));
+            funcionario.setCargo(request.getParameter("cargo").trim());
+            funcionario.setLogin(request.getParameter("login").trim());
+            funcionario.setNome(request.getParameter("nome").trim());
+            funcionario.setSenha(request.getParameter("senha").trim());
+            funcionario.setSexo(request.getParameter("sexo").trim());
             try {
                 sf.inserirFuncionario(funcionario);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemCadastro.jsp");

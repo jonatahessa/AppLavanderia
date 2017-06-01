@@ -52,7 +52,7 @@ public class FinalizarVenda extends HttpServlet {
             request.setAttribute("erroCpf", true);
             erro = true;
         } else {
-            request.setAttribute("cpf", request.getParameter("cpf"));
+            request.setAttribute("cpf", request.getParameter("cpf").trim());
             request.setAttribute("trueNome", true);
         }
 

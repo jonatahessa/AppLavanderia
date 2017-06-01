@@ -117,12 +117,12 @@ public class AlterarFuncionario extends HttpServlet {
                 funcionario.setIdUnidade(Daos.DaoUnidade.retornarIdUnidade(request.getParameter("unidade")));
             } catch (Exception ex) {
             }
-            funcionario.setAdmissao(sf.converterData(request.getParameter("admissao")));
-            funcionario.setCargo(request.getParameter("cargo"));
-            funcionario.setLogin(request.getParameter("login"));
-            funcionario.setNome(request.getParameter("nome"));
-            funcionario.setSenha(request.getParameter("senha"));
-            funcionario.setSexo(request.getParameter("sexo"));
+            funcionario.setAdmissao(sf.converterData(request.getParameter("admissao").trim()));
+            funcionario.setCargo(request.getParameter("cargo").trim());
+            funcionario.setLogin(request.getParameter("login").trim());
+            funcionario.setNome(request.getParameter("nome").trim());
+            funcionario.setSenha(request.getParameter("senha").trim());
+            funcionario.setSexo(request.getParameter("sexo").trim());
             try {
                 sf2.alterarFuncionario(funcionario, request.getParameter("idFuncionario"));
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemAlteracao.jsp");

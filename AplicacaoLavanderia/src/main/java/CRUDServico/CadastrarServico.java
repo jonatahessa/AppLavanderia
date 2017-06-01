@@ -59,7 +59,7 @@ public class CadastrarServico extends HttpServlet {
 
         if (!erro) {
             Servico servico = new Servico();
-            servico.setNomeServico(request.getParameter("nome"));
+            servico.setNomeServico(request.getParameter("nome").trim());
             servico.setPrecoServico(Double.parseDouble(precoCorrigido));
             try {
                 ss.inserirServico(servico);
