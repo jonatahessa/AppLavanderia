@@ -37,6 +37,8 @@
                 </fieldset>
             </form>
                             
+                            
+                            
             <form method="POST" action="Redirecionar">
                 <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/cadastroCliente.jsp" type="submit"><span class="fa fa-plus"></span> Cadastrar</button>
             </form>
@@ -59,15 +61,23 @@
                         <td>${clientes.telefone}</td>
                         <td>${clientes.sexo}</td>
                         <td><a href="./AlterarCliente?cpf=${clientes.cpf}" >Alterar</a></td>
-                        <td><form action="DeletarCliente" method="post" id="frm${clientes.cpf}">
+                        <td><form action="DeletarCliente" method="post" id="frm${clientes.cpf}" onsubmit="return apagar(this);">
                                 <input type="hidden" name="cpf" value="${clientes.cpf}">
-                                <a href="#" onclick="document.getElementById('frm${clientes.cpf}').submit()">Remover</a>
+                                <button>Remover</button>
                             </form></td>
                     </tr>
                 </c:forEach>
             </table>
 
         </div>
-
+                            <div class="alerta">
+                                <p>Deseja remover o cliente?</p>
+                                <button onclick="confirmar();">Sim</button>
+                                <button onclick="cancelar();">Não</button>
+                            </div>
+                            
+                            <div class="nevoa">
+                                
+                            </div>
     </body>
 </html>

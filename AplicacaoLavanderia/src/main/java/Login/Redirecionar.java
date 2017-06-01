@@ -14,7 +14,8 @@ public class Redirecionar extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-        
+        RequestDispatcher dispatcher = request.getRequestDispatcher(request.getParameter("tela"));
+                dispatcher.forward(request, response);
        
     }
 

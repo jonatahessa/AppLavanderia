@@ -50,11 +50,7 @@ public class DaoUnidade {
     }
     
     public static void deletar(String id)
-            throws SQLException, Exception {
-        //String sql = "UPDATE Unidade, Funcionario INNER JOIN"
-            //    + " Funcionario ON Unidade.ID = Funcionario.ID_Unidade"
-            //    + " SET Unidade.Enabled = 'false', Funcionario.Enabled = 'false'"
-             //   + " WHERE Unidade.ID = ?;";  
+            throws SQLException, Exception { 
              String sql = "UPDATE Unidade SET Enabled = 'false' WHERE ID = ?";
         Connection connection = null;
         PreparedStatement statement = null;
@@ -64,6 +60,30 @@ public class DaoUnidade {
             statement.setInt(1, Integer.parseInt(id));
             System.out.println("Executando COMANDO SQL: " + sql);
             statement.execute();
+            deletarFuncionariosDeUnidade(id);
+            
+        } finally {
+            if (statement != null && !statement.isClosed()) {
+                statement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+    }
+    
+    public static void deletarFuncionariosDeUnidade(String id)
+            throws SQLException, Exception { 
+             String sql = "UPDATE Funcionario SET Enabled = 'false' WHERE ID_Unidade = ?";
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = ConnectionUtils.getConnection();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, Integer.parseInt(id));
+            System.out.println("Executando COMANDO SQL: " + sql);
+            statement.execute();
+            
         } finally {
             if (statement != null && !statement.isClosed()) {
                 statement.close();

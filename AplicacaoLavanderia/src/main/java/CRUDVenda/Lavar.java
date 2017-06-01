@@ -33,6 +33,9 @@ public class Lavar extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Cliente cliente = (Cliente) session.getAttribute("clienteVenda");
+        if (cliente == null) {
+            cliente = new Cliente();
+        }
         request.setAttribute("cpf", cliente.getCpf());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/lavar.jsp");
         dispatcher.forward(request, response);
@@ -78,6 +81,8 @@ public class Lavar extends HttpServlet {
             itemVenda.setPrecoUnitario(servico.getPrecoServico());
             itemVenda.setPrecoServico(servico.getPrecoServico() * itemVenda.getQuantidade());
             itens.add(itemVenda);
+            response.sendRedirect("Lavar");
+            return;
         }
 
         
