@@ -30,15 +30,23 @@ public class relatorioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        boolean erro = false;
         List<Venda> listaVenda = null;
         ServicoRelatorio sr = new ServicoRelatorio();
-        boolean deData = sr.verificarDeData(request.getParameter("DeData"));
-        boolean ateData = sr.verificarDeData(request.getParameter("AteData"));
-
-        if (deData == false && ateData == false) {
+        int deData = sr.verificarDeData(request.getParameter("dedata"));
+        int ateData = sr.verificarAteData(request.getParameter("atedata"));
+        
+        if (deData == 1 && ateData == 1) {
             try {
-                List<Relatorio> itens = sr.ListarRelatorio();
+                List<Relatorio> itens = sr.ListarRelatorioSemDataAdmin();
+                request.setAttribute("itens", itens);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
+                dispatcher.forward(request, response);
+            } catch (Exception ex) {
+                Logger.getLogger(relatorioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (deData == 2 && ateData == 1) {
+            try {
+                List<Relatorio> itens = sr.ListarRelatorioDeDataAdmin(request.getParameter("dedata"));
                 request.setAttribute("itens", itens);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
                 dispatcher.forward(request, response);
@@ -46,6 +54,7 @@ public class relatorioServlet extends HttpServlet {
                 Logger.getLogger(relatorioServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+
     }
 
 }

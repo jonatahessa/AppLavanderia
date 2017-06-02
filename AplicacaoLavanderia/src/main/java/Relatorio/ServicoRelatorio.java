@@ -17,42 +17,41 @@ import java.util.List;
  */
 public class ServicoRelatorio {
     
-    public boolean verificarDeData(String DeData) {
+    public int verificarDeData(String deData) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setLenient(false);
-
-        if (DeData.length() > 10) {
-            return false;
+        if (deData == null || deData.equalsIgnoreCase("")) {
+            return 1;
         }
-        
         try {
-            Date dataValida = sdf.parse(DeData);
-            return true;
+            Date dataValida = sdf.parse(deData);
+            return 2;
         } catch (ParseException e) {
-            return false;
+            return 0;
         }
 
     }
     
-    public boolean verificarAteData(String AteData) {
+    public int verificarAteData(String ateData) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setLenient(false);
-
-        if (AteData.length() > 10) {
-            return false;
+        if (ateData == null || ateData.equalsIgnoreCase("")) {
+            return 1;
         }
-        
         try {
-            Date dataValida = sdf.parse(AteData);
-            return true;
+            Date dataValida = sdf.parse(ateData);
+            return 2;
         } catch (ParseException e) {
-            return false;
+            return 0;
         }
-
     }
     
-    public List<Relatorio> ListarRelatorio() throws Exception {
+    public List<Relatorio> ListarRelatorioSemDataAdmin() throws Exception {
         return Daos.DaoRelatorio.listarSemDataAdmin();
+    }
+    
+    public List<Relatorio> ListarRelatorioDeDataAdmin(String data) throws Exception {
+        return Daos.DaoRelatorio.ListaComDeDataAdmin(data);
     }
     
 }

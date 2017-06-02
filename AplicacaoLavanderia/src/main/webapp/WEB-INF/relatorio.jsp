@@ -40,15 +40,15 @@
                                     <c:when test="${erroDeData}"> 
                                         <div class="input-group filho">
                                             <label>De:</label>
-                                            <input type="text" name="DeData" class="erro" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${DeData}"/>
+                                            <input type="text" name="dedata" class="erro" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${dedata}"/>
                                             <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                                         </div>
                                     </c:when>    
                                     <c:otherwise>
                                         <div class="input-group filho">
                                             <label>De:</label>
-                                            <input type="text" name="DeData" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${DeData}"/>
-                                            <c:if test="${DeData}">
+                                            <input type="text" name="dedata" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${dedata}"/>
+                                            <c:if test="${dedata}">
                                                 <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                                             </c:if>     
                                         </div>
@@ -56,18 +56,18 @@
                                 </c:choose>
 
                                 <c:choose>
-                                    <c:when test="${erroDeData}"> 
+                                    <c:when test="${erroAteData}"> 
                                         <div class="input-group filho">
                                             <label>Até:</label>
-                                            <input type="text" name="AteData" class="erro" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${AteData}"/>
+                                            <input type="text" name="atedata" class="erro" maxlength="10" minlength="10" onkeypress="mascara(this, '##/##/####');" value="${atedata}"/>
                                             <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                                         </div>
                                     </c:when>    
                                     <c:otherwise>
                                         <div class="input-group filho">
                                             <label>Até:</label>
-                                            <input type="text" name="AteData" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${AteData}"/>
-                                            <c:if test="${DeData}">
+                                            <input type="text" name="atedata" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${atedata}"/>
+                                            <c:if test="${dedata}">
                                                 <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                                             </c:if>     
                                         </div>

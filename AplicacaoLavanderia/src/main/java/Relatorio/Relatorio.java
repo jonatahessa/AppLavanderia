@@ -2,10 +2,11 @@ package Relatorio;
 
 import CRUDVenda.ItemVenda;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class Relatorio {
-    
+
     private String cliente;
     private String funcionario;
     private String unidade;
@@ -44,13 +45,13 @@ public class Relatorio {
         this.total = total;
     }
 
-    public Date getData() {
-        return data;
+    public String getData() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(data);
     }
 
     public void setData(Date data) {
         this.data = data;
     }
-    
-    
+
 }
