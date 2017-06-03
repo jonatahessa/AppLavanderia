@@ -61,4 +61,20 @@ public class ServicoRelatorio {
     public List<Relatorio> listarRelatorioAteDataAdmin(String ateData) throws Exception {
         return Daos.DaoRelatorio.ListaComAteDataAdmin(ateData);
     }
+    
+    public List<Relatorio> listarRelatorioSemDataVendedor(int idUnidade) throws Exception {
+        return Daos.DaoRelatorio.ListaSemDataVendedor(idUnidade);
+    }
+    
+    public List<Relatorio> listarRelatorioDeDataVendedor(String data, int idUnidade) throws Exception {
+        return Daos.DaoRelatorio.ListaComDeDataVendedor(data, idUnidade);
+    }
+    
+    public List<Relatorio> listarRelatorioAteDataVendedor(String data, int idUnidade) throws Exception {
+        return Daos.DaoRelatorio.ListaComAteDataVendedor(data, idUnidade);
+    }
+    
+    public List<Relatorio> listarRelatorioDeDataAteDataVendedor(String deData, String ateData, int idUnidade) throws Exception {
+        return Daos.DaoRelatorio.ListaComDeDataAteDataVendedor(deData, ateData, idUnidade);
+    }
 }

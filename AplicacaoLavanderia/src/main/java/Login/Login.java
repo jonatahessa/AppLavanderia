@@ -3,6 +3,8 @@ package Login;
 import CRUDFuncionario.Funcionario;
 import CRUDFuncionario.ServicoFuncionario;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -28,11 +30,18 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, UnsupportedEncodingException {
         boolean erro = false, existe = false;
         ServicoLogin sl = new ServicoLogin();
+        ServicoFuncionario sf = new ServicoFuncionario();
+        String cript = null;
+        try {
+            cript = sf.criptografia(request.getParameter("senha"));
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         boolean login = sl.verificarLogin(request.getParameter("login"));
-        boolean senha = sl.verificarSenha(request.getParameter("senha"));
+        boolean senha = sl.verificarSenha(cript);
 
         if (login) {
             request.setAttribute("login", request.getParameter("login"));
@@ -51,7 +60,7 @@ public class Login extends HttpServlet {
         if (!erro) {
 
             try {
-                existe = sl.verificarUsuario(request.getParameter("login"), request.getParameter("senha"));
+                existe = sl.verificarUsuario(request.getParameter("login"), cript);
 
             } catch (Exception e) {
 
@@ -60,11 +69,10 @@ public class Login extends HttpServlet {
             if (existe) {
                 HttpSession nomeLogado = request.getSession();
                 HttpSession permissao = request.getSession();
-                ServicoFuncionario sf = new ServicoFuncionario();
 
                 try {
-                    permissao.setAttribute("permissao", sl.permissao(request.getParameter("login"), request.getParameter("senha")));
-                    nomeLogado.setAttribute("nomeLogado", sl.Nome(request.getParameter("login"), request.getParameter("senha")));
+                    permissao.setAttribute("permissao", sl.permissao(request.getParameter("login"), cript));
+                    nomeLogado.setAttribute("nomeLogado", sl.Nome(request.getParameter("login"), cript));
 
                 } catch (Exception ex) {
 

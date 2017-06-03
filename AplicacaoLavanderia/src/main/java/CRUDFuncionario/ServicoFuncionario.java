@@ -1,5 +1,8 @@
 package CRUDFuncionario;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,7 +16,7 @@ public class ServicoFuncionario {
         if (nome == null || nome.equals("")) {
             return false;
         }
-        if (nome.length()> 100) {
+        if (nome.length() > 100) {
             return false;
         }
         return true;
@@ -22,7 +25,7 @@ public class ServicoFuncionario {
     public boolean verificarCargo(String cargo) {
         return !(cargo == null || cargo.equals(""));
     }
-    
+
     public boolean verificarUnidade(String unidade) {
         return !(unidade == null || unidade.equals(""));
     }
@@ -38,7 +41,7 @@ public class ServicoFuncionario {
         if (data.length() > 10) {
             return false;
         }
-        
+
         try {
             Date dataValida = sdf.parse(data);
             return true;
@@ -57,7 +60,6 @@ public class ServicoFuncionario {
         }
         return true;
     }
-    
 
     public boolean verificarSenha(String senha) {
         if (senha == null || senha.equals("")) {
@@ -68,7 +70,7 @@ public class ServicoFuncionario {
         }
         return true;
     }
-    
+
     public java.sql.Date converterData(String recebe) {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         try {
@@ -78,6 +80,17 @@ public class ServicoFuncionario {
             Logger.getLogger(ServicoFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public String criptografia(String password) throws NoSuchAlgorithmException,
+            UnsupportedEncodingException {
+        MessageDigest algoritmo = MessageDigest.getInstance("SHA-256");
+        byte digestMessage[] = algoritmo.digest(password.getBytes("UTF-8"));
+        StringBuilder hexPassword = new StringBuilder();
+        for (byte aByte : digestMessage) {
+            hexPassword.append(String.format("%02X", 0xFF & aByte));
+        }
+        return hexPassword.toString();
     }
 
     public void inserirFuncionario(Funcionario funcionario) throws Exception {
@@ -93,16 +106,16 @@ public class ServicoFuncionario {
         int id = Integer.parseInt(recebe);
         Daos.DaoFuncionario.alterar(funcionario, id);
     }
-    
+
     public Funcionario obterFuncionario(String recebe) throws Exception {
         int id = Integer.parseInt(recebe);
         return Daos.DaoFuncionario.obter(id);
     }
-    
+
     public Funcionario obterFuncionarioPorLogin(String recebe) throws Exception {
         return Daos.DaoFuncionario.obterPorLogin(recebe);
     }
-    
+
     public List<Funcionario> ListarFuncionarios() throws Exception {
         return Daos.DaoFuncionario.listar();
     }
@@ -110,8 +123,16 @@ public class ServicoFuncionario {
     public List<Funcionario> pesquisarFuncionario(String nome) throws Exception {
         return Daos.DaoFuncionario.pesquisarFuncionario(nome);
     }
-    
-    public boolean verificarDuplicidade (String login, String senha) throws Exception {
-        return Daos.DaoFuncionario.verificarDuplicidade(login, senha);
+
+    public boolean verificarDuplicidade(String login) throws Exception {
+        return Daos.DaoFuncionario.verificarDuplicidade(login);
+    }
+
+    public String retornaCargo(int id) throws Exception {
+        return Daos.DaoFuncionario.obterCargoPorId(id);
+    }
+
+    public int obterIdUnidade(int id) throws Exception {
+        return Daos.DaoFuncionario.obterIdUnidade(id);
     }
 }

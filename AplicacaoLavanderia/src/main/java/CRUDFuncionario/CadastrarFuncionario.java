@@ -3,6 +3,10 @@ package CRUDFuncionario;
 import CRUDUnidade.ServicoUnidade;
 import CRUDUnidade.Unidade;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,9 +25,10 @@ public class CadastrarFuncionario extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, UnsupportedEncodingException {
         ServicoFuncionario sf = new ServicoFuncionario();
         boolean erro = false, duplicidade = false;
+        String senhaCrip = null;
 
         boolean nome = sf.verificarNome(request.getParameter("nome"));
         boolean login = sf.verificarLogin(request.getParameter("login"));
@@ -32,7 +37,7 @@ public class CadastrarFuncionario extends HttpServlet {
         boolean admissao = sf.verificarAdmissao(request.getParameter("admissao"));
         boolean sexo = sf.verificarSexo(request.getParameter("sexo"));
         try {
-           duplicidade = sf.verificarDuplicidade(request.getParameter("login"),request.getParameter("senha"));
+           duplicidade = sf.verificarDuplicidade(request.getParameter("login"));
         } catch (Exception ex) {
             
         }
@@ -88,11 +93,16 @@ public class CadastrarFuncionario extends HttpServlet {
             } catch (Exception ex) {
             }
             
+            try {
+                senhaCrip = sf.criptografia(request.getParameter("senha").trim());
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(CadastrarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+            }
             funcionario.setAdmissao(sf.converterData(request.getParameter("admissao").trim()));
             funcionario.setCargo(request.getParameter("cargo").trim());
             funcionario.setLogin(request.getParameter("login").trim());
             funcionario.setNome(request.getParameter("nome").trim());
-            funcionario.setSenha(request.getParameter("senha").trim());
+            funcionario.setSenha(senhaCrip);
             funcionario.setSexo(request.getParameter("sexo").trim());
             try {
                 sf.inserirFuncionario(funcionario);

@@ -360,11 +360,10 @@ public class DaoFuncionario {
         return listaFuncionarios;
     }
 
-    public static boolean verificarDuplicidade (String login, String senha) throws
+    public static boolean verificarDuplicidade (String login) throws
             SQLException, Exception {
         String sql = "SELECT * FROM Funcionario"
-                + " WHERE Login = ?"
-                + " AND Senha = ?";
+                + " WHERE Login = ?";
         Connection connection = null;
         PreparedStatement statement = null;
 
@@ -372,7 +371,6 @@ public class DaoFuncionario {
         statement = connection.prepareStatement(sql);
 
         statement.setString(1, login);
-        statement.setString(2, senha);
 
         System.out.println("Executando CONSULTA SQL: " + sql);
         ResultSet result = statement.executeQuery();
@@ -384,6 +382,45 @@ public class DaoFuncionario {
         return false;
     }
     
+    public static String obterCargoPorId(int id)
+            throws SQLException, Exception {
+        String sql = "SELECT * FROM Funcionario WHERE ID = ?;";
+        PreparedStatement statement = null;
+        Connection connection = null;
+        Funcionario funcionario = new Funcionario();
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+        statement.setInt(1, id);
+        System.out.println(statement.toString());
+         ResultSet result = null;
+         result = statement.executeQuery();
+         
+            while (result.next()) {
+                funcionario.setCargo(result.getString("cargo"));
+            }
+ 
+        return funcionario.getCargo();
+    }
+    
+    public static int obterIdUnidade(int id)
+            throws SQLException, Exception {
+        String sql = "SELECT * FROM Funcionario WHERE ID = ?;";
+        PreparedStatement statement = null;
+        Connection connection = null;
+        Funcionario funcionario = new Funcionario();
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+        statement.setInt(1, id);
+        System.out.println(statement.toString());
+         ResultSet result = null;
+         result = statement.executeQuery();
+         
+            while (result.next()) {
+                funcionario.setIdUnidade(result.getInt("ID_Unidade"));
+            }
+ 
+        return funcionario.getIdUnidade();
+    }
 }
 
 
