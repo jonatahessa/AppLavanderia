@@ -16,7 +16,7 @@ import java.util.List;
  * @author vinicius.vsilva8
  */
 public class ServicoRelatorio {
-    
+
     public int verificarDeData(String deData) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setLenient(false);
@@ -31,7 +31,7 @@ public class ServicoRelatorio {
         }
 
     }
-    
+
     public int verificarAteData(String ateData) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setLenient(false);
@@ -45,13 +45,20 @@ public class ServicoRelatorio {
             return 0;
         }
     }
-    
-    public List<Relatorio> ListarRelatorioSemDataAdmin() throws Exception {
+
+    public List<Relatorio> listarRelatorioSemDataAdmin() throws Exception {
         return Daos.DaoRelatorio.listarSemDataAdmin();
     }
-    
-    public List<Relatorio> ListarRelatorioDeDataAdmin(String data) throws Exception {
+
+    public List<Relatorio> listarRelatorioDeDataAdmin(String data) throws Exception {
         return Daos.DaoRelatorio.ListaComDeDataAdmin(data);
     }
-    
+
+    public List<Relatorio> listarRelatorioDeDataAteDataAdmin(String deData, String ateData) throws Exception {
+        return Daos.DaoRelatorio.ListaComDeDataAteDataAdmin(deData, ateData);
+    }
+
+    public List<Relatorio> listarRelatorioAteDataAdmin(String ateData) throws Exception {
+        return Daos.DaoRelatorio.ListaComAteDataAdmin(ateData);
+    }
 }

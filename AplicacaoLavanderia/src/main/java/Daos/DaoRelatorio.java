@@ -80,12 +80,11 @@ public class DaoRelatorio {
                 + " INNER JOIN Funcionario ON Unidade.ID = Funcionario.ID_Unidade"
                 + " INNER JOIN Venda ON Funcionario.ID = Venda.ID_Funcionario"
                 + " INNER JOIN Cliente ON Cliente.ID = Venda.ID_Cliente"
-                + " WHERE Venda.Data >= ? AND Venda.Data <= CURDATE() ORDER BY Venda.Data DESC;";
+                + " WHERE Venda.Data >= ? AND Venda.Data <= NOW() ORDER BY Venda.Data DESC;";
 
         List<Relatorio> listaRelatorio = null;
         PreparedStatement statement = null;
         Connection connection = null;
-        Relatorio relatorio = new Relatorio();
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         Date convert = new Date(fmt.parse(data).getTime());
         connection = ConnectionUtils.getConnection();
@@ -99,6 +98,83 @@ public class DaoRelatorio {
             if (listaRelatorio == null) {
                 listaRelatorio = new ArrayList<Relatorio>();
             }
+            Relatorio relatorio = new Relatorio();
+            relatorio.setUnidade(result.getString("NomeUnidade"));
+            relatorio.setFuncionario(result.getString("NomeFuncionario"));
+            relatorio.setCliente(result.getString("NomeCliente"));
+            relatorio.setData(result.getDate("Data"));
+            relatorio.setTotal(result.getDouble("Total"));
+            listaRelatorio.add(relatorio);
+        }
+
+        return listaRelatorio;
+    }
+    
+    public static List<Relatorio> ListaComDeDataAteDataAdmin(String deData, String ateData)
+            throws SQLException, Exception {
+        String sql = "SELECT Unidade.NomeUnidade, Funcionario.NomeFuncionario,"
+                + " Cliente.NomeCliente, Venda.Data, Venda.Total FROM Unidade"
+                + " INNER JOIN Funcionario ON Unidade.ID = Funcionario.ID_Unidade"
+                + " INNER JOIN Venda ON Funcionario.ID = Venda.ID_Funcionario"
+                + " INNER JOIN Cliente ON Cliente.ID = Venda.ID_Cliente"
+                + " WHERE Venda.Data >= ? AND Venda.Data <= ? ORDER BY Venda.Data DESC;";
+
+        List<Relatorio> listaRelatorio = null;
+        PreparedStatement statement = null;
+        Connection connection = null;
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        Date convertDeData = new Date(fmt.parse(deData).getTime());
+        Date convertAteDate = new Date(fmt.parse(ateData).getTime());
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+        statement.setDate(1, convertDeData);
+        statement.setDate(2, convertAteDate);
+        System.out.println(statement.toString());
+        ResultSet result = null;
+        result = statement.executeQuery();
+
+        while (result.next()) {
+            if (listaRelatorio == null) {
+                listaRelatorio = new ArrayList<Relatorio>();
+            }
+            Relatorio relatorio = new Relatorio();
+            relatorio.setUnidade(result.getString("NomeUnidade"));
+            relatorio.setFuncionario(result.getString("NomeFuncionario"));
+            relatorio.setCliente(result.getString("NomeCliente"));
+            relatorio.setData(result.getDate("Data"));
+            relatorio.setTotal(result.getDouble("Total"));
+            listaRelatorio.add(relatorio);
+        }
+
+        return listaRelatorio;
+    }
+    
+    public static List<Relatorio> ListaComAteDataAdmin(String data)
+            throws SQLException, Exception {
+        String sql = "SELECT Unidade.NomeUnidade, Funcionario.NomeFuncionario,"
+                + " Cliente.NomeCliente, Venda.Data, Venda.Total FROM Unidade"
+                + " INNER JOIN Funcionario ON Unidade.ID = Funcionario.ID_Unidade"
+                + " INNER JOIN Venda ON Funcionario.ID = Venda.ID_Funcionario"
+                + " INNER JOIN Cliente ON Cliente.ID = Venda.ID_Cliente"
+                + " WHERE Venda.Data <= ? ORDER BY Venda.Data DESC;";
+
+        List<Relatorio> listaRelatorio = null;
+        PreparedStatement statement = null;
+        Connection connection = null;
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        Date convert = new Date(fmt.parse(data).getTime());
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+        statement.setDate(1, convert);
+        System.out.println(statement.toString());
+        ResultSet result = null;
+        result = statement.executeQuery();
+
+        while (result.next()) {
+            if (listaRelatorio == null) {
+                listaRelatorio = new ArrayList<Relatorio>();
+            }
+            Relatorio relatorio = new Relatorio();
             relatorio.setUnidade(result.getString("NomeUnidade"));
             relatorio.setFuncionario(result.getString("NomeFuncionario"));
             relatorio.setCliente(result.getString("NomeCliente"));

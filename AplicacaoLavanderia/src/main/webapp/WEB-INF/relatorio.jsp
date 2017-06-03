@@ -67,7 +67,7 @@
                                         <div class="input-group filho">
                                             <label>Até:</label>
                                             <input type="text" name="atedata" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${atedata}"/>
-                                            <c:if test="${dedata}">
+                                            <c:if test="${atedata}">
                                                 <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                                             </c:if>     
                                         </div>
