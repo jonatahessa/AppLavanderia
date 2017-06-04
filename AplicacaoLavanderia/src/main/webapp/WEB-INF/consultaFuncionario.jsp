@@ -43,6 +43,7 @@
                 <table id="tableID" class="table table-bordered" align="center">
                     <tr>
                         <th>Nome</th>
+                        <th>Login</th>
                         <th>Sexo</th>
                         <th>Cargo</th>
                         <th>Unidade</th>
@@ -53,6 +54,7 @@
                     <c:forEach var="funcionarios" items="${resultado}">
                         <tr>
                             <td>${funcionarios.nome}</td>
+                            <td>${funcionarios.login}</td>
                             <td>${funcionarios.sexo}</td>
                             <td>${funcionarios.cargo}</td>
                             <td>${funcionarios.nomeUnidade}</td>
