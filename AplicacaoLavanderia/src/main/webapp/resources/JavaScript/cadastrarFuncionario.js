@@ -1,14 +1,3 @@
-function main() {
-  var cancelar = document.querySelector("#cancelar");
-  cancelar.addEventListener("click", limpar);
-}
-
-function limpar() {
-  var campos = document.querySelectorAll("input,date");
-  for (var i=0; i < campos.length; i++) {
-      campos[i].value = "";
-  }
-}
 
 function mascara(t, mask) {
   var i = t.value.length;
@@ -18,5 +7,3 @@ function mascara(t, mask) {
     t.value += texto.substring(0, 1);
   }
 }
-
-window.addEventListener("load", main);

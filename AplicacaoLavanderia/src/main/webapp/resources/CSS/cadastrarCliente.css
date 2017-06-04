@@ -39,7 +39,7 @@ button {
 
 #salvar{
   width: 100%;
-  margin-top: 3%;
+  margin-top: 5%;
 }
 
 h1 {
@@ -58,8 +58,8 @@ h1 {
   top: 10%;
   position: fixed;
   background-color:hsl(223, 59%, 80%);
-  width: 30%;
-  height: 35%;
+  width: 35%;
+  height: 50%;
   border-radius: 20px;
 
 }
@@ -92,3 +92,4 @@ h1 {
 .remove {
    color: red; 
 }
+

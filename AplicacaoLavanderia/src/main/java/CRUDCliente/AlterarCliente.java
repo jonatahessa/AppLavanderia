@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet(name = "AlterarCliente", urlPatterns = {"/AlterarCliente"})
@@ -31,7 +32,9 @@ public class AlterarCliente extends HttpServlet {
         request.setAttribute("email", cliente.getEmail());
         request.setAttribute("telefone", cliente.getTelefone());
         request.setAttribute("sexo", cliente.getSexo());
-        request.setAttribute("id", cliente.getId());
+        HttpSession idAlterar = request.getSession();
+        idAlterar.setAttribute("idAlterar", cliente.getId());
+
             
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraCliente.jsp");
         dispatcher.forward(request, response);
@@ -48,8 +51,7 @@ public class AlterarCliente extends HttpServlet {
         boolean email = vc.verificarEmail(request.getParameter("email"));
         boolean telefone = vc.verificarTelefone(request.getParameter("telefone"));
         boolean cpf = vc.verificarCpf(request.getParameter("cpf"));
- 
-     
+        
         if (nome != true) {
             erro = true;
             request.setAttribute("erroNome", true);

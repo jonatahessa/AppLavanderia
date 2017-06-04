@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
         <script src="./resources/bootstrap/js/bootstrap.min.js"></script>
-        <link rel="StyleSheet" type="text/css" href="./resources/CSS/cadastrarFuncionario.css">
+        <link rel="StyleSheet" type="text/css" href="./resources/CSS/alteraFuncionario.css">
         <script type="text/javascript" src="./resources/JavaScript/cadastrarFuncionario.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <!-- bootbox code -->
@@ -21,7 +21,7 @@
         <section id="principal">
             <form method="post" action= "./AlterarFuncionario" method="post">
                 <h1>Alteração de Funcionario</h1>
-                <input type="text" value="${id}" name="idFuncionario" id="id">
+                <input type="text" value="${idAlterar}" name="idFuncionario" id="id">
                 <c:choose>
                     <c:when test="${erroNome}"> 
                         <div class="input-group">
