@@ -44,7 +44,6 @@
                 <tr>
 
                     <th>Nome</th>
-                    <th>Login</th>
                     <th>Sexo</th>
                     <th>Cargo</th>
                     <th>Unidade</th>
@@ -56,7 +55,6 @@
                     <tr>
 
                         <td>${funcionarios.nome}</td>
-                        <td>${funcionarios.login}</td>
                         <td>${funcionarios.sexo}</td>
                         <td>${funcionarios.cargo}</td>
                         <td>${funcionarios.nomeUnidade}</td>
