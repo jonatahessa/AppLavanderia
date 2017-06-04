@@ -1,23 +1,37 @@
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @keyframes treme {
-    0% {margin-left: 0;}
-    25% {margin-left: 3px;}
-    50% {margin-left: 0;}
-    75% {margin-left: -3px;}
-    100% {margin-left: 0;}
+  0% {margin-left: 0;}
+  25% {margin-left: 3px;}
+  50% {margin-left: 0;}
+  75% {margin-left: -3px;}
+  100% {margin-left: 0;}
 }
 
+
 html, body {
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 
 body {
     background-color: hsl(213, 76%, 95%);
 }
 
-#principal {
 
+h1 {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  color: gray;
+  margin-top: 1%;
+}
+
+.campos {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#principal {
   left: 0;
   right: 0;
   top: 0;
@@ -27,8 +41,9 @@ body {
   position: fixed;
   background-color:hsl(223, 59%, 80%);
   width: 35%;
-  height: 30%;
+  height: 60%;
   border-radius: 20px;
+
 }
 
 .input-group{
@@ -37,13 +52,6 @@ body {
     left: 0;
     right: 0;
     margin: auto;
-}
-
-h1 {
-    text-align: center;
-    font-family: Helvetica, sans-serif;
-    color: grey;
-    margin-top: 1%;
 }
 
 #buttons {
@@ -59,7 +67,6 @@ h1 {
 #salvar{
   width: 100%;
   margin-top: 5%;
-
 }
 
 .erro {
@@ -67,10 +74,17 @@ h1 {
     animation: treme 0.2s;
 }
 
+#id {
+    display: none;
+}
+
 .ok {
-    color: green;
+   color: green;
 }
 
 .remove {
-    color: red; 
+   color: red; 
 }
+
+
+

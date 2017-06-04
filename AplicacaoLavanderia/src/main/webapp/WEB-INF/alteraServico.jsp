@@ -20,7 +20,7 @@
         <%@ include file = "menu.jsp" %>  
         <section id="principal">
             <form class="form-horizontal" action= "./AlterarServico" method="post">
-                <input type="text" value="${id}" name="id" id="id">
+                <input type="text" value="${idAlterar}" name="id" id="id">
                 <h1 class="form-signin-heading">Alterar Serviço</h1>  
                 <c:choose>
                     <c:when test="${erroNome}">  

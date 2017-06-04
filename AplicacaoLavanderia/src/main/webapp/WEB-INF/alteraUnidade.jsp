@@ -22,7 +22,7 @@
             <h1 class="form-signin-heading">Alteração de Unidade</h1>  
 
             <form class="form-horizontal" action= "./AlterarUnidade" method="post">
-                <input type="text" value="${id}" name="idUnidade" id="id">
+                <input type="text" value="${idAlterar}" name="idUnidade" id="id">
                 <c:choose>
                     <c:when test="${erroNome}">
                         <div class="input-group">

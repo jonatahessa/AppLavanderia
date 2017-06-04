@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet(name = "AlterarUnidade", urlPatterns = {"/AlterarUnidade"})
@@ -26,7 +27,8 @@ public class AlterarUnidade extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(AlterarUnidade.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.setAttribute("id", unidade.getId());
+        HttpSession idAlterar = request.getSession();
+        idAlterar.setAttribute("idAlterar", unidade.getId());
         request.setAttribute("nome", unidade.getNome());
         request.setAttribute("cnpj", unidade.getCnpj());
             

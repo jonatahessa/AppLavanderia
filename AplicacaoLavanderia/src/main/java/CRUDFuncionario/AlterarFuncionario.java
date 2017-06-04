@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "AlterarFuncionario", urlPatterns = {"/AlterarFuncionario"})
 public class AlterarFuncionario extends HttpServlet {
@@ -37,7 +38,8 @@ public class AlterarFuncionario extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(AlterarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.setAttribute("id", funcionario.getId());
+        HttpSession idAlterar = request.getSession();
+        idAlterar.setAttribute("idAlterar", funcionario.getId());
         request.setAttribute("nome", funcionario.getNome());
         request.setAttribute("sexo", funcionario.getSexo());
         String data = df.format(funcionario.getAdmissao());

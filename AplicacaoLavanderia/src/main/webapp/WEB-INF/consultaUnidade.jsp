@@ -13,6 +13,7 @@
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="" media="screen" >
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/consultaUnidade.css">
+        <script type="text/javascript" src="./resources/JavaScript/consultaUnidade.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <!-- bootbox code -->
         <script src="./resources/JavaScript/bootbox.min.js"></script>
@@ -34,33 +35,46 @@
                     </article> 
                 </fieldset>
             </form>
-            
-             <form method="POST" action="Redirecionar">
-                <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/cadastroUnidade.jsp" type="submit"><span class="fa fa-plus"></span> Cadastrar</button>
-            </form>                
-                            
-            <table id="tableID" class="table table-bordered" align="center">
-                <tr>
 
-                    <th>Nome da Unidade</th>
-                    <th>CNPJ</th>
-                    <th>Alterar Unidade</th>
-                    <th>Remover Unidade</th>
-                </tr>
+            <div class="scroll">
+                <form method="POST" action="Redirecionar">
+                    <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/cadastroUnidade.jsp" type="submit"><span class="fa fa-plus"></span> Cadastrar</button>
+                </form>                
 
-                <c:forEach var="unidades" items="${resultado}">
+                <table id="tableID" class="table table-bordered" align="center">
                     <tr>
-
-                        <td>${unidades.nome}</td>
-                        <td>${unidades.cnpj}</td>
-                        <td><a href="./AlterarUnidade?id=${unidades.id}" >Alterar</a></td>
-                        <td><form action="DeletarUnidade" method="post" id="frm${unidades.id}">
-                                <input type="hidden" name="id" value="${unidades.id}">
-                                <a href="#" onclick="document.getElementById('frm${unidades.id}').submit()">Remover</a>
-                            </form></td>
+                        <th>Nome da Unidade</th>
+                        <th>CNPJ</th>
+                        <th WIDTH=140>Alterar Unidade</th>
+                        <th WIDTH=140>Remover Unidade</th>
                     </tr>
-                </c:forEach>
-            </table>        
-        </div>
+
+                    <c:forEach var="unidades" items="${resultado}">
+                        <tr>
+
+                            <td>${unidades.nome}</td>
+                            <td>${unidades.cnpj}</td>
+                            <td WIDTH=140><a href="./AlterarUnidade?id=${unidades.id}" ><button class="btn button button-1 button-1a" type="submit"><span class="fa fa-pencil"></span> Alterar</button></a></td>
+                            <td WIDTH=140><form action="DeletarUnidade" method="post" id="frm${unidades.id}" onsubmit="return apagar(this);">
+                                    <input type="hidden" name="id" value="${unidades.id}">
+                                    <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-trash"></span> Remover</button>
+                                </form></td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
+                            
+            <div class="alerta">
+                <div class="barra"><span class="fa fa-exclamation-triangle"></span> Aviso</div>
+                <br/>
+                <p>Deseja remover a unidade?</p>
+                <button class="btn button button-1 button-1a" onclick="confirmar();"><span class="fa fa-thumbs-up"></span> Sim</button>
+                <button class="btn button button-1 button-1a" onclick="cancelar();"><span class="fa fa-thumbs-down"></span> Não</button>
+            </div>
+
+            <div class="nevoa">
+
+            </div>
+
     </body>
 </html>

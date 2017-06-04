@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "AlterarServico", urlPatterns = {"/AlterarServico"})
 public class AlterarServico extends HttpServlet {
@@ -23,7 +24,8 @@ public class AlterarServico extends HttpServlet {
         }        
         request.setAttribute("nome", servico.getNomeServico());
         request.setAttribute("preco", servico.getPrecoServico());
-        request.setAttribute("id", servico.getId());
+        HttpSession idAlterar = request.getSession();
+        idAlterar.setAttribute("idAlterar", servico.getId());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraServico.jsp");
         dispatcher.forward(request, response);
