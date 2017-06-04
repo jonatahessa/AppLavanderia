@@ -30,54 +30,54 @@
                     <article>
                         <section class="color-pattern-1 form-inline">
                             <input class="form-control" type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
-                            <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
-                            <button id="exportButton" class="btn button button-1 button-1a" type="submit"><span class="fa fa-file-excel-o fa-lg"></span> Salvar</button>  
+                            <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>                         
                         </section>
                     </article> 
                 </fieldset>
             </form>
-                            
-                            
-                            
+
             <form method="POST" action="Redirecionar">
                 <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/cadastroCliente.jsp" type="submit"><span class="fa fa-plus"></span> Cadastrar</button>
             </form>
-                            
-            <table id="tableID" class="table table-bordered" align="center">
-                <tr>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>E-mail</th>
-                    <th>Telefone</th>
-                    <th>Sexo</th>
-                    <th>Alterar Cliente</th>
-                    <th>Remover Cliente</th>
-                </tr>
-                <c:forEach var="clientes" items="${resultado}">
-                    <tr onclick="main();">
-                        <td>${clientes.nome}</td>
-                        <td>${clientes.cpf}</td>
-                        <td>${clientes.email}</td>
-                        <td>${clientes.telefone}</td>
-                        <td>${clientes.sexo}</td>
-                        <td><a href="./AlterarCliente?cpf=${clientes.cpf}" >Alterar</a></td>
-                        <td><form action="DeletarCliente" method="post" id="frm${clientes.cpf}" onsubmit="return apagar(this);">
-                                <input type="hidden" name="cpf" value="${clientes.cpf}">
-                                <button>Remover</button>
-                            </form></td>
-                    </tr>
-                </c:forEach>
-            </table>
 
-        </div>
-                            <div class="alerta">
-                                <p>Deseja remover o cliente?</p>
-                                <button onclick="confirmar();">Sim</button>
-                                <button onclick="cancelar();">Não</button>
-                            </div>
+            <div class="scroll">
+                <table id="tableID" class="table table-bordered" align="center">
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th>Sexo</th>
+                        <th WIDTH=130>Alterar Cliente</th>
+                        <th WIDTH=130>Remover Cliente</th>
+                    </tr>
+                    <c:forEach var="clientes" items="${resultado}">
+                        <tr onclick="main();">
+                            <td>${clientes.nome}</td>
+                            <td>${clientes.cpf}</td>
+                            <td>${clientes.email}</td>
+                            <td>${clientes.telefone}</td>
+                            <td>${clientes.sexo}</td>
+                            <td WIDTH=130><a href="./AlterarCliente?cpf=${clientes.cpf}" ><button class="btn button button-1 button-1a" type="submit"><span class="fa fa-pencil"></span> Alterar</button></a></td>
+                            <td WIDTH=130><form action="DeletarCliente" method="post" id="frm${clientes.cpf}" onsubmit="return apagar(this);">
+                                    <input type="hidden" name="cpf" value="${clientes.cpf}">
+                                    <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-trash"></span> Remover</button>
+                                </form></td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
                             
-                            <div class="nevoa">
-                                
-                            </div>
+            <div class="alerta">
+                <div class="barra"><span class="fa fa-exclamation-triangle"></span> Aviso</div>
+                <br/>
+                <p>Deseja remover o cliente?</p>
+                <button class="btn button button-1 button-1a" onclick="confirmar();"><span class="fa fa-thumbs-up"></span> Sim</button>
+                <button class="btn button button-1 button-1a" onclick="cancelar();"><span class="fa fa-thumbs-down"></span> Não</button>
+            </div>
+
+            <div class="nevoa">
+
+            </div>
     </body>
 </html>

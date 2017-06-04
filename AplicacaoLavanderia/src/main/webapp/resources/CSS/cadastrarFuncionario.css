@@ -1,17 +1,17 @@
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @keyframes treme {
-  0% {margin-left: 0;}
-  25% {margin-left: 3px;}
-  50% {margin-left: 0;}
-  75% {margin-left: -3px;}
-  100% {margin-left: 0;}
+    0% {margin-left: 0;}
+    25% {margin-left: 3px;}
+    50% {margin-left: 0;}
+    75% {margin-left: -3px;}
+    100% {margin-left: 0;}
 }
 
 
 html, body {
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 
 body {
@@ -20,18 +20,19 @@ body {
 
 
 h1 {
-  text-align: center;
-  font-family: Helvetica, sans-serif;
-  color: gray;
-  margin-top: 1%;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    color: gray;
+    margin-top: 1%;
 }
 
 .campos {
-  margin-top: 2%;
-  margin-bottom: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 #principal {
+
   left: 0;
   right: 0;
   top: 0;
@@ -55,6 +56,7 @@ h1 {
 }
 
 #buttons {
+
   left: 0;
   right: 0;
   top: 0;
@@ -67,6 +69,7 @@ h1 {
 #salvar{
   width: 100%;
   margin-top: 5%;
+
 }
 
 .erro {
@@ -79,12 +82,21 @@ h1 {
 }
 
 .ok {
-   color: green;
+    color: green;
 }
 
 .remove {
-   color: red; 
+    color: red; 
 }
+
+.input-group{
+    padding: .5%;
+    width:82%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
 
 
 

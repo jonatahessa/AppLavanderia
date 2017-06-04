@@ -6,6 +6,7 @@ function main() {
   
 
 }
+
 var removerForm;
 function apagar(form) {
     var div = document.querySelector(".alerta");
