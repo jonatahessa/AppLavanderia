@@ -23,6 +23,7 @@ import sun.security.pkcs11.wrapper.Functions;
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -34,14 +35,14 @@ public class Login extends HttpServlet {
         boolean erro = false, existe = false;
         ServicoLogin sl = new ServicoLogin();
         ServicoFuncionario sf = new ServicoFuncionario();
-        String cript = null;
+        String senhaCript = null;
         try {
-            cript = sf.criptografia(request.getParameter("senha"));
+            senhaCript = sf.criptografia(request.getParameter("senha"));
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
         boolean login = sl.verificarLogin(request.getParameter("login"));
-        boolean senha = sl.verificarSenha(cript);
+        boolean senha = sl.verificarSenha(senhaCript);
 
         if (login) {
             request.setAttribute("login", request.getParameter("login"));
@@ -60,7 +61,7 @@ public class Login extends HttpServlet {
         if (!erro) {
 
             try {
-                existe = sl.verificarUsuario(request.getParameter("login"), cript);
+                existe = sl.verificarUsuario(request.getParameter("login"), senhaCript);
 
             } catch (Exception e) {
 
@@ -71,8 +72,8 @@ public class Login extends HttpServlet {
                 HttpSession permissao = request.getSession();
 
                 try {
-                    permissao.setAttribute("permissao", sl.permissao(request.getParameter("login"), cript));
-                    nomeLogado.setAttribute("nomeLogado", sl.Nome(request.getParameter("login"), cript));
+                    permissao.setAttribute("permissao", sl.permissao(request.getParameter("login"), senhaCript));
+                    nomeLogado.setAttribute("nomeLogado", sl.Nome(request.getParameter("login"), senhaCript));
 
                 } catch (Exception ex) {
 

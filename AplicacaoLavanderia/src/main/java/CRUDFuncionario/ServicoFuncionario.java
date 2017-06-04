@@ -102,9 +102,14 @@ public class ServicoFuncionario {
         Daos.DaoFuncionario.deletar(id);
     }
 
-    public void alterarFuncionario(Funcionario funcionario, String recebe) throws Exception {
+    public void alterarFuncionarioAlterandoSenha(Funcionario funcionario, String recebe) throws Exception {
         int id = Integer.parseInt(recebe);
         Daos.DaoFuncionario.alterar(funcionario, id);
+    }
+    
+    public void alterarFuncionarioSemAlterarSenha(Funcionario funcionario, String recebe) throws Exception {
+        int id = Integer.parseInt(recebe);
+        Daos.DaoFuncionario.alterarSemAlterarSenha(funcionario, id);
     }
 
     public Funcionario obterFuncionario(String recebe) throws Exception {

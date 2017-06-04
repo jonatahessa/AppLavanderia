@@ -21,11 +21,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AlterarFuncionario", urlPatterns = {"/AlterarFuncionario"})
 public class AlterarFuncionario extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, UnsupportedEncodingException {
         Unidade unidade = new Unidade();
         List<Unidade> listaUnidades = null;
-        
+        String senhaCrip = null;
+
         Funcionario funcionario = new Funcionario();
         ServicoFuncionario sf = new ServicoFuncionario();
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -40,16 +42,16 @@ public class AlterarFuncionario extends HttpServlet {
         request.setAttribute("sexo", funcionario.getSexo());
         String data = df.format(funcionario.getAdmissao());
         request.setAttribute("admissao", data);
-        request.setAttribute("cargo", funcionario.getCargo());   
-        try{
+        request.setAttribute("cargo", funcionario.getCargo());
+        request.setAttribute("senha", "      ");
+        request.setAttribute("login", funcionario.getLogin());
+
+        try {
             unidade = Daos.DaoUnidade.obter(funcionario.getIdUnidade());
             ServicoUnidade su = new ServicoUnidade();
             request.setAttribute("unidadeFuncionario", unidade.getNome());
         } catch (Exception e) {
         }
-
-        request.setAttribute("login", funcionario.getLogin());
-        request.setAttribute("senha", funcionario.getSenha());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraFuncionario.jsp");
         dispatcher.forward(request, response);
@@ -120,26 +122,34 @@ public class AlterarFuncionario extends HttpServlet {
                 funcionario.setIdUnidade(Daos.DaoUnidade.retornarIdUnidade(request.getParameter("unidade")));
             } catch (Exception ex) {
             }
-            
-            try {
-                senhaCrip = sf.criptografia(request.getParameter("senha"));
-            } catch (NoSuchAlgorithmException ex) {
-                Logger.getLogger(AlterarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
             funcionario.setAdmissao(sf.converterData(request.getParameter("admissao").trim()));
             funcionario.setCargo(request.getParameter("cargo").trim());
             funcionario.setLogin(request.getParameter("login").trim());
             funcionario.setNome(request.getParameter("nome").trim());
-            funcionario.setSenha(senhaCrip);
             funcionario.setSexo(request.getParameter("sexo").trim());
-            try {
-                sf2.alterarFuncionario(funcionario, request.getParameter("idFuncionario"));
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemAlteracao.jsp");
-                dispatcher.forward(request, response);
-            } catch (Exception ex) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
-                dispatcher.forward(request, response);
+            if (request.getParameter("senha").equalsIgnoreCase("      ")) {
+                try {
+                    sf2.alterarFuncionarioSemAlterarSenha(funcionario, request.getParameter("idFuncionario"));
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemAlteracao.jsp");
+                    dispatcher.forward(request, response);
+                } catch (Exception ex) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                    dispatcher.forward(request, response);
+                }
+            } else {
+                try {
+                    senhaCrip = sf.criptografia(request.getParameter("senha"));
+                    funcionario.setSenha(senhaCrip);
+                    sf2.alterarFuncionarioAlterandoSenha(funcionario, request.getParameter("idFuncionario"));
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemAlteracao.jsp");
+                    dispatcher.forward(request, response);
+                } catch (Exception ex) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro.jsp");
+                    dispatcher.forward(request, response);
+                }
             }
+
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraFuncionario.jsp");
             dispatcher.forward(request, response);

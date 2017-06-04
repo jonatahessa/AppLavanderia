@@ -124,6 +124,44 @@ public class DaoFuncionario {
             }
         }
     }
+    
+    public static void alterarSemAlterarSenha(Funcionario funcionario, int id)
+            throws SQLException, Exception {
+        String sql = "UPDATE Funcionario "
+                + "SET NomeFuncionario = ?, "
+                + "login = ?, "
+                + "cargo = ?, "
+                + "admissao = ?, "
+                + "id_unidade = ?, "
+                + "sexo = ? "
+                + "WHERE id = ?;";
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = ConnectionUtils.getConnection();
+            statement = connection.prepareStatement(sql);
+
+            statement.setString(1, funcionario.getNome());
+            statement.setString(2, funcionario.getLogin());
+            statement.setString(3, funcionario.getCargo());
+            statement.setDate(4, funcionario.getAdmissao());
+            statement.setInt(5, funcionario.getIdUnidade());
+            statement.setString(6, funcionario.getSexo());
+            statement.setInt(7, id);
+            System.out.println(statement.toString());
+
+            System.out.println("Executando COMANDO SQL: " + sql);
+            statement.execute();
+        } finally {
+            if (statement != null && !statement.isClosed()) {
+                statement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+    }
 
     public static List<Funcionario> pesquisar(String palavra)
             throws SQLException, Exception {
