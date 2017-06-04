@@ -45,7 +45,7 @@
             <div class="scroll">
                 <table id="tableID" class="table table-bordered" align="center">
                     <tr>
-                        <th>ID</th>
+
                         <th>Nome do serviço</th>
                         <th>Preço por peça</th>
                         <th WIDTH=140>Alterar Serviço</th>
@@ -54,7 +54,7 @@
 
                     <c:forEach var="servicos" items="${resultado}">
                         <tr>
-                            <td>${servicos.id}</td>
+
                             <td>${servicos.nomeServico}</td>
                             <td>${servicos.precoServico}</td>
                             <td WIDTH=140><a href="./AlterarServico?id=${servicos.id}" ><button class="btn button button-1 button-1a" type="submit"><span class="fa fa-pencil"></span> Alterar</button></a></td>
