@@ -3,6 +3,8 @@ package CRUDFuncionario;
 import CRUDUnidade.ServicoUnidade;
 import CRUDUnidade.Unidade;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -56,10 +58,11 @@ public class AlterarFuncionario extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, UnsupportedEncodingException {
 
         ServicoFuncionario sf = new ServicoFuncionario();
         boolean erro = false;
+        String senhaCrip = null;
 
         boolean nome = sf.verificarNome(request.getParameter("nome"));
         boolean login = sf.verificarLogin(request.getParameter("login"));
@@ -117,11 +120,17 @@ public class AlterarFuncionario extends HttpServlet {
                 funcionario.setIdUnidade(Daos.DaoUnidade.retornarIdUnidade(request.getParameter("unidade")));
             } catch (Exception ex) {
             }
+            
+            try {
+                senhaCrip = sf.criptografia(request.getParameter("senha"));
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(AlterarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+            }
             funcionario.setAdmissao(sf.converterData(request.getParameter("admissao").trim()));
             funcionario.setCargo(request.getParameter("cargo").trim());
             funcionario.setLogin(request.getParameter("login").trim());
             funcionario.setNome(request.getParameter("nome").trim());
-            funcionario.setSenha(request.getParameter("senha").trim());
+            funcionario.setSenha(senhaCrip);
             funcionario.setSexo(request.getParameter("sexo").trim());
             try {
                 sf2.alterarFuncionario(funcionario, request.getParameter("idFuncionario"));
