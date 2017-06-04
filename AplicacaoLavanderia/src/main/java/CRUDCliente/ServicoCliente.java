@@ -26,7 +26,7 @@ public class ServicoCliente {
     }
 
     public boolean verificarNome(String nome) {
-        if (nome == null || nome.equals("")) {
+        if (nome == null || nome.trim().equals("")) {
             return false;
         }
         if (nome.length() > 100) {
@@ -44,7 +44,7 @@ public class ServicoCliente {
 
     public boolean verificarEmail(String email) {
         int contador = 0;
-        if (email == null || email.equals("")) {
+        if (email == null || email.trim().equals("")) {
             return false;
         }
         for (int i = 0; i < email.length(); i++) {

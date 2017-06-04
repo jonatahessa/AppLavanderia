@@ -20,7 +20,7 @@
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>   
         <div id="principal">
-            <h1 class="form-signin-heading">Alteração de Cliente</h1>  
+            <h1 class="form-signin-heading">Alterar Cliente</h1>  
 
             <form class="form-horizontal" action= "./AlterarCliente" method="post">
                 <input type="" value="${idAlterar}" name="idCliente" id="id">

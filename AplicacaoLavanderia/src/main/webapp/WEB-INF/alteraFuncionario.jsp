@@ -20,7 +20,7 @@
         <%@ include file = "menu.jsp" %>
         <section id="principal">
             <form method="post" action= "./AlterarFuncionario" method="post">
-                <h1>Alteração de Funcionario</h1>
+                <h1>Alterar Funcionário</h1>
                 <input type="text" value="${idAlterar}" name="idFuncionario" id="id">
                 <c:choose>
                     <c:when test="${erroNome}"> 

@@ -298,7 +298,7 @@ public class DaoCliente {
     public static boolean verificarDuplicada(String cpf) throws
             SQLException, Exception {
         String sql = "SELECT * FROM Cliente "
-                + " WHERE Cliente.cpf = ? AND Enabled = 'true'";
+                + " WHERE Cliente.cpf = ?";
         Cliente cliente = new Cliente();
         Connection connection = null;
         PreparedStatement statement = null;

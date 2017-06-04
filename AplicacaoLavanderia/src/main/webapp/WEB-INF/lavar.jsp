@@ -31,7 +31,7 @@
             </form>
             
             <form method="POST" action="Redirecionar">
-                <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit"><span class="fa fa-plus"></span> Selecionar Serviço</button>
+                <button class="btn button button-1 button-1a" id="selecionarServico" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit"><span class="fa fa-plus"></span> Selecionar Serviço</button>
             </form>
             
             <form id="cancelar" method="POST" action="Redirecionar">

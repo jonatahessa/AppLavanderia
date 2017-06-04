@@ -5,7 +5,7 @@ import java.util.List;
 public class ServicoServico {
     
     public boolean verificarNome(String nome) {
-        if (nome == null || nome.equals("")) {
+        if (nome == null || nome.trim().equals("")) {
             return false;
         }
         if (nome.length()> 100) {

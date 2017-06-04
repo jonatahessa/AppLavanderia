@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class ServicoFuncionario {
 
     public boolean verificarNome(String nome) {
-        if (nome == null || nome.equals("")) {
+        if (nome == null || nome.trim().equals("")) {
             return false;
         }
         if (nome.length() > 100) {
@@ -52,21 +52,31 @@ public class ServicoFuncionario {
     }
 
     public boolean verificarLogin(String login) {
-        if (login == null || login.equals("")) {
+        if (login == null || login.trim().equals("")) {
             return false;
         }
         if (login.length() > 10 || login.length() < 5) {
             return false;
         }
+        for (int i = 0; i < login.length(); i++) {
+            if (login.charAt(i) == ' ') {
+                return false;
+            }
+        }
         return true;
     }
 
     public boolean verificarSenha(String senha) {
-        if (senha == null || senha.equals("")) {
+        if (senha == null || senha.trim().equals("")) {
             return false;
         }
         if (senha.length() > 8 || senha.length() < 4) {
             return false;
+        }
+        for (int i = 0; i < senha.length(); i++) {
+            if (senha.charAt(i) == ' ') {
+                return false;
+            }
         }
         return true;
     }

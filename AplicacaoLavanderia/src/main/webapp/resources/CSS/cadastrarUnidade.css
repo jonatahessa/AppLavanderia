@@ -1,15 +1,15 @@
 @keyframes treme {
-    0% {margin-left: 0;}
-    25% {margin-left: 3px;}
-    50% {margin-left: 0;}
-    75% {margin-left: -3px;}
-    100% {margin-left: 0;}
+  0% {margin-left: 0;}
+  25% {margin-left: 3px;}
+  50% {margin-left: 0;}
+  75% {margin-left: -3px;}
+  100% {margin-left: 0;}
 }
 
 html, body {
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 
 body {
@@ -17,7 +17,6 @@ body {
 }
 
 #principal {
-
   left: 0;
   right: 0;
   top: 0;
@@ -29,6 +28,7 @@ body {
   width: 35%;
   height: 30%;
   border-radius: 20px;
+
 }
 
 .input-group{
@@ -40,10 +40,10 @@ body {
 }
 
 h1 {
-    text-align: center;
-    font-family: Helvetica, sans-serif;
-    color: grey;
-    margin-top: 1%;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  color: grey;
+  margin-top: 1%;
 }
 
 #buttons {
@@ -59,18 +59,17 @@ h1 {
 #salvar{
   width: 100%;
   margin-top: 5%;
-
 }
 
 .erro {
     border-color: hsl(0, 92%, 60%);
-    animation: treme 0.2s;
+   animation: treme 0.2s;
 }
 
 .ok {
-    color: green;
+   color: green;
 }
 
 .remove {
-    color: red; 
+   color: red; 
 }

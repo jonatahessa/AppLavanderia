@@ -19,7 +19,7 @@
         <div id ="logo"></div>
         <%@ include file = "menu.jsp" %>   
         <div id="principal">
-            <h1 class="form-signin-heading">Alteração de Unidade</h1>  
+            <h1 class="form-signin-heading">Alterar Unidade</h1>  
 
             <form class="form-horizontal" action= "./AlterarUnidade" method="post">
                 <input type="text" value="${idAlterar}" name="idUnidade" id="id">

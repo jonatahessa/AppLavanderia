@@ -6,7 +6,7 @@ import java.util.List;
 public class ServicoUnidade {
 
     public boolean verificarNome(String nome) {
-        if (nome == null || nome.equals("")) {
+        if (nome == null || nome.trim().equals("")) {
             return false;
         }
         return true;

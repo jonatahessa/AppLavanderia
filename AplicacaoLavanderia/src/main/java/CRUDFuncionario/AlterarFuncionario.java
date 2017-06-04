@@ -153,6 +153,17 @@ public class AlterarFuncionario extends HttpServlet {
             }
 
         } else {
+            int id = 0;
+            try {
+                id = Daos.DaoUnidade.retornarIdUnidade(request.getParameter("unidade"));
+            } catch (Exception ex) {
+            }
+            try{
+                Unidade unidade = Daos.DaoUnidade.obter(id);
+                ServicoUnidade su = new ServicoUnidade();
+                request.setAttribute("unidadeFuncionario", unidade.getNome());
+            } catch (Exception e) {
+            }
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraFuncionario.jsp");
             dispatcher.forward(request, response);
         }
