@@ -141,7 +141,7 @@ public class AlterarFuncionario extends HttpServlet {
                 }
             } else {
                 try {
-                    senhaCrip = sf.criptografia(request.getParameter("senha"));
+                    senhaCrip = sf.criptografia(request.getParameter("senha").trim());
                     funcionario.setSenha(senhaCrip);
                     sf2.alterarFuncionarioAlterandoSenha(funcionario, request.getParameter("idFuncionario"));
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemAlteracao.jsp");
