@@ -1,3 +1,5 @@
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
 @keyframes treme {
   0% {margin-left: 0;}
   25% {margin-left: 3px;}
@@ -17,21 +19,24 @@ body {
 }
 
 #principal {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  top: 10%;
-  position: fixed;
-  background-color: hsl(213, 76%, 76%);
-  width: 25%;
-  height: 22%;
-  border-radius: 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 10;
+    margin: auto;
+    top: 30%;
+    position: fixed;
+    background-color:hsl(223, 59%, 80%);
+    width: 30%;
+    border-radius: 20px;
 }
 
-input {
-    margin-top: 1%;
+.input-group{
+    padding: .5%;
+    width:82%;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 h1 {

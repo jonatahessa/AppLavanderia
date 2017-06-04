@@ -38,11 +38,11 @@
 
                                 <c:choose>
                                     <c:when test="${erroDeData}"> 
-                                        <div class="input-group filho">
+                                        <div class="input-group filho">    
                                             <label>De:</label>
                                             <input type="text" name="dedata" class="erro" maxlength="10" onkeypress="mascara(this, '##/##/####');" value="${dedata}"/>
                                             <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
-                                        </div>
+                                        </div>      
                                     </c:when>    
                                     <c:otherwise>
                                         <div class="input-group filho">
@@ -52,6 +52,7 @@
                                                 <span class="glyphicon ok glyphicon-ok form-control-feedback"></span>
                                             </c:if>     
                                         </div>
+
                                     </c:otherwise>
                                 </c:choose>
 
@@ -75,11 +76,13 @@
                                 </c:choose>
 
                                 <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-search fa-la"></span> Pesquisar</button>
-                                <input type="button" class="btn button button-1 button-2a button_add" value=" Salvar" onclick="exportToExcel('exTable')" /></span>
+                                <input type="button" class="btn button button-1 button-2a button_add" value=" Salvar" onclick="exportToExcel('exTable')" />
                         </section>
                     </article> 
                 </fieldset>
             </form>
+            <div class="scroll">
+
             <table id="exTable" class="table table-bordered" align="center" border="1">
                 <thead class="lockedRecordsBg">
                     <tr>

@@ -18,3 +18,4 @@ function cancelar() {
     var div2 = document.querySelector(".nevoa");
     div2.classList.remove("visivel");
 }
+

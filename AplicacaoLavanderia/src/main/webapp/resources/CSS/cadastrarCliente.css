@@ -1,15 +1,15 @@
 @keyframes treme {
-  0% {margin-left: 0;}
-  25% {margin-left: 3px;}
-  50% {margin-left: 0;}
-  75% {margin-left: -3px;}
-  100% {margin-left: 0;}
+    0% {margin-left: 0;}
+    25% {margin-left: 3px;}
+    50% {margin-left: 0;}
+    75% {margin-left: -3px;}
+    100% {margin-left: 0;}
 }
 
 html, body {
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 
 body {
@@ -17,51 +17,49 @@ body {
 }
 
 button {
-  background-color: #e8e8e8;
-  border: none;
-  color: gray;
-  width: 45%;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
+    background-color: #e8e8e8;
+    border: none;
+    color: gray;
+    width: 45%;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
 }
 
 #buttons {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 40%;
-  margin: auto;
-  position: static;
-  }
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40%;
+    margin: auto;
+    position: static;
+}
 
 #salvar{
-  width: 100%;
-  margin-top: 3%;
+    width: 100%;
+    margin-top: 3%;
 }
 
 h1 {
-  text-align: center;
-  font-family: Helvetica, sans-serif;
-  color: gray;
-  margin-top: 3%;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    color: gray;
+    margin-top: 3%;
 }
 
 #principal {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  top: 10%;
-  position: fixed;
-  background-color:hsl(223, 59%, 80%);
-  width: 30%;
-  height: 35%;
-  border-radius: 20px;
-
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 10;
+    margin: auto;
+    top: 30%;
+    position: fixed;
+    background-color:hsl(223, 59%, 80%);
+    width: 30%;
+    border-radius: 20px;
 }
 
 .input-group{
@@ -73,22 +71,22 @@ h1 {
 }
 
 #camposexo {
-  background-color: #f4f4f4;
+    background-color: #f4f4f4;
 }
 
 .erro {
-   border-color: hsl(0, 92%, 60%);
-   animation: treme 0.2s;
+    border-color: hsl(0, 92%, 60%);
+    animation: treme 0.2s;
 }
 
 #id{
-   display: none; 
+    display: none; 
 }
 
 .ok {
-   color: green;
+    color: green;
 }
 
 .remove {
-   color: red; 
+    color: red; 
 }
