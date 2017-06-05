@@ -26,7 +26,7 @@ body {
   position: fixed;
   background-color:hsl(223, 59%, 80%);
   width: 35%;
-  height: 30%;
+  height: 25%;
   border-radius: 20px;
 
 }
@@ -43,7 +43,7 @@ h1 {
   text-align: center;
   font-family: Helvetica, sans-serif;
   color: grey;
-  margin-top: 1%;
+  margin-top: 3%;
 }
 
 #buttons {

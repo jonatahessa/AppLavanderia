@@ -5,7 +5,6 @@
 --%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:useBean id="dao" class="Daos.DaoUnidade"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
