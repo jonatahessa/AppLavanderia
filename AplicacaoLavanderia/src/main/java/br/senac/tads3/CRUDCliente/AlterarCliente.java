@@ -31,7 +31,8 @@ public class AlterarCliente extends HttpServlet {
         request.setAttribute("cpf", cliente.getCpf());
         request.setAttribute("email", cliente.getEmail());
         request.setAttribute("telefone", cliente.getTelefone());
-        request.setAttribute("sexo", cliente.getSexo());
+        HttpSession sexoAlterar = request.getSession();
+        sexoAlterar.setAttribute("sexoAlterar", cliente.getSexo());
         HttpSession idAlterar = request.getSession();
         idAlterar.setAttribute("idAlterar", cliente.getId());
 
@@ -80,9 +81,7 @@ public class AlterarCliente extends HttpServlet {
             request.setAttribute("cpf", request.getParameter("cpf"));
             request.setAttribute("trueCpf", true);
         }
-        
-        request.setAttribute("sex", request.getParameter("sexo"));
-        
+                
         if (!erro) {
             ServicoCliente sc = new ServicoCliente();
             Cliente cliente = new Cliente();

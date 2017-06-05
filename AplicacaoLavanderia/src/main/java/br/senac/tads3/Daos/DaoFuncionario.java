@@ -355,7 +355,9 @@ public class DaoFuncionario {
     
     public static List<Funcionario> pesquisarFuncionario(String nome) throws
         FuncionarioException, SQLException, Exception {
-        String sql = "SELECT * FROM Funcionario WHERE NomeFuncionario LIKE ? AND Enabled = 'true'";
+         String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario"
+                + " INNER JOIN Unidade on Unidade.ID WHERE funcionario.Enabled = 'true'"
+                + " AND Funcionario.Nome LIKE ?;";
         
         List<Funcionario> listaFuncionarios = null;
         Connection connection = null;
@@ -383,6 +385,7 @@ public class DaoFuncionario {
                 funcionario.setIdUnidade(result.getInt("ID_Unidade"));
                 funcionario.setSexo(result.getString("Sexo"));
                 funcionario.setEnabled(result.getString("enabled"));
+                funcionario.setNomeUnidade(result.getString("NomeUnidade"));
                 listaFuncionarios.add(funcionario);
             }
         } finally {

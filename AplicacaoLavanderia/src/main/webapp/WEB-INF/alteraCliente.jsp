@@ -104,7 +104,7 @@
                     <span class="input-group-addon"><span class=" glyphicon glyphicon-star"></span></span>
                     <select id="camposexo" class="selectpicker form-control" data-live-search="true" name="sexo" title="Sexo">
                         <c:choose>
-                            <c:when test="${sex eq 'Feminino'}">            
+                            <c:when test="${sexoAlterar eq 'Feminino'}">            
                                 <option name="Feminino">Feminino</option>
                                 <option name="Masculino">Masculino</option>
                             </c:when>
