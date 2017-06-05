@@ -2,14 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="StyleSheet" type="text/css" href="./resources/CSS/menu.css" media="screen" >
 <div id="menu">
-    <!--<li class="active"><a href="index.jsp"><i class="fa fa-home fa-fw"></i> Início</a></li>
-    <li><a href="lavar.jsp"><i class="fa fa-shower"></i>Lavar</a></li>
-    <li><a href="consultaServico.jsp"><i class="fa fa-cubes fa-fw"></i> Serviços</a></li>
-    <li><a href="consultaCliente.jsp"><i class="fa fa-users fa-fw"></i> Clientes</a></li>
-    <li><a href="consultaFuncionario.jsp"><i class="fa fa-id-card fa-fw"></i> Funcionários</a></li>
-    <li><a href="consultaUnidade.jsp"><i class="fa fa-building fa-fw"></i> Unidades</a></li>
-    <li><a href="relatorios.jsp"><i class="fa fa-pie-chart fa-fw"></i> Relatórios</a></li>
-    -->
+    
 
     <c:choose> 
         <c:when test="${permissao ne null}"  >
@@ -106,7 +99,7 @@
         <a href="#" onclick="document.getElementById('logout').submit()"><i class="fa fa-power-off fa-lg"></i>   Sair</a>
     </form>
 </li>
-    <h1 id="usuarioLogado">Bem vindo(a) ${nomeLogado}</h1>
+    <h1 id="usuarioLogado">Bem-vindo(a) ${nomeLogado}</h1>
     </c:when>
     <c:otherwise>
         <META HTTP-EQUIV="Refresh" CONTENT="0;URL=./RedirecionarLogin">

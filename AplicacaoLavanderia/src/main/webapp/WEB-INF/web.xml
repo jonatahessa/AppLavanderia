@@ -2,11 +2,11 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>AlterarFuncionario</servlet-name>
-        <servlet-class>CRUDFuncionario.AlterarFuncionario</servlet-class>
+        <servlet-class>br.senac.tads3.CRUDFuncionario.AlterarFuncionario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AlterarUnidade</servlet-name>
-        <servlet-class>CRUDUnidade.AlterarUnidade</servlet-class>
+        <servlet-class>br.senac.tads3.CRUDUnidade.AlterarUnidade</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RealizaVenda</servlet-name>
@@ -14,39 +14,39 @@
     </servlet>
     <servlet>
         <servlet-name>AdicionarServico</servlet-name>
-        <servlet-class>CRUDVenda.AdicionarServicoVenda</servlet-class>
+        <servlet-class>br.senac.tads3.CRUDVenda.AdicionarServicoVenda</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Entrada</servlet-name>
-        <servlet-class>Login.Entrada</servlet-class>
+        <servlet-class>br.senac.tads3.Login.Entrada</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Redirecionar</servlet-name>
-        <servlet-class>Login.Redirecionar</servlet-class>
+        <servlet-class>br.senac.tads3.Redirecionar.Redirecionar</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RedirecionarHome</servlet-name>
-        <servlet-class>Login.RedirecionarHome</servlet-class>
+        <servlet-class>br.senac.tads3.Redirecionar.RedirecionarHome</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Logout</servlet-name>
-        <servlet-class>Login.Logout</servlet-class>
+        <servlet-class>br.senac.tads3.Login.Logout</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeletarItemVenda</servlet-name>
-        <servlet-class>CRUDVenda.DeletarItemVenda</servlet-class>
+        <servlet-class>br.senac.tads3.CRUDVenda.DeletarItemVenda</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FinalizarVenda</servlet-name>
-        <servlet-class>CRUDVenda.FinalizarVenda</servlet-class>
+        <servlet-class>br.senac.tads3.CRUDVenda.FinalizarVenda</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RedirecionarLogin</servlet-name>
-        <servlet-class>Login.RedirecionarLogin</servlet-class>
+        <servlet-class>br.senac.tads3.Redirecionar.RedirecionarLogin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>relatorio</servlet-name>
-        <servlet-class>Relatorio.relatorioServlet</servlet-class>
+        <servlet-class>br.senac.tads3.Relatorio.relatorioServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AlterarFuncionario</servlet-name>

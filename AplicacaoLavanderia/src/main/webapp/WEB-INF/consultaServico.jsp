@@ -1,10 +1,4 @@
-<%-- 
-    Document   : servicos
-    Created on : 24/04/2017, 21:50:50
-    Author     : eloisa.asilva2
---%>
 
-<jsp:useBean id="dao" class="Daos.DaoServico"/>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

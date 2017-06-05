@@ -1,7 +1,4 @@
-<%@page import="CRUDFuncionario.Funcionario"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
-<jsp:useBean id="dao" class="Daos.DaoFuncionario"/>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -22,13 +22,28 @@ body {
     left: 0;
     right: 0;
     top: 0;
-    bottom: 10;
     margin: auto;
     top: 30%;
     position: fixed;
     background-color:hsl(223, 59%, 80%);
     width: 30%;
+    height: 30%;
     border-radius: 20px;
+}
+
+#buttons {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  margin: auto;
+  position: static;
+  }
+
+#logar{
+  width: 100%;
+  margin-top: 5%;
 }
 
 .input-group{
@@ -44,11 +59,6 @@ h1 {
   font-family: Helvetica, sans-serif;
   color: grey;
   margin-top: 1%;
-}
-
-#logar {
-    margin-top: 6%;
-    margin-left: 80%;
 }
 
 .erro {
