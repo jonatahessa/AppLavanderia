@@ -27,6 +27,7 @@ public class DeletarItemVenda extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         ArrayList<ItemVenda> itens = (ArrayList<ItemVenda>) session.getAttribute("listaItensVenda");
+        double totalDaVenda = 0;
         for (ItemVenda item : itens) {
             if (item.getId() == Integer.parseInt(request.getParameter("iditem"))) {
                 itens.remove(item);

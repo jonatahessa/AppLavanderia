@@ -27,7 +27,7 @@
                 </fieldset>
             </form>
             
-            <form method="POST" action="Redirecionar">
+            <form method="POST" action="RedirecionarVenda">
                 <button class="btn button button-1 button-1a" id="selecionarServico" name="tela" value="/WEB-INF/adicionarServicoVenda.jsp" type="submit"><span class="fa fa-plus"></span> Selecionar Serviço</button>
             </form>
             
@@ -59,8 +59,8 @@
                 </c:forEach>
             </table>
             
-            <p name="total" value="${total}">Total: ${total}</p>
-            <form method="POST" action="Redirecionar">
+            <p name="total">${total}</p>
+            <form method="POST" action="RedirecionarVenda">
                 <c:choose>
                     <c:when test="${erroCpf}">
                         <input type="text" name="cpf" class="erro" placeholder="CPF do Cliente" value="${cpf}" maxlength="14" onkeypress="mascara(this, '###.###.###-##');"/> 
@@ -71,7 +71,7 @@
                 </c:choose>
             <button id="cancelar" class="btn button button-1 button-1a" name="tela" value="/FinalizarVenda" type="submit"><span class="fa fa-usd"></span> Finalizar</button>
             </form>
-            <form method="POST" action="Redirecionar">
+            <form method="POST" action="RedirecionarVenda">
                 <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/adicionarClienteVenda.jsp" type="submit"><span class="fa fa-plus"></span> Buscar Cliente</button>
             </form>
             

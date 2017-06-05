@@ -63,8 +63,14 @@ public class Lavar extends HttpServlet {
             itens = new ArrayList<ItemVenda>();
             session.setAttribute("listaItensVenda", itens);
         }
+
         ServicoServico ss = new ServicoServico();
         Servico servico = new Servico();
+        
+        for (ItemVenda item : itens) {
+                totalDaVenda += item.getPrecoServico();
+            }
+            session.setAttribute("total", totalDaVenda);
 
         if (id != 0) {
             try {
@@ -81,18 +87,17 @@ public class Lavar extends HttpServlet {
             itemVenda.setPrecoUnitario(servico.getPrecoServico());
             itemVenda.setPrecoServico(servico.getPrecoServico() * itemVenda.getQuantidade());
             itens.add(itemVenda);
+            for (ItemVenda item : itens) {
+                totalDaVenda += item.getPrecoServico();
+            }
+            session.setAttribute("total", totalDaVenda);
             response.sendRedirect("Lavar");
             return;
         }
 
-        
-        for (ItemVenda item : itens) {
-            totalDaVenda += item.getPrecoServico();
-        }
-
         request.setAttribute("cpf", cliente.getCpf());
         request.setAttribute("listaItensVenda", itens);
-        request.setAttribute("total", totalDaVenda);
+        request.setAttribute("total", session.getAttribute("total"));
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/lavar.jsp");
         dispatcher.forward(request, response);
 

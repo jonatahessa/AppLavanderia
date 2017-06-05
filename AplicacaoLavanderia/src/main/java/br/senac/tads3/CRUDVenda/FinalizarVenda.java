@@ -91,6 +91,7 @@ public class FinalizarVenda extends HttpServlet {
 
                 session.removeAttribute("listaItensVenda");
                 session.removeAttribute("cpf");
+                session.removeAttribute("clienteVenda");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemVendaSucesso.jsp");
                 dispatcher.forward(request, response);
             } catch (Exception ex) {

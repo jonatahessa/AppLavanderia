@@ -48,6 +48,10 @@
         <servlet-name>relatorio</servlet-name>
         <servlet-class>br.senac.tads3.Relatorio.relatorioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RedirecionarVenda</servlet-name>
+        <servlet-class>br.senac.tads3.Redirecionar.RedirecionarVenda</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlterarFuncionario</servlet-name>
         <url-pattern>/AlterarFuncionario</url-pattern>
@@ -96,6 +100,10 @@
     <servlet-mapping>
         <servlet-name>relatorio</servlet-name>
         <url-pattern>/relatorio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RedirecionarVenda</servlet-name>
+        <url-pattern>/RedirecionarVenda</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

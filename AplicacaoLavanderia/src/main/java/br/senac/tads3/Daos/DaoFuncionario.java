@@ -167,7 +167,8 @@ public class DaoFuncionario {
             throws SQLException, Exception {
 
         String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario"
-                + " INNER JOIN Unidade on Unidade.ID WHERE funcionario.enabled = 'true';";
+                + " INNER JOIN Unidade on Unidade.ID WHERE funcionario.enabled = 'true'"
+                + " AND Funcionario.Nome LIKE ?;";
 
         Connection connection = null;
         PreparedStatement statement = null;
