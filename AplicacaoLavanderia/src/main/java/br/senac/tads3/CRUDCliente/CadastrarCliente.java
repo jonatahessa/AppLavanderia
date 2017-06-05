@@ -36,8 +36,6 @@ public class CadastrarCliente extends HttpServlet {
         try {
             duplo = vc.verificarDuplicada(request.getParameter("cpf"));
         } catch (Exception ex) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mensagemErro");
-            dispatcher.forward(request, response);
         }
      
         if (nome != true) {

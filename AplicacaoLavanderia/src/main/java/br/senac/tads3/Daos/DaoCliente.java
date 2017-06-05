@@ -324,6 +324,30 @@ public class DaoCliente {
         return false;
     }
     
+    public static boolean verificarDuplicadaAlterar(String cpf) throws
+            SQLException, Exception {
+        String sql = "SELECT * FROM Cliente "
+                + " WHERE Cliente.cpf = ?";
+        Cliente cliente = new Cliente();
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+
+        statement.setString(1, cpf);
+        System.out.println(statement.toString());
+        System.out.println("Executando CONSULTA SQL: " + sql);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+            if(!cpf.equals(result.getString("cpf"))){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public static boolean verificarCliente(String cpf) throws
             SQLException, Exception {
         String sql = "SELECT * FROM Cliente "
