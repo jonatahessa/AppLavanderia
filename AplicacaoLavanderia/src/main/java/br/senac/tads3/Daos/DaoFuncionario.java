@@ -355,9 +355,9 @@ public class DaoFuncionario {
     
     public static List<Funcionario> pesquisarFuncionario(String nome) throws
         FuncionarioException, SQLException, Exception {
-         String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario"
-                + " INNER JOIN Unidade on Unidade.ID WHERE funcionario.Enabled = 'true'"
-                + " AND Funcionario.Nome LIKE ?;";
+        String sql = "SELECT Funcionario.*, Unidade.NomeUnidade FROM Funcionario"
+                + " INNER JOIN Unidade ON Unidade.ID = Funcionario.ID_Unidade"
+                + " WHERE Funcionario.Enabled = 'true' AND Funcionario.NomeFuncionario LIKE ? ORDER BY Funcionario.ID;";
         
         List<Funcionario> listaFuncionarios = null;
         Connection connection = null;

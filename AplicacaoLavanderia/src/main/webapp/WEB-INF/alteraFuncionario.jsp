@@ -135,7 +135,7 @@
 
                 <div class="input-group">
                     <span class="input-group-addon"><span class="fa fa-building fa-fw"></span></span>
-                    <select id="campoempresa" class="selectpicker form-control" value="${unidade}" data-live-search="true" name="unidade" title="Unidadw">
+                    <select id="campoempresa" class="selectpicker form-control" value="${unidade}" data-live-search="true" name="unidade" title="Unidade">
 
                         <c:forEach var="unidade" items="${dao.listar()}">
                             <c:if test="${unidade.nome eq unidadeFuncionario}">

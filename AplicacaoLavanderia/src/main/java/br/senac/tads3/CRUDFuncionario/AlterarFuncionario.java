@@ -32,14 +32,13 @@ public class AlterarFuncionario extends HttpServlet {
         Funcionario funcionario = new Funcionario();
         ServicoFuncionario sf = new ServicoFuncionario();
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        df.setLenient(false);
         try {
             funcionario = sf.obterFuncionario(request.getParameter("id"));
         } catch (Exception ex) {
             Logger.getLogger(AlterarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        HttpSession idAlterar = request.getSession();
-        idAlterar.setAttribute("idAlterar", funcionario.getId());
+        HttpSession session = request.getSession();
+        session.setAttribute("idAlterar", funcionario.getId());
         request.setAttribute("nome", funcionario.getNome());
         request.setAttribute("sexo", funcionario.getSexo());
         String data = df.format(funcionario.getAdmissao());
