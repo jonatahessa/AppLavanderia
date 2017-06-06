@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="dao" class="br.senac.tads3.Daos.DaoUnidade"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -135,8 +136,7 @@
 
                 <div class="input-group">
                     <span class="input-group-addon"><span class="fa fa-building fa-fw"></span></span>
-                    <select id="campoempresa" class="selectpicker form-control" value="${unidade}" data-live-search="true" name="unidade" title="Unidade">
-
+                    <select id="campoempresa" class="selectpicker form-control" data-live-search="true" name="unidade" title="Unidadw">   
                         <c:forEach var="unidade" items="${dao.listar()}">
                             <c:if test="${unidade.nome eq unidadeFuncionario}">
                                 <option nome="${unidade.nome}">${unidade.nome}</option>

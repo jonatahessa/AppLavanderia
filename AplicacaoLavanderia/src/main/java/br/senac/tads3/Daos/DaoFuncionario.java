@@ -385,6 +385,7 @@ public class DaoFuncionario {
                 funcionario.setIdUnidade(result.getInt("ID_Unidade"));
                 funcionario.setSexo(result.getString("Sexo"));
                 funcionario.setEnabled(result.getString("enabled"));
+                funcionario.setId(result.getInt("ID"));
                 funcionario.setNomeUnidade(result.getString("NomeUnidade"));
                 listaFuncionarios.add(funcionario);
             }

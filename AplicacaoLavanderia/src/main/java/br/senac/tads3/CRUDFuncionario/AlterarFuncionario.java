@@ -37,8 +37,8 @@ public class AlterarFuncionario extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(AlterarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        HttpSession session = request.getSession();
-        session.setAttribute("idAlterar", funcionario.getId());
+        HttpSession idAlterar = request.getSession();
+        idAlterar.setAttribute("idAlterar", funcionario.getId());
         request.setAttribute("nome", funcionario.getNome());
         request.setAttribute("sexo", funcionario.getSexo());
         String data = df.format(funcionario.getAdmissao());
@@ -159,7 +159,6 @@ public class AlterarFuncionario extends HttpServlet {
             }
             try{
                 Unidade unidade = br.senac.tads3.Daos.DaoUnidade.obter(id);
-                ServicoUnidade su = new ServicoUnidade();
                 request.setAttribute("unidadeFuncionario", unidade.getNome());
             } catch (Exception e) {
             }

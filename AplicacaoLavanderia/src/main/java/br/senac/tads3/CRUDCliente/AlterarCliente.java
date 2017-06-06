@@ -52,8 +52,10 @@ public class AlterarCliente extends HttpServlet {
         boolean email = vc.verificarEmail(request.getParameter("email"));
         boolean telefone = vc.verificarTelefone(request.getParameter("telefone"));
         boolean cpf = vc.verificarCpf(request.getParameter("cpf"));
+        HttpSession idAlterar = request.getSession();
+        int id = (int) idAlterar.getAttribute("idAlterar");
         try {
-            duplo = vc.verificarDuplicada(request.getParameter("cpf"));
+            duplo = vc.verificarDuplicadaAlterar(request.getParameter("cpf"), id);
         } catch (Exception ex) {
         }
         

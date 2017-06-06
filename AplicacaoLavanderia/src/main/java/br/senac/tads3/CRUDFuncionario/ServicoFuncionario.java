@@ -67,17 +67,13 @@ public class ServicoFuncionario {
     }
 
     public boolean verificarSenha(String senha) {
-        if (senha == null || senha.trim().equals("")) {
+        if (senha == null || senha.equals("")) {
             return false;
         }
         if (senha.length() > 8 || senha.length() < 4) {
             return false;
         }
-        for (int i = 0; i < senha.length(); i++) {
-            if (senha.charAt(i) == ' ') {
-                return false;
-            }
-        }
+
         return true;
     }
 

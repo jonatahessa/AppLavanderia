@@ -324,11 +324,10 @@ public class DaoCliente {
         return false;
     }
     
-    public static boolean verificarDuplicadaAlterar(String cpf) throws
+    public static boolean verificarDuplicadaAlterar(String cpf, int id) throws
             SQLException, Exception {
         String sql = "SELECT * FROM Cliente "
                 + " WHERE Cliente.cpf = ?";
-        Cliente cliente = new Cliente();
         Connection connection = null;
         PreparedStatement statement = null;
 
@@ -339,11 +338,12 @@ public class DaoCliente {
         System.out.println(statement.toString());
         System.out.println("Executando CONSULTA SQL: " + sql);
         ResultSet result = statement.executeQuery();
-
+        Cliente cliente = retornarClienteId(id);
+        if(cliente.getCpf().equalsIgnoreCase(cpf)){
+            return false;
+        }
         while (result.next()) {
-            if(!cpf.equals(result.getString("cpf"))){
-                return true;
-            }
+            return true;
         }
         return false;
     }

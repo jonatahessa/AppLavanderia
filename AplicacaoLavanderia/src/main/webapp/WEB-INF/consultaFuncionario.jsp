@@ -55,9 +55,7 @@
                             <td>${funcionarios.sexo}</td>
                             <td>${funcionarios.cargo}</td>
                             <td>${funcionarios.nomeUnidade}</td>
-                            <td WIDTH=130><form action="AlterarFuncionario" method="post">
-                                    <input type="hidden" name="id" value="${funcionarios.id}"/>
-                                    <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-pencil"></span> Alterar</button></form></td>
+                            <td WIDTH=140><a href="./AlterarFuncionario?id=${funcionarios.id}" ><button class="btn button button-1 button-1a" type="submit"><span class="fa fa-pencil"></span> Alterar</button></a></td>
                             <td WIDTH=130><form action="DeletarFuncionario" method="post" id="frm${funcionarios.id}" onsubmit="return apagar(this);">
                                     <input type="hidden" name="id" value="${funcionarios.id}"/>
                                     <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-trash"></span> Remover</button>

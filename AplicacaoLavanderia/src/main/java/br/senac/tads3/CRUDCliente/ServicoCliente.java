@@ -109,4 +109,8 @@ public class ServicoCliente {
     public boolean verificarDuplicada(String cpf) throws Exception {
         return br.senac.tads3.Daos.DaoCliente.verificarDuplicada(cpf);
     }
+    
+    public boolean verificarDuplicadaAlterar(String cpf, int id) throws Exception {
+        return br.senac.tads3.Daos.DaoCliente.verificarDuplicadaAlterar(cpf, id);
+    }
 }
