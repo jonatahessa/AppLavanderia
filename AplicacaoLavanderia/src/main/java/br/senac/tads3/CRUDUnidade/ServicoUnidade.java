@@ -64,4 +64,8 @@ public class ServicoUnidade {
     public boolean verificarDuplicada (String cnpj) throws Exception {
         return br.senac.tads3.Daos.DaoUnidade.verificarDuplicada(cnpj);
     }
+    
+    public boolean verificarDuplicadaAlterar (String cnpj, String cnpjUnidade) throws Exception {
+        return br.senac.tads3.Daos.DaoUnidade.verificarDuplicadaAlterar(cnpj, cnpjUnidade);
+    }
 }
