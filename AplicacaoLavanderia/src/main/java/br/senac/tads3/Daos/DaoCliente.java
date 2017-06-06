@@ -188,7 +188,8 @@ public class DaoCliente {
 
     public static List<Cliente> listar()
             throws SQLException, Exception {
-        String sql = "SELECT * FROM Cliente WHERE enabled = 'true'";
+        String sql = "SELECT * FROM Cliente WHERE enabled = 'true' ORDER BY"
+                + " NomeCliente;";
 
         return executarConsulta(sql);
     }
@@ -253,7 +254,8 @@ public class DaoCliente {
 
     public static List<Cliente> pesquisarCliente(String nome) throws
         ClienteException, SQLException, Exception {
-        String sql = "SELECT * FROM Cliente WHERE NomeCliente LIKE ? AND Enabled = 'true'";
+        String sql = "SELECT * FROM Cliente WHERE NomeCliente LIKE ? AND Enabled = 'true'"
+                + " ORDER BY NomeCliente;";
         
         List<Cliente> listaClientes = null;
         Connection connection = null;
