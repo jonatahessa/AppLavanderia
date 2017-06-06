@@ -225,7 +225,7 @@ public class DaoCliente {
     
     public static Cliente retornarClienteId(int id) throws
             SQLException, Exception {
-        String sql = "SELECT * FROM cliente "
+        String sql = "SELECT * FROM Cliente "
                 + " WHERE ID = ?";
         Cliente cliente = new Cliente();
         Connection connection = null;

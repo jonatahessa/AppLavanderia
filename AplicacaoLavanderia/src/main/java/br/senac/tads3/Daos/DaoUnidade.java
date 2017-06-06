@@ -5,8 +5,10 @@
  */
 package br.senac.tads3.Daos;
 
+import br.senac.tads3.CRUDCliente.Cliente;
 import br.senac.tads3.CRUDUnidade.Unidade;
 import br.senac.tads3.ConnectionBD.ConnectionUtils;
+import static br.senac.tads3.Daos.DaoCliente.retornarClienteId;
 import br.senac.tads3.Exceptions.UnidadeException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -300,6 +302,32 @@ public class DaoUnidade {
 
         while (result.next()) {
 
+            return true;
+        }
+
+        return false;
+    }
+    
+    public static boolean verificarDuplicadaAlterar(String cnpj, String cnpjUnidade) throws
+            SQLException, Exception {
+        String sql = "SELECT * FROM Unidade "
+                + " WHERE Unidade.Cnpj = ? AND Enabled = 'true'";
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+
+        statement.setString(1, cnpj);
+        System.out.println(statement.toString());
+        System.out.println("Executando CONSULTA SQL: " + sql);
+        ResultSet result = statement.executeQuery();
+
+         if(cnpjUnidade.equalsIgnoreCase(cnpj)){
+            return false;
+        }
+        while (result.next()) {
             return true;
         }
 

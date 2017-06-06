@@ -30,7 +30,10 @@ public class AlterarUnidade extends HttpServlet {
         HttpSession idAlterar = request.getSession();
         idAlterar.setAttribute("idAlterar", unidade.getId());
         request.setAttribute("nome", unidade.getNome());
+        HttpSession session = request.getSession();
+        session.setAttribute("cnpjAtual", unidade.getCnpj());
         request.setAttribute("cnpj", unidade.getCnpj());
+
             
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/alteraUnidade.jsp");
         dispatcher.forward(request, response);
@@ -42,12 +45,20 @@ public class AlterarUnidade extends HttpServlet {
 	  throws ServletException, IOException {
         
         ServicoUnidade su = new ServicoUnidade();
-        boolean erro = false;
+        boolean erro = false, duplo = false;
         boolean nome = su.verificarNome(request.getParameter("nome"));
         System.out.println("*************");
         System.out.println(request.getParameter("cnpj"));
         boolean cnpj = su.verificarCnpj(request.getParameter("cnpj"));
-     
+        HttpSession session = request.getSession();
+        String cnpjUnidade = (String) session.getAttribute("cnpjAtual");
+        
+        try {
+            duplo = su.verificarDuplicadaAlterar(request.getParameter("cnpj"), cnpjUnidade);
+        } catch (Exception ex) {
+        }
+        
+        
         if (nome != true) {
             erro = true;
             request.setAttribute("erroNome", true);
@@ -55,7 +66,7 @@ public class AlterarUnidade extends HttpServlet {
             request.setAttribute("nome", request.getParameter("nome"));
             request.setAttribute("trueNome", true);
         }
-        if (cnpj != true) {
+        if (cnpj != true || duplo == true) {
             erro = true;
             request.setAttribute("erroCnpj", true);
         } else {

@@ -25,6 +25,9 @@ public class ServicoServico {
         }
         try {
             double teste = Double.parseDouble(preco);
+            if (teste <= 0) {
+                return false;
+            }
             return true;
         } catch (Exception e) {
             return false;
