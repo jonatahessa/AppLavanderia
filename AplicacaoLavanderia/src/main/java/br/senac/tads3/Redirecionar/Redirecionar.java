@@ -17,6 +17,7 @@ public class Redirecionar extends HttpServlet {
         session.removeAttribute("listaItensVenda");
         session.removeAttribute("cpf");
         session.removeAttribute("clienteVenda");
+        session.removeAttribute("total");
         RequestDispatcher dispatcher = request.getRequestDispatcher(request.getParameter("tela"));
         dispatcher.forward(request, response);
         

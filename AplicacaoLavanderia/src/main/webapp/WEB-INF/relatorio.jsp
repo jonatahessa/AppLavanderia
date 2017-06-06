@@ -80,30 +80,31 @@
             </form>
             <div class="scroll">
 
-            <table id="exTable" class="table table-bordered" align="center" border="1">
-                <thead class="lockedRecordsBg">
-                    <tr>
-                        <th>Unidade</th>
-                        <th>Funcionário</th>
-                        <th>Cliente</th>
-                        <th>Data</th>
-                        <th>Total</th>
-                </thead>
-                <tbody>
-
-                    <c:forEach var="relatorio" items="${itens}">
-                        <tr>
-                            <td>${relatorio.unidade}</td>
-                            <td>${relatorio.funcionario}</td>
-                            <td>${relatorio.cliente}</td>
-                            <td>${relatorio.data}</td>
-                            <td>${relatorio.total}</td>
+                <table id="exTable" class="table table-bordered tablelarga" align="center" border="1">
+                    <thead class="lockedRecordsBg">
+                        <tr id="cabecalhotabela">
+                            <th>Unidade</th>
+                            <th>Funcionário</th>
+                            <th>Cliente</th>
+                            <th>Data</th>
+                            <th>Total</th>
                         </tr>
-                    </c:forEach>
-                </tbody>
-            </table> 
+                    </thead>
+                    <tbody>
 
-        </div>
+                        <c:forEach var="relatorio" items="${itens}">
+                            <tr>
+                                <td>${relatorio.unidade}</td>
+                                <td>${relatorio.funcionario}</td>
+                                <td>${relatorio.cliente}</td>
+                                <td>${relatorio.data}</td>
+                                <td>${relatorio.total}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table> 
+
+            </div>
 
     </body>
 </html>

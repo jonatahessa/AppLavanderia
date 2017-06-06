@@ -67,10 +67,7 @@ public class Lavar extends HttpServlet {
         ServicoServico ss = new ServicoServico();
         Servico servico = new Servico();
         
-        for (ItemVenda item : itens) {
-                totalDaVenda += item.getPrecoServico();
-            }
-            session.setAttribute("total", totalDaVenda);
+        
 
         if (id != 0) {
             try {
