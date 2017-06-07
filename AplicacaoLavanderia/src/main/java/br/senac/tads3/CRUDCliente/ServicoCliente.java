@@ -26,8 +26,19 @@ public class ServicoCliente {
     }
 
     public boolean verificarNome(String nome) {
+        boolean erro = false;
         if (nome == null || nome.trim().equals("")) {
             return false;
+        }
+        for(int i = 0; i < nome.length(); i++) {
+            try {
+                int teste = Integer.parseInt(""+nome.charAt(i));
+                erro = true;
+            } catch (Exception e){
+            }
+            if (erro){
+                return false;
+            }
         }
         if (nome.length() > 100) {
             return false;
@@ -108,6 +119,10 @@ public class ServicoCliente {
     
     public boolean verificarDuplicada(String cpf) throws Exception {
         return br.senac.tads3.Daos.DaoCliente.verificarDuplicada(cpf);
+    }
+    
+    public boolean verificarClienteInativo(String cpf) throws Exception {
+        return br.senac.tads3.Daos.DaoCliente.verificarClienteInativo(cpf);
     }
     
     public boolean verificarDuplicadaAlterar(String cpf, int id) throws Exception {
