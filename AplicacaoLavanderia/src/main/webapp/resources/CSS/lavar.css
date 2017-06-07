@@ -114,3 +114,61 @@ article {
     margin-bottom: 1%;
 }
 
+#total {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+tableID {
+    font-size: 18px;
+    font-weight: bold;
+}
+.alerta {
+    letter-spacing: 1px;
+    font-weight: 700;
+    border: 2px solid #0e83cd;
+    width: 100%;
+    padding: 2px;
+    margin-top: 5px;
+    border-radius: 10px;
+    margin-bottom: 1%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;    
+    width: 300px;
+    height: 130px;
+    background-color: white;
+    margin: auto;
+    display: none;
+    z-index: 2;
+}
+
+.barra{
+    text-align: left;
+    padding: inherit;
+    background-color: #5a9dc7;
+    height: 25px;
+    border-radius: 4px;
+}
+
+.alerta.visivel,
+.nevoa.visivel {
+    display: block;
+}
+
+.nevoa {
+    content: " ";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1;
+    display: none;
+}
+
+

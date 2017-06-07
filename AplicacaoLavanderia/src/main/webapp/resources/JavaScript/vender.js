@@ -1,37 +1,36 @@
 
-function calcularTotal(){
-    var quantidade = document.forms['formVendas']['quantidade'].value;
-    var precounitario = document.forms['formVendas']['precounitario'].value;
-    var valorFinal = quantidade * precounitario;
-    document.forms['formVendas']['valortotal'].value = valorFinal;
+function mascara(t, mask) {
+  var i = t.value.length;
+  var saida = mask.substring(1, 0);
+  var texto = mask.substring(i);
+  if (texto.substring(0, 1) != saida) {
+    t.value += texto.substring(0, 1);
+  }
 }
 
-$(function () {
-  $(".tempInsert").keyup(function (e) {
-    if (e.keyCode == 13)
-      insertRow();
-  });
-  $("#tempBtn").click(function () {
-    insertRow();
-  });
-  $("table").on("click", "tbody tr td a", function () {
-    $(this).closest("tr").remove();
+
+
+var confirmaForm;
+function confirmar(form) {
+    var div = document.querySelector(".alerta");
+    div.classList.add("visivel");
+    var div2 = document.querySelector(".nevoa");
+    div2.classList.add("visivel");
+    confirmaForm = form;
     return false;
-  });
-});
-
-function insertRow() {
-  if ($(".tempInsert").val().length > 0)
-    $("table tbody").append('<tr><td>' + $(".tempNome").val() + '</td>\n\
-                                 <td>' + $(".tempPrecoUnitario").val() + '</td>\n\
-                                 <td>' + $(".tempQuantidade").val() + '</td>\n\
-                                 <td>' + $(".tempInsert").val() + '</td>\n\
-                                <td><a href="#">&times;</td></tr>');
-  $("#tempInsert").val("");
 }
 
+function confirmar() {
+    confirmaForm.submit();
+}
 
-
+function cancelar() {
+    confirmaForm = null;
+    var div = document.querySelector(".alerta");
+    div.classList.remove("visivel");
+    var div2 = document.querySelector(".nevoa");
+    div2.classList.remove("visivel");
+}
 
 function limpar() {
   var campos = document.querySelectorAll("input");
