@@ -52,7 +52,41 @@ h1 {
     font-weight: bold;
 }
 
-#usuarioSair{
-    margin-top:.5%;
+.dropdown {
+    margin-top:.7%;
+    position: relative;
+    display: inline-block;
+    
 }
 
+.dropdown:hover {
+    color: red;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    border: 1px solid grey;
+    background-color: hsl(213, 76%, 95%);
+    min-width: 1%;
+    padding: 1%;
+}
+
+#usuarioSair {
+    border: 1px solid grey;
+    background-color: white;
+    color: #0e83cd;
+    font-family: arial;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.fa-power-off {
+    color: #0e83cd;
+}
+
+#logoutSair :hover { 
+   color: red;
+   transition: 0s;
+}

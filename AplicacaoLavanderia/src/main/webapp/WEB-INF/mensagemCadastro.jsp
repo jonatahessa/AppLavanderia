@@ -7,7 +7,7 @@
         <title>Mensagem</title>
     </head>
     <body>
-        <div id ="logo"></div>
+  
         <div id="aviso">
             <h1> Cadastro realizado com sucesso! </h1>
         </div>

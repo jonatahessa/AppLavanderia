@@ -103,7 +103,7 @@
         <button id="usuarioSair" class=" btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">${nomeLogado}
         <span class="caret"></span></button>
         <ul class="dropdown-menu">
-            <li><a href="Logout" ><i class="fa fa-power-off fa-lg">Sair!</a></i></li>
+            <li><a href="Logout" id="logoutSair"><i class="fa fa-power-off fa-lg">   <b>Logout</b></a></i></li>
         </ul>
     </div>           
     <!--        

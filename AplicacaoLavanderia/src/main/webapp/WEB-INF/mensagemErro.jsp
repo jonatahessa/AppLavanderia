@@ -9,7 +9,7 @@
         <title>Mensagem</title>
     </head>
     <body>
-        <div id ="logo"></div>
+ 
         <div id="aviso">
             <h1> Erro ao realizar a ação! </h1>
         </div>
