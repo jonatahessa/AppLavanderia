@@ -13,11 +13,22 @@ import java.util.logging.Logger;
 public class ServicoFuncionario {
 
     public boolean verificarNome(String nome) {
+        boolean erro = false;
         if (nome == null || nome.trim().equals("")) {
             return false;
         }
         if (nome.length() > 100) {
             return false;
+        }
+        for(int i = 0; i < nome.length(); i++) {
+            try {
+                int teste = Integer.parseInt(""+nome.charAt(i));
+                erro = true;
+            } catch (Exception e){
+            }
+            if (erro){
+                return false;
+            }
         }
         return true;
     }

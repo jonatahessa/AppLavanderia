@@ -59,7 +59,7 @@
                 </c:forEach>
             </table>
             
-            <p name="total">${total}</p>
+            <p name="total" id="total">Total: ${total}</p>
             <form method="POST" action="RedirecionarVenda">
                 <c:choose>
                     <c:when test="${erroCpf}">
@@ -71,7 +71,7 @@
                 </c:choose>
             <button id="cancelar" class="btn button button-1 button-1a" name="tela" value="/FinalizarVenda" type="submit"><span class="fa fa-usd"></span> Finalizar</button>
             </form>
-            <form method="POST" action="RedirecionarVenda">
+            <form method="post" action="RedirecionarVenda">
                 <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/adicionarClienteVenda.jsp" type="submit"><span class="fa fa-plus"></span> Buscar Cliente</button>
             </form>
             
