@@ -1,34 +1,17 @@
 package br.senac.tads3.CRUDFuncionario;
 
+import br.senac.tads3.Pessoa.Pessoa;
 import java.sql.Date;
 
-public class Funcionario {
-    private int id;
-    private String nome;
+public class Funcionario extends Pessoa{
+
     private String login;
     private String senha;
     private String cargo;
     private Date admissao;
     private int idUnidade;
     private String nomeUnidade;
-    private String sexo;
-    private String enabled;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
 
     public Date getAdmissao() {
         return admissao;
@@ -44,22 +27,6 @@ public class Funcionario {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
-    }
-
-    public String getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(String enabled) {
-        this.enabled = enabled;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getLogin() {
@@ -93,8 +60,5 @@ public class Funcionario {
     public void setNomeUnidade(String nomeUnidade) {
         this.nomeUnidade = nomeUnidade;
     }
-        
-   void pesquisarFuncionario(Funcionario funcionario) {
-        
-    }
+
 }

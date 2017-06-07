@@ -21,9 +21,10 @@
         
         <title>Cadastro Cliente</title>
     </head>
+    <%@ include file = "menu.jsp" %>  
     <body>
-        <div id ="logo"></div>
-        <%@ include file = "menu.jsp" %>   
+
+         
         <div id="principal">
             <h1 class="form-signin-heading">Cadastro de Cliente</h1>  
 
