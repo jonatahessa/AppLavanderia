@@ -88,9 +88,9 @@ public class relatorioServlet extends HttpServlet {
 
             } else if (deData == 1 && ateData == 0) {
                 try {
-                    List<Relatorio> itens = sr.listarRelatorioSemDataAdmin();
-                    request.setAttribute("itens", itens);
+
                     request.setAttribute("erroAteData", true);
+                    request.setAttribute("atedataValor", request.getParameter("atedata"));
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
                     dispatcher.forward(request, response);
                 } catch (Exception ex) {
@@ -99,8 +99,8 @@ public class relatorioServlet extends HttpServlet {
 
             } else if (deData == 0 && ateData == 1) {
                 try {
-                    List<Relatorio> itens = sr.listarRelatorioSemDataAdmin();
-                    request.setAttribute("itens", itens);
+
+                    request.setAttribute("dedataValor", request.getParameter("dedata"));
                     request.setAttribute("erroDeData", true);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
                     dispatcher.forward(request, response);
@@ -110,8 +110,9 @@ public class relatorioServlet extends HttpServlet {
 
             } else if (deData == 0 && ateData == 0) {
                 try {
-                    List<Relatorio> itens = sr.listarRelatorioSemDataAdmin();
-                    request.setAttribute("itens", itens);
+
+                    request.setAttribute("atedataValor", request.getParameter("atedata"));
+                    request.setAttribute("dedataValor", request.getParameter("dedata"));
                     request.setAttribute("erroDeData", true);
                     request.setAttribute("erroAteData", true);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
@@ -122,8 +123,7 @@ public class relatorioServlet extends HttpServlet {
 
             } else if (deData == 2 && ateData == 0) {
                 try {
-                    List<Relatorio> itens = sr.listarRelatorioDeDataAdmin(request.getParameter("dedata"));
-                    request.setAttribute("itens", itens);
+         
                     request.setAttribute("erroAteData", true);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
                     dispatcher.forward(request, response);
@@ -133,8 +133,7 @@ public class relatorioServlet extends HttpServlet {
 
             } else if (deData == 0 && ateData == 2) {
                 try {
-                    List<Relatorio> itens = sr.listarRelatorioDeDataAdmin(request.getParameter("atedata"));
-                    request.setAttribute("itens", itens);
+
                     request.setAttribute("erroDeData", true);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
                     dispatcher.forward(request, response);
@@ -180,8 +179,8 @@ public class relatorioServlet extends HttpServlet {
             }
         } else if (deData == 1 && ateData == 0) {
             try {
-                List<Relatorio> itens = sr.listarRelatorioSemDataVendedor(idUnidade);
-                request.setAttribute("itens", itens);
+
+                request.setAttribute("atedataValor", request.getParameter("atedata"));
                 request.setAttribute("erroAteData", true);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
                 dispatcher.forward(request, response);
@@ -191,8 +190,7 @@ public class relatorioServlet extends HttpServlet {
 
         } else if (deData == 0 && ateData == 1) {
             try {
-                List<Relatorio> itens = sr.listarRelatorioSemDataVendedor(idUnidade);
-                request.setAttribute("itens", itens);
+                request.setAttribute("dedataValor", request.getParameter("dedata"));
                 request.setAttribute("erroDeData", true);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
                 dispatcher.forward(request, response);
@@ -202,8 +200,9 @@ public class relatorioServlet extends HttpServlet {
 
         } else if (deData == 0 && ateData == 0) {
             try {
-                List<Relatorio> itens = sr.listarRelatorioSemDataVendedor(idUnidade);
-                request.setAttribute("itens", itens);
+
+                request.setAttribute("atedataValor", request.getParameter("atedata"));
+                request.setAttribute("dedataValor", request.getParameter("dedata"));
                 request.setAttribute("erroDeData", true);
                 request.setAttribute("erroAteData", true);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
@@ -214,8 +213,7 @@ public class relatorioServlet extends HttpServlet {
 
         } else if (deData == 2 && ateData == 0) {
             try {
-                List<Relatorio> itens = sr.listarRelatorioDeDataVendedor(request.getParameter("dedata"), idUnidade);
-                request.setAttribute("itens", itens);
+
                 request.setAttribute("erroAteData", true);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
                 dispatcher.forward(request, response);
@@ -225,8 +223,7 @@ public class relatorioServlet extends HttpServlet {
 
         } else if (deData == 0 && ateData == 2) {
             try {
-                List<Relatorio> itens = sr.listarRelatorioDeDataVendedor(request.getParameter("atedata"), idUnidade);
-                request.setAttribute("itens", itens);
+
                 request.setAttribute("erroDeData", true);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/relatorio.jsp");
                 dispatcher.forward(request, response);
