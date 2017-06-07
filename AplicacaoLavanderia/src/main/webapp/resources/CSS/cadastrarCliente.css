@@ -38,8 +38,8 @@ button {
 }
 
 #salvar{
-  width: 100%;
-  margin-top: 5%;
+    width: 100%;
+    margin-top: 5%;
 
 }
 
@@ -51,18 +51,18 @@ h1 {
 }
 
 #principal {
-
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  top: 10%;
-  position: fixed;
-  background-color:hsl(223, 59%, 80%);
-  width: 35%;
-  height: 40%;
-  border-radius: 20px;
+    border: 2px solid #000;  
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    top: 10%;
+    position: fixed;
+    background-color:hsl(223, 59%, 80%);
+    width: 35%;
+    height: 40%;
+    border-radius: 20px;
 
 }
 
@@ -94,4 +94,40 @@ h1 {
 .remove {
     color: red; 
 }
+
+/* botão estilo default */
+.button {
+    color: black;
+    background: #fff;
+    cursor: pointer;
+    padding: 5.0px 13px;
+    display: inline-block;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+}
+
+.button:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+/* Button 1 */
+.button-1 {
+    border: 1.4px solid #000;
+    color: #000;
+}
+
+/* Button 1a */
+.button-1a:hover,
+.button-1a:active {
+    color: #0e83cd;
+    background: #fff;
+}
+
 

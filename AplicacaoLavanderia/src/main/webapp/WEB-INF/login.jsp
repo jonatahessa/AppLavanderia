@@ -45,20 +45,20 @@
             <c:choose>
                 <c:when test="${erroSenha}">  
                     <div class="input-group">
-                        <span class="input-group-addon"><span class="fa fa-id-card fa-fw"></span></span>
+                        <span class="input-group-addon"><span class="fa fa-key fa-fw"></span></span>
                         <input id="camposenha" value="${senha}" type="password" name="senha"  class="form-control erro" placeholder="Senha">
                         <span class="glyphicon remove glyphicon-remove form-control-feedback"></span>
                     </div>
                 </c:when>    
                 <c:otherwise>
                     <div class="input-group">
-                        <span class="input-group-addon"><span class="fa fa-id-card fa-fw"></span></span>
+                        <span class="input-group-addon"><span class="fa fa-key fa-fw"></span></span>
                         <input id="camposenha" value="${senha}" type="password" name="senha" class="form-control" placeholder="Senha">
                     </div>
                 </c:otherwise>
             </c:choose>
             <div id="buttons">
-                <button id="logar" type="submit" class="btn btn-success">Logar</button>
+                <button id="logar" type="submit" class="btn button button-1 button-1a">Logar</button>
             </div>
 
         </form>
