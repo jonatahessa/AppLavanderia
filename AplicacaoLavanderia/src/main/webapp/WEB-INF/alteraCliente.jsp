@@ -118,7 +118,7 @@
 
 
                 <div id="buttons">
-                    <button id="salvar" type="submit" class="btn btn-success">Salvar</button>
+                    <button id="salvar" type="submit" class="btn button button-1 button-1a">Salvar</button>
                 </div>
 
             </form>

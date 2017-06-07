@@ -1,15 +1,15 @@
 @keyframes treme {
-  0% {margin-left: 0;}
-  25% {margin-left: 3px;}
-  50% {margin-left: 0;}
-  75% {margin-left: -3px;}
-  100% {margin-left: 0;}
+    0% {margin-left: 0;}
+    25% {margin-left: 3px;}
+    50% {margin-left: 0;}
+    75% {margin-left: -3px;}
+    100% {margin-left: 0;}
 }
 
 html, body {
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 
 body {
@@ -17,17 +17,18 @@ body {
 }
 
 #principal {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  top: 10%;
-  position: fixed;
-  background-color:hsl(223, 59%, 80%);
-  width: 35%;
-  height: 25%;
-  border-radius: 20px;
+    border: 2px solid #000;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    top: 10%;
+    position: fixed;
+    background-color:hsl(223, 59%, 80%);
+    width: 35%;
+    height: 25%;
+    border-radius: 20px;
 
 }
 
@@ -40,39 +41,76 @@ body {
 }
 
 h1 {
-  text-align: center;
-  font-family: Helvetica, sans-serif;
-  color: grey;
-  margin-top: 3%;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    color: grey;
+    margin-top: 3%;
 }
 
 #buttons {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 40%;
-  margin: auto;
-  position: static;
-  }
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40%;
+    margin: auto;
+    position: static;
+}
 
 #salvar{
-  width: 100%;
-  margin-top: 5%;
+    width: 100%;
+    margin-top: 5%;
 }
 
 .erro {
     border-color: hsl(0, 92%, 60%);
-   animation: treme 0.2s;
+    animation: treme 0.2s;
 }
 
 .ok {
-   color: green;
+    color: green;
 }
 
 .remove {
-   color: red; 
+    color: red; 
 }
+
+/* botão estilo default */
+.button {
+    color: black;
+    background: #fff;
+    cursor: pointer;
+    padding: 5.0px 13px;
+    display: inline-block;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+}
+
+.button:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+/* Button 1 */
+.button-1 {
+    border: 1.4px solid #000;
+    color: #000;
+}
+
+/* Button 1a */
+.button-1a:hover,
+.button-1a:active {
+    color: #0e83cd;
+    background: #fff;
+}
+
+
 
 #id{
    display: none; 
