@@ -20,8 +20,8 @@
                 <fieldset>
                     <h1>Adicionar Serviço</h1>
                     <section class="color-pattern-1 form-inline">
-                            <input class="form-control" type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
-                            <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
+                        <input class="form-control" type="text" name="palavra" value="${palavra}" placeholder="Pesquisa por nome"/>
+                        <button class="btn button button-1 button-1a" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
                     </section>
                 </fieldset>
             </form>   
@@ -40,9 +40,9 @@
                         <td>${servicos.id}<input type="hidden" name="id" value="${servicos.id}"/></td>
                         <td>${servicos.nomeServico}</td>
                         <td>${servicos.precoServico}</td>
-                        <td><input class="qtde" type="number" name="qtde" min="1" value="${param.qtde ? param.qtde : 1}" max="999"></td>
+                        <td><input class="qtde" type="number" name="qtde" min="1" value="${param.qtde ? param.qtde : 1}" max="999" onkeydown="return false" /></td>
                         <td><button class="btn button button-1 button-1a" type="submit"><span class="fa fa-plus"></span> Selecionar</button></td>
-                        </form>
+                    </form>
                     </tr>
                 </c:forEach>
             </table>        

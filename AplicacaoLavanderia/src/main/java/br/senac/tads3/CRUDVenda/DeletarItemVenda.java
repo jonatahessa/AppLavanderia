@@ -2,6 +2,7 @@ package br.senac.tads3.CRUDVenda;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,10 +28,14 @@ public class DeletarItemVenda extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         ArrayList<ItemVenda> itens = (ArrayList<ItemVenda>) session.getAttribute("listaItensVenda");
-        double totalDaVenda = 0;
+        String totalTexto = (String) session.getAttribute("total");
+        double totalDaVenda = Double.parseDouble(totalTexto.replace(',', '.'));
+        DecimalFormat formato = new DecimalFormat("0.##");
         for (ItemVenda item : itens) {
             if (item.getId() == Integer.parseInt(request.getParameter("iditem"))) {
                 itens.remove(item);
+                totalDaVenda -= item.getPrecoServico();
+                session.setAttribute("total", formato.format(totalDaVenda));
                 RequestDispatcher dispatcher = request.getRequestDispatcher("Lavar");
                 dispatcher.forward(request, response);
             }

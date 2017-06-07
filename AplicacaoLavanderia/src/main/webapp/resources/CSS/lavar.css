@@ -114,3 +114,12 @@ article {
     margin-bottom: 1%;
 }
 
+#total {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+tableID {
+    font-size: 18px;
+    font-weight: bold;
+}

@@ -10,6 +10,7 @@ import br.senac.tads3.CRUDServico.Servico;
 import br.senac.tads3.CRUDServico.ServicoServico;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,6 +51,7 @@ public class Lavar extends HttpServlet {
         ArrayList<ItemVenda> itens = (ArrayList<ItemVenda>) session.getAttribute("listaItensVenda");
         Cliente cliente = (Cliente) session.getAttribute("clienteVenda");
         double totalDaVenda = 0;
+        DecimalFormat formato = new DecimalFormat("0.##");
         int id = 0;
         if (request.getParameter("id") != null) {
             id = Integer.parseInt(request.getParameter("id"));
@@ -66,8 +68,6 @@ public class Lavar extends HttpServlet {
 
         ServicoServico ss = new ServicoServico();
         Servico servico = new Servico();
-        
-        
 
         if (id != 0) {
             try {
@@ -82,12 +82,12 @@ public class Lavar extends HttpServlet {
             itemVenda.setId(Integer.parseInt(request.getParameter("id")));
             itemVenda.setQuantidade(Integer.parseInt(request.getParameter("qtde")));
             itemVenda.setPrecoUnitario(servico.getPrecoServico());
-            itemVenda.setPrecoServico(servico.getPrecoServico() * itemVenda.getQuantidade());
+            itemVenda.setPrecoServico(Double.parseDouble(formato.format(servico.getPrecoServico() * itemVenda.getQuantidade()).replace(',', '.')));
             itens.add(itemVenda);
             for (ItemVenda item : itens) {
                 totalDaVenda += item.getPrecoServico();
             }
-            session.setAttribute("total", totalDaVenda);
+            session.setAttribute("total", formato.format(totalDaVenda));
             response.sendRedirect("Lavar");
             return;
         }
