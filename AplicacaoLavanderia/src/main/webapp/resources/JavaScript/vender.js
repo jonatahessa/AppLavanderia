@@ -1,17 +1,15 @@
 
 function mascara(t, mask) {
-  var i = t.value.length;
-  var saida = mask.substring(1, 0);
-  var texto = mask.substring(i);
-  if (texto.substring(0, 1) != saida) {
-    t.value += texto.substring(0, 1);
-  }
+    var i = t.value.length;
+    var saida = mask.substring(1, 0);
+    var texto = mask.substring(i);
+    if (texto.substring(0, 1) != saida) {
+        t.value += texto.substring(0, 1);
+    }
 }
-
-
-
 var confirmaForm;
-function confirmar(form) {
+
+function finalizar(form) {
     var div = document.querySelector(".alerta");
     div.classList.add("visivel");
     var div2 = document.querySelector(".nevoa");
@@ -33,8 +31,8 @@ function cancelar() {
 }
 
 function limpar() {
-  var campos = document.querySelectorAll("input");
-  for (var i=0; i < campos.length; i++) {
-      campos[i].value = "";
-  }
+    var campos = document.querySelectorAll("input");
+    for (var i = 0; i < campos.length; i++) {
+        campos[i].value = "";
+    }
 }

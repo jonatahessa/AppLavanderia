@@ -9,10 +9,7 @@
         <%@ include file = "bootstrap.html" %>
         <!-- Interface e Dinâmica -->
         <link rel="StyleSheet" type="text/css" href="./resources/CSS/lavar.css">
-        <script type="text/javascript" src="./resources/JavaScript/cadastrarCliente.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <!-- bootbox code -->
-        <script src="./resources/JavaScript/bootbox.min.js"></script>
+        <script type="text/javascript" src="./resources/JavaScript/vender.js"></script>
 
         <title>Lavar</title>
     </head>
@@ -60,7 +57,7 @@
             </table>
             
             <p name="total" id="total">Total: ${total}</p>
-            <form method="POST" action="RedirecionarVenda">
+            <form method="post" action="FinalizarVenda" onsubmit="return finalizar(this);">
                 <c:choose>
                     <c:when test="${erroCpf}">
                         <input type="text" name="cpf" class="erro" placeholder="CPF do Cliente" value="${cpf}" maxlength="14" onkeypress="mascara(this, '###.###.###-##');"/> 
@@ -69,11 +66,24 @@
                         <input type="text" name="cpf" placeholder="CPF do Cliente" value="${cpf}" maxlength="14" onkeypress="mascara(this, '###.###.###-##');"/> 
                     </c:otherwise>
                 </c:choose>
-            <button id="cancelar" class="btn button button-1 button-1a" name="tela" value="/FinalizarVenda" type="submit"><span class="fa fa-usd"></span> Finalizar</button>
+            <button class="btn button button-1 button-1a" name="tela" value="/FinalizarVenda"><span class="fa fa-usd"></span> Finalizar</button>
             </form>
             <form method="post" action="RedirecionarVenda">
                 <button class="btn button button-1 button-1a" name="tela" value="/WEB-INF/adicionarClienteVenda.jsp" type="submit"><span class="fa fa-plus"></span> Buscar Cliente</button>
             </form>
+            
+            <div class="alerta">
+                <div class="barra"><span class="fa fa-exclamation-triangle"></span> Aviso</div>
+                <br/>
+                <p>Deseja finalizar venda?</p>
+                <p>Total: ${total}</p>
+                <button class="btn button button-1 button-1a" onclick="confirmar();"><span class="fa fa-thumbs-up"></span> Sim</button>
+                <button class="btn button button-1 button-1a" onclick="cancelar();"><span class="fa fa-thumbs-down"></span> Não</button>
+            </div>
+
+            <div class="nevoa">
+
+            </div>
             
         </div>
     </body>
