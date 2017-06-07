@@ -1,12 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="StyleSheet" type="text/css" href="./resources/CSS/menu.css" media="screen" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div id="menu">
     
-
-    <c:choose> 
-        <c:when test="${permissao ne null}"  >
-<c:choose>
+    
+<c:choose> 
+    <c:when test="${permissao ne null}"  >
+        
+    
+        
+    <c:choose>
         <c:when test="${permissao eq 'Gerente T.I'}"  >
             <li class="active"><form action="Redirecionar" method="post" id="home">
                 <input type="hidden" name="tela" value="/WEB-INF/home.jsp">
@@ -93,18 +98,27 @@
             </li>
         </c:otherwise>
 </c:choose>
-            
+          
+    <div class="dropdown">
+        <button id="usuarioSair" class=" btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">${nomeLogado}
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="Logout" ><i class="fa fa-power-off fa-lg">Sair!</a></i></li>
+        </ul>
+    </div>           
+    <!--        
 <li><form action="Logout" method="post" id="logout">
         <input type="hidden" name="tela">
         <a href="#" onclick="document.getElementById('logout').submit()"><i class="fa fa-power-off fa-lg"></i>   Sair</a>
     </form>
 </li>
-    <h1 id="usuarioLogado">Bem-vindo(a) ${nomeLogado}</h1>
+    
+    <h1 id="usuarioLogado">Bem-vindo(a) ${nomeLogado}</h1>-->
     </c:when>
     <c:otherwise>
         <META HTTP-EQUIV="Refresh" CONTENT="0;URL=./RedirecionarLogin">
     </c:otherwise>
-    </c:choose>
+</c:choose>
     
     <%--
     
